@@ -1,0 +1,529 @@
+[1] TABLE CAMPANIA_CONVOCATORIA (owner: GENESIS, 1 rows)
+	ID_CAMPANIA_CONVOCATORIA : NUMBER(38) => bigint
+	ID_CAMPANIA : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DETALLE : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	FECHA_INICIO : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN : DATE(7) => timestamp(0) (date?)
+	METAS : VARCHAR2(4000) => varchar(4000)
+	META_ALUMNO : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[2] TABLE CAMP_CONV_CARTERA (owner: GENESIS, 0 rows)
+	ID_CAMP_CONV_CARTERA : NUMBER(38) => bigint
+	ID_CAMPANIA_CONVOCATORIA : NUMBER(38) => bigint
+	ID_CARTERA : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[3] TABLE CANAL_DETALLE (owner: GENESIS, 10 rows)
+	ID_CANAL_DETALLE : NUMBER(38) => bigint
+	ID_CANAL : NUMBER(38) => bigint
+	VALOR : VARCHAR2(200) => varchar(200)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ICONO : VARCHAR2(20) => varchar(20)
+	CODIGO : VARCHAR2(5) => varchar(5)
+[4] TABLE CLASIFICACION_PROGRAMA (owner: GENESIS, 1015 rows)
+	ID_CLASIFICACION_PROGRAMA : NUMBER(22) => bigint
+	ID_CLASIFICACION : NUMBER(22) => bigint
+	ID_PROGRAMA_ESTUDIO : NUMBER(22) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : NUMBER(22) => bigint
+[5] TABLE CONFIG_GLOBAL (owner: GENESIS, 1 rows)
+	ID_CONFIG_GLOBAL : NUMBER(22) => bigint
+	ID_MODO_CORREO : NUMBER(22) => bigint
+	ID_MODO_KANBAN : NUMBER(22) => bigint
+	CORREO : VARCHAR2(300) => varchar(300)
+	ESTADO : CHAR(1) => char(1)
+	ID_TABLERO : NUMBER(22) => bigint
+[6] TABLE CONFIG_MODO_MODULO (owner: GENESIS, 0 rows)
+	ID_CONFIG_MODO_MODULO : NUMBER(22) => bigint
+	ID_MODULO : NUMBER(22) => bigint
+	ID_PERSONA : NUMBER(22) => bigint
+	ID_MODO : NUMBER(22) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[7] TABLE CONFIG_USUARIO (owner: GENESIS, 0 rows)
+	ID_CONFIG_GLOBAL : NUMBER(22) => bigint
+	ID_MODO_CORREO : NUMBER(22) => bigint
+	ID_MODO_KANBAN : NUMBER(22) => bigint
+	CORREO : VARCHAR2(300) => varchar(300)
+	ESTADO : CHAR(1) => char(1)
+	ID_TABLERO : NUMBER(22) => bigint
+[8] TABLE CONVOCATORIA_DETALLE (owner: GENESIS, 2 rows)
+	ID_CONVOCATORIA_DETALLE : NUMBER(38) => bigint
+	ID_NIVEL_ENSENANZA : NUMBER(38) => bigint
+	ID_CONVOCATORIA : NUMBER(38) => bigint
+	ID_SEMESTRE : NUMBER(38) => bigint
+	FECHA_INICIO : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN_INSCRIPCION : DATE(7) => timestamp(0) (date?)
+	FECHA_PUBLICACION : DATE(7) => timestamp(0) (date?)
+	REQUIERE_VACANTE : CHAR(1) => char(1)
+	ESTADO : CHAR(1) => char(1)
+	PUNTAJE_MIN_APROBATORIO : NUMBER(22) => bigint
+	DIA_RESERVA : NUMBER(38) => bigint
+	CONSIDERA_EMPATE : CHAR(1) => char(1)
+	NUMERO_DECIMALES : NUMBER(38) => bigint
+	ACEPTA_BECA : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_ERP : VARCHAR2(32) => varchar(32)
+[9] TABLE CONVOCATORIA_DETALLE_ETAPA (owner: GENESIS, 23 rows)
+	ID_CONVOCATORIA_ETAPA_DETALLE : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DETALLE : NUMBER(22) => bigint
+	ID_TIPO_ETAPA : NUMBER(22) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ORDEN : NUMBER(22) => bigint
+[10] TABLE FORMULARIO_PERSONA (owner: GENESIS, 0 rows)
+	ID_FORMULARIO_PERSONA : NUMBER(38) => bigint
+	ID_FORMULARIO_PREGUNTA : NUMBER(38) => bigint
+	ID_PERSONA_INTERES : NUMBER(38) => bigint
+	ID_CANAL_DETALLE : NUMBER(38) => bigint
+	DETALLE : VARCHAR2(4000) => varchar(4000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[11] TABLE FORMULARIO_PREGUNTA (owner: GENESIS, 1 rows)
+	ID_FORMULARIO_PREGUNTA : NUMBER(38) => bigint
+	ID_FORMULARIO : NUMBER(38) => bigint
+	ID_PREGUNTA : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[12] TABLE MODO_CORREO (owner: GENESIS, 2 rows)
+	ID_MODO_CORREO : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	CODIGO : VARCHAR2(5) => varchar(5)
+[13] TABLE MODO_KANBAN (owner: GENESIS, 2 rows)
+	ID_MODO_KANBAN : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	CODIGO : VARCHAR2(5) => varchar(5)
+[14] TABLE OCULTAR_COLUMNA (owner: GENESIS, 5 rows)
+	ID_OCULTAR_COLUMNA : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DETALLE_ETAPA : NUMBER(22) => bigint
+	ID_PERSONA : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DETALLE : NUMBER(22) => bigint
+[15] TABLE PERSONA (owner: GENESIS, 3241 rows)
+	ID_PERSONA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(255) => varchar(255)
+	PATERNO : VARCHAR2(255) => varchar(255)
+	MATERNO : VARCHAR2(255) => varchar(255)
+	CODIGO : VARCHAR2(200) => varchar(200)
+	UNAPELLIDO : VARCHAR2(2) => varchar(2)
+	ID_PERSONA_OLD : NUMBER(38) => bigint
+	ID_PERSONA_ERP : VARCHAR2(32) => varchar(32)
+	ID_PERSONA_LAMB : NUMBER(22) => bigint
+[16] TABLE PERSONA_ATENCION (owner: GENESIS, 1557 rows)
+	ID_PERSONA_ATENCION : NUMBER(38) => bigint
+	ID_PERSONA_CARTERA : NUMBER(38) => bigint
+	ID_CANAL_DETALLE : NUMBER(38) => bigint
+	ID_CONDICION : NUMBER(38) => bigint
+	FECHA_ATENCION : DATE(7) => timestamp(0) (date?)
+	HORA_ATENCION : VARCHAR2(5) => varchar(5)
+	DETALLE : VARCHAR2(4000) => varchar(4000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_PERSONA_INTERES : NUMBER(22) => bigint
+	ID_CAMPANIA_CONVOCATORIA : NUMBER(22) => bigint
+	ID_ORIGEN : VARCHAR2(100) => varchar(100)
+	ID_PADRE : VARCHAR2(22) => varchar(22)
+	ID_PERSONA_ORIGEN : NUMBER(22) => bigint
+	TIENE_RESPUESTA : CHAR(1) => char(1)
+	ASUNTO : VARCHAR2(150) => varchar(150)
+	DESTINATARIO : VARCHAR2(200) => varchar(200)
+[17] TABLE PERSONA_CARTERA (owner: GENESIS, 0 rows)
+	ID_PERSONA_CARTERA : NUMBER(38) => bigint
+	ID_PERSONA_INTERES : NUMBER(38) => bigint
+	ID_CAMP_CONV_CARTERA : NUMBER(38) => bigint
+	ID_PERSONA_RESPONSABLE : NUMBER(38) => bigint
+	DETALLE : VARCHAR2(4000) => varchar(4000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[18] TABLE PERSONA_DIRECCION (owner: GENESIS, 0 rows)
+	ID_DIRECCION : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_TIPODIRECCION : NUMBER(38) => bigint
+	ID_TIPOVIA : VARCHAR2(2) => varchar(2)
+	ID_TIPOZONA : VARCHAR2(2) => varchar(2)
+	ID_UBIGEO : NUMBER(38) => bigint
+	TIPOVIA : VARCHAR2(50) => varchar(50)
+	TIPOZONA : VARCHAR2(50) => varchar(50)
+	REFERENCIA : VARCHAR2(200) => varchar(200)
+	ESLEGAL : VARCHAR2(1) => varchar(1)
+	DIRECCION : VARCHAR2(1000) => varchar(1000)
+	MAP_LATITUD : VARCHAR2(255) => varchar(255)
+	MAP_LONGITUD : VARCHAR2(255) => varchar(255)
+	COMENTARIO : VARCHAR2(255) => varchar(255)
+	ES_ACTIVO : NUMBER(38) => bigint
+	ID_TIPOPAIS : NUMBER(22) => bigint
+	NUM_VIA : VARCHAR2(10) => varchar(10)
+	DEPARTAMENTO : VARCHAR2(10) => varchar(10)
+	INTERIOR : VARCHAR2(10) => varchar(10)
+	MANZANA : VARCHAR2(10) => varchar(10)
+	LOTE : VARCHAR2(10) => varchar(10)
+	KILOMETRO : VARCHAR2(10) => varchar(10)
+	BLOK : VARCHAR2(10) => varchar(10)
+	ETAPA : VARCHAR2(10) => varchar(10)
+[19] TABLE PERSONA_DOCUMENTO (owner: GENESIS, 3095 rows)
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_TIPODOCUMENTO : NUMBER(38) => bigint
+	NUM_DOCUMENTO : VARCHAR2(20) => varchar(20)
+	IMG_DOCUMENTO : BLOB(4000) => bytea
+	DOCUMENTO_URL : VARCHAR2(150) => varchar(150)
+	ES_ACTIVO : NUMBER(38) => bigint
+[20] TABLE PERSONA_INTERES (owner: GENESIS, 3070 rows)
+	ID_PERSONA_INTERES : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
+	ID_CLASIFICACION : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DETALLE : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_TIPO_ETAPA : NUMBER(22) => bigint
+	ID_CANAL_DETALLE : NUMBER(22) => bigint
+	ID_TIPO_PRIORIDAD : NUMBER(22) => bigint
+	ID_PERSONA_ORIGEN : NUMBER(22) => bigint
+	ID_TIPO_MODALIDAD_INGRESO : NUMBER(22) => bigint
+	ID_TIPO_CENTRO_EDUC : NUMBER(22) => bigint
+	TIPO_CENTRO_EDUCATIVA : VARCHAR2(500) => varchar(500)
+	ID_POSTULANTE : VARCHAR2(32) => varchar(32)
+	ID_CAMPANIA : NUMBER(22) => bigint
+[21] TABLE PERSONA_INTERES_CITA (owner: GENESIS, 18 rows)
+	ID_PERSONA_INTERES_CITA : NUMBER(22) => bigint
+	ID_PERSONA_INTERES : NUMBER(22) => bigint
+	FECHA_CITA : DATE(7) => timestamp(0) (date?)
+	ESTADO : CHAR(1) => char(1)
+	COMENTARIO : VARCHAR2(500) => varchar(500)
+	ADJUNTO : VARCHAR2(200) => varchar(200)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_PERSONA_INTERES_COMENTARIO : NUMBER(22) => bigint
+[22] TABLE PERSONA_INTERES_COMENTARIO (owner: GENESIS, 2637 rows)
+	ID_PERSONA_INTERES_COMENTARIO : NUMBER(38) => bigint
+	ID_CLASIFICACION_COMENTARIO : NUMBER(38) => bigint
+	ID_PERSONA_INTERES : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	DETALLE : VARCHAR2(1000) => varchar(1000)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_TIPO_ETAPA : NUMBER(22) => bigint
+[23] TABLE PERSONA_META (owner: GENESIS, 0 rows)
+	ID_PERSONA_META : NUMBER(22) => bigint
+	ID_PERSONA : NUMBER(22) => bigint
+	ID_TIPO_META : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DETALLE : VARCHAR2(100) => varchar(100)
+	ID_TIPO_ETAPA : VARCHAR2(100) => varchar(100)
+	DESCRIPCION : VARCHAR2(500) => varchar(500)
+	ADJUNTO : VARCHAR2(150) => varchar(150)
+	CANTIDAD : NUMBER(22) => bigint
+	ID_TIPO_CONDICION : NUMBER(22) => bigint
+	ESTADO : VARCHAR2(100) => varchar(100)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[24] TABLE PERSONA_NATURAL (owner: GENESIS, 1712 rows)
+	ID_PERSONA : NUMBER(22) => bigint
+	SEXO : VARCHAR2(2) => varchar(2)
+	ID_NACIONALIDAD : NUMBER(22) => bigint
+	FEC_NACIMIENTO : DATE(7) => timestamp(0) (date?)
+	DIRECCION : VARCHAR2(1000) => varchar(1000)
+	ID_TIPO_RELIGION : NUMBER(22) => bigint
+	ID_TIPOESTADOCIVIL : NUMBER(22) => bigint
+	BAUTIZADO : CHAR(1) => char(1)
+[25] TABLE PERSONA_ORIGEN (owner: GENESIS, 2 rows)
+	ID_PERSONA_ORIGEN : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+	DESCRIPCION : VARCHAR2(100) => varchar(100)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[26] TABLE PERSONA_RESPONSABLE (owner: GENESIS, 335 rows)
+	ID_PERSONA_RESPONSABLE : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
+	ID_CLASIFICACION : NUMBER(38) => bigint
+	ID_OFICINA : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_CONVOCATORIA_DETALLE : NUMBER(22) => bigint
+[27] TABLE PERSONA_TELEFONO (owner: GENESIS, 3379 rows)
+	ID_TELEFONO : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_TIPOTELEFONO : NUMBER(38) => bigint
+	NUM_TELEFONO : VARCHAR2(50) => varchar(50)
+	ES_ACTIVO : NUMBER(38) => bigint
+	ES_PRIVADO : NUMBER(38) => bigint
+	COMENTARIO : VARCHAR2(255) => varchar(255)
+	GTH : NUMBER(5) => bigint
+	OPERADOR_MOVIL : VARCHAR2(2) => varchar(2)
+	ID_TIPOPAIS_CELULAR : NUMBER(22) => bigint
+[28] TABLE PERSONA_VIRTUAL (owner: GENESIS, 2776 rows)
+	ID_VIRTUAL : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_TIPOVIRTUAL : NUMBER(38) => bigint
+	DIRECCION : VARCHAR2(255) => varchar(255)
+	COMENTARIO : VARCHAR2(255) => varchar(255)
+	GTH : NUMBER(5) => bigint
+	ES_ACTIVO : NUMBER(22) => bigint
+[29] TABLE PLANTILLA_SMS (owner: GENESIS, 2 rows)
+	ID_PLANTILLA_SMS : NUMBER(22) => bigint
+	ID_PROGRAMA_ESTUDIO : NUMBER(22) => bigint
+	CONTENIDO : VARCHAR2(1000) => varchar(1000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	NOMBRE : VARCHAR2(100) => varchar(100)
+[30] TABLE REPORTE_PROGRAMA (owner: GENESIS, 135 rows)
+	ID_REPORTE_PROGRAMA : NUMBER(22) => bigint
+	ID_PROGRAMA_ESTUDIO : NUMBER(22) => bigint
+	ID_REPORTE : NUMBER(22) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[31] TABLE RESPONSABLE_FINANCIERO (owner: GENESIS, 9 rows)
+	ID_RESPONSABLE_FINANCIERO : NUMBER(22) => bigint
+	ID_PERSONA : NUMBER(22) => bigint
+	ID_TIPO_RESP_FINANCIERO : NUMBER(22) => bigint
+	NOMBRE_COMPLETO : VARCHAR2(200) => varchar(200)
+	CORREO : VARCHAR2(100) => varchar(100)
+	CELULAR : VARCHAR2(100) => varchar(100)
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	LLAVE : VARCHAR2(100) => varchar(100)
+	ID_TIPODOCUMENTO : NUMBER(22) => bigint
+	NUM_DOCUMENTO : VARCHAR2(20) => varchar(20)
+[32] TABLE TABLERO (owner: GENESIS, 2 rows)
+	ID_TABLERO : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(500) => varchar(500)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	DESCRIPCION : VARCHAR2(200) => varchar(200)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[33] TABLE TIPO_CAMPANIA (owner: GENESIS, 6 rows)
+	ID_CAMPANIA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[34] TABLE TIPO_CANAL (owner: GENESIS, 16 rows)
+	ID_CANAL : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ICONO : VARCHAR2(100) => varchar(100)
+	CODIGO_XPRESS_EDUCA : VARCHAR2(4000) => varchar(4000)
+[35] TABLE TIPO_CARTERA (owner: GENESIS, 1 rows)
+	ID_CARTERA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[36] TABLE TIPO_CENTRO_EDUC (owner: GENESIS, 3 rows)
+	ID_TIPO_CENTRO_EDUC : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[37] TABLE TIPO_CLASIFICACION (owner: GENESIS, 13 rows)
+	ID_CLASIFICACION : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[38] TABLE TIPO_CLASIFICACION_COMENTARIO (owner: GENESIS, 6 rows)
+	ID_CLASIFICACION_COMENTARIO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	CODIGO : VARCHAR2(5) => varchar(5)
+[39] TABLE TIPO_CONDICION (owner: GENESIS, 4 rows)
+	ID_CONDICION : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[40] TABLE TIPO_CONVOCATORIA (owner: GENESIS, 1 rows)
+	ID_CONVOCATORIA : NUMBER(38) => bigint
+	ID_SEMESTRE : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ANIO : NUMBER(38) => bigint
+	NUMERO_CONVOCATORIA : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[41] TABLE TIPO_ETAPA (owner: GENESIS, 11 rows)
+	ID_TIPO_ETAPA : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+	DESCRIPCION : VARCHAR2(200) => varchar(200)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ROUTER : VARCHAR2(250) => varchar(250)
+	AUTOMATICO : CHAR(1) => char(1)
+[42] TABLE TIPO_FORMULARIO (owner: GENESIS, 5 rows)
+	ID_FORMULARIO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[43] TABLE TIPO_META (owner: GENESIS, 5 rows)
+	ID_TIPO_META : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[44] TABLE TIPO_MODALIDAD_INGRESO (owner: GENESIS, 16 rows)
+	ID_TIPO_MODALIDAD_INGRESO : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	DESCRIPCION : VARCHAR2(1000) => varchar(1000)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	CONTENIDO : VARCHAR2(2500) => varchar(2500)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[45] TABLE TIPO_OFICINA (owner: GENESIS, 1 rows)
+	ID_OFICINA : NUMBER(38) => bigint
+	ID_SEDE : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[46] TABLE TIPO_PREGUNTA (owner: GENESIS, 1 rows)
+	ID_PREGUNTA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	TIPO : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[47] TABLE TIPO_PRIORIDAD (owner: GENESIS, 3 rows)
+	ID_TIPO_PRIORIDAD : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : CHAR(5) => char(5)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ORDEN : NUMBER(22) => bigint
+----------------------------------------------------------
+Total number of rows: 23124
+
+Global Temporary Tables:
+
+
+Top 10 of tables sorted by number of rows:
+	[1] TABLE PERSONA_TELEFONO has 3379 rows
+	[2] TABLE PERSONA has 3241 rows
+	[3] TABLE PERSONA_DOCUMENTO has 3095 rows
+	[4] TABLE PERSONA_INTERES has 3070 rows
+	[5] TABLE PERSONA_VIRTUAL has 2776 rows
+	[6] TABLE PERSONA_INTERES_COMENTARIO has 2637 rows
+	[7] TABLE PERSONA_NATURAL has 1712 rows
+	[8] TABLE PERSONA_ATENCION has 1557 rows
+	[9] TABLE CLASIFICACION_PROGRAMA has 1015 rows
+	[10] TABLE PERSONA_RESPONSABLE has 335 rows
+Top 10 of largest tables:
+	[1] TABLE PERSONA: 0 MB (3241 rows)

@@ -1,0 +1,17 @@
+[1] TABLE PERSONA (owner: VITMARALIAGA, 0 rows)
+	ID_PERSONA : NUMBER(22) => bigint
+[2] TABLE VENTA (owner: VITMARALIAGA, 0 rows)
+	ID_VENTA : NUMBER(38) => numeric(38)
+	ID_PERSONA : NUMBER(38) => numeric(38)
+	IMPORTE : NUMBER(10,2) => decimal(10,2)
+	IMPORTE_2 : NUMBER(14,5) => decimal(14,5)
+----------------------------------------------------------
+Total number of rows: 0
+
+Global Temporary Tables:
+
+
+Top 10 of tables sorted by number of rows:
+Top 10 of largest tables:
+	[1] TABLE VENTA: 0 MB (0 rows)
+	[2] TABLE PERSONA: 0 MB (0 rows)

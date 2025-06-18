@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Ora2Pg - Database Migration Report</title>
+  <meta HTTP-EQUIV="Generator" CONTENT="Ora2Pg v25.0">
+  <meta HTTP-EQUIV="Date" CONTENT="Tue Jun  3 16:55:49 2025">
+  <style>
+body {
+	margin: 30px 0;
+	padding: 0;
+	background: #EFEFEF;
+	font-size: 12px;
+	color: #1e1e1e;
+}
+
+h1 {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #DFDFDF;
+	font-size: 22px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+h2 {
+	margin-bottom: 10px;
+	font-size: 18px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+#header table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+
+#header th {
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+#content table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#content td {
+	padding: 0 5px 0 5px;
+	border-bottom: 1px solid #888888;
+	margin-bottom: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#content th {
+	border-bottom: 1px solid #BBBBBB;
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+.object_name {
+        font-weight: bold;
+        color: #0094C7;
+	text-align: left;
+	white-space: pre;
+}
+
+.detail {
+	white-space: pre;
+}
+
+#footer {
+	margin-right: 10px;
+	text-align: right;
+}
+
+#footer a {
+	color: #EC5800;
+}
+
+#footer a:hover {
+	text-decoration: none;
+}
+  </style>
+</head>
+<body>
+<div id="header">
+<h1>Ora2Pg - Database Migration Report</h1>
+<table>
+<tr><th>Version</th><td>Oracle Database 11g Release 11.2.0.4.0</td></tr>
+<tr><th>Schema</th><td>JAIRO</td></tr>
+<tr><th>Size</th><td>0.00 MB</td></tr>
+</table>
+</div>
+<div id="content">
+<table>
+<tr><th>Object</th><th>Number</th><th>Invalid</th><th>Estimated cost</th><th>Comments</th><th>Details</th></tr>
+<tr><td class="object_name">DATABASE LINK</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Database links will be exported as SQL/MED PostgreSQL's Foreign Data Wrapper (FDW) extensions using oracle_fdw.</td><td class="detail"></td></tr>
+<tr><td class="object_name">FUNCTION</td><td style="text-align: center;">18</td><td style="text-align: center;">11</td><td style="text-align: center;">29.00</td><td>Total size of function code: 8166 bytes.</td><td class="detail"><details><summary>See details</summary>has_act_fin_req_fin_input: 3<br>fc_est_aprob_actividad: 4<br>fc_pres_pro_inic_plan: 3<br>iniciativa_presupuesto: 3<br>fc_iniciativa_presupuesto: 3<br>fc_inf_id_iniciativa_detalle: 3<br>fc_iniciativa_feedback_count: 3<br></details></td></tr>
+<tr><td class="object_name">GLOBAL TEMPORARY TABLE</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Global temporary table are not supported by PostgreSQL and will not be exported. You will have to rewrite some application code to match the PostgreSQL temporary table behavior.</td><td class="detail"></td></tr>
+<tr><td class="object_name">INDEX</td><td style="text-align: center;">131</td><td style="text-align: center;">0</td><td style="text-align: center;">14.10</td><td>10 index(es) are concerned by the export, others are automatically generated and will do so on PostgreSQL. Bitmap will be exported as btree_gin index(es). Domain index are exported as b-tree but commented to be edited to mainly use FTS. Cluster, bitmap join and IOT indexes will not be exported at all. Reverse indexes are not exported too, you may use a trigram-based index (see pg_trgm) or a reverse() function based index and search. Use 'varchar_pattern_ops', 'text_pattern_ops' or 'bpchar_pattern_ops' operators in your indexes to improve search with the LIKE operator respectively into varchar, text or char columns.</td><td class="detail"><details><summary>See details</summary>10 b-tree index(es)<br></details></td></tr>
+<tr><td class="object_name">JOB</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Job are not exported. You may set external cron job with them.</td><td class="detail"></td></tr>
+<tr><td class="object_name">PACKAGE BODY</td><td style="text-align: center;">1</td><td style="text-align: center;">1</td><td style="text-align: center;">37.20</td><td>Total size of package code: 26738 bytes. Number of procedures and functions found inside those packages: 9.</td><td class="detail"><details><summary>See details</summary>pkg_planning.sp_actividad_asiento: 6<br>pkg_planning.sp_copy_mapa: 4<br>pkg_planning.sp_create_expenses: 3.1<br>pkg_planning.sp_create_file: 3<br>pkg_planning.sp_create_map: 4<br>pkg_planning.sp_create_orders_purchases: 5.1<br>pkg_planning.sp_delete_map: 3<br>pkg_planning.sp_iniciativa_actividad_seat: 3<br>pkg_planning.sp_iniciativa_asiento: 3<br></details></td></tr>
+<tr><td class="object_name">PROCEDURE</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;">6.00</td><td>Total size of procedure code: 3859 bytes.</td><td class="detail"><details><summary>See details</summary>pc_test_update_ini_det: 5<br></details></td></tr>
+<tr><td class="object_name">SEQUENCE</td><td style="text-align: center;">98</td><td style="text-align: center;">0</td><td style="text-align: center;">9.80</td><td>Sequences are fully supported, but all call to sequence_name.NEXTVAL or sequence_name.CURRVAL will be transformed into NEXTVAL('sequence_name') or CURRVAL('sequence_name').</td><td class="detail"></td></tr>
+<tr><td class="object_name">SYNONYM</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>SYNONYMs will be exported as views. SYNONYMs do not exists with PostgreSQL but a common workaround is to use views or set the PostgreSQL search_path in your session to access object outside the current schema.</td><td class="detail"></td></tr>
+<tr><td class="object_name">TABLE</td><td style="text-align: center;">121</td><td style="text-align: center;">0</td><td style="text-align: center;">12.10</td><td></td><td class="detail"><details><summary>See details</summary>Total number of rows: 6397<br>Top 10 of tables sorted by number of rows:<br>vin_cursos_articulados has 1715 rows<br>sge_mapa_detalle has 858 rows<br>vin_curso_art_prog has 416 rows<br>sge_proceso has 294 rows<br>sge_mapa_objetivo has 152 rows<br>dm_area has 139 rows<br>dm_sede_area has 132 rows<br>vin_cur_art_ac_soc has 130 rows<br>sge_actividad has 127 rows<br>sge_meta has 119 rows<br>Top 10 of largest tables:<br></details></td></tr>
+<tr><td class="object_name">TRIGGER</td><td style="text-align: center;">96</td><td style="text-align: center;">1</td><td style="text-align: center;">380.00</td><td>Total size of trigger code: 0 bytes.</td><td class="detail"><details><summary>See details</summary>dm_area_anio_trg: 3<br>dm_area_anio_trg1: 3<br>dm_area_responsable_trg: 3<br>dm_area_trg: 3<br>dm_sede_area_trg: 3<br>failed_jobs_id_trg: 3<br>migrations_id_trg: 3<br>personal_access_tokens_id_trg: 3<br>trgg_sge_iniciativa_comentario: 3<br>trigger_sge_ind_crit_calif: 3<br>trigger_sge_mapa_grupo: 3<br>trigger_sge_mapa_grupo_rel: 3<br>trigger_sge_meta_2_ind_conf: 3<br>trigger_vin_justificacion: 3<br>trig_sge_actividad_ppto_id: 3<br>trig_sge_eje_persona_id: 3<br>trig_sge_mapa_inic_ind_pk: 3<br>trig_sge_map_ini_det_pk: 3<br>tr_actividad_horario_id: 3<br>tr_eje_pk: 3<br>tr_elemento_pk: 3<br>tr_indicador_medida_pk: 3<br>tr_indicador_pk: 3<br>tr_iniciativa_pk: 3<br>tr_mapa_indicador_pk: 3<br>tr_mapa_iniciativa_pk: 3<br>tr_mapa_objetivo_pk: 3<br>tr_objetivo_pk: 3<br>tr_perspectiva_pk: 3<br>tr_plan_anho_pk: 3<br>tr_plan_pk: 3<br>tr_sge_actividad_pk: 3<br>tr_sge_asiento_pk: 3<br>tr_sge_eje_cuenta_cte_pk: 3<br>tr_sge_eje_cuenta_pk: 3<br>tr_sge_eje_depto_mapa_pk: 3<br>tr_sge_eje_depto_pk: 3<br>tr_sge_file_pk: 3<br>tr_sge_frecuencia_detalle_pk: 3<br>tr_sge_frecuencia_pk: 3<br>tr_sge_iniciativa_criterio_pk: 3<br>tr_sge_iniciativa_cuenta_pk: 3<br>tr_sge_iniciat_cuenta_cte_pk: 3<br>tr_sge_mapa_detalle_pk: 3<br>tr_sge_mapa_pk: 3<br>tr_sge_meta_pk: 3<br>tr_sge_procedimiento_pk: 3<br>tr_tipo_nivel_pk: 3<br>tr_tipo_pk: 3<br>tr_vin_asistencia_id: 3<br>tr_vin_asistencia_interv_id: 3<br>tr_vin_asist_interv_det_id: 3<br>tr_vin_cursos_articulados_id: 3<br>tr_vin_curso_art_proy_id: 3<br>tr_vin_cur_art_ac_soc_id: 3<br>tr_vin_cur_art_dim_id: 3<br>tr_vin_diagnostico_insti_id: 3<br>tr_vin_diag_informe_id: 3<br>tr_vin_diag_programa_id: 3<br>tr_vin_ejes_lineas_id: 3<br>tr_vin_formato_plantilla_id: 3<br>tr_vin_grupo_actividad_id: 3<br>tr_vin_grupo_activ_alum_id: 3<br>tr_vin_grupo_beneficiario_id: 3<br>tr_vin_inscrip_actividad_id: 3<br>tr_vin_inst_documento_id: 3<br>tr_vin_inst_doc_instr_id: 3<br>tr_vin_inst_doc_quiz_id: 3<br>tr_vin_inst_necesidad_id: 3<br>tr_vin_inst_participante_id: 3<br>tr_vin_intervencion_id: 3<br>tr_vin_interv_actividad_id: 3<br>tr_vin_interv_beneficiario_id: 3<br>tr_vin_interv_cur_art_id: 3<br>tr_vin_interv_documento_id: 3<br>tr_vin_interv_necesidad_id: 3<br>tr_vin_interv_personal_id: 3<br>tr_vin_interv_programa_id: 3<br>tr_vin_int_rol_part_id: 3<br>tr_vin_plantilla_informe_id: 3<br>tr_vin_proyectos_lineas_id: 3<br>tr_vin_proyecto_id: 3<br>tr_vin_proy_lin_ac_soc_id: 3<br>tr_vin_proy_lin_ejes_id: 3<br>tr_vin_proy_lin_proy_id: 3<br>tr_vin_relacion_grupos_id: 3<br>tr_vin_secciones_plantilla_id: 3<br>tr_vin_tipo_accion_social_id: 3<br>tr_vin_tipo_beneficiario_id: 3<br>tr_vin_tipo_dimension_id: 3<br>tr_vin_tipo_institucion_id: 3<br>tr_vin_tipo_instrumento_id: 3<br>tr_vin_tipo_proyectos_id: 3<br>tr_vin_tipo_rol_id: 3<br>users_id_trg: 3<br></details></td></tr>
+<tr><td class="object_name">VIEW</td><td style="text-align: center;">2</td><td style="text-align: center;">1</td><td style="text-align: center;">1.00</td><td>Views are fully supported but can use specific functions.</td><td class="detail"></td></tr>
+<tr><th style="text-align: center; border-bottom: 0px; vertical-align: bottom;">Total</th><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">468</td><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">14</td><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">489.20</td><td colspan="2" style="border-bottom: 0px; vertical-align: bottom;">489.20 cost migration units means approximatively 6 person-day(s). The migration unit was set to 5 minute(s)
+</td></tr>
+</table>
+</div>
+<h2>Migration level: C-5</h2>
+
+<ul>
+<li>Migration levels:</li>
+  <ul>
+    <li>A - Migration that might be run automatically</li>
+    <li>B - Migration with code rewrite and a human-days cost up to 5 days</li>
+    <li>C - Migration with code rewrite and a human-days cost above 5 days</li>
+  </ul>
+<li>Technical levels:</li>
+  <ul>
+    <li>1 = trivial: no stored functions and no triggers</li>
+    <li>2 = easy: no stored functions but with triggers, no manual rewriting</li>
+    <li>3 = simple: stored functions and/or triggers, no manual rewriting</li>
+    <li>4 = manual: no stored functions but with triggers or views with code rewriting</li>
+    <li>5 = difficult: stored functions and/or triggers with code rewriting</li>
+  </ul>
+</ul>
+<h2>Details of cost assessment per function</h2>
+<details><summary>Show</summary><ul>
+<li>Function fc_est_aprob_actividad total estimated cost: 4</li>
+<ul>
+<li>SIZE => 2</li>
+<li>TEST => 2</li>
+</ul>
+<li>Function has_act_fin_req_fin_input total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function fc_inf_id_iniciativa_detalle total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function iniciativa_presupuesto total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function fc_pres_pro_inic_plan total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function fc_iniciativa_feedback_count total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function fc_iniciativa_presupuesto total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+<h2>Details of cost assessment per procedure</h2>
+<details><summary>Show</summary><ul>
+<li>Procedure pc_test_update_ini_det total estimated cost: 5</li>
+<ul>
+<li>SIZE => 3</li>
+<li>TEST => 2</li>
+</ul>
+</ul></details>
+<h2>Details of cost assessment per package function</h2>
+<details><summary>Show</summary><ul>
+<li>Function pkg_planning.sp_actividad_asiento total estimated cost: 6</li>
+<ul>
+<li>SIZE => 4</li>
+<li>TEST => 2</li>
+</ul>
+<li>Function pkg_planning.sp_create_orders_purchases total estimated cost: 5.1</li>
+<ul>
+<li>SIZE => 3</li>
+<li>TEST => 2</li>
+<li>TO_NUMBER => 1 (cost: 0.1)</li>
+</ul>
+<li>Function pkg_planning.sp_copy_mapa total estimated cost: 4</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 2</li>
+</ul>
+<li>Function pkg_planning.sp_create_map total estimated cost: 4</li>
+<ul>
+<li>SIZE => 2</li>
+<li>TEST => 2</li>
+</ul>
+<li>Function pkg_planning.sp_create_expenses total estimated cost: 3.1</li>
+<ul>
+<li>TEST => 2</li>
+<li>TO_NUMBER => 1 (cost: 0.1)</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function pkg_planning.sp_iniciativa_actividad_seat total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function pkg_planning.sp_create_file total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function pkg_planning.sp_iniciativa_asiento total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function pkg_planning.sp_delete_map total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+<h2>Details of cost assessment per trigger</h2>
+<details><summary>Show</summary><ul>
+<li>Trigger tr_vin_interv_documento_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_perspectiva_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_inst_doc_quiz_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_relacion_grupos_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_eje_cuenta_cte_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_frecuencia_detalle_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_diag_programa_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_eje_cuenta_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_eje_depto_mapa_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_mapa_detalle_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger dm_area_responsable_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_diag_informe_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_file_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_interv_actividad_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_tipo_instrumento_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger failed_jobs_id_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_actividad_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_plan_anho_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger dm_sede_area_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trig_sge_eje_persona_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_interv_beneficiario_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_interv_necesidad_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_plantilla_informe_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_mapa_objetivo_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trigger_sge_mapa_grupo total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_eje_depto_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger users_id_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_proyectos_lineas_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trigger_sge_meta_2_ind_conf total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_indicador_medida_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_cur_art_dim_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trigger_sge_mapa_grupo_rel total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_mapa_indicador_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger dm_area_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_tipo_rol_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_mapa_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_formato_plantilla_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_indicador_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_grupo_actividad_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_curso_art_proy_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_proy_lin_ejes_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_iniciat_cuenta_cte_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_proy_lin_proy_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_secciones_plantilla_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_proy_lin_ac_soc_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_interv_programa_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_inst_documento_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trgg_sge_iniciativa_comentario total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_elemento_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_procedimiento_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_interv_cur_art_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_asiento_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_ejes_lineas_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_eje_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_plan_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_cur_art_ac_soc_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_nivel_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_meta_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_asistencia_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger dm_area_anio_trg1 total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_interv_personal_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trigger_vin_justificacion total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_proyecto_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_iniciativa_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_tipo_proyectos_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_objetivo_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_diagnostico_insti_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trig_sge_map_ini_det_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger migrations_id_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_int_rol_part_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_tipo_accion_social_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger personal_access_tokens_id_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_asistencia_interv_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_inscrip_actividad_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_asist_interv_det_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_tipo_beneficiario_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_iniciativa_criterio_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_intervencion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_grupo_activ_alum_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trig_sge_mapa_inic_ind_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trigger_sge_ind_crit_calif total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger trig_sge_actividad_ppto_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_mapa_iniciativa_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_inst_doc_instr_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_tipo_dimension_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_tipo_institucion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_inst_necesidad_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger dm_area_anio_trg total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_frecuencia_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_inst_participante_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_cursos_articulados_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_sge_iniciativa_cuenta_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_actividad_horario_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_vin_grupo_beneficiario_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+
+<div id="footer">
+Generated by <a href="http://ora2pg.darold.net/">Ora2Pg v25.0</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+services:
+  ora2pg:
+    container_name: ora2pg
+    image: georgmoser/ora2pg
+    platform: linux/amd64
+    command: ["tail", "-f", "/dev/null"]
+    environment:
+      CONFIG_LOCATION: "/config/ora2pg-estructura-without-fk.conf"
+      OUTPUT_LOCATION: "/data/myfolder"
+      ORA_HOST: "dbi:Oracle:host=10.174.11.5;sid=upeu;port=1521"
+      ORA_USER: "eliseo"
+      ORA_PWD: "S4LVAC10Nen3l"
+    volumes:
+      - ./config:/config
+      - ./data:/data
+      - ./migration:/migration
+  postgres-client:
+      container_name: pgloader
+      image: bitnami/postgresql:latest
+      platform: linux/amd64
+      environment:
+        - PGPASSWORD=postgrespass
+      volumes:
+        - ./data:/data
+      entrypoint: /bin/bash
+      stdin_open: true
+      tty: true

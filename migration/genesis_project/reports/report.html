@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Ora2Pg - Database Migration Report</title>
+  <meta HTTP-EQUIV="Generator" CONTENT="Ora2Pg v25.0">
+  <meta HTTP-EQUIV="Date" CONTENT="Wed Jun 18 17:15:15 2025">
+  <style>
+body {
+	margin: 30px 0;
+	padding: 0;
+	background: #EFEFEF;
+	font-size: 12px;
+	color: #1e1e1e;
+}
+
+h1 {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #DFDFDF;
+	font-size: 22px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+h2 {
+	margin-bottom: 10px;
+	font-size: 18px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+#header table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+
+#header th {
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+#content table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#content td {
+	padding: 0 5px 0 5px;
+	border-bottom: 1px solid #888888;
+	margin-bottom: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#content th {
+	border-bottom: 1px solid #BBBBBB;
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+.object_name {
+        font-weight: bold;
+        color: #0094C7;
+	text-align: left;
+	white-space: pre;
+}
+
+.detail {
+	white-space: pre;
+}
+
+#footer {
+	margin-right: 10px;
+	text-align: right;
+}
+
+#footer a {
+	color: #EC5800;
+}
+
+#footer a:hover {
+	text-decoration: none;
+}
+  </style>
+</head>
+<body>
+<div id="header">
+<h1>Ora2Pg - Database Migration Report</h1>
+<table>
+<tr><th>Version</th><td>Oracle Database 11g Release 11.2.0.4.0</td></tr>
+<tr><th>Schema</th><td>GENESIS</td></tr>
+<tr><th>Size</th><td>0.12 MB</td></tr>
+</table>
+</div>
+<div id="content">
+<table>
+<tr><th>Object</th><th>Number</th><th>Invalid</th><th>Estimated cost</th><th>Comments</th><th>Details</th></tr>
+<tr><td class="object_name">DATABASE LINK</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Database links will be exported as SQL/MED PostgreSQL's Foreign Data Wrapper (FDW) extensions using oracle_fdw.</td><td class="detail"></td></tr>
+<tr><td class="object_name">FUNCTION</td><td style="text-align: center;">8</td><td style="text-align: center;">0</td><td style="text-align: center;">32.00</td><td>Total size of function code: 4049 bytes.</td><td class="detail"><details><summary>See details</summary>ft_resp_financiero_nombre: 3<br>ft_cita: 3<br>ft_contacto: 3<br>ft_resp_financiero_celular: 3<br>ft_correo: 3<br>ft_celular: 3<br>ft_documento: 3<br>ft_resp_financiero_correo: 3<br></details></td></tr>
+<tr><td class="object_name">GLOBAL TEMPORARY TABLE</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Global temporary table are not supported by PostgreSQL and will not be exported. You will have to rewrite some application code to match the PostgreSQL temporary table behavior.</td><td class="detail"></td></tr>
+<tr><td class="object_name">INDEX</td><td style="text-align: center;">75</td><td style="text-align: center;">0</td><td style="text-align: center;">8.00</td><td>5 index(es) are concerned by the export, others are automatically generated and will do so on PostgreSQL. Bitmap will be exported as btree_gin index(es). Domain index are exported as b-tree but commented to be edited to mainly use FTS. Cluster, bitmap join and IOT indexes will not be exported at all. Reverse indexes are not exported too, you may use a trigram-based index (see pg_trgm) or a reverse() function based index and search. Use 'varchar_pattern_ops', 'text_pattern_ops' or 'bpchar_pattern_ops' operators in your indexes to improve search with the LIKE operator respectively into varchar, text or char columns.</td><td class="detail"><details><summary>See details</summary>5 b-tree index(es)<br></details></td></tr>
+<tr><td class="object_name">JOB</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Job are not exported. You may set external cron job with them.</td><td class="detail"></td></tr>
+<tr><td class="object_name">SEQUENCE</td><td style="text-align: center;">37</td><td style="text-align: center;">0</td><td style="text-align: center;">3.70</td><td>Sequences are fully supported, but all call to sequence_name.NEXTVAL or sequence_name.CURRVAL will be transformed into NEXTVAL('sequence_name') or CURRVAL('sequence_name').</td><td class="detail"></td></tr>
+<tr><td class="object_name">SYNONYM</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>SYNONYMs will be exported as views. SYNONYMs do not exists with PostgreSQL but a common workaround is to use views or set the PostgreSQL search_path in your session to access object outside the current schema.</td><td class="detail"></td></tr>
+<tr><td class="object_name">TABLE</td><td style="text-align: center;">47</td><td style="text-align: center;">0</td><td style="text-align: center;">4.70</td><td></td><td class="detail"><details><summary>See details</summary>Total number of rows: 23124<br>Top 10 of tables sorted by number of rows:<br>persona_telefono has 3379 rows<br>persona has 3241 rows<br>persona_documento has 3095 rows<br>persona_interes has 3070 rows<br>persona_virtual has 2776 rows<br>persona_interes_comentario has 2637 rows<br>persona_natural has 1712 rows<br>persona_atencion has 1557 rows<br>clasificacion_programa has 1015 rows<br>persona_responsable has 335 rows<br>Top 10 of largest tables:<br></details></td></tr>
+<tr><td class="object_name">TRIGGER</td><td style="text-align: center;">26</td><td style="text-align: center;">0</td><td style="text-align: center;">104.00</td><td>Total size of trigger code: 0 bytes.</td><td class="detail"><details><summary>See details</summary>tr_campania_convocatoria_id: 3<br>tr_camp_conv_cartera_id: 3<br>tr_canal_detalle_id: 3<br>tr_clasi_prog: 3<br>tr_convocatoria_detalle_id: 3<br>tr_formulario_persona_id: 3<br>tr_formulario_pregunta_id: 3<br>tr_persona_atencion_id: 3<br>tr_persona_cartera_id: 3<br>tr_persona_direccion_id: 3<br>tr_persona_interes_id: 3<br>tr_persona_pk: 3<br>tr_persona_responsable_id: 3<br>tr_persona_telefono_id: 3<br>tr_persona_virtual_id: 3<br>tr_resp_financiero_id: 3<br>tr_tipo_campania_id: 3<br>tr_tipo_canal_id: 3<br>tr_tipo_cartera_id: 3<br>tr_tipo_clasificacion_id: 3<br>tr_tipo_condicion_id: 3<br>tr_tipo_convocatoria_id: 3<br>tr_tipo_etapa: 3<br>tr_tipo_formulario_id: 3<br>tr_tipo_oficina_id: 3<br>tr_tipo_pregunta_id: 3<br></details></td></tr>
+<tr><td class="object_name">VIEW</td><td style="text-align: center;">4</td><td style="text-align: center;">1</td><td style="text-align: center;">3.00</td><td>Views are fully supported but can use specific functions.</td><td class="detail"></td></tr>
+<tr><th style="text-align: center; border-bottom: 0px; vertical-align: bottom;">Total</th><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">197</td><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">1</td><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">155.40</td><td colspan="2" style="border-bottom: 0px; vertical-align: bottom;">155.40 cost migration units means approximatively 2 person-day(s). The migration unit was set to 5 minute(s)
+</td></tr>
+</table>
+</div>
+<h2>Migration level: A-3</h2>
+
+<ul>
+<li>Migration levels:</li>
+  <ul>
+    <li>A - Migration that might be run automatically</li>
+    <li>B - Migration with code rewrite and a human-days cost up to 5 days</li>
+    <li>C - Migration with code rewrite and a human-days cost above 5 days</li>
+  </ul>
+<li>Technical levels:</li>
+  <ul>
+    <li>1 = trivial: no stored functions and no triggers</li>
+    <li>2 = easy: no stored functions but with triggers, no manual rewriting</li>
+    <li>3 = simple: stored functions and/or triggers, no manual rewriting</li>
+    <li>4 = manual: no stored functions but with triggers or views with code rewriting</li>
+    <li>5 = difficult: stored functions and/or triggers with code rewriting</li>
+  </ul>
+</ul>
+<h2>Details of cost assessment per function</h2>
+<details><summary>Show</summary><ul>
+<li>Function ft_resp_financiero_celular total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_cita total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_celular total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_resp_financiero_correo total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_resp_financiero_nombre total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_documento total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_contacto total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_correo total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+<h2>Details of cost assessment per trigger</h2>
+<details><summary>Show</summary><ul>
+<li>Trigger tr_persona_cartera_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_formulario_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_persona_direccion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_clasificacion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_oficina_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_canal_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_persona_responsable_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_formulario_pregunta_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_camp_conv_cartera_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_cartera_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_resp_financiero_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_etapa total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_campania_convocatoria_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_canal_detalle_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_persona_atencion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_persona_pk total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_condicion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_campania_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_convocatoria_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_persona_interes_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_convocatoria_detalle_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_formulario_persona_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_persona_telefono_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_clasi_prog total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_pregunta_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_persona_virtual_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+
+<div id="footer">
+Generated by <a href="http://ora2pg.darold.net/">Ora2Pg v25.0</a>
+</div>
+</body>
+</html>
