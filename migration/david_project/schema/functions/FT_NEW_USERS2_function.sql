@@ -42,10 +42,10 @@ sintilde_con_punto(replace(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p
  END   ELSE /*4*/
 sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||substr(p.paterno,0,1)||'.'||p.materno))/*4*/
  END   ELSE /*5*/
-sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||substr(p.paterno,0,1)||'.'||p.materno))||round(dbms_random.value(1, 9))/*5*/
+-- -- -- -- sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||substr(p.paterno,0,1)||'.'||p.materno))||round(dbms_random.value(1, 9))/*5*/
  END ,
 
-                        sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||p.paterno))||round(dbms_random.value(1, 9))) 
+-- -- -- --                         sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||p.paterno))||round(dbms_random.value(1, 9))) 
                         
                         WHEN v_opcion=2
                          	THEN documentos

@@ -10,8 +10,8 @@ SET search_path = eliseo,public;
 
 
 -- Oracle package 'FN_SPLIT_PKG' declaration, please edit to match PostgreSQL syntax.
-DROP TYPE IF EXISTS fn_split_pkg.tt_v_tabla_type;
-CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[]);
+-- DROP TYPE IF EXISTS fn_split_pkg.tt_v_tabla_type;
+-- CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[]);
 
 
 
@@ -54,10 +54,10 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 -- Oracle package 'PKG_CAJA' declaration, please edit to match PostgreSQL syntax.
 
-\i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_package.sql
-\i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_alumno_package.sql
+-- \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_package.sql
+-- \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_alumno_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_banco_package.sql
-\i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_detalle_package.sql
+-- \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_detalle_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_detalle_aces_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_imp_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_imp_fin_package.sql
@@ -67,7 +67,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_pago_gasto_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_pago_gasto_asiento_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_pago_compra_package.sql
-\i ./schema/packages/pkg_caja/pkg_caja_sp_crear_pago_venta_package.sql
+-- \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_pago_venta_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_eliminar_pago_deposito_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_eliminar_pago_detalle_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_eliminar_pago_package.sql
@@ -119,9 +119,9 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_caja/pkg_caja_sp_documento_asiento_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_vale_gasto_asiento_package.sql
 \i ./schema/packages/pkg_caja/pkg_caja_sp_rechazar_vale_package.sql
-\i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_alumno_adm_package.sql
-\i ./schema/packages/pkg_caja/pkg_caja_sp_crear_venta_deposito_package.sql
-\i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_alumno_new_package.sql
+-- \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_alumno_adm_package.sql
+-- \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_venta_deposito_package.sql
+-- \i ./schema/packages/pkg_caja/pkg_caja_sp_crear_deposito_alumno_new_package.sql
 
 -- End of Oracle package 'PKG_CAJA' declaration
 
@@ -129,19 +129,19 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 -- Oracle package 'PKG_CAJA_SCHOOL' declaration, please edit to match PostgreSQL syntax.
 
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_crear_deposito_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_faces_alumno_mobile_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_iniciar_deposito_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_crear_deposito_detalle_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_finalizar_deposito_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_deposito_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_crear_pago_venta_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_finalizar_devolucion_venta_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_dev_venta_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_inter_dep_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_inter_dev_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_regenerate_voucher_package.sql
-\i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_verify_closed_cash_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_crear_deposito_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_faces_alumno_mobile_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_iniciar_deposito_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_crear_deposito_detalle_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_finalizar_deposito_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_deposito_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_crear_pago_venta_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_finalizar_devolucion_venta_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_dev_venta_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_inter_dep_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_generar_asiento_inter_dev_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_regenerate_voucher_package.sql
+-- \i ./schema/packages/pkg_caja_school/pkg_caja_school_sp_verify_closed_cash_package.sql
 
 -- End of Oracle package 'PKG_CAJA_SCHOOL' declaration
 
@@ -149,98 +149,98 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 -- Oracle package 'PKG_FINANCES_STUDENTS' declaration, please edit to match PostgreSQL syntax.
 
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ingresos_alum_contrato_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_mat_cuota_residencia_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_mat_beca18_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_plan_pkg_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_fijo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_cantidad_curso_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_comunidad_ing_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_extrap_dirig_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_extrap_dirig_plan_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_beca18_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_curso_aplazado_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_residencia_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_lavanderia_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_alimentacion_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desctos_alum_contrato_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_solicitud_beca_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_vice_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_vice_ense_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_hijo_trab_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_especial_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_especial_cuota_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_jul_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_mis_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_comu_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_ing_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_hijo_misionero_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_hijo_misionero_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_mat_ingresante_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_inst_educ_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_fijo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_beca18_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_curso_apzado_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_bach_pregrado_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_detalle_contrato_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_venta_matricula_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_actualizar_total_venta_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_actualizar_total_venta_nc_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_matricula_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_matnotavar_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_copiar_criterio_semestre_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_copiar_asiento_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_eliminar_criterio_semestre_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_transf_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_transf_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_venta_mat_aplaz_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_transf_mat_idec_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_transf_idec_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_transf_idtm_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_venta_matricula_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_variacion_regular_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_variacion_regular_plan_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_variacion_reg_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_cobrar_cuota_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_cuota_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_cuota_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_transf_cuota_idec_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_gen_asto_trans_cuota_idec_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_execute_cuota_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_execute_cuota_new_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_lista_matricula_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_re_generar_asiento_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_nota_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_execute_nota_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_mat_manual_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_faltante_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_listar_detalle_contrato_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_residencia_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_residencia_men_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_lavanderia_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_alimentacion_mat_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_lavanderia_men_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_alimentacion_men_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_copiar_planpago_semestre_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ins_cuota_alumno_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_fc_obetener_imp_cuota_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_cobrar_cuota_x_contrato_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_cuota_adelanto_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_alumno_cu_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_mat_beca18_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_plan_pkg_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_extra_diri_plan_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_beca18_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_curso_aplazado_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_beca18_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cre_pra_cur_apza_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_variacion_regular_ciclo_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_asig_reg_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_asig_reg_plan_package.sql
-\i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_asig_reg_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ingresos_alum_contrato_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_mat_cuota_residencia_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_mat_beca18_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_plan_pkg_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_fijo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_cantidad_curso_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_comunidad_ing_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_extrap_dirig_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_extrap_dirig_plan_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_beca18_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_curso_aplazado_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_residencia_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_lavanderia_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_alimentacion_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desctos_alum_contrato_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_solicitud_beca_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_vice_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_vice_ense_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_hijo_trab_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_especial_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_especial_cuota_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_jul_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_mis_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_comu_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_pronto_pago_ing_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_hijo_misionero_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_hijo_misionero_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_mat_ingresante_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_inst_educ_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_fijo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_beca18_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_curso_apzado_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_bach_pregrado_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_detalle_contrato_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_venta_matricula_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_actualizar_total_venta_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_actualizar_total_venta_nc_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_matricula_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_matnotavar_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_copiar_criterio_semestre_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_copiar_asiento_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_eliminar_criterio_semestre_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_transf_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_transf_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_venta_mat_aplaz_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_transf_mat_idec_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_transf_idec_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_transf_idtm_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_venta_matricula_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_variacion_regular_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_variacion_regular_plan_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_variacion_reg_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_cobrar_cuota_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_cuota_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_cuota_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_transf_cuota_idec_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_gen_asto_trans_cuota_idec_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_execute_cuota_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_execute_cuota_new_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_lista_matricula_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_re_generar_asiento_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_nota_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_execute_nota_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_mat_manual_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_asiento_faltante_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_listar_detalle_contrato_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_residencia_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_residencia_men_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_lavanderia_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_alimentacion_mat_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_lavanderia_men_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_resi_alimentacion_men_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_copiar_planpago_semestre_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ins_cuota_alumno_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_fc_obetener_imp_cuota_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_cobrar_cuota_x_contrato_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_generar_cuota_adelanto_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_alumno_cu_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_mat_beca18_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_regular_plan_pkg_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_extra_diri_plan_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_beca18_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_ense_curso_aplazado_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_prac_beca18_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cre_pra_cur_apza_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_variacion_regular_ciclo_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_asig_reg_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_asig_reg_plan_package.sql
+-- \i ./schema/packages/pkg_finances_students/pkg_finances_students_sp_desc_cred_asig_reg_ciclo_package.sql
 
 -- End of Oracle package 'PKG_FINANCES_STUDENTS' declaration
 
@@ -252,7 +252,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_human_talent/pkg_human_talent_sp_planilla_boleta_proceso_package.sql
 \i ./schema/packages/pkg_human_talent/pkg_human_talent_sp_correo_persona_package.sql
 \i ./schema/packages/pkg_human_talent/pkg_human_talent_sp_proc_email_celular_package.sql
-\i ./schema/packages/pkg_human_talent/pkg_human_talent_sp_genera_control_culto_package.sql
+-- \i ./schema/packages/pkg_human_talent/pkg_human_talent_sp_genera_control_culto_package.sql
 
 -- End of Oracle package 'PKG_HUMAN_TALENT' declaration
 
@@ -262,13 +262,13 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 \i ./schema/packages/pkg_informes/pkg_informes_sp_valida_tope_concepto_package.sql
 \i ./schema/packages/pkg_informes/pkg_informes_update_importes_informe_package.sql
-\i ./schema/packages/pkg_informes/pkg_informes_sp_informe_zona_package.sql
+-- \i ./schema/packages/pkg_informes/pkg_informes_sp_informe_zona_package.sql
 \i ./schema/packages/pkg_informes/pkg_informes_sp_procesar_documentos_viajes_package.sql
 \i ./schema/packages/pkg_informes/pkg_informes_sp_procesar_documentos_via_old_package.sql
 \i ./schema/packages/pkg_informes/pkg_informes_sp_compra_asiento_package.sql
 \i ./schema/packages/pkg_informes/pkg_informes_sp_compra_asiento_igasto_package.sql
 \i ./schema/packages/pkg_informes/pkg_informes_sp_delete_process_documentos_package.sql
-\i ./schema/packages/pkg_informes/pkg_informes_sp_convert_icompra_to_compra_package.sql
+-- \i ./schema/packages/pkg_informes/pkg_informes_sp_convert_icompra_to_compra_package.sql
 
 -- End of Oracle package 'PKG_INFORMES' declaration
 
@@ -319,9 +319,9 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 -- Oracle package 'PKG_MANAGEMENT_REPORTS' declaration, please edit to match PostgreSQL syntax.
 
 
-\i ./schema/packages/pkg_management_reports/pkg_management_reports_sp_iu_setting_ctrl_mensual_package.sql
-\i ./schema/packages/pkg_management_reports/pkg_management_reports_sp_cv_setting_ctrl_mensual_package.sql
-\i ./schema/packages/pkg_management_reports/pkg_management_reports_sp_cvp_setting_ctrl_mensual_package.sql
+-- \i ./schema/packages/pkg_management_reports/pkg_management_reports_sp_iu_setting_ctrl_mensual_package.sql
+-- \i ./schema/packages/pkg_management_reports/pkg_management_reports_sp_cv_setting_ctrl_mensual_package.sql
+-- \i ./schema/packages/pkg_management_reports/pkg_management_reports_sp_cvp_setting_ctrl_mensual_package.sql
 \i ./schema/packages/pkg_management_reports/pkg_management_reports_fc_total_archivos_package.sql
 \i ./schema/packages/pkg_management_reports/pkg_management_reports_fc_gastos_esenciales_sndepr_package.sql
 \i ./schema/packages/pkg_management_reports/pkg_management_reports_fc_gastos_esenciales_package.sql
@@ -369,13 +369,13 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_pay/pkg_pay_sp_crear_deposito_alum_visa_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_verifica_alumnoiddni_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_alumnoiddni_visa_package.sql
-\i ./schema/packages/pkg_pay/pkg_pay_sp_ventas_alumnoiddni_package.sql
+-- \i ./schema/packages/pkg_pay/pkg_pay_sp_ventas_alumnoiddni_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_crear_deposito_alumnoiddni_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_alumno_visa_acad_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_ventas_academicas_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_valida_deposito_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_valida_dep_alumnoiddni_package.sql
-\i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_admision_package.sql
+-- \i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_admision_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_diverso_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_crear_deposito_diverso_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_musica_package.sql
@@ -389,10 +389,10 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_pay/pkg_pay_sp_valida_deposito_tram_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_verifica_alumnoead_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_alumnoead_visa_package.sql
-\i ./schema/packages/pkg_pay/pkg_pay_sp_ventas_alumnoead_package.sql
+-- \i ./schema/packages/pkg_pay/pkg_pay_sp_ventas_alumnoead_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_generar_asiento_venta_ead_package.sql
 \i ./schema/packages/pkg_pay/pkg_pay_sp_deposito_research_visa_package.sql
-\i ./schema/packages/pkg_pay/pkg_pay_sp_ventas_research_package.sql
+-- \i ./schema/packages/pkg_pay/pkg_pay_sp_ventas_research_package.sql
 
 -- End of Oracle package 'PKG_PAY' declaration
 
@@ -408,7 +408,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_payonline/pkg_payonline_sp_valida_payonline_visa_upn_package.sql
 \i ./schema/packages/pkg_payonline/pkg_payonline_sp_ventas_depositar_package.sql
 \i ./schema/packages/pkg_payonline/pkg_payonline_sp_deposito_alumno_upeu_visa_package.sql
-\i ./schema/packages/pkg_payonline/pkg_payonline_sp_deposito_alumno_upn_visa_package.sql
+-- \i ./schema/packages/pkg_payonline/pkg_payonline_sp_deposito_alumno_upn_visa_package.sql
 \i ./schema/packages/pkg_payonline/pkg_payonline_sp_crear_deposito_alum_visa_package.sql
 \i ./schema/packages/pkg_payonline/pkg_payonline_sp_deposito_alum_visa_manual_package.sql
 \i ./schema/packages/pkg_payonline/pkg_payonline_sp_dep_visa_temp_package.sql
@@ -470,8 +470,8 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 -- Oracle package 'PKG_PROF' declaration, please edit to match PostgreSQL syntax.
 
 \i ./schema/packages/pkg_prof/pkg_prof_sp_generar_detalle_proforma_package.sql
-\i ./schema/packages/pkg_prof/pkg_prof_sp_ingresos_alum_proforma_package.sql
-\i ./schema/packages/pkg_prof/pkg_prof_sp_desctos_alum_proforma_package.sql
+-- \i ./schema/packages/pkg_prof/pkg_prof_sp_ingresos_alum_proforma_package.sql
+-- \i ./schema/packages/pkg_prof/pkg_prof_sp_desctos_alum_proforma_package.sql
 \i ./schema/packages/pkg_prof/pkg_prof_sp_ense_regular_fijo_package.sql
 \i ./schema/packages/pkg_prof/pkg_prof_sp_desc_solicitud_beca_package.sql
 \i ./schema/packages/pkg_prof/pkg_prof_sp_desc_especial_package.sql
@@ -544,21 +544,21 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_purchases/pkg_purchases_fc_autorizador_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_fc_fecha_autorizado_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_fc_tipo_almacen_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_show_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_txt_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_1_show_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_1_txt_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_2_show_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_2_txt_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_82_show_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_82_txt_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_show_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_txt_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_1_show_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_1_txt_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_2_show_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_5_2_txt_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_82_show_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_ple_82_txt_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_crear_ajuste_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_update_ajuste_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_delete_ajuste_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_crear_transferencia_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_actualizar_total_compra_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_actualizar_totalimp_compra_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_asiento_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_asiento_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_asiento_inventario_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compra_asiento_inven_upn_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_delete_compra_package.sql
@@ -580,7 +580,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_delete_compra_provision_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_delete_compra_kardex_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compras_ajustes_package.sql
-\i ./schema/packages/pkg_purchases/pkg_purchases_sp_compras_saldos_package.sql
+-- \i ./schema/packages/pkg_purchases/pkg_purchases_sp_compras_saldos_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_fc_format_glosa_assinet_purc_package.sql
 \i ./schema/packages/pkg_purchases/pkg_purchases_fc_format_glosa_assinet_ajuste_package.sql
 
@@ -598,9 +598,9 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_fc_porcentaje_proceso_package.sql
 \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_fc_cant_paso_package.sql
 \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_requerimiento_compra_package.sql
-\i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_req_compra_detalle_package.sql
-\i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_create_orders_purchases_package.sql
-\i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_create_orden_compra_package.sql
+-- \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_req_compra_detalle_package.sql
+-- \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_create_orders_purchases_package.sql
+-- \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_create_orden_compra_package.sql
 \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_orden_compra_detalle_package.sql
 \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_delete_pre_provision_package.sql
 \i ./schema/packages/pkg_purchases_orders/pkg_purchases_orders_sp_delete_orden_compra_package.sql
@@ -619,10 +619,10 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 \i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_show_package.sql
 \i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_txt_package.sql
-\i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_1_show_package.sql
-\i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_1_txt_package.sql
-\i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_2_show_package.sql
-\i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_2_txt_package.sql
+-- \i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_1_show_package.sql
+-- \i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_1_txt_package.sql
+-- \i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_2_show_package.sql
+-- \i ./schema/packages/pkg_purchases_ple/pkg_purchases_ple_sp_compra_ple_5_2_txt_package.sql
 
 -- End of Oracle package 'PKG_PURCHASES_PLE' declaration
 
@@ -631,14 +631,14 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 -- Oracle package 'PKG_RVIE_RCE' declaration, please edit to match PostgreSQL syntax.
 
 \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_venta_contribuy_package.sql
-\i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_venta_imprenta_package.sql
+-- \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_venta_imprenta_package.sql
 \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_crear_ventas_preliminar_package.sql
 \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_compra_contribuy_package.sql
-\i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_compra_imprenta_package.sql
+-- \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_compra_imprenta_package.sql
 \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_crear_compras_preliminar_package.sql
 \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_crear_compras_nodom_package.sql
 \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_compra_nodom_package.sql
-\i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_compra_nodom_imp_package.sql
+-- \i ./schema/packages/pkg_rvie_rce/pkg_rvie_rce_sp_copiar_compra_nodom_imp_package.sql
 
 -- End of Oracle package 'PKG_RVIE_RCE' declaration
 
@@ -646,11 +646,11 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 -- Oracle package 'PKG_SALES' declaration, please edit to match PostgreSQL syntax.
 
-\i ./schema/packages/pkg_sales/pkg_sales_sp_crear_venta_package.sql
+-- \i ./schema/packages/pkg_sales/pkg_sales_sp_crear_venta_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_crear_venta_detalle_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_serv_creact_venta_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_serv_creact_venta_detalle_package.sql
-\i ./schema/packages/pkg_sales/pkg_sales_sp_serv_finalizar_venta_package.sql
+-- \i ./schema/packages/pkg_sales/pkg_sales_sp_serv_finalizar_venta_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_serv_creact_nota_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_serv_genasiento_nota_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_actualizar_venta_package.sql
@@ -711,9 +711,9 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_sales/pkg_sales_fc_documento_impresion_user_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_fc_nota_credito_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_crear_actualizar_nota_package.sql
-\i ./schema/packages/pkg_sales/pkg_sales_sp_procesar_efac_package.sql
-\i ./schema/packages/pkg_sales/pkg_sales_sp_corregir_venta_package.sql
-\i ./schema/packages/pkg_sales/pkg_sales_sp_corregir_venta_cab_package.sql
+-- \i ./schema/packages/pkg_sales/pkg_sales_sp_procesar_efac_package.sql
+-- \i ./schema/packages/pkg_sales/pkg_sales_sp_corregir_venta_package.sql
+-- \i ./schema/packages/pkg_sales/pkg_sales_sp_corregir_venta_cab_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_crear_nota_inv_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_crear_anticipos_clientes_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_importar_saldo_inicial_package.sql
@@ -731,7 +731,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_sales/pkg_sales_sp_crear_venta_fa_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_generar_asiento_manual_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_sp_venta_forma_pago_package.sql
-\i ./schema/packages/pkg_sales/pkg_sales_fc_format_glosa_assinet_sales_package.sql
+-- \i ./schema/packages/pkg_sales/pkg_sales_fc_format_glosa_assinet_sales_package.sql
 \i ./schema/packages/pkg_sales/pkg_sales_fc_documento_cliente_venta_package.sql
 
 -- End of Oracle package 'PKG_SALES' declaration
@@ -743,8 +743,8 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_fc_venta_package.sql
 \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_fc_nota_credito_package.sql
 \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_fc_nota_debito_package.sql
-\i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_sp_venta_electronica_nube_package.sql
-\i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_sp_venta_electronica_upeu_package.sql
+-- \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_sp_venta_electronica_nube_package.sql
+-- \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_sp_venta_electronica_upeu_package.sql
 \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_sp_venta_electronica_package.sql
 \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_fc_cliente_direccion_package.sql
 \i ./schema/packages/pkg_sales_facturacion/pkg_sales_facturacion_fc_cliente_ubigeo_package.sql
@@ -758,8 +758,8 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_fc_venta_package.sql
 \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_fc_nota_credito_package.sql
 \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_fc_nota_debito_package.sql
-\i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_sp_venta_electronica_nube_package.sql
-\i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_sp_venta_electronica_upeu_package.sql
+-- \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_sp_venta_electronica_nube_package.sql
+-- \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_sp_venta_electronica_upeu_package.sql
 \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_sp_venta_electronica_package.sql
 \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_fc_cliente_direccion_package.sql
 \i ./schema/packages/pkg_sales_facturacion_1/pkg_sales_facturacion_1_fc_cliente_ubigeo_package.sql
@@ -785,7 +785,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 -- Oracle package 'PKG_SALES_FACTURACION_DESIS' declaration, please edit to match PostgreSQL syntax.
 
 
-\i ./schema/packages/pkg_sales_facturacion_desis/pkg_sales_facturacion_desis_fc_venta_package.sql
+-- \i ./schema/packages/pkg_sales_facturacion_desis/pkg_sales_facturacion_desis_fc_venta_package.sql
 \i ./schema/packages/pkg_sales_facturacion_desis/pkg_sales_facturacion_desis_fc_nota_credito_package.sql
 \i ./schema/packages/pkg_sales_facturacion_desis/pkg_sales_facturacion_desis_sp_venta_electronica_desis_package.sql
 
@@ -795,43 +795,43 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 -- Oracle package 'PKG_SALES_FINANCES' declaration, please edit to match PostgreSQL syntax.
 
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cobrar_cuota_epg_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cobrar_cuota_fcs_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cobrar_cuota_ingles_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cobrar_cuota_epg_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cobrar_cuota_fcs_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cobrar_cuota_ingles_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_crear_anticipos_de_notas_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_genera_anticipos_notas_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cobrar_cuota_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_dscto_covid_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_paga_doc_con_anticipo_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_execute_pago_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_dscto_covid_cw_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_execute_pago_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_dscto_covid_cw_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_morosidad_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_dscto_covid_epg_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_recaudacion_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_recuperacion_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_recuperacion_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_importar_ventas_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_importar_ventas_asiento_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_importar_transferencia_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_dscto_covid_cw_epg_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_migrar_saldo_cw_ft_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_dscto_covid_cw_epg_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_migrar_saldo_cw_ft_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_cancel_contract_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_update_curso_duplicado_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_update_curso_duplicado_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_morosidad_new_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_saldo_ventas_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_saldo_ventas_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_paga_doc_con_anticipo2_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_resumen_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resumen_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_balance_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_resumen_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resumen_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_balance_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_balance_consolidado_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_estado_resultado_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_estado_resultado_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_estado_resultado_cons_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_depto_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_depto_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_alumnos_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_costos_g_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_costos_sl_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_costos_sc_package.sql
 \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_resultado_departamento_package.sql
-\i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_saldo_ventas_clientes_package.sql
+-- \i ./schema/packages/pkg_sales_finances/pkg_sales_finances_sp_saldo_ventas_clientes_package.sql
 
 -- End of Oracle package 'PKG_SALES_FINANCES' declaration
 
@@ -865,7 +865,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 -- Oracle package 'PKG_SALES_PRODUCT' declaration, please edit to match PostgreSQL syntax.
 
 \i ./schema/packages/pkg_sales_product/pkg_sales_product_sp_validar_venta_package.sql
-\i ./schema/packages/pkg_sales_product/pkg_sales_product_sp_generar_venta_package.sql
+-- \i ./schema/packages/pkg_sales_product/pkg_sales_product_sp_generar_venta_package.sql
 \i ./schema/packages/pkg_sales_product/pkg_sales_product_sp_venta_end_package.sql
 \i ./schema/packages/pkg_sales_product/pkg_sales_product_sp_crear_venta_detalle_inven_package.sql
 
@@ -876,34 +876,34 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 -- Oracle package 'PKG_SALES_SCHOOL' declaration, please edit to match PostgreSQL syntax.
 
 
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_contrato_col_crear_venta_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_col_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_depto_alumno_school_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_depto_alumno_school_inst_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_depto_alumno_school_oth_sch_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_es_dinamica_anticipo_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_es_dinamica_anticipo_art_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_deposito_proceso_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_deposito_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_servicio_proceso_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_cargar_pension_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_dep_banco_proceso_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_crear_venta_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_crear_venta_detalle_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_finalizar_venta_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_cargo_cuota_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_obtener_serie_numero_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_trans_anticipo_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_nota_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_col_anu_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_crear_actualizar_trans_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_trans_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_venta_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_venta_detalle_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_finalizar_venta_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_inter_trs_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_cargo_cuota_prog_package.sql
-\i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_venta_detalle_p_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_contrato_col_crear_venta_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_col_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_depto_alumno_school_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_depto_alumno_school_inst_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_depto_alumno_school_oth_sch_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_es_dinamica_anticipo_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_fc_es_dinamica_anticipo_art_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_deposito_proceso_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_deposito_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_servicio_proceso_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_cargar_pension_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_dep_banco_proceso_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_crear_venta_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_crear_venta_detalle_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_finalizar_venta_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_cargo_cuota_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_obtener_serie_numero_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_trans_anticipo_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_nota_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_col_anu_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_crear_actualizar_trans_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_trans_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_venta_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_venta_detalle_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_finalizar_venta_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_generar_asiento_inter_trs_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_venta_cargo_cuota_prog_package.sql
+-- \i ./schema/packages/pkg_sales_school/pkg_sales_school_sp_serv_creact_venta_detalle_p_package.sql
 
 -- End of Oracle package 'PKG_SALES_SCHOOL' declaration
 
@@ -920,13 +920,13 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 -- Oracle package 'PKG_SALES_SEHS' declaration, please edit to match PostgreSQL syntax.
 
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_venta_detalle_package.sql
-\i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_venta_package.sql
-\i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_venta_colportaje_package.sql
+-- \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_venta_package.sql
+-- \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_venta_colportaje_package.sql
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_finalizar_venta_package.sql
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_finalizar_venta_colp_package.sql
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_venta_despacho_package.sql
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_despacho_detalle_package.sql
-\i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_finalizar_venta_despacho_package.sql
+-- \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_finalizar_venta_despacho_package.sql
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_kardex_venta_despacho_package.sql
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_iupd_nota_inv_package.sql
 \i ./schema/packages/pkg_sales_sehs/pkg_sales_sehs_sp_generar_asiento_vd_package.sql
@@ -941,8 +941,8 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 \i ./schema/packages/pkg_setup/pkg_setup_sp_set_rol_package.sql
 \i ./schema/packages/pkg_setup/pkg_setup_sp_process_execute_package.sql
 \i ./schema/packages/pkg_setup/pkg_setup_sp_process_execute_paso_package.sql
-\i ./schema/packages/pkg_setup/pkg_setup_sp_copiar_org_areas_package.sql
-\i ./schema/packages/pkg_setup/pkg_setup_sp_copiar_org_areas_hijas_package.sql
+-- \i ./schema/packages/pkg_setup/pkg_setup_sp_copiar_org_areas_package.sql
+-- \i ./schema/packages/pkg_setup/pkg_setup_sp_copiar_org_areas_hijas_package.sql
 \i ./schema/packages/pkg_setup/pkg_setup_sp_act_tabla_data_package.sql
 
 -- End of Oracle package 'PKG_SETUP' declaration
@@ -965,7 +965,7 @@ CREATE TYPE fn_split_pkg.tt_v_tabla_type AS (tt_v_tabla_type tt_v_Tabla%ROWTYPE[
 
 -- Oracle package 'TYPES' declaration, please edit to match PostgreSQL syntax.
 -- Unsupported, please edit to match PostgreSQL syntax
-CREATE TYPE Types.cursor_type AS REFCURSOR;
+-- CREATE TYPE Types.cursor_type AS REFCURSOR;
 
 
 -- End of Oracle package 'TYPES' declaration
@@ -973,179 +973,179 @@ CREATE TYPE Types.cursor_type AS REFCURSOR;
 
 
 -- Oracle package 'UTILS' declaration, please edit to match PostgreSQL syntax.
-CREATE DOMAIN UTILS.ts AS timestamp(6) ;
-CREATE DOMAIN UTILS.tstz AS timestamp(6) with time zone;
-DROP TYPE IF EXISTS utils.identity_type;
-CREATE TYPE utils.identity_type AS (identity_type bigint[]);
+-- CREATE DOMAIN UTILS.ts AS timestamp(6) ;
+-- CREATE DOMAIN UTILS.tstz AS timestamp(6) with time zone;
+-- DROP TYPE IF EXISTS utils.identity_type;
+-- CREATE TYPE utils.identity_type AS (identity_type bigint[]);
 
 
-DROP TYPE IF EXISTS utils.varchar2_array;
-CREATE TYPE utils.varchar2_array AS (varchar2_array varchar(100)[]);
+-- DROP TYPE IF EXISTS utils.varchar2_array;
+-- CREATE TYPE utils.varchar2_array AS (varchar2_array varchar(100)[]);
 
 
-\i ./schema/packages/utils/utils_zerodatetime_package.sql
-\i ./schema/packages/utils/utils_license_enabled_package.sql
-\i ./schema/packages/utils/utils_get_format_from_style_package.sql
-\i ./schema/packages/utils/utils_convert_string_to_timestamp_package.sql
-\i ./schema/packages/utils/utils_getnlstsformat_package.sql
-\i ./schema/packages/utils/utils_getnlsdateformat_package.sql
-\i ./schema/packages/utils/utils_pi_package.sql
-\i ./schema/packages/utils/utils_biginttohex_package.sql
-\i ./schema/packages/utils/utils_biginttohex_package.sql
-\i ./schema/packages/utils/utils_bit_xor_package.sql
-\i ./schema/packages/utils/utils_bit_xor_package.sql
-\i ./schema/packages/utils/utils_bit_or_package.sql
-\i ./schema/packages/utils/utils_bit_or_package.sql
-\i ./schema/packages/utils/utils_bit_and_package.sql
-\i ./schema/packages/utils/utils_bit_and_package.sql
-\i ./schema/packages/utils/utils_bit_and_package.sql
-\i ./schema/packages/utils/utils_bit_and_package.sql
-\i ./schema/packages/utils/utils_bit_compliment_package.sql
-\i ./schema/packages/utils/utils_bit_compliment_package.sql
-\i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
-\i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
-\i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
-\i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
-\i ./schema/packages/utils/utils_convert_to_datetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_datetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_datetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_datetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_date_package.sql
-\i ./schema/packages/utils/utils_convert_to_date_package.sql
-\i ./schema/packages/utils/utils_convert_to_date_package.sql
-\i ./schema/packages/utils/utils_convert_to_date_package.sql
-\i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
-\i ./schema/packages/utils/utils_convert_to_number_package.sql
-\i ./schema/packages/utils/utils_convert_to_number_package.sql
-\i ./schema/packages/utils/utils_convert_to_float_package.sql
-\i ./schema/packages/utils/utils_convert_to_float_package.sql
-\i ./schema/packages/utils/utils_convert_to_float_package.sql
-\i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_number_package.sql
-\i ./schema/packages/utils/utils_convert_to_blob_package.sql
-\i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_blob_package.sql
-\i ./schema/packages/utils/utils_substr__package.sql
-\i ./schema/packages/utils/utils_convert_to_char__package.sql
-\i ./schema/packages/utils/utils_convert_to_char_package.sql
-\i ./schema/packages/utils/utils_convert_to_char_package.sql
-\i ./schema/packages/utils/utils_convert_to_char_package.sql
-\i ./schema/packages/utils/utils_convert_to_char_package.sql
-\i ./schema/packages/utils/utils_convert_to_char_package.sql
-\i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
-\i ./schema/packages/utils/utils_convert_to_clob__package.sql
-\i ./schema/packages/utils/utils_convert_to_clob_package.sql
-\i ./schema/packages/utils/utils_convert_to_clob_package.sql
-\i ./schema/packages/utils/utils_convert_to_clob_package.sql
-\i ./schema/packages/utils/utils_convert_to_clob_package.sql
-\i ./schema/packages/utils/utils_convert_to_clob_package.sql
-\i ./schema/packages/utils/utils_convert_to_clob_package.sql
-\i ./schema/packages/utils/utils_datename__package.sql
-\i ./schema/packages/utils/utils_datename_package.sql
-\i ./schema/packages/utils/utils_datename_package.sql
-\i ./schema/packages/utils/utils_datename_package.sql
-\i ./schema/packages/utils/utils_datename_package.sql
-\i ./schema/packages/utils/utils_datepart__package.sql
-\i ./schema/packages/utils/utils_datepart_package.sql
-\i ./schema/packages/utils/utils_datepart_package.sql
-\i ./schema/packages/utils/utils_datepart_package.sql
-\i ./schema/packages/utils/utils_datepart_package.sql
-\i ./schema/packages/utils/utils_dateadd__package.sql
-\i ./schema/packages/utils/utils_dateadd_package.sql
-\i ./schema/packages/utils/utils_dateadd_package.sql
-\i ./schema/packages/utils/utils_dateadd_package.sql
-\i ./schema/packages/utils/utils_dateadd_package.sql
-\i ./schema/packages/utils/utils_degrees_package.sql
-\i ./schema/packages/utils/utils_year__package.sql
-\i ./schema/packages/utils/utils_year__package.sql
-\i ./schema/packages/utils/utils_year__package.sql
-\i ./schema/packages/utils/utils_year__package.sql
-\i ./schema/packages/utils/utils_difference_package.sql
-\i ./schema/packages/utils/utils_datediff_sqlserver_package.sql
-\i ./schema/packages/utils/utils_datediff_sybase_package.sql
-\i ./schema/packages/utils/utils_datediff__package.sql
-\i ./schema/packages/utils/utils_numbertodate_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_datediff_package.sql
-\i ./schema/packages/utils/utils_month__package.sql
-\i ./schema/packages/utils/utils_month__package.sql
-\i ./schema/packages/utils/utils_month__package.sql
-\i ./schema/packages/utils/utils_month__package.sql
-\i ./schema/packages/utils/utils_rand_package.sql
-\i ./schema/packages/utils/utils_resettrancount_package.sql
-\i ./schema/packages/utils/utils_isnumeric_package.sql
-\i ./schema/packages/utils/utils_stats_date_package.sql
-\i ./schema/packages/utils/utils_oct_package.sql
-\i ./schema/packages/utils/utils_quotename_package.sql
-\i ./schema/packages/utils/utils_parsename_package.sql
-\i ./schema/packages/utils/utils_fetch_status_package.sql
-\i ./schema/packages/utils/utils_sqlstatus_package.sql
-\i ./schema/packages/utils/utils_ident_seed_package.sql
-\i ./schema/packages/utils/utils_to_base_package.sql
-\i ./schema/packages/utils/utils_to_second_package.sql
-\i ./schema/packages/utils/utils_decrementtrancount_package.sql
-\i ./schema/packages/utils/utils_hex_package.sql
-\i ./schema/packages/utils/utils_isdate_package.sql
-\i ./schema/packages/utils/utils_radians_package.sql
-\i ./schema/packages/utils/utils_getidentity_package.sql
-\i ./schema/packages/utils/utils_ident_incr_package.sql
-\i ./schema/packages/utils/utils_day__package.sql
-\i ./schema/packages/utils/utils_day__package.sql
-\i ./schema/packages/utils/utils_day__package.sql
-\i ./schema/packages/utils/utils_day__package.sql
-\i ./schema/packages/utils/utils_stuff_package.sql
-\i ./schema/packages/utils/utils_commit_transaction_package.sql
-\i ./schema/packages/utils/utils_commit_transaction_state_package.sql
-\i ./schema/packages/utils/utils_round__package.sql
-\i ./schema/packages/utils/utils_patindex_package.sql
-\i ./schema/packages/utils/utils_incrementtrancount_package.sql
-\i ./schema/packages/utils/utils_reverse__package.sql
-\i ./schema/packages/utils/utils_set_database_type_package.sql
-\i ./schema/packages/utils/utils_spid_package.sql
-\i ./schema/packages/utils/utils_str_package.sql
-\i ./schema/packages/utils/utils_identity_reset_package.sql
-\i ./schema/packages/utils/utils_identity_package.sql
-\i ./schema/packages/utils/utils_object_id_package.sql
-\i ./schema/packages/utils/utils_raiserror_package.sql
-\i ./schema/packages/utils/utils_handleerror_package.sql
-\i ./schema/packages/utils/utils_error_line_package.sql
-\i ./schema/packages/utils/utils_error_procedure_package.sql
-\i ./schema/packages/utils/utils_error_severity_package.sql
-\i ./schema/packages/utils/utils_error_state_package.sql
+-- \i ./schema/packages/utils/utils_zerodatetime_package.sql
+-- \i ./schema/packages/utils/utils_license_enabled_package.sql
+-- \i ./schema/packages/utils/utils_get_format_from_style_package.sql
+-- \i ./schema/packages/utils/utils_convert_string_to_timestamp_package.sql
+-- \i ./schema/packages/utils/utils_getnlstsformat_package.sql
+-- \i ./schema/packages/utils/utils_getnlsdateformat_package.sql
+-- \i ./schema/packages/utils/utils_pi_package.sql
+-- \i ./schema/packages/utils/utils_biginttohex_package.sql
+-- \i ./schema/packages/utils/utils_biginttohex_package.sql
+-- \i ./schema/packages/utils/utils_bit_xor_package.sql
+-- \i ./schema/packages/utils/utils_bit_xor_package.sql
+-- \i ./schema/packages/utils/utils_bit_or_package.sql
+-- \i ./schema/packages/utils/utils_bit_or_package.sql
+-- \i ./schema/packages/utils/utils_bit_and_package.sql
+-- \i ./schema/packages/utils/utils_bit_and_package.sql
+-- \i ./schema/packages/utils/utils_bit_and_package.sql
+-- \i ./schema/packages/utils/utils_bit_and_package.sql
+-- \i ./schema/packages/utils/utils_bit_compliment_package.sql
+-- \i ./schema/packages/utils/utils_bit_compliment_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_timestamp_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_datetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_datetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_datetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_datetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_date_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_date_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_date_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_date_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_smalldatetime_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_number_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_number_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_float_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_float_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_float_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_number_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_blob_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_varchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_blob_package.sql
+-- \i ./schema/packages/utils/utils_substr__package.sql
+-- \i ./schema/packages/utils/utils_convert_to_char__package.sql
+-- \i ./schema/packages/utils/utils_convert_to_char_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_char_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_char_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_char_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_char_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_nvarchar2_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_clob__package.sql
+-- \i ./schema/packages/utils/utils_convert_to_clob_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_clob_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_clob_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_clob_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_clob_package.sql
+-- \i ./schema/packages/utils/utils_convert_to_clob_package.sql
+-- \i ./schema/packages/utils/utils_datename__package.sql
+-- \i ./schema/packages/utils/utils_datename_package.sql
+-- \i ./schema/packages/utils/utils_datename_package.sql
+-- \i ./schema/packages/utils/utils_datename_package.sql
+-- \i ./schema/packages/utils/utils_datename_package.sql
+-- \i ./schema/packages/utils/utils_datepart__package.sql
+-- \i ./schema/packages/utils/utils_datepart_package.sql
+-- \i ./schema/packages/utils/utils_datepart_package.sql
+-- \i ./schema/packages/utils/utils_datepart_package.sql
+-- \i ./schema/packages/utils/utils_datepart_package.sql
+-- \i ./schema/packages/utils/utils_dateadd__package.sql
+-- \i ./schema/packages/utils/utils_dateadd_package.sql
+-- \i ./schema/packages/utils/utils_dateadd_package.sql
+-- \i ./schema/packages/utils/utils_dateadd_package.sql
+-- \i ./schema/packages/utils/utils_dateadd_package.sql
+-- \i ./schema/packages/utils/utils_degrees_package.sql
+-- \i ./schema/packages/utils/utils_year__package.sql
+-- \i ./schema/packages/utils/utils_year__package.sql
+-- \i ./schema/packages/utils/utils_year__package.sql
+-- \i ./schema/packages/utils/utils_year__package.sql
+-- \i ./schema/packages/utils/utils_difference_package.sql
+-- \i ./schema/packages/utils/utils_datediff_sqlserver_package.sql
+-- \i ./schema/packages/utils/utils_datediff_sybase_package.sql
+-- \i ./schema/packages/utils/utils_datediff__package.sql
+-- \i ./schema/packages/utils/utils_numbertodate_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_datediff_package.sql
+-- \i ./schema/packages/utils/utils_month__package.sql
+-- \i ./schema/packages/utils/utils_month__package.sql
+-- \i ./schema/packages/utils/utils_month__package.sql
+-- \i ./schema/packages/utils/utils_month__package.sql
+-- \i ./schema/packages/utils/utils_rand_package.sql
+-- \i ./schema/packages/utils/utils_resettrancount_package.sql
+-- \i ./schema/packages/utils/utils_isnumeric_package.sql
+-- \i ./schema/packages/utils/utils_stats_date_package.sql
+-- \i ./schema/packages/utils/utils_oct_package.sql
+-- \i ./schema/packages/utils/utils_quotename_package.sql
+-- \i ./schema/packages/utils/utils_parsename_package.sql
+-- \i ./schema/packages/utils/utils_fetch_status_package.sql
+-- \i ./schema/packages/utils/utils_sqlstatus_package.sql
+-- \i ./schema/packages/utils/utils_ident_seed_package.sql
+-- \i ./schema/packages/utils/utils_to_base_package.sql
+-- \i ./schema/packages/utils/utils_to_second_package.sql
+-- \i ./schema/packages/utils/utils_decrementtrancount_package.sql
+-- \i ./schema/packages/utils/utils_hex_package.sql
+-- \i ./schema/packages/utils/utils_isdate_package.sql
+-- \i ./schema/packages/utils/utils_radians_package.sql
+-- \i ./schema/packages/utils/utils_getidentity_package.sql
+-- \i ./schema/packages/utils/utils_ident_incr_package.sql
+-- \i ./schema/packages/utils/utils_day__package.sql
+-- \i ./schema/packages/utils/utils_day__package.sql
+-- \i ./schema/packages/utils/utils_day__package.sql
+-- \i ./schema/packages/utils/utils_day__package.sql
+-- \i ./schema/packages/utils/utils_stuff_package.sql
+-- \i ./schema/packages/utils/utils_commit_transaction_package.sql
+-- \i ./schema/packages/utils/utils_commit_transaction_state_package.sql
+-- \i ./schema/packages/utils/utils_round__package.sql
+-- \i ./schema/packages/utils/utils_patindex_package.sql
+-- \i ./schema/packages/utils/utils_incrementtrancount_package.sql
+-- \i ./schema/packages/utils/utils_reverse__package.sql
+-- \i ./schema/packages/utils/utils_set_database_type_package.sql
+-- \i ./schema/packages/utils/utils_spid_package.sql
+-- \i ./schema/packages/utils/utils_str_package.sql
+-- \i ./schema/packages/utils/utils_identity_reset_package.sql
+-- \i ./schema/packages/utils/utils_identity_package.sql
+-- \i ./schema/packages/utils/utils_object_id_package.sql
+-- \i ./schema/packages/utils/utils_raiserror_package.sql
+-- \i ./schema/packages/utils/utils_handleerror_package.sql
+-- \i ./schema/packages/utils/utils_error_line_package.sql
+-- \i ./schema/packages/utils/utils_error_procedure_package.sql
+-- \i ./schema/packages/utils/utils_error_severity_package.sql
+-- \i ./schema/packages/utils/utils_error_state_package.sql
 
 -- End of Oracle package 'UTILS' declaration
 

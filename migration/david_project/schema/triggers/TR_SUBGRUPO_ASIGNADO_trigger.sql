@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_subgrupo_asignado ON acad_subgrupo_asignado CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_subgrupo_asignado() RETURNS trigger AS $BODY$
 BEGIN
-  NEW.id_subgrupo_asignado := nextval('sq_subgrupo_asig');
+  NEW.id_subgrupo_asignado := nextval('david.sq_subgrupo_asig');
 RETURN NEW;
 END
 $BODY$

@@ -18,8 +18,10 @@ DECLARE
     l_igv decimal(10,5):= 0;
     l_tasa_salud decimal(10,5):= 0;
     l_factor_de decimal(10,5):= 0;
+    l_pension decimal(10,5):= 0;
     l_rmv decimal(10,5):= 0;
     l_max_id bigint:=0;
+    l_anhomes varchar(10);
 
 BEGIN
   
@@ -30,11 +32,18 @@ BEGIN
 --       goto salida;
     end if;
 
+     if P_ID_MES<10 then
+        l_anhomes:=P_ID_ANHO::text||'0'||P_ID_MES::text;
+      else
+        l_anhomes:=P_ID_ANHO::text||P_ID_MES::text;
+      end if;
+
     select coalesce(importe,0) into STRICT l_fmr from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_FMR';
     select coalesce(importe,0) into STRICT l_igv from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_IGV';
     select coalesce(importe,0) into STRICT l_tasa_salud from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'TASA_SALUD';
     select coalesce(importe,0) into STRICT l_factor_de from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'FACTOR_DE';
     select coalesce(importe,0) into STRICT l_rmv from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_RMV';
+    select coalesce(importe,0) into STRICT l_pension from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_PENSION';
 
     DELETE FROM TT_TRABAJADOR_SCTR;
 
@@ -51,7 +60,9 @@ BEGIN
         FMR,
         RMV,
         FACTOR_DE,
-        COSTO_SALUD
+        COSTO_SALUD,
+        TASA_PENSION,
+        COSTO_PENSION
       )
       SELECT 
       P_ID_TRABAJADOR_SCTR,
@@ -73,10 +84,13 @@ BEGIN
       end as SUELDO_REAL,
       0,
       l_tasa_salud,
-      l_igv*100,
+      l_igv,
       l_fmr,
-      CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      --CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      l_rmv,
       l_factor_de,
+      0,
+      l_pension,
       0
       from moises.trabajador t, enoc.plla_perfil_puesto pp,enoc.PLLA_REMUNERACION re 
       where t.id_perfil_puesto=pp.id_perfil_puesto
@@ -100,7 +114,9 @@ BEGIN
         FMR,
         RMV,
         FACTOR_DE,
-        COSTO_SALUD
+        COSTO_SALUD,
+        TASA_PENSION,
+        COSTO_PENSION
       )
       SELECT
       0,
@@ -122,10 +138,13 @@ BEGIN
       end as SUELDO_REAL,
       0,
       l_tasa_salud,
-      l_igv*100,
+      l_igv,
       l_fmr,
-      CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      --CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      l_rmv,
       l_factor_de,
+      0,
+      l_pension,
       0
       from moises.trabajador t, enoc.plla_perfil_puesto pp,enoc.PLLA_REMUNERACION re, enoc.VW_ENT_DEP_AREA_CCOSTO sa
       where t.id_perfil_puesto=pp.id_perfil_puesto
@@ -137,6 +156,7 @@ BEGIN
       and case when P_ID_TRABAJADOR=0 then 0 else t.id_trabajador end =P_ID_TRABAJADOR
       and coalesce(pp.sctr,'N') ='S'
       and t.id_tipo_tiempo_trabajo not in (3)
+      AND CASE WHEN T.ID_SITUACION_TRABAJADOR='0' THEN  to_char(t.FECHA_FIN_efectivo,'YYYYMM') ELSE l_anhomes END=l_anhomes
       and t.id_trabajador not in (
         select x.id_trabajador from
         enoc.PLLA_TRABAJADOR_SCTR x
@@ -151,8 +171,9 @@ BEGIN
     SUELDO=CASE WHEN SUELDO_REAL<RMV THEN RMV ELSE SUELDO_REAL END;
 
     UPDATE ENOC.TT_TRABAJADOR_SCTR SET
-    COSTO_SALUD=((SUELDO) + ( SUELDO * TASA_SALUD * IGV ))/ 100;
-
+    COSTO_SALUD=round((SUELDO * (TASA_SALUD/100 ))*(1+IGV),2),
+    COSTO_PENSION=round((SUELDO * (TASA_PENSION/100 ))*(1+IGV),2);
+    --COSTO_SALUD=((SUELDO) + ( SUELDO * TASA_SALUD * IGV ))/ 100;
     if P_ID_TRABAJADOR_SCTR>0 then
     
       MERGE INTO ENOC.PLLA_TRABAJADOR_SCTR S 
@@ -169,7 +190,9 @@ BEGIN
       FMR,
       RMV,
       FACTOR_DE,
-      COSTO_SALUD
+      COSTO_SALUD,
+      TASA_PENSION,
+      COSTO_PENSION
       from ENOC.TT_TRABAJADOR_SCTR
       where ID_TRABAJADOR_SCTR=P_ID_TRABAJADOR_SCTR
       )T ON (T.ID_TRABAJADOR_SCTR=S.ID_TRABAJADOR_SCTR)
@@ -183,7 +206,9 @@ BEGIN
       S.FMR=T.FMR,
       S.RMV=T.RMV,
       S.FACTOR_DE=T.FACTOR_DE,
-      S.COSTO_SALUD=T.COSTO_SALUD;
+      S.COSTO_SALUD=T.COSTO_SALUD,
+      S.TASA_PENSION=T.TASA_PENSION,
+      S.COSTO_PENSION=T.COSTO_PENSION;
 
     ELSE
       select coalesce(max(ID_TRABAJADOR_SCTR),0) into STRICT l_max_id from ENOC.PLLA_TRABAJADOR_SCTR;
@@ -204,7 +229,9 @@ BEGIN
         COSTO_SALUD,
         VIGENCIA,
         ID_USER_REG,
-        FECHA_REG
+        FECHA_REG,
+        TASA_PENSION,
+        COSTO_PENSION
         )
         SELECT (row_number() OVER ( ORDER BY ID_TRABAJADOR ASC )) + l_max_id AS  ID_TRABAJADOR_SCTR,
           ID_PERFIL_PUESTO,
@@ -222,7 +249,9 @@ BEGIN
           COSTO_SALUD,
           1,
           P_ID_USER_REG,
-          clock_timestamp()
+          clock_timestamp(),
+          TASA_PENSION,
+          COSTO_PENSION
         from ENOC.TT_TRABAJADOR_SCTR
         order by ID_TRABAJADOR;
     END IF;

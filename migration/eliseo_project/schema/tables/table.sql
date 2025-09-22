@@ -35,6 +35,33 @@ CREATE TABLE acad_curso_alumno_x (
 ) ;
 
 
+DROP TABLE IF EXISTS adm_junta_directiva;
+CREATE TABLE adm_junta_directiva (
+	id_junta bigint NOT NULL,
+	id_entidad bigint,
+	id_depto varchar(10),
+	id_anho bigint,
+	id_mes bigint,
+	area varchar(10),
+	numero varchar(8),
+	nombre varchar(150),
+	motivo varchar(250),
+	fecha timestamp(0),
+	nombre_file varchar(250),
+	formato_file varchar(100),
+	url_file varchar(250),
+	tamanho_file decimal(10,2),
+	estado varchar(1) DEFAULT '1'
+) ;
+
+
+DROP TABLE IF EXISTS adm_junta_participantes;
+CREATE TABLE adm_junta_participantes (
+	id_junta bigint NOT NULL,
+	id_persona bigint NOT NULL
+) ;
+
+
 DROP TABLE IF EXISTS alumno;
 CREATE TABLE alumno (
 	cod_modular varchar(50),
@@ -241,43 +268,6 @@ DROP TABLE IF EXISTS aps_categoria_ocupacional;
 CREATE TABLE aps_categoria_ocupacional (
 	id_categoriaocupacional bigint NOT NULL,
 	nombre varchar(255) NOT NULL
-) ;
-
-
-DROP TABLE IF EXISTS aps_certificado;
-CREATE TABLE aps_certificado (
-	id_certificado bigint NOT NULL,
-	descripcion varchar(50),
-	nombre_archivo varchar(50),
-	archivo bytea,
-	clave varchar(500),
-	desde timestamp(0),
-	hasta timestamp(0),
-	id_persona bigint,
-	firma varchar(150),
-	ubicacion varchar(100),
-	estado varchar(1),
-	fecha TIMESTAMP(6),
-	numserie varchar(35),
-	id_depto_padre varchar(8),
-	id_entidad bigint,
-	logo_boleta varchar(255),
-	logo_firma varchar(255),
-	mail_driver varchar(20),
-	mail_host varchar(255),
-	mail_port varchar(10),
-	mail_username varchar(255),
-	mail_password varchar(255),
-	mail_encryption varchar(10),
-	sms_username varchar(255),
-	sms_password varchar(255),
-	mail_from_name varchar(255),
-	mail_body text,
-	mail_footer text,
-	boleta_title_background varchar(100),
-	boleta_ds_remuneraciones varchar(255),
-	firma_ubicacion varchar(255),
-	firma_razon varchar(255)
 ) ;
 
 
@@ -796,8 +786,8 @@ CREATE TABLE arreglo_detalle (
 	id_darreglo bigint NOT NULL,
 	id_arreglo bigint NOT NULL,
 	campo varchar(100),
-	dice varchar(255),
-	debe_decir varchar(255),
+	dice varchar(500),
+	debe_decir varchar(500),
 	id_arreglo_entrada bigint,
 	id_referencia bigint
 ) ;
@@ -1439,7 +1429,8 @@ CREATE TABLE caja_detraccion_compra_asiento (
 	agrupa varchar(1) NOT NULL DEFAULT 'N',
 	nro_asiento bigint,
 	orden bigint,
-	primario varchar(1) DEFAULT 'N'
+	primario varchar(1) DEFAULT 'N',
+	send_memo varchar(1)
 ) ;
 COMMENT ON COLUMN caja_detraccion_compra_asiento.orden IS E'El orden que tendrá una partida en un asiento';
 
@@ -1931,7 +1922,8 @@ CREATE TABLE caja_retencion_compra_asiento (
 	agrupa varchar(1) NOT NULL DEFAULT 'N',
 	nro_asiento bigint,
 	orden bigint,
-	primario varchar(1) DEFAULT 'N'
+	primario varchar(1) DEFAULT 'N',
+	send_memo varchar(1)
 ) ;
 COMMENT ON COLUMN caja_retencion_compra_asiento.orden IS E'El orden que tendrá una partida en un asiento';
 
@@ -2391,28 +2383,6 @@ CREATE TABLE colp_venta (
 ) ;
 
 
-DROP TABLE IF EXISTS componente;
-CREATE TABLE componente (
-	id_componente bigint NOT NULL,
-	id_tipocomponente bigint NOT NULL,
-	nombre varchar(50),
-	fec_insert timestamp(0),
-	xml_send text,
-	xml_array varchar(255),
-	xml_item varchar(255),
-	xml_multiple varchar(255),
-	xml_query text,
-	xml_subquery varchar(2000),
-	pre_condition varchar(2000),
-	pre_query varchar(2000),
-	post_query varchar(2000),
-	comentario varchar(255),
-	xml_subitem varchar(255),
-	xml_inline varchar(10),
-	xml_send_aux text
-) ;
-
-
 DROP TABLE IF EXISTS componente2;
 CREATE TABLE componente2 (
 	id_componente bigint NOT NULL,
@@ -2672,7 +2642,8 @@ CREATE TABLE compra_asiento (
 	agrupa varchar(1) NOT NULL DEFAULT 'N',
 	nro_asiento numeric,
 	orden decimal(10,2),
-	primario varchar(1) DEFAULT 'N'
+	primario varchar(1) DEFAULT 'N',
+	send_memo varchar(1)
 ) ;
 COMMENT ON COLUMN compra_asiento.orden IS E'El orden que tendrá una partida en un asiento';
 
@@ -3029,8 +3000,11 @@ CREATE TABLE conta_asiento (
 	agrupa varchar(1) DEFAULT 'N',
 	importe_me decimal(10,2),
 	primario varchar(1),
-	descripcion_02 varchar(4000)
+	descripcion_02 varchar(4000),
+	send_memo varchar(1),
+	guid varchar(250)
 ) ;
+COMMENT ON COLUMN conta_asiento.guid IS E'Aasinet información';
 
 
 DROP TABLE IF EXISTS conta_corporacion;
@@ -3275,8 +3249,8 @@ CREATE TABLE conta_diario_detalle (
 	id_ctacte varchar(50),
 	id_restriccion varchar(50) NOT NULL,
 	num_aasi varchar(20),
-	cos_valor bigint,
-	cos_dolar bigint,
+	cos_valor numeric,
+	cos_dolar numeric,
 	observacion varchar(1000),
 	comentario varchar(1000)
 ) ;
@@ -3475,7 +3449,8 @@ CREATE TABLE conta_dinamica_asiento (
 	unico_ctacte varchar(1),
 	agrupa varchar(1),
 	id_fondo bigint,
-	primario varchar(1)
+	primario varchar(1),
+	send_memo varchar(1)
 ) ;
 COMMENT ON COLUMN conta_dinamica_asiento.agrupa IS E'S:AGRUPA ASIENTO; N: NO AGRUPA';
 COMMENT ON COLUMN conta_dinamica_asiento.destino IS E'S:ACEPTA DESTINO;N SIN ASIENTO DE DESTINO';
@@ -4281,8 +4256,18 @@ CREATE TABLE conta_voucher (
 	fecha timestamp(0),
 	activo char(1),
 	id_voucher_parent bigint,
-	id_persona bigint
+	id_persona bigint,
+	journal_code varchar(10),
+	journal_date varchar(10),
+	journal_guid varchar(250),
+	journal_type varchar(10),
+	attach_uploaded varchar(1)
 ) ;
+COMMENT ON COLUMN conta_voucher.attach_uploaded IS E'1=Se subio attach;else no se se subio';
+COMMENT ON COLUMN conta_voucher.journal_code IS E'Aasinet información';
+COMMENT ON COLUMN conta_voucher.journal_date IS E'Aasinet información';
+COMMENT ON COLUMN conta_voucher.journal_guid IS E'Aasinet información';
+COMMENT ON COLUMN conta_voucher.journal_type IS E'Aasinet información';
 
 
 DROP TABLE IF EXISTS conta_voucher_comision_visa;
@@ -4914,17 +4899,6 @@ CREATE TABLE eval_tipo_detalle (
 ) ;
 
 
-DROP TABLE IF EXISTS failed_jobs;
-CREATE TABLE failed_jobs (
-	id bigint NOT NULL,
-	connection text NOT NULL,
-	queue text NOT NULL,
-	payload text NOT NULL,
-	exception text NOT NULL,
-	failed_at TIMESTAMP(6) NOT NULL
-) ;
-
-
 DROP TABLE IF EXISTS fin_alumno_descuento_vice;
 CREATE TABLE fin_alumno_descuento_vice (
 	id_alumno_descuento_vice bigint NOT NULL,
@@ -5353,11 +5327,13 @@ CREATE TABLE informe_ayuda (
 	doc_type_file varchar(100),
 	created_at timestamp(0),
 	updated_at timestamp(0),
-	es_conceptoaps_persona varchar(1) NOT NULL DEFAULT '0'
+	es_conceptoaps_persona varchar(1) NOT NULL DEFAULT '0',
+	id_registrado bigint
 ) ;
 COMMENT ON COLUMN informe_ayuda.doc_type_file IS E'image/jpg,application/pdf,etc.';
 COMMENT ON COLUMN informe_ayuda.es_aprobado IS E'1=Aprobado en informe; 0=Rechazado en informe';
 COMMENT ON COLUMN informe_ayuda.es_conceptoaps_persona IS E'Es para saber si se usara la nueva tabla ELISEO.INFORME_CONCEPTOAPS_PERSONA, los valores de un concepto. Se izo pensando para los jubilados';
+COMMENT ON COLUMN informe_ayuda.id_registrado IS E'Familiar vinculado, equivalente a ID_PERSONA del familiar';
 
 
 DROP TABLE IF EXISTS informe_categoria;
@@ -5715,6 +5691,27 @@ CREATE TABLE inventario_articulo_codigo (
 ) ;
 
 
+DROP TABLE IF EXISTS inventario_articulo_conf_conta;
+CREATE TABLE inventario_articulo_conf_conta (
+	id_conf_conta bigint NOT NULL,
+	id_entidad bigint,
+	id_empresa bigint,
+	id_depto bigint,
+	id_articulo bigint,
+	id_tipoigv varchar(100),
+	id_ctacte varchar(500),
+	nombre varchar(100),
+	id_familia bigint
+) ;
+
+
+DROP TABLE IF EXISTS inventario_articulo_fam;
+CREATE TABLE inventario_articulo_fam (
+	id_familia bigint NOT NULL,
+	nombre varchar(100)
+) ;
+
+
 DROP TABLE IF EXISTS inventario_articulo_pf;
 CREATE TABLE inventario_articulo_pf (
 	id_articulo bigint NOT NULL,
@@ -5939,18 +5936,6 @@ CREATE TABLE inv_test (
 	codigo varchar(50),
 	cantidad decimal(10,2),
 	costo decimal(10,2)
-) ;
-
-
-DROP TABLE IF EXISTS jobs_queues;
-CREATE TABLE jobs_queues (
-	id bigint,
-	queue varchar(255) NOT NULL,
-	payload text NOT NULL,
-	attempts bigint NOT NULL,
-	reserved_at bigint,
-	available_at bigint NOT NULL,
-	created_at bigint NOT NULL
 ) ;
 
 
@@ -6785,54 +6770,6 @@ COMMENT ON COLUMN md_applications.output_dir IS E'This is the output directory w
 COMMENT ON COLUMN md_applications.project_id_fk IS E'project of the database(s) this application relates to';
 
 
-DROP TABLE IF EXISTS md_catalogs;
-CREATE TABLE md_catalogs (
-	id bigint NOT NULL,
-	connection_id_fk bigint NOT NULL,
-	catalog_name varchar(4000),
-	dummy_flag char(1) DEFAULT 'N',
-	native_sql text,
-	native_key varchar(4000),
-	comments varchar(4000),
-	security_group_id bigint NOT NULL DEFAULT 0,
-	created_on timestamp(0) NOT NULL DEFAULT statement_timestamp(),
-	created_by varchar(255),
-	last_updated_on timestamp(0),
-	last_updated_by varchar(255)
-) ;
-COMMENT ON TABLE md_catalogs IS E'Store catalogs in this table.';
-COMMENT ON COLUMN md_catalogs.catalog_name IS E'Name of the catalog //OBJECTNAME';
-COMMENT ON COLUMN md_catalogs.connection_id_fk IS E'Foreign key into the connections table - Shows what connection this catalog belongs to //PARENTFIELD';
-COMMENT ON COLUMN md_catalogs.dummy_flag IS E'Flag to show if this catalog is a "dummy" catalog which is used as a placeholder for those platforms that do not support catalogs.  ''N'' signifies that this is NOT a dummy catalog, while ''Y'' signifies that it is.';
-COMMENT ON COLUMN md_catalogs.native_key IS E'A unique identifier used to identify the catalog at source.';
-COMMENT ON COLUMN md_catalogs.native_sql IS E'THe SQL used to create this catalog';
-
-
-DROP TABLE IF EXISTS md_columns;
-CREATE TABLE md_columns (
-	id bigint NOT NULL,
-	table_id_fk bigint NOT NULL,
-	column_name varchar(4000) NOT NULL,
-	column_order bigint NOT NULL,
-	column_type varchar(4000),
-	precision bigint,
-	scale bigint,
-	nullable char(1) NOT NULL,
-	default_value varchar(4000),
-	native_sql text,
-	native_key varchar(4000),
-	datatype_transformed_flag char(1),
-	comments varchar(4000),
-	security_group_id bigint NOT NULL DEFAULT 0,
-	created_by varchar(255),
-	created_on timestamp(0) NOT NULL DEFAULT statement_timestamp(),
-	last_updated_by varchar(255),
-	last_updated_on timestamp(0)
-) ;
-COMMENT ON TABLE md_columns IS E'Column information is stored in this table.';
-COMMENT ON COLUMN md_columns.id IS E'Primary Key';
-
-
 DROP TABLE IF EXISTS md_file_artifacts;
 CREATE TABLE md_file_artifacts (
 	id bigint NOT NULL,
@@ -6892,78 +6829,6 @@ CREATE TABLE md_repoversions (
 	revision bigint NOT NULL
 ) ;
 COMMENT ON TABLE md_repoversions IS E'This table is used to version this schema for future requirements.';
-
-
-DROP TABLE IF EXISTS md_sequences;
-CREATE TABLE md_sequences (
-	id bigint NOT NULL,
-	schema_id_fk bigint NOT NULL,
-	name varchar(4000) NOT NULL,
-	seq_start bigint NOT NULL,
-	incr bigint NOT NULL DEFAULT 1,
-	native_sql text,
-	native_key varchar(4000),
-	comments varchar(4000),
-	security_group_id bigint NOT NULL DEFAULT 0,
-	created_on timestamp(0) NOT NULL DEFAULT statement_timestamp(),
-	created_by varchar(255) NOT NULL DEFAULT '0',
-	last_updated_on timestamp(0),
-	last_updated_by varchar(255)
-) ;
-COMMENT ON TABLE md_sequences IS E'For storing information on sequences.';
-COMMENT ON COLUMN md_sequences.id IS E'Primary Key';
-COMMENT ON COLUMN md_sequences.incr IS E'Increment value of the sequence';
-COMMENT ON COLUMN md_sequences.name IS E'Name of this sequence //OBJECTNAME';
-COMMENT ON COLUMN md_sequences.native_key IS E'Identifier for this object at source.';
-COMMENT ON COLUMN md_sequences.native_sql IS E'SQL used to create this object at source';
-COMMENT ON COLUMN md_sequences.schema_id_fk IS E'The schema to which this object belongs. //PARENTFIELD';
-COMMENT ON COLUMN md_sequences.seq_start IS E'Starting point of the sequence';
-
-
-DROP TABLE IF EXISTS md_tablespaces;
-CREATE TABLE md_tablespaces (
-	id bigint NOT NULL,
-	schema_id_fk bigint NOT NULL,
-	tablespace_name varchar(4000),
-	native_sql text,
-	native_key varchar(4000),
-	comments varchar(4000),
-	security_group_id bigint NOT NULL DEFAULT 0,
-	created_on timestamp(0) NOT NULL DEFAULT statement_timestamp(),
-	created_by varchar(255),
-	last_updated_on timestamp(0),
-	last_updated_by varchar(255)
-) ;
-COMMENT ON TABLE md_tablespaces IS E'For storing information about tablespaces.';
-COMMENT ON COLUMN md_tablespaces.id IS E'Primary Key';
-COMMENT ON COLUMN md_tablespaces.native_key IS E'A unique identifier for this object at source';
-COMMENT ON COLUMN md_tablespaces.native_sql IS E'The SQL used to create this tablespace';
-COMMENT ON COLUMN md_tablespaces.schema_id_fk IS E'Schema to which this tablespace belongs //PARENTFIELD';
-COMMENT ON COLUMN md_tablespaces.tablespace_name IS E'Name of the table space //OBJECTNAME';
-
-
-DROP TABLE IF EXISTS md_users;
-CREATE TABLE md_users (
-	id bigint NOT NULL,
-	schema_id_fk bigint NOT NULL,
-	username varchar(4000) NOT NULL,
-	password varchar(4000),
-	native_sql text,
-	native_key varchar(4000),
-	comments varchar(4000),
-	security_group_id bigint NOT NULL DEFAULT 0,
-	created_on timestamp(0) NOT NULL DEFAULT statement_timestamp(),
-	created_by varchar(255),
-	last_updated_on timestamp(0),
-	last_updated_by varchar(255)
-) ;
-COMMENT ON TABLE md_users IS E'User information.';
-COMMENT ON COLUMN md_users.id IS E'Primary Key';
-COMMENT ON COLUMN md_users.native_key IS E'Unique identifier for this object at source.';
-COMMENT ON COLUMN md_users.native_sql IS E'SQL Used to create this object at source';
-COMMENT ON COLUMN md_users.password IS E'Password for login';
-COMMENT ON COLUMN md_users.schema_id_fk IS E'Shema in which this object belongs //PARENTFIELD';
-COMMENT ON COLUMN md_users.username IS E'Username for login //OBJECTNAME';
 
 
 DROP TABLE IF EXISTS md_user_privileges;
@@ -8047,25 +7912,6 @@ CREATE TABLE persona_direccion (
 ) ;
 
 
-DROP TABLE IF EXISTS persona_documento;
-CREATE TABLE persona_documento (
-	id_persona bigint NOT NULL,
-	id_tipodocumento bigint NOT NULL,
-	num_documento varchar(20) NOT NULL,
-	img_documento bytea
-) ;
-
-
-DROP TABLE IF EXISTS persona_imagen;
-CREATE TABLE persona_imagen (
-	id_imagen bigint NOT NULL,
-	id_persona bigint NOT NULL,
-	imagen bytea,
-	fec_registro timestamp(0),
-	comentario varchar(255)
-) ;
-
-
 DROP TABLE IF EXISTS persona_juridica;
 CREATE TABLE persona_juridica (
 	id_ruc varchar(50) NOT NULL,
@@ -8115,17 +7961,6 @@ CREATE TABLE persona_natural_alumno (
 	id_erp varchar(50),
 	codigo varchar(9),
 	codigo_modular varchar(30)
-) ;
-
-
-DROP TABLE IF EXISTS persona_natural_firma;
-CREATE TABLE persona_natural_firma (
-	id_persona bigint NOT NULL,
-	img_firma bytea,
-	img_foto bytea,
-	img_sello bytea,
-	img_indicederecho bytea,
-	img_indiceizquierdo bytea
 ) ;
 
 
@@ -11421,7 +11256,8 @@ CREATE TABLE tipo_virtual (
 DROP TABLE IF EXISTS tipo_voucher;
 CREATE TABLE tipo_voucher (
 	id_tipovoucher bigint NOT NULL,
-	nombre varchar(20)
+	nombre varchar(20),
+	descripcion_aasi varchar(50)
 ) ;
 
 
@@ -11732,21 +11568,6 @@ CREATE TABLE users_session_academico (
 ) ;
 
 
-DROP TABLE IF EXISTS users_session_fraud_logs;
-CREATE TABLE users_session_fraud_logs (
-	id_session_fraud bigint NOT NULL,
-	id_user bigint,
-	token varchar(1000),
-	ip_address varchar(45),
-	ip_location text,
-	user_agent varchar(1000),
-	reason varchar(100),
-	user_fingerprint varchar(500),
-	created_at timestamp(0),
-	updated_at timestamp(0)
-) ;
-
-
 DROP TABLE IF EXISTS users_session_log;
 CREATE TABLE users_session_log (
 	token varchar(100) NOT NULL,
@@ -11965,158 +11786,6 @@ CREATE TABLE venta_detalle_to_lamb (
 	igv decimal(10,3),
 	descuento decimal(10,2),
 	importe decimal(10,2)
-) ;
-
-
-DROP TABLE IF EXISTS venta_electronica;
-CREATE TABLE venta_electronica (
-	id bigint NOT NULL,
-	emisorid bigint NOT NULL,
-	origenid varchar(40) NOT NULL,
-	fecha timestamp(0) NOT NULL,
-	tipo varchar(2) NOT NULL,
-	nrocomprobante varchar(13) NOT NULL,
-	comprobante_old varchar(4000),
-	comprobante text,
-	nombrearchivo varchar(50) NOT NULL,
-	hash varchar(50),
-	codbarra bytea,
-	estado varchar(2),
-	procesado bigint DEFAULT 0,
-	enviado bigint DEFAULT 0,
-	observaciones varchar(4000),
-	cadenacb varchar(1000),
-	descargado_lamb varchar(2),
-	fecha_descarga_lamb timestamp(0),
-	url_lamb varchar(500)
-) ;
-
-
-DROP TABLE IF EXISTS venta_electronica_aces;
-CREATE TABLE venta_electronica_aces (
-	id bigint NOT NULL,
-	origenid bigint,
-	emisorid bigint,
-	fecha timestamp(0),
-	tipo varchar(2),
-	nrocomprobante varchar(20),
-	comprobante text,
-	nombrearchivo varchar(50),
-	hash varchar(50),
-	estado varchar(2),
-	procesado bigint,
-	enviado bigint,
-	observaciones varchar(4000),
-	cadenacb varchar(1000),
-	codbarra bytea,
-	descargado_lamb varchar(2),
-	fecha_descarga_lamb timestamp(0),
-	url_lamb varchar(500)
-) ;
-
-
-DROP TABLE IF EXISTS venta_electronica_bizlinks;
-CREATE TABLE venta_electronica_bizlinks (
-	id bigint NOT NULL,
-	origenid bigint,
-	emisorid bigint,
-	fecha timestamp(0),
-	tipo varchar(2),
-	nrocomprobante varchar(20),
-	comprobante text,
-	nombrearchivo varchar(50),
-	hash varchar(200),
-	estado varchar(2),
-	procesado bigint,
-	enviado bigint,
-	observaciones varchar(4000),
-	cadenacb varchar(1000),
-	codbarra bytea,
-	error bigint,
-	estadoregistro varchar(50),
-	estadoproceso varchar(50),
-	firma varchar(2000),
-	errorcodigo varchar(50),
-	errormensaje varchar(500),
-	descargado_lamb varchar(2),
-	fecha_descarga_lamb timestamp(0),
-	url_lamb varchar(500),
-	url_cdr varchar(1000),
-	url_pdf varchar(500),
-	estado_registro_envio bigint DEFAULT 0,
-	error_registro_envio varchar(200),
-	estado_descarga_respuesta bigint DEFAULT 0,
-	msj_descarga_respuesta varchar(200),
-	id_user_registro_envio bigint,
-	fecha_registro_envio timestamp(0),
-	id_user_descarga_respuesta bigint,
-	fecha_descarga_respuesta timestamp(0)
-) ;
-COMMENT ON COLUMN venta_electronica_bizlinks.error_registro_envio IS E'ERROR DEL ENVÍO A LA BASE DE DATOS';
-COMMENT ON COLUMN venta_electronica_bizlinks.estado_registro_envio IS E'ESTADO DEL ERROR DEL ENVÍO DE LAMB A LA BASE DE DATOS QUE ENVÍA A BIZLINK 
-1 ES TODO OK
-0 NO ENVIADO';
-
-
-DROP TABLE IF EXISTS venta_electronica_desis;
-CREATE TABLE venta_electronica_desis (
-	id bigint NOT NULL,
-	origenid bigint NOT NULL,
-	emisorid bigint,
-	fecha timestamp(0) NOT NULL,
-	folio varchar(20) NOT NULL,
-	tipodte varchar(2) NOT NULL,
-	operacion varchar(100),
-	comprobante text,
-	url_original varchar(500),
-	url_cedible varchar(500),
-	estado varchar(2),
-	procesado bigint,
-	enviado bigint,
-	observaciones varchar(4000),
-	codbarra bytea
-) ;
-COMMENT ON COLUMN venta_electronica_desis.comprobante IS E'Documento electrónico en formato XML o TXT, listo para el envío a facturacion.cl';
-COMMENT ON COLUMN venta_electronica_desis.emisorid IS E'Es el id de la tabla ELISEO.VENTA_EMISOR_DESIS';
-COMMENT ON COLUMN venta_electronica_desis.enviado IS E'1=Enviado; 0= No enviado';
-COMMENT ON COLUMN venta_electronica_desis.estado IS E'0=Invalido; 1=Valido; 2=Rechazado';
-COMMENT ON COLUMN venta_electronica_desis.folio IS E'Número del documento electrónico';
-COMMENT ON COLUMN venta_electronica_desis.operacion IS E'Si es una venta o compra, este campo proviene de Facturación.cl';
-COMMENT ON COLUMN venta_electronica_desis.origenid IS E'Es un campo para definir de donde proviene el documento, el id de venta o el id de compra';
-COMMENT ON COLUMN venta_electronica_desis.procesado IS E'1=Procesado; 0=No procesado';
-COMMENT ON COLUMN venta_electronica_desis.tipodte IS E'Es el tipo de documento electrónico.';
-COMMENT ON COLUMN venta_electronica_desis.url_original IS E'Url del documento electrónico emitido y que el cliente puede descargar en pdf';
-
-
-DROP TABLE IF EXISTS venta_electronica_nube;
-CREATE TABLE venta_electronica_nube (
-	id bigint NOT NULL,
-	origenid bigint,
-	emisorid bigint,
-	fecha timestamp(0),
-	tipo varchar(2),
-	nrocomprobante varchar(20),
-	comprobante text,
-	nombrearchivo varchar(50),
-	hash varchar(50),
-	estado varchar(2),
-	procesado bigint,
-	enviado bigint,
-	observaciones varchar(4000),
-	cadenacb varchar(1000),
-	codbarra bytea,
-	descargado_lamb varchar(2),
-	fecha_descarga_lamb timestamp(0),
-	url_lamb varchar(500)
-) ;
-
-
-DROP TABLE IF EXISTS venta_electronica_nube_temp;
-CREATE TABLE venta_electronica_nube_temp (
-	id bigint NOT NULL,
-	origenid bigint,
-	comprobante_char text,
-	comprobante_corregido text
 ) ;
 
 

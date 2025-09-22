@@ -7,7 +7,7 @@ SET client_encoding TO 'UTF8';
 SET search_path = enoc,public;
 \set ON_ERROR_STOP ON
 
-CREATE OR REPLACE PACKAGE                                                                                                     PKG_COMPENSACION AS 
+CREATE OR REPLACE PACKAGE                                                                                                               PKG_COMPENSACION AS 
 
   /* TODO enter package declarations (types, exceptions, methods etc) here */ 
   
@@ -97,10 +97,40 @@ CREATE OR REPLACE PACKAGE                                                       
     PROCEDURE SP_COPIAR_PERIODO_PLANILLA(P_ID_PERIODO_PLANILLA_ANT NUMBER, P_ID_PERIODO_PLANILLA NUMBER,P_ID_USER_REG NUMBER,P_ERROR OUT number, P_MSGERROR out varchar2);
     PROCEDURE SP_PERIODO_PLANILLA_CONTROL(P_ID_ENTIDAD NUMBER, P_COD_MODULO VARCHAR2,P_ID_USER NUMBER,P_FECHA DATE,P_TIPO_PER VARCHAR2,P_TIPO VARCHAR2, CURSOR OUT SYS_REFCURSOR );
     PROCEDURE SP_GENERAR_TRABAJADOR_SCTR(P_ID_ENTIDAD NUMBER, P_ID_DEPTO VARCHAR2,P_ID_TRABAJADOR_SCTR NUMBER, P_ID_ANHO NUMBER,P_ID_MES NUMBER,P_ID_TRABAJADOR NUMBER,P_ID_USER_REG NUMBER,P_ERROR OUT number, P_MSGERROR out varchar2);
+    PROCEDURE SP_REPORTE_VIDA_LEY(
+        P_ID_ENTIDAD NUMBER,
+        P_ID_DEPTO VARCHAR2,
+        P_ID_AREA NUMBER,
+        P_ID_CONDICION_LABORAL VARCHAR2,
+        P_ID_TIPO_TIEMPO_TRABAJO NUMBER,
+        P_ID_ANHO NUMBER,
+        P_ID_MES NUMBER,
+        P_DATO VARCHAR2,
+        P_RESTRINGIDO VARCHAR2,
+        P_ID_ACCESO_NIVEL NUMBER,
+        P_ID_AREAS_USER VARCHAR2,
+        P_ID_USER NUMBER,
+        CURSOR OUT SYS_REFCURSOR
+        );
+  PROCEDURE SP_REPORTE_JAR(
+        P_ID_ENTIDAD NUMBER,
+        P_ID_DEPTO VARCHAR2,
+        P_ID_AREA NUMBER,
+        P_ID_CONDICION_LABORAL VARCHAR2,
+        P_ID_TIPO_TIEMPO_TRABAJO NUMBER,
+        P_ID_ANHO NUMBER,
+        P_ID_MES NUMBER,
+        P_DATO VARCHAR2,
+        P_RESTRINGIDO VARCHAR2,
+        P_ID_ACCESO_NIVEL NUMBER,
+        P_ID_AREAS_USER VARCHAR2,
+        P_ID_USER NUMBER,
+        CURSOR OUT SYS_REFCURSOR
+        );
 END PKG_COMPENSACION;
 
 
-CREATE OR REPLACE PACKAGE BODY                                                                                                                                                                           PKG_COMPENSACION AS
+CREATE OR REPLACE PACKAGE BODY                                                                                                                                                                                                              PKG_COMPENSACION AS
 
   PROCEDURE SP_REPORTE_SUELDO_MENSUAL(P_ID_ENTIDAD NUMBER, P_ID_DEPTO VARCHAR2, P_ID_AREA NUMBER,P_ANHO_ID NUMBER, P_ID_MES NUMBER, P_ID_TRABAJADOR NUMBER, P_ID_CONDICION_LABORAL VARCHAR2,P_ID_TIPO_TIEMPO_TRABAJO NUMBER,CURSOR OUT SYS_REFCURSOR ) AS
   l_query varchar2(4000):='';
@@ -1695,8 +1725,10 @@ CREATE OR REPLACE PACKAGE BODY                                                  
     l_igv number(10,5):= 0;
     l_tasa_salud number(10,5):= 0;
     l_factor_de number(10,5):= 0;
+    l_pension number(10,5):= 0;
     l_rmv number(10,5):= 0;
     l_max_id number:=0;
+    l_anhomes VARCHAR2(10);
   begin
   
     select  count(1) into l_contar from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO;
@@ -1706,11 +1738,18 @@ CREATE OR REPLACE PACKAGE BODY                                                  
       goto salida;
     end if;
     
+     if P_ID_MES<10 then
+        l_anhomes:=to_char(P_ID_ANHO)||'0'||to_char(P_ID_MES);
+      else
+        l_anhomes:=to_char(P_ID_ANHO)||to_char(P_ID_MES);
+      end if;
+    
     select coalesce(importe,0) into l_fmr from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_FMR';
     select coalesce(importe,0) into l_igv from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_IGV';
     select coalesce(importe,0) into l_tasa_salud from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'TASA_SALUD';
     select coalesce(importe,0) into l_factor_de from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'FACTOR_DE';
     select coalesce(importe,0) into l_rmv from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_RMV';
+    select coalesce(importe,0) into l_pension from ENOC.VW_PLLA_PARAMETROS_VALOR where id_entidad=P_ID_ENTIDAD and id_anho=P_ID_ANHO and codigo= 'PARAM_PENSION';
     
     DELETE FROM TT_TRABAJADOR_SCTR;
     
@@ -1727,7 +1766,9 @@ CREATE OR REPLACE PACKAGE BODY                                                  
         FMR,
         RMV,
         FACTOR_DE,
-        COSTO_SALUD
+        COSTO_SALUD,
+        TASA_PENSION,
+        COSTO_PENSION
       )
       select 
       P_ID_TRABAJADOR_SCTR,
@@ -1750,10 +1791,13 @@ CREATE OR REPLACE PACKAGE BODY                                                  
       end as SUELDO_REAL,
       0,
       l_tasa_salud,
-      l_igv*100,
+      l_igv,
       l_fmr,
-      CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      --CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      l_rmv,
       l_factor_de,
+      0,
+      l_pension,
       0
       from moises.trabajador t, enoc.plla_perfil_puesto pp,enoc.PLLA_REMUNERACION re 
       where t.id_perfil_puesto=pp.id_perfil_puesto
@@ -1777,7 +1821,9 @@ CREATE OR REPLACE PACKAGE BODY                                                  
         FMR,
         RMV,
         FACTOR_DE,
-        COSTO_SALUD
+        COSTO_SALUD,
+        TASA_PENSION,
+        COSTO_PENSION
       )
       select 
       0,
@@ -1800,10 +1846,13 @@ CREATE OR REPLACE PACKAGE BODY                                                  
       end as SUELDO_REAL,
       0,
       l_tasa_salud,
-      l_igv*100,
+      l_igv,
       l_fmr,
-      CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      --CASE WHEN t.id_tipo_tiempo_trabajo=2 THEN l_rmv/2 ELSE l_rmv END,
+      l_rmv,
       l_factor_de,
+      0,
+      l_pension,
       0
       from moises.trabajador t, enoc.plla_perfil_puesto pp,enoc.PLLA_REMUNERACION re, enoc.VW_ENT_DEP_AREA_CCOSTO sa
       where t.id_perfil_puesto=pp.id_perfil_puesto
@@ -1815,6 +1864,7 @@ CREATE OR REPLACE PACKAGE BODY                                                  
       and case when P_ID_TRABAJADOR=0 then 0 else t.id_trabajador end =P_ID_TRABAJADOR
       and coalesce(pp.sctr,'N') ='S'
       and t.id_tipo_tiempo_trabajo not in(3)
+      AND CASE WHEN T.ID_SITUACION_TRABAJADOR='0' THEN  to_char(t.FECHA_FIN_efectivo,'YYYYMM') ELSE l_anhomes END=l_anhomes
       and t.id_trabajador not in(
         select x.id_trabajador from
         enoc.PLLA_TRABAJADOR_SCTR x
@@ -1829,7 +1879,9 @@ CREATE OR REPLACE PACKAGE BODY                                                  
     SUELDO=CASE WHEN SUELDO_REAL<RMV THEN RMV ELSE SUELDO_REAL END;
       
     UPDATE ENOC.TT_TRABAJADOR_SCTR SET
-    COSTO_SALUD=((SUELDO) + ( SUELDO * TASA_SALUD * IGV ))/ 100;
+    COSTO_SALUD=round((SUELDO * (TASA_SALUD/100 ))*(1+IGV),2),
+    COSTO_PENSION=round((SUELDO * (TASA_PENSION/100 ))*(1+IGV),2);
+    --COSTO_SALUD=((SUELDO) + ( SUELDO * TASA_SALUD * IGV ))/ 100;
     
     if P_ID_TRABAJADOR_SCTR>0 then
     
@@ -1847,7 +1899,9 @@ CREATE OR REPLACE PACKAGE BODY                                                  
       FMR,
       RMV,
       FACTOR_DE,
-      COSTO_SALUD
+      COSTO_SALUD,
+      TASA_PENSION,
+      COSTO_PENSION
       from ENOC.TT_TRABAJADOR_SCTR
       where ID_TRABAJADOR_SCTR=P_ID_TRABAJADOR_SCTR
       )T ON(T.ID_TRABAJADOR_SCTR=S.ID_TRABAJADOR_SCTR)
@@ -1861,7 +1915,9 @@ CREATE OR REPLACE PACKAGE BODY                                                  
       S.FMR=T.FMR,
       S.RMV=T.RMV,
       S.FACTOR_DE=T.FACTOR_DE,
-      S.COSTO_SALUD=T.COSTO_SALUD;
+      S.COSTO_SALUD=T.COSTO_SALUD,
+      S.TASA_PENSION=T.TASA_PENSION,
+      S.COSTO_PENSION=T.COSTO_PENSION;
       
     ELSE
       select coalesce(max(ID_TRABAJADOR_SCTR),0) into l_max_id from ENOC.PLLA_TRABAJADOR_SCTR;
@@ -1882,7 +1938,9 @@ CREATE OR REPLACE PACKAGE BODY                                                  
         COSTO_SALUD,
         VIGENCIA,
         ID_USER_REG,
-        FECHA_REG
+        FECHA_REG,
+        TASA_PENSION,
+        COSTO_PENSION
         )
         select 
           (row_number() OVER( ORDER BY ID_TRABAJADOR ASC )) + l_max_id AS  ID_TRABAJADOR_SCTR,
@@ -1901,7 +1959,9 @@ CREATE OR REPLACE PACKAGE BODY                                                  
           COSTO_SALUD,
           1,
           P_ID_USER_REG,
-          sysdate          
+          sysdate,
+          TASA_PENSION,
+          COSTO_PENSION
         from ENOC.TT_TRABAJADOR_SCTR
         order by ID_TRABAJADOR;
     END IF;
@@ -1910,5 +1970,636 @@ CREATE OR REPLACE PACKAGE BODY                                                  
     P_ERROR:=l_error;
     P_MSGERROR:=l_msgerror;
   end SP_GENERAR_TRABAJADOR_SCTR;
+  
+  PROCEDURE SP_REPORTE_VIDA_LEY(
+        P_ID_ENTIDAD NUMBER,
+        P_ID_DEPTO VARCHAR2,
+        P_ID_AREA NUMBER,
+        P_ID_CONDICION_LABORAL VARCHAR2,
+        P_ID_TIPO_TIEMPO_TRABAJO NUMBER,
+        P_ID_ANHO NUMBER,
+        P_ID_MES NUMBER,
+        P_DATO VARCHAR2,
+        P_RESTRINGIDO VARCHAR2,
+        P_ID_ACCESO_NIVEL NUMBER,
+        P_ID_AREAS_USER VARCHAR2,
+        P_ID_USER NUMBER,
+        CURSOR OUT SYS_REFCURSOR
+        )
+      IS
+       l_query varchar2(4000):='';
+       l_anhomes varchar2(10);
+       l_id_tipo_nivel_vista number;
+      BEGIN
+      
+       if P_RESTRINGIDO='S' then
+          select id_tipo_nivel_vista into l_id_tipo_nivel_vista from eliseo.lamb_acceso_nivel where id_acceso_nivel=P_ID_ACCESO_NIVEL;
+      end if;
+      --activos
+      l_query:='INSERT INTO ENOC.TT_REP_SUELDO_MENSUAL (ID_TRABAJADOR,TOTAL) ';
+      l_query:=l_query||'select ';
+      l_query:=l_query||'t.id_trabajador,';
+      l_query:=l_query||'COALESCE(rem.sueldo,0) ';       
+      l_query:=l_query||'from ENOC.vw_trabajador t ';
+      l_query:=l_query||'inner join enoc.vw_ent_dep_area_ccosto cc on ';
+      l_query:=l_query||'cc.ID_SEDEAREA=t.ID_SEDEAREA ';
+      l_query:=l_query||'left join ENOC.PLLA_REMUNERACION rem on  ';  
+      l_query:=l_query||'rem.id_trabajador=t.id_trabajador and rem.vigencia=1 ';
+      l_query:=l_query||'where t.id_entidad=:s_entidad ';
+      l_query:=l_query||'and t.id_situacion_trabajador=''1'' ';
+      l_query:=l_query||'and t.ID_CONDICION_LABORAL not in(''P'',''PP'') ';
+      if P_ID_DEPTO is not null then
+        l_query:=l_query||'and cc.id_depto_padre='''||P_ID_DEPTO||''' ';
+      end if;
+      if P_ID_AREA > 0 then
+        l_query:=l_query||'and cc.id_area ='||P_ID_AREA||' ';
+      end if;
+      if P_ID_CONDICION_LABORAL is not null then
+        l_query:=l_query||'and t.ID_CONDICION_LABORAL ='''||P_ID_CONDICION_LABORAL||''' ';
+      end if;
+      if P_ID_TIPO_TIEMPO_TRABAJO > 0 then
+        l_query:=l_query||'and t.ID_TIPO_TIEMPO_TRABAJO ='||P_ID_TIPO_TIEMPO_TRABAJO||' ';
+      end if;
+      if P_DATO IS NOT NULL then
+        l_query:=l_query||'and (upper(convert(T.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.num_documento, ''us7ascii'')) like ''%''||replace(replace(upper(convert('''||P_DATO||''' , ''us7ascii'')),'','','' ''),'' '',''%'')||''%'') ';
+      end if;
+       
+                  
+      if P_RESTRINGIDO='S' then
+            
+          if l_id_tipo_nivel_vista = 3 then
+              l_query:=l_query||'and cc.id_depto_padre in(select id_depto from enoc.vw_acceso_nivel where id_acceso_nivel='||to_char(P_ID_ACCESO_NIVEL)||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 4 then
+              l_query:=l_query||'and cc.id_area in('||P_ID_AREAS_USER||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 5 then
+              l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+          end if;
+      end if;
+        
+      if P_RESTRINGIDO='U' then
+          l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+      end if;  
+      
+      DBMS_OUTPUT.PUT_LINE(l_query);
+      
+      EXECUTE IMMEDIATE l_query USING P_ID_ENTIDAD;
+
+      --cesados
+      l_query:='INSERT INTO ENOC.TT_REP_SUELDO_MENSUAL (ID_TRABAJADOR,TOTAL) ';
+      l_query:=l_query||'select ';
+      l_query:=l_query||'t.id_trabajador,';
+      l_query:=l_query||'COALESCE(rem.sueldo,0) ';       
+      l_query:=l_query||'from ENOC.vw_trabajador t ';
+      l_query:=l_query||'inner join enoc.vw_ent_dep_area_ccosto cc on ';
+      l_query:=l_query||'cc.ID_SEDEAREA=t.ID_SEDEAREA ';
+      l_query:=l_query||'left join ENOC.PLLA_REMUNERACION rem on  ';  
+      l_query:=l_query||'rem.id_trabajador=t.id_trabajador and rem.vigencia=1 ';
+      l_query:=l_query||'where t.id_entidad=:s_entidad ';
+      l_query:=l_query||'and t.id_situacion_trabajador=''0'' ';
+      l_query:=l_query||'and t.ID_CONDICION_LABORAL not in(''P'',''PP'') ';
+      l_query:=l_query||'and to_char(t.FECHA_FIN_efectivo,''YYYYMM'') =:s_anhomes ';
+      if P_ID_DEPTO is not null then
+        l_query:=l_query||'and cc.id_depto_padre='''||P_ID_DEPTO||''' ';
+      end if;
+      if P_ID_AREA > 0 then
+        l_query:=l_query||'and cc.id_area ='||P_ID_AREA||' ';
+      end if;
+      if P_ID_CONDICION_LABORAL is not null then
+        l_query:=l_query||'and t.ID_CONDICION_LABORAL ='''||P_ID_CONDICION_LABORAL||''' ';
+      end if;
+      if P_ID_TIPO_TIEMPO_TRABAJO > 0 then
+        l_query:=l_query||'and t.ID_TIPO_TIEMPO_TRABAJO ='||P_ID_TIPO_TIEMPO_TRABAJO||' ';
+      end if;
+      if P_DATO IS NOT NULL then
+        l_query:=l_query||'and (upper(convert(T.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.num_documento, ''us7ascii'')) like ''%''||replace(replace(upper(convert('''||P_DATO||''' , ''us7ascii'')),'','','' ''),'' '',''%'')||''%'') ';
+      end if;
+                  
+      if P_RESTRINGIDO='S' then
+            
+          if l_id_tipo_nivel_vista = 3 then
+              l_query:=l_query||'and cc.id_depto_padre in(select id_depto from enoc.vw_acceso_nivel where id_acceso_nivel='||to_char(P_ID_ACCESO_NIVEL)||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 4 then
+              l_query:=l_query||'and cc.id_area in('||P_ID_AREAS_USER||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 5 then
+              l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+          end if;
+      end if;
+        
+      if P_RESTRINGIDO='U' then
+          l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+      end if; 
+      if P_ID_MES<10 then
+        l_anhomes:=to_char(P_ID_ANHO)||'0'||to_char(P_ID_MES);
+      else
+        l_anhomes:=to_char(P_ID_ANHO)||to_char(P_ID_MES);
+      end if;
+      
+      EXECUTE IMMEDIATE l_query USING P_ID_ENTIDAD,l_anhomes;
+      
+      update ENOC.TT_REP_SUELDO_MENSUAL set adicional=0, importe=0;
+      --sueldo mensual
+      MERGE INTO ENOC.TT_REP_SUELDO_MENSUAL S 
+      USING(
+        select coalesce(sum(w.importe),0) as total,rr.ID_TRABAJADOR from ENOC.PLLA_REMUNERACION_DET w , ENOC.PLLA_REMUNERACION rr
+        where w.ID_REMUNERACION=rr.ID_REMUNERACION
+        and rr.ID_TRABAJADOR in(
+          select ID_TRABAJADOR from ENOC.TT_REP_SUELDO_MENSUAL
+        )
+        and w.id_anho=P_ID_ANHO
+        and w.id_mes=P_ID_MES
+        group by rr.ID_TRABAJADOR
+      )T ON(T.ID_TRABAJADOR=S.ID_TRABAJADOR)
+      WHEN  MATCHED THEN UPDATE SET  
+      S.importe=T.total;
+    
+      --adicional
+      MERGE INTO ENOC.TT_REP_SUELDO_MENSUAL S 
+      USING(
+        select coalesce(sum(q.importe),0) as total,q.ID_TRABAJADOR from ENOC.VW_ADICIONAL_DET q, ENOC.PLLA_CONCEPTO_PLANILLA u
+        where q.ID_CONCEPTO_PLANILLA=u.ID_CONCEPTO_PLANILLA
+        and  q.ID_TRABAJADOR in(
+            select ID_TRABAJADOR from ENOC.TT_REP_SUELDO_MENSUAL
+        )
+        and u.ID_CONCEPTOAPS=1000
+        and q.id_anho=P_ID_ANHO
+        and q.id_mes=P_ID_MES
+        group by q.ID_TRABAJADOR
+      )T ON(T.ID_TRABAJADOR=S.ID_TRABAJADOR)
+      WHEN  MATCHED THEN UPDATE SET  
+      S.ADICIONAL=T.total;
+      
+     
+      
+      OPEN cursor FOR
+      select 
+      t.id_persona,
+      t.id_trabajador,
+      t.paterno,
+      t.materno,
+      t.nombre,
+      t.sexo,
+      t.apellidonombre,
+      to_char(t.FEC_NACIMIENTO,'DD/MM/YYYY') as FEC_NACIMIENTO,
+      t.ID_TIPODOCUMENTO,
+      tdc.siglas as tipodocumento,
+      t.NUM_DOCUMENTO,
+      to_char(t.FECHA_INICIO,'DD/MM/YYYY') as FECHA_INICIO,
+      cc.depto_padre,
+      cc.ID_DEPTO,
+      t.id_perfil_puesto,
+      ppp.PUESTO,
+      to_char(t.FECHA_FIN_PREVISTO,'DD/MM/YYYY') as FECHA_FIN,
+      to_char(t.FECHA_FIN_efectivo,'DD/MM/YYYY') as FECHA_FIN_efectivo,
+      tt.importe as sueldo_men,
+      tt.adicional,
+      tt.total as sueldo_fijo,
+      tt.importe+tt.adicional+tt.total as sueldo,
+      cc.area,
+      cl.nombre as condicion_laboral,
+      tr.nombre as tiempo_trabajo,
+      P_ID_ANHO as id_anho,
+      P_ID_MES as id_mes
+      from enoc.vw_trabajador t
+      inner join ENOC.TT_REP_SUELDO_MENSUAL tt on tt.id_trabajador=t.id_trabajador
+      inner join enoc.vw_ent_dep_area_ccosto cc on cc.ID_SEDEAREA=t.ID_SEDEAREA
+      inner join moises.tipo_documento tdc on tdc.ID_TIPODOCUMENTO=t.ID_TIPODOCUMENTO
+      inner join enoc.vw_perfil_puesto ppp on ppp.id_perfil_puesto=t.id_perfil_puesto
+      inner join moises.condicion_laboral cl on cl.id_condicion_laboral=t.id_condicion_laboral
+      inner join moises.tipo_tiempo_trabajo tr on tr.id_tipo_tiempo_trabajo=t.id_tipo_tiempo_trabajo
+      order by paterno,materno,NOMBRE;
+      
+  END SP_REPORTE_VIDA_LEY;
+  
+  PROCEDURE SP_REPORTE_JAR(
+        P_ID_ENTIDAD NUMBER,
+        P_ID_DEPTO VARCHAR2,
+        P_ID_AREA NUMBER,
+        P_ID_CONDICION_LABORAL VARCHAR2,
+        P_ID_TIPO_TIEMPO_TRABAJO NUMBER,
+        P_ID_ANHO NUMBER,
+        P_ID_MES NUMBER,
+        P_DATO VARCHAR2,
+        P_RESTRINGIDO VARCHAR2,
+        P_ID_ACCESO_NIVEL NUMBER,
+        P_ID_AREAS_USER VARCHAR2,
+        P_ID_USER NUMBER,
+        CURSOR OUT SYS_REFCURSOR
+        )
+      IS
+       l_query varchar2(4000):='';
+       l_anhomes varchar2(10);
+       l_id_tipo_nivel_vista number;
+       l_fecha_rep varchar2(12);
+      BEGIN
+       if P_ID_MES<10 then
+        l_anhomes:=to_char(P_ID_ANHO)||'0'||to_char(P_ID_MES);
+        l_fecha_rep:=to_char(P_ID_ANHO)||'-0'||to_char(P_ID_MES)||'-01';
+      else
+        l_anhomes:=to_char(P_ID_ANHO)||to_char(P_ID_MES);
+        l_fecha_rep:=to_char(P_ID_ANHO)||'-'||to_char(P_ID_MES)||'-01';
+      end if;
+      
+       if P_RESTRINGIDO='S' then
+          select id_tipo_nivel_vista into l_id_tipo_nivel_vista from eliseo.lamb_acceso_nivel where id_acceso_nivel=P_ID_ACCESO_NIVEL;
+      end if;
+      --activos
+      l_query:='INSERT INTO ENOC.TT_REPORTE_JAR (ID_TRABAJADOR,
+          ID_PERSONA,
+          SUELDO,
+          SUELDO_MEN,
+          SUELDO_TOTAL,
+          ID_TIPO_CATEG_OCUPA,
+          HORA_SEMANA,
+          HORA_MEN,
+          HORA_REAL,
+          TIPO_PAGO,
+          FECHA_INICIO,
+          FECHA_FIN_PREVISTO,
+          FECHA_FIN_EFECTIVO,
+          ID_SITUACION_TRABAJADOR,
+          ID_CONDICION_LABORAL,
+          ID_TIPO_TIEMPO_TRABAJO,
+          DIAS_MEN,
+          DIAS_REAL,
+          F_INI,
+          F_FIN,
+          DIAS_VAC,
+          DIAS_LIC,
+          DIAS_MES,
+          ID_TIPO_HORARIO) ';
+      l_query:=l_query||'select 
+        t.id_trabajador,
+        t.id_persona,
+        COALESCE(rem.sueldo,0) ,
+        0,0,
+        c.ID_TIPO_CATEG_OCUPA,
+        case when t.ID_TIPO_TIEMPO_TRABAJO=2 then ceil(O.HORA_SEMANA/2) else case when t.ID_CONDICION_LABORAL =''PP'' then 30 else O.HORA_SEMANA end  end ,
+        (case when t.ID_TIPO_TIEMPO_TRABAJO=2 then ceil(O.HORA_SEMANA/2) else  case when t.ID_CONDICION_LABORAL =''PP'' then 30 else O.HORA_SEMANA end end)*4,
+        0,
+        c.TIPO_PAGO, 
+        t.FECHA_INICIO,
+        t.FECHA_FIN_PREVISTO,
+        t.FECHA_FIN_EFECTIVO,
+        t.id_situacion_trabajador,
+        t.ID_CONDICION_LABORAL,
+        T.ID_TIPO_TIEMPO_TRABAJO,
+        30,
+        0,
+        case when t.FECHA_INICIO<TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD'') then TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD'') else t.FECHA_INICIO end AS F_Ini,
+        case when t.id_condicion_laboral in(''M'',''E'') then TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) else
+            CASE WHEN t.FECHA_FIN_PREVISTO>TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) then TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) else t.FECHA_FIN_PREVISTO end
+        end AS F_FIN,
+        0,0,0,T.ID_TIPO_HORARIO 
+        from ENOC.vw_trabajador t inner join enoc.plla_contrato c on c.id_contrato=t.id_contrato
+        INNER JOIN ENOC.PLLA_TIPO_CATEG_OCUPA O ON O.ID_TIPO_CATEG_OCUPA=C.ID_TIPO_CATEG_OCUPA
+        inner join enoc.vw_ent_dep_area_ccosto cc on 
+        cc.ID_SEDEAREA=t.ID_SEDEAREA 
+        left join ENOC.PLLA_REMUNERACION rem on    
+        rem.id_trabajador=t.id_trabajador and rem.vigencia=1 
+        where t.id_entidad=:entidad 
+        and t.id_situacion_trabajador=''1'' 
+        and t.ID_CONDICION_LABORAL not in(''CND'') 
+        AND to_char(case when t.FECHA_INICIO<TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD'') then TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD'') else t.FECHA_INICIO end,''YYYYMM'')=:anhomes 
+        AND to_char(case when t.id_condicion_laboral in(''M'',''E'') then TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) else
+                      CASE WHEN t.FECHA_FIN_PREVISTO>TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) then TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) else t.FECHA_FIN_PREVISTO end
+                  end,
+        ''YYYYMM'')=:anhomes1 ';
+      if P_ID_DEPTO is not null then
+        l_query:=l_query||'and cc.id_depto_padre='''||P_ID_DEPTO||''' ';
+      end if;
+      if P_ID_AREA > 0 then
+        l_query:=l_query||'and cc.id_area ='||P_ID_AREA||' ';
+      end if;
+      if P_ID_CONDICION_LABORAL is not null then
+        l_query:=l_query||'and t.ID_CONDICION_LABORAL ='''||P_ID_CONDICION_LABORAL||''' ';
+      end if;
+      if P_ID_TIPO_TIEMPO_TRABAJO > 0 then
+        l_query:=l_query||'and t.ID_TIPO_TIEMPO_TRABAJO ='||P_ID_TIPO_TIEMPO_TRABAJO||' ';
+      end if;
+      if P_DATO IS NOT NULL then
+        l_query:=l_query||'and (upper(convert(T.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.num_documento, ''us7ascii'')) like ''%''||replace(replace(upper(convert('''||P_DATO||''' , ''us7ascii'')),'','','' ''),'' '',''%'')||''%'') ';
+      end if;
+       
+                  
+      if P_RESTRINGIDO='S' then
+            
+          if l_id_tipo_nivel_vista = 3 then
+              l_query:=l_query||'and cc.id_depto_padre in(select id_depto from enoc.vw_acceso_nivel where id_acceso_nivel='||to_char(P_ID_ACCESO_NIVEL)||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 4 then
+              l_query:=l_query||'and cc.id_area in('||P_ID_AREAS_USER||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 5 then
+              l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+          end if;
+      end if;
+        
+      if P_RESTRINGIDO='U' then
+          l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+      end if;  
+      
+      --DBMS_OUTPUT.PUT_LINE(l_query);
+      
+      EXECUTE IMMEDIATE l_query USING P_ID_ENTIDAD,l_anhomes,l_anhomes;
+
+      --cesados
+       l_query:='INSERT INTO ENOC.TT_REPORTE_JAR (ID_TRABAJADOR,
+          ID_PERSONA,
+          SUELDO,
+          SUELDO_MEN,
+          SUELDO_TOTAL,
+          ID_TIPO_CATEG_OCUPA,
+          HORA_SEMANA,
+          HORA_MEN,
+          HORA_REAL,
+          TIPO_PAGO,
+          FECHA_INICIO,
+          FECHA_FIN_PREVISTO,
+          FECHA_FIN_EFECTIVO,
+          ID_SITUACION_TRABAJADOR,
+          ID_CONDICION_LABORAL,
+          ID_TIPO_TIEMPO_TRABAJO,
+          DIAS_MEN,
+          DIAS_REAL,
+          F_INI,
+          F_FIN,
+          DIAS_VAC,
+          DIAS_LIC,
+          DIAS_MES,
+          ID_TIPO_HORARIO) ';
+      l_query:=l_query||'select 
+        t.id_trabajador,
+        t.id_persona,
+        COALESCE(rem.sueldo,0) ,
+        0,0,
+        c.ID_TIPO_CATEG_OCUPA,
+        case when t.ID_TIPO_TIEMPO_TRABAJO=2 then ceil(O.HORA_SEMANA/2) else case when t.ID_CONDICION_LABORAL =''PP'' then 30 else O.HORA_SEMANA end  end ,
+        (case when t.ID_TIPO_TIEMPO_TRABAJO=2 then ceil(O.HORA_SEMANA/2) else  case when t.ID_CONDICION_LABORAL =''PP'' then 30 else O.HORA_SEMANA end end)*4,
+        0,
+        c.TIPO_PAGO, 
+        t.FECHA_INICIO,
+        t.FECHA_FIN_PREVISTO,
+        t.FECHA_FIN_EFECTIVO,
+        t.id_situacion_trabajador,
+        t.ID_CONDICION_LABORAL,
+        T.ID_TIPO_TIEMPO_TRABAJO,
+        30,
+        0,
+        case when t.FECHA_INICIO<TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD'') then TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD'') else t.FECHA_INICIO end AS F_Ini,
+        case when t.id_condicion_laboral in(''M'',''E'') then TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) else
+            CASE WHEN t.FECHA_FIN_PREVISTO>TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) then TRUNC(LAST_DAY(TO_DATE('''||l_fecha_rep||''',''YYYY-MM-DD''))) else t.FECHA_FIN_PREVISTO end
+        end AS F_FIN,
+        0,0,0, T.ID_TIPO_HORARIO 
+        from ENOC.vw_trabajador t inner join enoc.plla_contrato c on c.id_contrato=t.id_contrato
+        INNER JOIN ENOC.PLLA_TIPO_CATEG_OCUPA O ON O.ID_TIPO_CATEG_OCUPA=C.ID_TIPO_CATEG_OCUPA
+        inner join enoc.vw_ent_dep_area_ccosto cc on 
+        cc.ID_SEDEAREA=t.ID_SEDEAREA 
+        left join ENOC.PLLA_REMUNERACION rem on    
+        rem.id_trabajador=t.id_trabajador and rem.vigencia=1 
+        where t.id_entidad=:entidad 
+        and t.id_situacion_trabajador=''0'' 
+        and t.ID_CONDICION_LABORAL not in(''CND'') 
+        and to_char(t.FECHA_FIN_efectivo,''YYYYMM'') =:s_anhomes ';
+      if P_ID_DEPTO is not null then
+        l_query:=l_query||'and cc.id_depto_padre='''||P_ID_DEPTO||''' ';
+      end if;
+      if P_ID_AREA > 0 then
+        l_query:=l_query||'and cc.id_area ='||P_ID_AREA||' ';
+      end if;
+      if P_ID_CONDICION_LABORAL is not null then
+        l_query:=l_query||'and t.ID_CONDICION_LABORAL ='''||P_ID_CONDICION_LABORAL||''' ';
+      end if;
+      if P_ID_TIPO_TIEMPO_TRABAJO > 0 then
+        l_query:=l_query||'and t.ID_TIPO_TIEMPO_TRABAJO ='||P_ID_TIPO_TIEMPO_TRABAJO||' ';
+      end if;
+      if P_DATO IS NOT NULL then
+        l_query:=l_query||'and (upper(convert(T.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.nombre||'' ''||t.paterno||'' ''||t.materno||t.num_documento, ''us7ascii'')) like ''%''||replace(replace(upper(convert('''||P_DATO||''' , ''us7ascii'')),'','','' ''),'' '',''%'')||''%'') ';
+      end if;
+       
+                  
+      if P_RESTRINGIDO='S' then
+            
+          if l_id_tipo_nivel_vista = 3 then
+              l_query:=l_query||'and cc.id_depto_padre in(select id_depto from enoc.vw_acceso_nivel where id_acceso_nivel='||to_char(P_ID_ACCESO_NIVEL)||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 4 then
+              l_query:=l_query||'and cc.id_area in('||P_ID_AREAS_USER||') ';
+          end if;
+          if l_id_tipo_nivel_vista = 5 then
+              l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+          end if;
+      end if;
+        
+      if P_RESTRINGIDO='U' then
+          l_query:=l_query||'and t.id_trabajador='||to_char(P_ID_USER)||' ';
+      end if;  
+      
+      --DBMS_OUTPUT.PUT_LINE(l_query);
+      
+     EXECUTE IMMEDIATE l_query USING P_ID_ENTIDAD,l_anhomes;
+           
+      --sueldo mensual
+      MERGE INTO ENOC.TT_REPORTE_JAR S 
+      USING(
+        select coalesce(sum(w.importe),0) as total,
+        rr.ID_TRABAJADOR,
+        coalesce(sum(w.dias),0) as dias,
+        coalesce(sum(case when w.ID_TIPO_CANTIDAD=1 then  w.horas else 0 end),0) as horas
+        from ENOC.PLLA_REMUNERACION_DET w , ENOC.PLLA_REMUNERACION rr
+        where w.ID_REMUNERACION=rr.ID_REMUNERACION
+        and  rr.ID_TRABAJADOR in(
+            select r.ID_TRABAJADOR from ENOC.TT_REPORTE_JAR r
+            where r.TIPO_PAGO='H'
+        )        
+        and w.id_anho=P_ID_ANHO
+        and w.id_mes=P_ID_MES
+        group by rr.ID_TRABAJADOR
+      )T ON(T.ID_TRABAJADOR=S.ID_TRABAJADOR)
+      WHEN  MATCHED THEN UPDATE SET  
+      S.SUELDO_MEN=T.total,
+      S.HORA_MEN=T.horas,
+      S.HORA_REAL=T.horas,
+      s.HORA_SEMANA=0,
+      s.DIAS_MEN=T.dias,
+      s.DIAS_REAL=T.dias;
+      
+      update ENOC.TT_REPORTE_JAR set 
+      dias_mes=to_number(to_char(TRUNC(LAST_DAY(TO_DATE(l_fecha_rep,'YYYY-MM-DD'))),'DD')),
+      DIAS_FAL =0,
+      HORAS_VAC  =0,
+      HORAS_LIC  =0, 
+      HORAS_FAL  =0,
+      sueldo_total=sueldo+sueldo_men;
+      
+      update ENOC.TT_REPORTE_JAR set 
+      dias_men=case when (f_fin-f_ini)+1 = dias_mes then 30 else (f_fin-f_ini)+1 end 
+      where TIPO_PAGO='F';
+      
+      
+      MERGE INTO ENOC.TT_REPORTE_JAR S 
+      USING(
+        select 
+         count(1) as DIAS,ID_TRABAJADOR
+         from  ENOC.PLLA_ASISTENCIA 
+         where to_char(fecha,'YYYYMM')=l_anhomes
+         and id_motivo_asist in('PLH','A','SA','DO')
+         and ID_TRABAJADOR in(
+              select r.ID_TRABAJADOR from ENOC.TT_REPORTE_JAR r
+              where r.TIPO_PAGO='F'
+          ) 
+          group by ID_TRABAJADOR
+      )T ON(T.ID_TRABAJADOR=S.ID_TRABAJADOR)
+      WHEN  MATCHED THEN UPDATE SET  
+      s.DIAS_REAL=T.dias;
+      
+      
+      MERGE INTO ENOC.TT_REPORTE_JAR S 
+      USING(
+        select 
+         coalesce(sum(coalesce(num_horas,0)),0) as horas,ID_TRABAJADOR
+         from  ENOC.PLLA_ASISTENCIA 
+         where to_char(fecha,'YYYYMM')=l_anhomes
+         and id_motivo_asist in('PLH','A','SA','DO')
+         and ID_TRABAJADOR in(
+              select r.ID_TRABAJADOR from ENOC.TT_REPORTE_JAR r,ENOC.PLLA_TIPO_HORARIO Y
+              where R.ID_TIPO_HORARIO=Y.ID_TIPO_HORARIO
+              AND r.TIPO_PAGO='F'
+              AND coalesce(Y.CODIGO,'-') NOT IN('HOR_DP')
+          ) 
+          group by ID_TRABAJADOR
+      )T ON(T.ID_TRABAJADOR=S.ID_TRABAJADOR)
+      WHEN  MATCHED THEN UPDATE SET  
+      s.HORA_REAL=T.horas;
+      
+      MERGE INTO ENOC.TT_REPORTE_JAR S 
+      USING(
+        select x.id_persona, sum(x.horas)*4 as horas from(
+          select accd.id_persona,coalesce(sum(coalesce(Accd.Hl,0)*coalesce(Accd.Factor,0)),0) as horas
+          from david.vw_acad_carga_academica acc 
+          inner join david.acad_carga_curso_docente accd on Accd.Id_Carga_Curso=Acc.Id_Carga_Curso
+          left join (SELECT Accd.Id_Carga_Curso,max(amd.Fecha_Inicio ) fecha_inicio,min(Amd.fecha_fin) fecha_fin
+                                  FROM david.Acad_Carga_Curso_Docente ACCD inner join david.Acad_Modulo_Detalle amd on Amd.Id_Modulo_Detalle=Accd.Id_Modulo_Detalle
+                                  group by Accd.Id_Carga_Curso) fc on fc.Id_Carga_Curso=acc.Id_Carga_Curso
+          where acc.id_escuela not in (674)
+          and acc.id_facultad not in (673)
+          and accd.id_persona in(
+              select r.id_persona from ENOC.TT_REPORTE_JAR r,ENOC.PLLA_TIPO_HORARIO Y
+              where R.ID_TIPO_HORARIO=Y.ID_TIPO_HORARIO
+              AND r.TIPO_PAGO='F'
+              AND coalesce(Y.CODIGO,'-')  IN('HOR_DP')
+          ) 
+          and acc.origen='O' 
+          and (acc.id_facultad between 7 and 12 or acc.id_facultad=129)
+          and to_number(l_anhomes) between to_number(to_char(fc.fecha_inicio,'YYYYMM')) and to_number(to_char(fc.fecha_fin,'YYYYMM'))
+          GROUP by  accd.id_persona
+          union all
+          select pc.id_persona,coalesce(sum(coalesce(apc.Horas_Laborales, 0)),0) as horas
+          from  david.acad_persona_contrato pc
+          inner join david.acad_persona_comision apc on apc.id_persona_contrato=pc.id_persona_contrato
+          where pc.id_persona in(
+              select r.id_persona from ENOC.TT_REPORTE_JAR r,ENOC.PLLA_TIPO_HORARIO Y
+              where R.ID_TIPO_HORARIO=Y.ID_TIPO_HORARIO
+              AND r.TIPO_PAGO='F'
+              AND coalesce(Y.CODIGO,'-')  IN('HOR_DP')
+          ) 
+          and to_number(l_anhomes) between to_number(to_char(apc.fecha_inicio,'YYYYMM')) and to_number(to_char(apc.fecha_fin,'YYYYMM'))
+          group by pc.id_persona
+        )x
+        group by x.id_persona
+      )T ON(T.id_persona=S.id_persona)
+      WHEN  MATCHED THEN UPDATE SET  
+      s.HORA_REAL=T.horas;
+      
+      MERGE INTO ENOC.TT_REPORTE_JAR S 
+      USING(
+        select 
+         count(1) as DIAS,ID_TRABAJADOR
+         from  ENOC.PLLA_ASISTENCIA 
+         where to_char(fecha,'YYYYMM')=l_anhomes
+         and id_motivo_asist not in('PLH','A','SA','DO')
+         and ID_TRABAJADOR in(
+              select r.ID_TRABAJADOR from ENOC.TT_REPORTE_JAR r,ENOC.PLLA_TIPO_HORARIO Y
+              where R.ID_TIPO_HORARIO=Y.ID_TIPO_HORARIO
+              AND r.TIPO_PAGO='F'
+              AND coalesce(Y.CODIGO,'-')  IN('HOR_DP')
+          ) 
+          group by ID_TRABAJADOR
+      )T ON(T.ID_TRABAJADOR=S.ID_TRABAJADOR)
+      WHEN  MATCHED THEN UPDATE SET  
+      s.DIAS_VAC=T.DIAS;
+      
+      update ENOC.TT_REPORTE_JAR set 
+      horas_vac=DIAS_VAC*(round(hora_men/dias_men,2)) 
+      where TIPO_PAGO='F'
+      and coalesce(DIAS_VAC,0)>0;
+      
+      update ENOC.TT_REPORTE_JAR set 
+      hora_real=hora_real- horas_vac
+      where TIPO_PAGO='F'
+      and coalesce(horas_vac,0)>0;
+      
+      update ENOC.TT_REPORTE_JAR set 
+      DIAS_REAL=DIAS_REAL- DIAS_VAC
+      where TIPO_PAGO='F'
+      and coalesce(DIAS_VAC,0)>0
+      and ID_TRABAJADOR in(
+              select r.ID_TRABAJADOR from ENOC.TT_REPORTE_JAR r,ENOC.PLLA_TIPO_HORARIO Y
+              where R.ID_TIPO_HORARIO=Y.ID_TIPO_HORARIO
+              AND r.TIPO_PAGO='F'
+              AND coalesce(Y.CODIGO,'-')  IN('HOR_DP')
+      );
+      
+          
+      OPEN cursor FOR
+      select 
+      t.id_persona,
+      t.id_trabajador,
+      t.paterno,
+      t.materno,
+      t.nombre,
+      t.sexo,
+      t.apellidonombre,
+      to_char(t.FEC_NACIMIENTO,'DD/MM/YYYY') as FEC_NACIMIENTO,
+      t.ID_TIPODOCUMENTO,
+      tdc.siglas as tipodocumento,
+      t.NUM_DOCUMENTO,
+      to_char(t.FECHA_INICIO,'DD/MM/YYYY') as FECHA_INICIO,
+      cc.depto_padre,
+      cc.ID_DEPTO,
+      cc.ccosto,
+      t.id_perfil_puesto,
+      ppp.PUESTO,
+      to_char(t.FECHA_FIN_PREVISTO,'DD/MM/YYYY') as FECHA_FIN,
+      to_char(t.FECHA_FIN_efectivo,'DD/MM/YYYY') as FECHA_FIN_efectivo,
+      tt.sueldo_total,
+      tt.HORA_MEN,
+      tt.HORA_REAL,
+      tt.HORA_SEMANA,
+      tt.DIAS_MEN,
+      tt.DIAS_REAL,
+      tt.DIAS_VAC,
+      tt.horas_vac,
+      tt.dias_mes,
+      cc.area,
+      cl.nombre as condicion_laboral,
+      tr.nombre as tiempo_trabajo,
+      P_ID_ANHO as id_anho,
+      P_ID_MES as id_mes,
+      st.nombre_corto as situacion_trabajador
+      from enoc.vw_trabajador t
+      inner join ENOC.TT_REPORTE_JAR tt on tt.id_trabajador=t.id_trabajador
+      inner join enoc.vw_ent_dep_area_ccosto cc on cc.ID_SEDEAREA=t.ID_SEDEAREA
+      inner join moises.tipo_documento tdc on tdc.ID_TIPODOCUMENTO=t.ID_TIPODOCUMENTO
+      inner join enoc.vw_perfil_puesto ppp on ppp.id_perfil_puesto=t.id_perfil_puesto
+      inner join moises.condicion_laboral cl on cl.id_condicion_laboral=t.id_condicion_laboral
+      inner join moises.tipo_tiempo_trabajo tr on tr.id_tipo_tiempo_trabajo=t.id_tipo_tiempo_trabajo
+      inner join moises.situacion_trabajador st on st.id_situacion_trabajador=t.id_situacion_trabajador
+      order by paterno,materno,NOMBRE;
+      
+  END SP_REPORTE_JAR;
   
 END PKG_COMPENSACION;

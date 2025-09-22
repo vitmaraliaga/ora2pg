@@ -315,11 +315,11 @@ ALTER TABLE persona_natural_resp_fin ADD CONSTRAINT persona_natural_doc_fk FOREI
 ALTER TABLE persona_natural_trabajador DROP CONSTRAINT IF EXISTS persona_natural_trabajador_fk;
 ALTER TABLE persona_natural_trabajador ADD CONSTRAINT persona_natural_trabajador_fk FOREIGN KEY (id_persona) REFERENCES persona_natural(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE persona_natural_trabajador DROP CONSTRAINT IF EXISTS persona_natural_trabajado_fk1;
--- ALTER TABLE persona_natural_trabajador ADD CONSTRAINT persona_natural_trabajado_fk1 FOREIGN KEY (id_tipo_comision_pens) REFERENCES enoc.plla_tipo_comision_pens(id_tipo_comision_pens) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE persona_natural_trabajador DROP CONSTRAINT IF EXISTS persona_natural_trabajado_fk1;
+ALTER TABLE persona_natural_trabajador ADD CONSTRAINT persona_natural_trabajado_fk1 FOREIGN KEY (id_tipo_comision_pens) REFERENCES enoc.plla_tipo_comision_pens(id_tipo_comision_pens) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE persona_natural_trabajador DROP CONSTRAINT IF EXISTS persona_natural_trabajado_fk2;
--- ALTER TABLE persona_natural_trabajador ADD CONSTRAINT persona_natural_trabajado_fk2 FOREIGN KEY (id_regimen_pensionaria) REFERENCES enoc.plla_regimen_pensionaria(id_regimen_pensionaria) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE persona_natural_trabajador DROP CONSTRAINT IF EXISTS persona_natural_trabajado_fk2;
+ALTER TABLE persona_natural_trabajador ADD CONSTRAINT persona_natural_trabajado_fk2 FOREIGN KEY (id_regimen_pensionaria) REFERENCES enoc.plla_regimen_pensionaria(id_regimen_pensionaria) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE persona_natural_trabajador DROP CONSTRAINT IF EXISTS persona_natural_trabajado_fk7;
 ALTER TABLE persona_natural_trabajador ADD CONSTRAINT persona_natural_trabajado_fk7 FOREIGN KEY (id_tipo_discapacidad) REFERENCES tipo_discapacidad(id_tipo_discapacidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -335,8 +335,8 @@ ALTER TABLE persona_virtual DROP CONSTRAINT IF EXISTS persona_virtual_fk;
 ALTER TABLE persona_virtual ADD CONSTRAINT persona_virtual_fk FOREIGN KEY (id_persona) REFERENCES persona(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE tipo_documento DROP CONSTRAINT IF EXISTS fk_tipo_pais_tipo_documento;
 ALTER TABLE tipo_documento ADD CONSTRAINT fk_tipo_pais_tipo_documento FOREIGN KEY (id_tipopais) REFERENCES tipo_pais(id_tipopais) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
--- ALTER TABLE tipo_tiempo_trabajo DROP CONSTRAINT IF EXISTS tipo_tiempo_trabajo_fk1;
--- ALTER TABLE tipo_tiempo_trabajo ADD CONSTRAINT tipo_tiempo_trabajo_fk1 FOREIGN KEY (id_regimen_dedicacion) REFERENCES enoc.plla_regimen_dedicacion(id_regimen_dedicacion) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE tipo_tiempo_trabajo DROP CONSTRAINT IF EXISTS tipo_tiempo_trabajo_fk1;
+ALTER TABLE tipo_tiempo_trabajo ADD CONSTRAINT tipo_tiempo_trabajo_fk1 FOREIGN KEY (id_regimen_dedicacion) REFERENCES enoc.plla_regimen_dedicacion(id_regimen_dedicacion) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk;
 ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk FOREIGN KEY (id_persona) REFERENCES persona_natural_trabajador(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -346,17 +346,17 @@ ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk1 FOREIGN KEY (id_situacion_t
 ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk10;
 ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk10 FOREIGN KEY (id_tipo_tiempo_trabajo) REFERENCES tipo_tiempo_trabajo(id_tipo_tiempo_trabajo) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk11;
--- ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk11 FOREIGN KEY (id_grupo_planilla) REFERENCES enoc.plla_grupo_planilla(id_grupo_planilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk11;
+ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk11 FOREIGN KEY (id_grupo_planilla) REFERENCES enoc.plla_grupo_planilla(id_grupo_planilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk12;
--- ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk12 FOREIGN KEY (id_tipo_horario) REFERENCES enoc.plla_tipo_horario(id_tipo_horario) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk12;
+ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk12 FOREIGN KEY (id_tipo_horario) REFERENCES enoc.plla_tipo_horario(id_tipo_horario) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk14;
 ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk14 FOREIGN KEY (id_tipo_ocupacion) REFERENCES tipo_ocupacion(id_tipo_ocupacion) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk15;
--- ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk15 FOREIGN KEY (id_contrato) REFERENCES enoc.plla_contrato(id_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk15;
+ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk15 FOREIGN KEY (id_contrato) REFERENCES enoc.plla_contrato(id_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk3;
 ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk3 FOREIGN KEY (id_condicion_laboral) REFERENCES condicion_laboral(id_condicion_laboral) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -367,20 +367,20 @@ ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk4 FOREIGN KEY (id_tipo_contro
 ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk5;
 ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk5 FOREIGN KEY (id_tipo_status) REFERENCES tipo_status(id_tipo_status) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk6;
--- ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk6 FOREIGN KEY (id_periodo_remu) REFERENCES enoc.plla_periodo_remu(id_periodo_remu) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk6;
+ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk6 FOREIGN KEY (id_periodo_remu) REFERENCES enoc.plla_periodo_remu(id_periodo_remu) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk7;
--- ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk7 FOREIGN KEY (id_tipo_contrato) REFERENCES enoc.plla_tipo_contrato(id_tipo_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk7;
+ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk7 FOREIGN KEY (id_tipo_contrato) REFERENCES enoc.plla_tipo_contrato(id_tipo_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
--- ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk9;
--- ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk9 FOREIGN KEY (id_puesto) REFERENCES enoc.plla_puesto(id_puesto) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE trabajador DROP CONSTRAINT IF EXISTS trabajador_fk9;
+ALTER TABLE trabajador ADD CONSTRAINT trabajador_fk9 FOREIGN KEY (id_puesto) REFERENCES enoc.plla_puesto(id_puesto) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE trabajador_area DROP CONSTRAINT IF EXISTS trabajador_area_fk2;
 ALTER TABLE trabajador_area ADD CONSTRAINT trabajador_area_fk2 FOREIGN KEY (id_trabajador) REFERENCES trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE trabajador_ccosto DROP CONSTRAINT IF EXISTS trabajador_ccosto_fk2;
 ALTER TABLE trabajador_ccosto ADD CONSTRAINT trabajador_ccosto_fk2 FOREIGN KEY (id_trabajador) REFERENCES trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
--- ALTER TABLE trabajador_puesto DROP CONSTRAINT IF EXISTS trabajador_puesto_fk1;
--- ALTER TABLE trabajador_puesto ADD CONSTRAINT trabajador_puesto_fk1 FOREIGN KEY (id_puesto) REFERENCES enoc.plla_puesto(id_puesto) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE trabajador_puesto DROP CONSTRAINT IF EXISTS trabajador_puesto_fk1;
+ALTER TABLE trabajador_puesto ADD CONSTRAINT trabajador_puesto_fk1 FOREIGN KEY (id_puesto) REFERENCES enoc.plla_puesto(id_puesto) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE trabajador_puesto DROP CONSTRAINT IF EXISTS trabajador_puesto_fk2;
 ALTER TABLE trabajador_puesto ADD CONSTRAINT trabajador_puesto_fk2 FOREIGN KEY (id_trabajador) REFERENCES trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;

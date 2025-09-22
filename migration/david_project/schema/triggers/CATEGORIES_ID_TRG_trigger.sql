@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS categories_id_trg ON categories CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_categories_id_trg() RETURNS trigger AS $BODY$
 BEGIN
             if coalesce(NEW.ID::text, '') = '' then
-                select nextval('categories_id_seq') into STRICT NEW.ID;
+                select nextval('david.categories_id_seq') into STRICT NEW.ID;
             end if;
             RETURN NEW;
 end

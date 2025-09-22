@@ -412,6 +412,9 @@ ALTER TABLE plla_concepto_planilla ADD CONSTRAINT plla_concepto_planilla_fk1 FOR
 
 ALTER TABLE plla_concepto_planilla DROP CONSTRAINT IF EXISTS plla_concepto_planilla_fk2;
 ALTER TABLE plla_concepto_planilla ADD CONSTRAINT plla_concepto_planilla_fk2 FOREIGN KEY (id_concepto_planilla_sunat) REFERENCES plla_concepto_planilla_sunat(id_concepto_planilla_sunat) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_concepto_planilla DROP CONSTRAINT IF EXISTS plla_concepto_planilla_fk3;
+ALTER TABLE plla_concepto_planilla ADD CONSTRAINT plla_concepto_planilla_fk3 FOREIGN KEY (id_entidad) REFERENCES eliseo.conta_entidad(id_entidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_concepto_planilla_proc DROP CONSTRAINT IF EXISTS concepto_planilla_pro_fk1;
 ALTER TABLE plla_concepto_planilla_proc ADD CONSTRAINT concepto_planilla_pro_fk1 FOREIGN KEY (id_concepto_planilla) REFERENCES plla_concepto_planilla(id_concepto_planilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -439,56 +442,6 @@ ALTER TABLE plla_const_certi ADD CONSTRAINT plla_const_certi_fk1 FOREIGN KEY (id
 
 ALTER TABLE plla_const_certi DROP CONSTRAINT IF EXISTS plla_const_certi_fk2;
 ALTER TABLE plla_const_certi ADD CONSTRAINT plla_const_certi_fk2 FOREIGN KEY (id_tipo_const_certi) REFERENCES plla_tipo_const_certi(id_tipo_const_certi) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk1;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk1 FOREIGN KEY (id_tipo_horario) REFERENCES plla_tipo_horario(id_tipo_horario) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk10;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk10 FOREIGN KEY (id_tipo_regimen_laboral) REFERENCES moises.tipo_regimen_laboral(id_tipo_regimen_laboral) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk11;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk11 FOREIGN KEY (id_tipo_ocupacion) REFERENCES moises.tipo_ocupacion(id_tipo_ocupacion) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk12;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk12 FOREIGN KEY (id_tipo_sctr_pension) REFERENCES moises.tipo_sctr_pension(id_tipo_sctr_pension) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk13;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk13 FOREIGN KEY (id_situacion_trabajador) REFERENCES moises.situacion_trabajador(id_situacion_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk14;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk14 FOREIGN KEY (id_tipo_pago) REFERENCES plla_tipo_pago(id_tipo_pago) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk15;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk15 FOREIGN KEY (id_tipo_categ_ocupa) REFERENCES plla_tipo_categ_ocupa(id_tipo_categ_ocupa) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk16;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk16 FOREIGN KEY (id_situacion_especial) REFERENCES moises.situacion_especial(id_situacion_especial) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk17;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk17 FOREIGN KEY (id_tipo_doble_trib) REFERENCES plla_tipo_doble_trib(id_tipo_doble_trib) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk18;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk18 FOREIGN KEY (id_contrato_plantilla) REFERENCES plla_contrato_plantilla(id_contrato_plantilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk19;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk19 FOREIGN KEY (id_solic_req_candidato) REFERENCES plla_solic_req_candidato(id_solic_req_candidato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk2;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk2 FOREIGN KEY (id_tipo_contrato) REFERENCES plla_tipo_contrato(id_tipo_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk20;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk20 FOREIGN KEY (id_escala_salarial) REFERENCES plla_escala_salarial(id_escala_salarial) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk4;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk4 FOREIGN KEY (id_tipo_tiempo_trabajo) REFERENCES moises.tipo_tiempo_trabajo(id_tipo_tiempo_trabajo) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk6;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk6 FOREIGN KEY (id_estado_cont_depto) REFERENCES plla_estado_cont_depto(id_estado_cont_depto) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk7;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk7 FOREIGN KEY (id_condicion_laboral) REFERENCES moises.condicion_laboral(id_condicion_laboral) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_contrato DROP CONSTRAINT IF EXISTS plla_contrato_fk8;
-ALTER TABLE plla_contrato ADD CONSTRAINT plla_contrato_fk8 FOREIGN KEY (id_perfil_puesto) REFERENCES plla_perfil_puesto(id_perfil_puesto) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_contrato_det DROP CONSTRAINT IF EXISTS plla_contrato_det_fk1;
 ALTER TABLE plla_contrato_det ADD CONSTRAINT plla_contrato_det_fk1 FOREIGN KEY (id_contrato) REFERENCES plla_contrato(id_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -512,8 +465,11 @@ ALTER TABLE plla_contrato_mes DROP CONSTRAINT IF EXISTS plla_contrato_mes_fk6;
 ALTER TABLE plla_contrato_mes ADD CONSTRAINT plla_contrato_mes_fk6 FOREIGN KEY (id_escala_sala_docente_det) REFERENCES plla_escala_sala_docente_det(id_escala_sala_docente_det) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_contrato_parametro DROP CONSTRAINT IF EXISTS contrato_parametro_fk1;
 ALTER TABLE plla_contrato_parametro ADD CONSTRAINT contrato_parametro_fk1 FOREIGN KEY (id_tipo_param_plantilla) REFERENCES plla_tipo_param_plantilla(id_tipo_param_plantilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE plla_contrato_plantilla DROP CONSTRAINT IF EXISTS contrato_plantilla_fk1;
-ALTER TABLE plla_contrato_plantilla ADD CONSTRAINT contrato_plantilla_fk1 FOREIGN KEY (id_tipo_contrato) REFERENCES plla_tipo_contrato(id_tipo_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_contrato_ver DROP CONSTRAINT IF EXISTS plla_contrato_ver_fk1;
+ALTER TABLE plla_contrato_ver ADD CONSTRAINT plla_contrato_ver_fk1 FOREIGN KEY (id_contrato) REFERENCES plla_contrato(id_contrato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_contrato_ver DROP CONSTRAINT IF EXISTS plla_contrato_ver_fk2;
+ALTER TABLE plla_contrato_ver ADD CONSTRAINT plla_contrato_ver_fk2 FOREIGN KEY (id_usuario) REFERENCES moises.persona(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_control_asistencia DROP CONSTRAINT IF EXISTS control_asistencia_fk1;
 ALTER TABLE plla_control_asistencia ADD CONSTRAINT control_asistencia_fk1 FOREIGN KEY (id_motivo_asist) REFERENCES plla_motivo_asist(id_motivo_asist) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -612,17 +568,6 @@ ALTER TABLE plla_encuesta_respuesta ADD CONSTRAINT fk_plla_encuesta_item FOREIGN
 
 ALTER TABLE plla_encuesta_respuesta DROP CONSTRAINT IF EXISTS fk_plla_encuesta_pregunta;
 ALTER TABLE plla_encuesta_respuesta ADD CONSTRAINT fk_plla_encuesta_pregunta FOREIGN KEY (id_pregunta) REFERENCES plla_encuesta_pregunta(id_pregunta) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE plla_entrevista_cand DROP CONSTRAINT IF EXISTS plla_entrevista_cand_fk1;
-ALTER TABLE plla_entrevista_cand ADD CONSTRAINT plla_entrevista_cand_fk1 FOREIGN KEY (id_tipo_reunion) REFERENCES des_fb_tipo_reunion(id_tipo_reunion) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_entrevista_cand DROP CONSTRAINT IF EXISTS plla_entrevista_cand_fk2;
-ALTER TABLE plla_entrevista_cand ADD CONSTRAINT plla_entrevista_cand_fk2 FOREIGN KEY (id_solic_req_candidato) REFERENCES plla_solic_req_candidato(id_solic_req_candidato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_entrevista_cand DROP CONSTRAINT IF EXISTS plla_entrevista_cand_fk3;
-ALTER TABLE plla_entrevista_cand ADD CONSTRAINT plla_entrevista_cand_fk3 FOREIGN KEY (id_req_cand_plantilla) REFERENCES plla_req_cand_plantilla(id_req_cand_plantilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_entrevista_cand DROP CONSTRAINT IF EXISTS plla_entrevista_cand_fk4;
-ALTER TABLE plla_entrevista_cand ADD CONSTRAINT plla_entrevista_cand_fk4 FOREIGN KEY (id_estado_reunion_cand) REFERENCES plla_estado_reunion_cand(id_estado_reunion_cand) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_escala_salarial DROP CONSTRAINT IF EXISTS plla_escala_salarial_fk1;
 ALTER TABLE plla_escala_salarial ADD CONSTRAINT plla_escala_salarial_fk1 FOREIGN KEY (id_grupo_escala) REFERENCES plla_grupo_escala(id_grupo_escala) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_escala_sala_docente DROP CONSTRAINT IF EXISTS escala_sala_docente_fk3;
@@ -906,6 +851,14 @@ ALTER TABLE plla_periodo_vac_trab ADD CONSTRAINT plla_periodo_vac_trab_fk2 FOREI
 
 ALTER TABLE plla_periodo_vac_trab DROP CONSTRAINT IF EXISTS plla_periodo_vac_trab_fk3;
 ALTER TABLE plla_periodo_vac_trab ADD CONSTRAINT plla_periodo_vac_trab_fk3 FOREIGN KEY (id_estado_vac_trab) REFERENCES plla_estado_vac_trab(id_estado_vac_trab) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_periodo_vac_trab_proceso DROP CONSTRAINT IF EXISTS fk_plla_estado_vac_trab;
+ALTER TABLE plla_periodo_vac_trab_proceso ADD CONSTRAINT fk_plla_estado_vac_trab FOREIGN KEY (id_estado_vac_trab) REFERENCES plla_estado_vac_trab(id_estado_vac_trab) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_periodo_vac_trab_proceso DROP CONSTRAINT IF EXISTS fk_plla_periodo_vac_trab;
+ALTER TABLE plla_periodo_vac_trab_proceso ADD CONSTRAINT fk_plla_periodo_vac_trab FOREIGN KEY (id_periodo_vac_trab) REFERENCES plla_periodo_vac_trab(id_periodo_vac_trab) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_periodo_vac_trab_proceso DROP CONSTRAINT IF EXISTS fk_plla_proceso_trabajador;
+ALTER TABLE plla_periodo_vac_trab_proceso ADD CONSTRAINT fk_plla_proceso_trabajador FOREIGN KEY (id_trabajador_user) REFERENCES moises.trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_permiso_especial DROP CONSTRAINT IF EXISTS plla_permiso_especial_fk3;
 ALTER TABLE plla_permiso_especial ADD CONSTRAINT plla_permiso_especial_fk3 FOREIGN KEY (id_estado_lica_per) REFERENCES plla_estado_lica_per(id_estado_lica_per) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -1060,8 +1013,6 @@ ALTER TABLE plla_req_cand_cuestion_resp ADD CONSTRAINT req_cand_cuestion_resp_fk
 
 ALTER TABLE plla_req_cand_cuestion_resp DROP CONSTRAINT IF EXISTS req_cand_cuestion_resp_fk2;
 ALTER TABLE plla_req_cand_cuestion_resp ADD CONSTRAINT req_cand_cuestion_resp_fk2 FOREIGN KEY (id_cuestionario_alt_res) REFERENCES plla_cuestionario_alt_resp(id_cuestionario_alt_res) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE plla_req_cand_plantilla DROP CONSTRAINT IF EXISTS req_cand_plantilla_fk1;
-ALTER TABLE plla_req_cand_plantilla ADD CONSTRAINT req_cand_plantilla_fk1 FOREIGN KEY (id_estado_req_cand) REFERENCES plla_estado_req_cand(id_estado_req_cand) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_rol_vacacional DROP CONSTRAINT IF EXISTS plla_rol_vacacional_fk1;
 ALTER TABLE plla_rol_vacacional ADD CONSTRAINT plla_rol_vacacional_fk1 FOREIGN KEY (id_estado_rol_vac) REFERENCES plla_estado_rol_vac(id_estado_rol_vac) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -1190,11 +1141,6 @@ ALTER TABLE plla_solic_req_candidato_det ADD CONSTRAINT solic_req_candidato_det_
 
 ALTER TABLE plla_solic_req_candidato_det DROP CONSTRAINT IF EXISTS solic_req_candidato_det_fk4;
 ALTER TABLE plla_solic_req_candidato_det ADD CONSTRAINT solic_req_candidato_det_fk4 FOREIGN KEY (id_tipo_cantidad) REFERENCES plla_tipo_cantidad(id_tipo_cantidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE plla_solic_req_candidato_est DROP CONSTRAINT IF EXISTS solic_req_candidato_est_fk1;
-ALTER TABLE plla_solic_req_candidato_est ADD CONSTRAINT solic_req_candidato_est_fk1 FOREIGN KEY (id_solic_req_candidato) REFERENCES plla_solic_req_candidato(id_solic_req_candidato) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE plla_solic_req_candidato_est DROP CONSTRAINT IF EXISTS solic_req_candidato_est_fk2;
-ALTER TABLE plla_solic_req_candidato_est ADD CONSTRAINT solic_req_candidato_est_fk2 FOREIGN KEY (id_estado_req_cand) REFERENCES plla_estado_req_cand(id_estado_req_cand) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_sol_vac_adel DROP CONSTRAINT IF EXISTS plla_sol_vac_adel_fk3;
 ALTER TABLE plla_sol_vac_adel ADD CONSTRAINT plla_sol_vac_adel_fk3 FOREIGN KEY (id_trabajador) REFERENCES moises.trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -1202,6 +1148,14 @@ ALTER TABLE plla_sol_vac_adel DROP CONSTRAINT IF EXISTS plla_sol_vac_adel_fk4;
 ALTER TABLE plla_sol_vac_adel ADD CONSTRAINT plla_sol_vac_adel_fk4 FOREIGN KEY (id_estado_vac_adel) REFERENCES plla_estado_vac_adel(id_estado_vac_adel) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_sol_vac_adel_det DROP CONSTRAINT IF EXISTS sol_vac_adel_de_fk1;
 ALTER TABLE plla_sol_vac_adel_det ADD CONSTRAINT sol_vac_adel_de_fk1 FOREIGN KEY (id_sol_vac_adel) REFERENCES plla_sol_vac_adel(id_sol_vac_adel) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_sol_vac_adel_proceso DROP CONSTRAINT IF EXISTS fk_plla_estado_vac_adel;
+ALTER TABLE plla_sol_vac_adel_proceso ADD CONSTRAINT fk_plla_estado_vac_adel FOREIGN KEY (id_estado_vac_adel) REFERENCES plla_estado_vac_adel(id_estado_vac_adel) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_sol_vac_adel_proceso DROP CONSTRAINT IF EXISTS fk_plla_sol_vac_adel;
+ALTER TABLE plla_sol_vac_adel_proceso ADD CONSTRAINT fk_plla_sol_vac_adel FOREIGN KEY (id_sol_vac_adel) REFERENCES plla_sol_vac_adel(id_sol_vac_adel) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_sol_vac_adel_proceso DROP CONSTRAINT IF EXISTS fk_plla_sol_vac_adel_trab;
+ALTER TABLE plla_sol_vac_adel_proceso ADD CONSTRAINT fk_plla_sol_vac_adel_trab FOREIGN KEY (id_trabajador_user) REFERENCES moises.trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_subfactor DROP CONSTRAINT IF EXISTS plla_subfactor_fk1;
 ALTER TABLE plla_subfactor ADD CONSTRAINT plla_subfactor_fk1 FOREIGN KEY (id_factor) REFERENCES plla_factor(id_factor) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_subfactor_nivel DROP CONSTRAINT IF EXISTS plla_subfactor_nivel_fk1;
@@ -1256,17 +1210,6 @@ ALTER TABLE quiz_cuestionario DROP CONSTRAINT IF EXISTS quiz_cuestionario_fk2;
 ALTER TABLE quiz_cuestionario ADD CONSTRAINT quiz_cuestionario_fk2 FOREIGN KEY (id_plantilla) REFERENCES quiz_plantilla(id_plantilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE quiz_cuestionario_area DROP CONSTRAINT IF EXISTS quiz_cuestionario_area_fk1;
 ALTER TABLE quiz_cuestionario_area ADD CONSTRAINT quiz_cuestionario_area_fk1 FOREIGN KEY (id_cuestionario_depto) REFERENCES quiz_cuestionario_depto(id_cuestionario_depto) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE quiz_cuestionario_asig DROP CONSTRAINT IF EXISTS quiz_cuestionario_asig_fk1;
-ALTER TABLE quiz_cuestionario_asig ADD CONSTRAINT quiz_cuestionario_asig_fk1 FOREIGN KEY (id_cuestionario) REFERENCES quiz_cuestionario(id_cuestionario) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE quiz_cuestionario_asig DROP CONSTRAINT IF EXISTS quiz_cuestionario_asig_fk5;
-ALTER TABLE quiz_cuestionario_asig ADD CONSTRAINT quiz_cuestionario_asig_fk5 FOREIGN KEY (id_persona) REFERENCES moises.persona(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE quiz_cuestionario_asig DROP CONSTRAINT IF EXISTS quiz_cuestionario_asig_fk6;
-ALTER TABLE quiz_cuestionario_asig ADD CONSTRAINT quiz_cuestionario_asig_fk6 FOREIGN KEY (id_trabajador) REFERENCES moises.trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE quiz_cuestionario_asig DROP CONSTRAINT IF EXISTS quiz_cuestionario_asig_fk7;
-ALTER TABLE quiz_cuestionario_asig ADD CONSTRAINT quiz_cuestionario_asig_fk7 FOREIGN KEY (id_rol_vacacion) REFERENCES plla_rol_vacacional(id_rol_vacacion) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE quiz_cuestionario_depto DROP CONSTRAINT IF EXISTS quiz_cuestionario_depto_fk1;
 ALTER TABLE quiz_cuestionario_depto ADD CONSTRAINT quiz_cuestionario_depto_fk1 FOREIGN KEY (id_cuestionario) REFERENCES quiz_cuestionario(id_cuestionario) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE quiz_cuestionario_rpta DROP CONSTRAINT IF EXISTS quiz_cuestionario_rpta_fk1;

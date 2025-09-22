@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_acad_semestre_egresado ON acad_semestre_egresado CAS
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_acad_semestre_egresado() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_SEMESTRE_EGRESADO::text, '') = '' THEN
-SELECT nextval('sq_acad_semestre_egresado_id')
+SELECT nextval('david.sq_acad_semestre_egresado_id')
 INTO STRICT NEW.ID_SEMESTRE_EGRESADO
 ;
 END IF;

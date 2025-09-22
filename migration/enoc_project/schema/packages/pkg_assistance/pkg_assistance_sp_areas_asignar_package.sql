@@ -251,7 +251,7 @@ SELECT (row_number() OVER ( ORDER BY ID_AREA ASC )),ID_AREA,COALESCE(ID_PARENT,0
           ID_AREA,ID_PARENT,max(c.level+1) as NIVEL,ASIGNAR,trabajador,NOMBRE,HIJO,HIJO_QUEDA,'' as seleccionado
         from ENOC.TT_AREA_ASIGNAR 
         
- JOIN cte c ON (c.ID_AREA = %ORA2PG_COMMENT1179.id_parent)
+ JOIN cte c ON (c.ID_AREA = %ORA2PG_COMMENT1188.id_parent)
 
 ) SELECT * FROM cte
        GROUP BY ID,ID_AREA,ID_PARENT,ASIGNAR,trabajador,NOMBRE,HIJO,HIJO_QUEDA ORDER BY  ID;

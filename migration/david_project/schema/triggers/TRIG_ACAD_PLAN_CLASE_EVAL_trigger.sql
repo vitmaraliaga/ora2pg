@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_acad_plan_clase_eval ON acad_plan_clase_evaluacion C
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_acad_plan_clase_eval() RETURNS trigger AS $BODY$
 BEGIN
     IF coalesce(NEW.ID_PLAN_CLASE_EVALUACION::text, '') = '' THEN
-        SELECT nextval('sq_acad_plan_clase_eval_id') INTO STRICT NEW.ID_PLAN_CLASE_EVALUACION
+        SELECT nextval('david.sq_acad_plan_clase_eval_id') INTO STRICT NEW.ID_PLAN_CLASE_EVALUACION
 ;
     END IF;
 RETURN NEW;

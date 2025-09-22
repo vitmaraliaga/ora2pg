@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_ingreso_bibliot_elect_id ON ingreso_biblioteca_elect
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_ingreso_bibliot_elect_id() RETURNS trigger AS $BODY$
 BEGIN
     IF coalesce(NEW.ID_INGRESO_BIBLIOT_ELECT::text, '') = '' THEN
-        SELECT nextval('sq_ingreso_bibliot_elect')
+        SELECT nextval('david.sq_ingreso_bibliot_elect')
         INTO STRICT NEW.ID_INGRESO_BIBLIOT_ELECT
 ;
     END IF;

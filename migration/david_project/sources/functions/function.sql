@@ -24,7 +24,24 @@ SET search_path = david,public;
 \i ./sources/functions/FT_CALCULAR_PROMEDIO_ACT_function.sql
 \i ./sources/functions/FT_CALC_DIA_MAT_function.sql
 \i ./sources/functions/FT_CANTIDAD_ESTADO_CURSOS_function.sql
-\i ./sources/functions/FT_CANT_HORAS_MES\i ./sources/functions/CALC_DIA_MAT_ANT_function.sql
+\i ./sources/functions/FT_CANT_HORAS_MES\i ./sources/functions/CONV_CHAR_function.sql
+\i ./sources/functions/DIA_HORA_CURSO3_function.sql
+\i ./sources/functions/FC_INCIDENCIA_CONTROL_REQ_function.sql
+\i ./sources/functions/FC_LEGEND_AVAILABLE_LAB_function.sql
+\i ./sources/functions/FC_TIENE_RESERVA_RESIDENCIA_function.sql
+\i ./sources/functions/FT_ACAD_SILABO_METODOLOGIA_function.sql
+\i ./sources/functions/FT_ALUMNO_PROGRAMA_ID_function.sql
+\i ./sources/functions/FT_ANULAR_CONTRATO_function.sql
+\i ./sources/functions/FT_CALCULAR_ANIO_ACTUAL_function.sql
+\i ./sources/functions/FT_CALCULAR_CICLO_function.sql
+\i ./sources/functions/FT_CALCULAR_CREDITOS_SEMESTRE_function.sql
+\i ./sources/functions/FT_CALCULAR_ESCUELA_DOCENTEA_function.sql
+\i ./sources/functions/FT_CALCULAR_LIKERT_function.sql
+\i ./sources/functions/FT_CALCULAR_PROGRAMA_CICLO_function.sql
+\i ./sources/functions/FT_CALCULAR_PROMEDIO_ESTRAT_function.sql
+\i ./sources/functions/FT_CANTIDAD_CURSOS_DESAP_function.sql
+\i ./sources/functions/FT_CANT_ESTADO_CURSOS_CICLO_function.sql
+\i ./sources\i ./sources/functions/CALC_DIA_MAT_ANT_function.sql
 \i ./sources/functions/DIA_HORA_CURSO2_function.sql
 \i ./sources/functions/FC_HORARIO_REGLA_SEMANA_function.sql
 \i ./sources/functions/FC_LAB_DEFAULT_PATH_function.sql
@@ -58,24 +75,25 @@ SET search_path = david,public;
 \i ./sources/functions/FT_CALCULAR_PROMEDIO_TEO_function.sql
 \i ./sources/functions/FT_CANTIDAD_CURSOS_REPETIDOS_function.sql
 \i ./sources/functions/FT_CANT_HORAS_CURSO_DOCENTE_function.sql
-\i ./sources/functions/FT_CICLO_CURS\i ./sources/functions/CONV_CHAR_function.sql
-\i ./sources/functions/DIA_HORA_CURSO3_function.sql
-\i ./sources/functions/FC_INCIDENCIA_CONTROL_REQ_function.sql
-\i ./sources/functions/FC_LEGEND_AVAILABLE_LAB_function.sql
-\i ./sources/functions/FC_TIENE_RESERVA_RESIDENCIA_function.sql
-\i ./sources/functions/FT_ACAD_SILABO_METODOLOGIA_function.sql
-\i ./sources/functions/FT_ALUMNO_PROGRAMA_ID_function.sql
-\i ./sources/functions/FT_ANULAR_CONTRATO_function.sql
-\i ./sources/functions/FT_CALCULAR_ANIO_ACTUAL_function.sql
-\i ./sources/functions/FT_CALCULAR_CICLO_function.sql
-\i ./sources/functions/FT_CALCULAR_CREDITOS_SEMESTRE_function.sql
-\i ./sources/functions/FT_CALCULAR_ESCUELA_DOCENTEA_function.sql
-\i ./sources/functions/FT_CALCULAR_LIKERT_function.sql
-\i ./sources/functions/FT_CALCULAR_PROGRAMA_CICLO_function.sql
-\i ./sources/functions/FT_CALCULAR_PROMEDIO_ESTRAT_function.sql
-\i ./sources/functions/FT_CANTIDAD_CURSOS_DESAP_function.sql
-\i ./sources/functions/FT_CANT_ESTADO_CURSOS_CICLO_function.sql
-\i ./sources_CCD_function.sql
+\i ./sources/functions/FT_CICLO_CURS/functions/FT_CARRERAS_PERSONA_function.sql
+\i ./sources/functions/FT_CICLO_PLAN_ALUMNO_V2_function.sql
+\i ./sources/functions/FT_CONCATENADO_RESPONSABLE_FIN_function.sql
+\i ./sources/functions/FT_CREDITOSM_SEMESTRE_ALUMNO_function.sql
+\i ./sources/functions/FT_CREDITOS_SEMESTRE_ALUMNO_function.sql
+\i ./sources/functions/FT_CURSOS_SEMESTRE_ALUMNO_function.sql
+\i ./sources/functions/FT_CURSO_DOCENTE_HORARIO_function.sql
+\i ./sources/functions/FT_DESAPROBADO_CICLO_ANT_function.sql
+\i ./sources/functions/FT_DEUDA_ALUMNO_N_function.sql
+\i ./sources/functions/FT_EPE_function.sql
+\i ./sources/functions/FT_ESCUELA_ANTERIOR_function.sql
+\i ./sources/functions/FT_FACULTAD_ALUMNO_function.sql
+\i ./sources/functions/FT_FACULTAD_PLAN_function.sql
+\i ./sources/functions/FT_FECHA_RECORD_OLD_function.sql
+\i ./sources/functions/FT_FORMATO_HORARIO_function.sql
+\i ./sources/functions/FT_GRADUADO_PLAN_function.sql
+\i ./sources/functions/FT_HORARIO_2_function.sql
+\i ./sources/functions/FT_HORA_CURSO_N_function.sql
+\i ./sources/f_CCD_function.sql
 \i ./sources/functions/FT_CICLO_PLAN_ALUMNO_function.sql
 \i ./sources/functions/FT_CODIGO_UNIV_function.sql
 \i ./sources/functions/FT_CONTRATO_PERSONA_function.sql
@@ -94,25 +112,7 @@ SET search_path = david,public;
 \i ./sources/functions/FT_GRADUADO_PLAN_OLD_function.sql
 \i ./sources/functions/FT_HORARIO_TEORIA_function.sql
 \i ./sources/functions/FT_ID_PERSONA_ALUMNO_function.sql
-\/functions/FT_CARRERAS_PERSONA_function.sql
-\i ./sources/functions/FT_CICLO_PLAN_ALUMNO_V2_function.sql
-\i ./sources/functions/FT_CONCATENADO_RESPONSABLE_FIN_function.sql
-\i ./sources/functions/FT_CREDITOSM_SEMESTRE_ALUMNO_function.sql
-\i ./sources/functions/FT_CREDITOS_SEMESTRE_ALUMNO_function.sql
-\i ./sources/functions/FT_CURSOS_SEMESTRE_ALUMNO_function.sql
-\i ./sources/functions/FT_CURSO_DOCENTE_HORARIO_function.sql
-\i ./sources/functions/FT_DESAPROBADO_CICLO_ANT_function.sql
-\i ./sources/functions/FT_DEUDA_ALUMNO_N_function.sql
-\i ./sources/functions/FT_EPE_function.sql
-\i ./sources/functions/FT_ESCUELA_ANTERIOR_function.sql
-\i ./sources/functions/FT_FACULTAD_ALUMNO_function.sql
-\i ./sources/functions/FT_FACULTAD_PLAN_function.sql
-\i ./sources/functions/FT_FECHA_RECORD_OLD_function.sql
-\i ./sources/functions/FT_FORMATO_HORARIO_function.sql
-\i ./sources/functions/FT_GRADUADO_PLAN_function.sql
-\i ./sources/functions/FT_HORARIO_2_function.sql
-\i ./sources/functions/FT_HORA_CURSO_N_function.sql
-\i ./sources/fO_PERSONA_function.sql
+\O_PERSONA_function.sql
 \i ./sources/functions/FT_CODIGO_ACAD_function.sql
 \i ./sources/functions/FT_CONTEO_SESION_GENERAL_function.sql
 \i ./sources/functions/FT_CREDITOS_ACUMULADOS_PLAN_function.sql
@@ -148,24 +148,7 @@ SET search_path = david,public;
 \i ./sources/functions/FT_GET_ID_NIVEL_ENSENANZA_function.sql
 \i ./sources/functions/FT_HORARIO_function.sql
 \i ./sources/functions/FT_HORAS_MES_CD_function.sql
-\i ./sourci ./sources/functions/FT_INSTRUMENTO_function.sql
-\i ./sources/functions/FT_LISTAGG_ID_CURSO_DOC_function.sql
-\i ./sources/functions/FT_MAX_CODIGO_INTER_function.sql
-\i ./sources/functions/FT_MAX_MATRICULA_PERSONA_function.sql
-\i ./sources/functions/FT_MERITO_SEMESTRE_function.sql
-\i ./sources/functions/FT_MOTIVO_ADVISER_function.sql
-\i ./sources/functions/FT_NEW_USERS2_function.sql
-\i ./sources/functions/FT_NIVEL_RIESGO_ANT_function.sql
-\i ./sources/functions/FT_NUM_ATENCIONES_SEMESTRE_EAP_function.sql
-\i ./sources/functions/FT_NUM_DERIVACIONES_CICLO_EAP_function.sql
-\i ./sources/functions/FT_NUM_HORAS_CRUCE_CURSO_function.sql
-\i ./sources/functions/FT_NUM_HORAS_CURSO_DOC_function.sql
-\i ./sources/functions/FT_PERIODO_INGRESO_function.sql
-\i ./sources/functions/FT_PLAN_AREA_function.sql
-\i ./sources/functions/FT_PONDERADO_ANIO_PLAN_function.sql
-\i ./sources/functions/FT_PONDERADO_CICLO_PROGRAMA_function.sql
-\i ./sources/functions/FT_PONDERADO_GENERAL_PLAN_OLD_function.sql
-\i ./sources/functions/FT_PONDERADO_unctions/FT_ID_SEMESTRE_function.sql
+\i ./sourcunctions/FT_ID_SEMESTRE_function.sql
 \i ./sources/functions/FT_LEY_30220_function.sql
 \i ./sources/functions/FT_MAX_CODIGO_function.sql
 \i ./sources/functions/FT_MAX_EAP_GRADU_function.sql
@@ -182,7 +165,24 @@ SET search_path = david,public;
 \i ./sources/functions/FT_PLAN_POR_PROGRAMA_function.sql
 \i ./sources/functions/FT_PONDERADO_CICLO_function.sql
 \i ./sources/functions/FT_PONDERADO_GENERAL_PLAN_function.sql
-\i ./sources/functions/FT_PONDERADO_GENERAL_PRO/functions/FT_IMPORTE_ALUMNO_function.sql
+\i ./sources/functions/FT_PONDERADO_GENERAL_PROi ./sources/functions/FT_INSTRUMENTO_function.sql
+\i ./sources/functions/FT_LISTAGG_ID_CURSO_DOC_function.sql
+\i ./sources/functions/FT_MAX_CODIGO_INTER_function.sql
+\i ./sources/functions/FT_MAX_MATRICULA_PERSONA_function.sql
+\i ./sources/functions/FT_MERITO_SEMESTRE_function.sql
+\i ./sources/functions/FT_MOTIVO_ADVISER_function.sql
+\i ./sources/functions/FT_NEW_USERS2_function.sql
+\i ./sources/functions/FT_NIVEL_RIESGO_ANT_function.sql
+\i ./sources/functions/FT_NUM_ATENCIONES_SEMESTRE_EAP_function.sql
+\i ./sources/functions/FT_NUM_DERIVACIONES_CICLO_EAP_function.sql
+\i ./sources/functions/FT_NUM_HORAS_CRUCE_CURSO_function.sql
+\i ./sources/functions/FT_NUM_HORAS_CURSO_DOC_function.sql
+\i ./sources/functions/FT_PERIODO_INGRESO_function.sql
+\i ./sources/functions/FT_PLAN_AREA_function.sql
+\i ./sources/functions/FT_PONDERADO_ANIO_PLAN_function.sql
+\i ./sources/functions/FT_PONDERADO_CICLO_PROGRAMA_function.sql
+\i ./sources/functions/FT_PONDERADO_GENERAL_PLAN_OLD_function.sql
+\i ./sources/functions/FT_PONDERADO_/functions/FT_IMPORTE_ALUMNO_function.sql
 \i ./sources/functions/FT_LICENCIA_SUNEDU_function.sql
 \i ./sources/functions/FT_MAX_CODIGO_CONV_function.sql
 \i ./sources/functions/FT_MAX_ID_SEM_CURSO_function.sql
@@ -230,21 +230,6 @@ SET search_path = david,public;
 \i ./sources/functions/IS_NUMBER_function.sql
 \i ./sources/functions/RANDOMUUID_function.sql
 \i ./sources/functions/SINTILDE_CON_PUNTO_function.sql
-nction.sql
-\i ./sources/functions/FT_PRIMERA_MATRICULA_ALUMNOF_function.sql
-\i ./sources/functions/FT_PROFESOR_PRINCIPAL_function.sql
-\i ./sources/functions/FT_PROMEDIO_GENERAL_PLAN_function.sql
-\i ./sources/functions/FT_RSULTADO_CONSULTAS_function.sql
-\i ./sources/functions/FT_TERCIO_NOM_CURSO_function.sql
-\i ./sources/functions/FT_TIENE_DESBLOQUEO_function.sql
-\i ./sources/functions/FT_TIENE_REGULAR_function.sql
-\i ./sources/functions/FT_TIPO_PERSONA_function.sql
-\i ./sources/functions/FT_TRIM_MES_function.sql
-\i ./sources/functions/FT_VERIF_CURSOS_REPETIDOS_function.sql
-\i ./sources/functions/IS_DATE_function.sql
-\i ./sources/functions/NUM_DIA_function.sql
-\i ./sources/functions/SINTILDE_function.sql
-\i ./sources/functions/TR_INT_TO_ROMAN_function.sql
 G_S_function.sql
 \i ./sources/functions/FT_PRIMERA_MATRICULA_ALUMNO_function.sql
 \i ./sources/functions/FT_PRIMER_PLAN_PROGRAMA_function.sql
@@ -260,6 +245,21 @@ G_S_function.sql
 \i ./sources/functions/NOMBRE_PERSONA_function.sql
 \i ./sources/functions/SECTOR_UNICO_function.sql
 \i ./sources/functions/TPP_VARIOS_function.sql
+nction.sql
+\i ./sources/functions/FT_PRIMERA_MATRICULA_ALUMNOF_function.sql
+\i ./sources/functions/FT_PROFESOR_PRINCIPAL_function.sql
+\i ./sources/functions/FT_PROMEDIO_GENERAL_PLAN_function.sql
+\i ./sources/functions/FT_RSULTADO_CONSULTAS_function.sql
+\i ./sources/functions/FT_TERCIO_NOM_CURSO_function.sql
+\i ./sources/functions/FT_TIENE_DESBLOQUEO_function.sql
+\i ./sources/functions/FT_TIENE_REGULAR_function.sql
+\i ./sources/functions/FT_TIPO_PERSONA_function.sql
+\i ./sources/functions/FT_TRIM_MES_function.sql
+\i ./sources/functions/FT_VERIF_CURSOS_REPETIDOS_function.sql
+\i ./sources/functions/IS_DATE_function.sql
+\i ./sources/functions/NUM_DIA_function.sql
+\i ./sources/functions/SINTILDE_function.sql
+\i ./sources/functions/TR_INT_TO_ROMAN_function.sql
 A_function.sql
 \i ./sources/functions/FT_POSGRADO_PERSONA_function.sql
 \i ./sources/functions/FT_PRIMER_PLAN_function.sql

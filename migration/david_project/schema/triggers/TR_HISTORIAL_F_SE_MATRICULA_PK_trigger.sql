@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_historial_f_se_matricula_pk ON acad_historial_f_se_matricula CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_historial_f_se_matricula_pk() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_historial_f_se_matricula_id')
+			  select nextval('david.sq_historial_f_se_matricula_id')
 			  into STRICT NEW.id_h_f_se_matricula
 			;
 			RETURN NEW;

@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_iatec_enrollment_person_id ON iatec_enrollment_person CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_iatec_enrollment_person_id() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sq_iatec_enrollment_person_id')
+  SELECT nextval('david.sq_iatec_enrollment_person_id')
   INTO STRICT NEW.id_enrollment_person
 ;
 RETURN NEW;

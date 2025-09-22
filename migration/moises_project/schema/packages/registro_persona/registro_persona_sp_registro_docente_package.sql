@@ -28,7 +28,7 @@ BEGIN
     select count(*) into STRICT has_cod from moises.persona where id_persona = P_ID_PERSONA and (codigo IS NOT NULL AND codigo::text <> '');
 
         if has_cod = 0 then
-            -- select david.ft_new_codigo_acad(P_ID_PERSONA) into STRICT cod_acad;
+            select david.ft_new_codigo_acad(P_ID_PERSONA) into STRICT cod_acad;
             update moises.persona set codigo=cod_acad where id_persona=P_ID_PERSONA;
         else
             select codigo into STRICT cod_acad from moises.persona where id_persona = P_ID_PERSONA;
@@ -82,12 +82,12 @@ BEGIN
             where  CODIGO_PERSONAL = cod_acad;
         end if;
         */
-        -- select count(*) into STRICT has_mail from eliseo.users where id=P_ID_PERSONA;
+        select count(*) into STRICT has_mail from eliseo.users where id=P_ID_PERSONA;
         if has_mail = 0 then
           n_email:='';
-        --    select david.ft_newformat_users(P_ID_PERSONA) into STRICT n_email;
+           select david.ft_newformat_users(P_ID_PERSONA) into STRICT n_email;
         else
-            -- select email into STRICT n_email from eliseo.users where id=P_ID_PERSONA;
+            select email into STRICT n_email from eliseo.users where id=P_ID_PERSONA;
         end if;
 
         P_EMAIL :=n_email;

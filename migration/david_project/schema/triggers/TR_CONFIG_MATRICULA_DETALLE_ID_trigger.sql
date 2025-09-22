@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_config_matricula_detalle_id ON config_matricula_detalle CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_config_matricula_detalle_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_config_matricula_detalle_id')
+  select nextval('david.sq_config_matricula_detalle_id')
   into STRICT NEW.id_configuracion
 ;
 RETURN NEW;

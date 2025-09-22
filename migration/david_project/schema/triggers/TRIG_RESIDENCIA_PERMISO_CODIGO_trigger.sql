@@ -24,7 +24,7 @@ BEGIN
           AND VAAC.ID_MODO_CONTRATO = 1
           AND VAAC.ESTADO = '1';
 
-        SELECT CODIGO_RESID || '-' || TO_CHAR(nextval('sq_residencia_permiso_codigo'), 'FM000000000000000')
+        SELECT CODIGO_RESID || '-' || TO_CHAR(nextval('david.sq_residencia_permiso_codigo'), 'FM000000000000000')
         INTO STRICT NEW.CODIGO
 ;
     END IF;

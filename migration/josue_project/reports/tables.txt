@@ -1,0 +1,8 @@
+----------------------------------------------------------
+Total number of rows: 0
+
+Global Temporary Tables:
+
+
+Top 10 of tables sorted by number of rows:
+Top 10 of largest tables:

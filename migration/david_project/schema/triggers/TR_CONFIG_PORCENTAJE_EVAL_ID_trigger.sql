@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_config_porcentaje_eval_id ON config_porcentaje_eval CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_config_porcentaje_eval_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_config_porcentaje_eval_id')
+  select nextval('david.sq_config_porcentaje_eval_id')
   into STRICT NEW.id_CONFIG_PORCENTAJE_EVAL
 ;
 RETURN NEW;

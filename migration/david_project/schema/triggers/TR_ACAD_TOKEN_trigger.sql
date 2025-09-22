@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_acad_token ON acad_token CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_acad_token() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('acad_token_sq')
+  select nextval('david.acad_token_sq')
   into STRICT NEW.id_token
 ;
 RETURN NEW;

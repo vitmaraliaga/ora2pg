@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_rastreo_convalidacion ON acad_rastreo_convalidacion CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_rastreo_convalidacion() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_rastreo_convalidacion')
+  select nextval('david.sq_rastreo_convalidacion')
   into STRICT NEW.id_rastreo_convalidacion
 ;
 RETURN NEW;

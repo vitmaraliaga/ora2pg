@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS acad_persona_comision_pka ON acad_persona_comision CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_acad_persona_comision_pka() RETURNS trigger AS $BODY$
 BEGIN
-    SELECT nextval('acad_persona_comision_sec')
+    SELECT nextval('david.acad_persona_comision_sec')
     INTO STRICT NEW.ID_PERSONA_COMISION
 ;
 RETURN NEW;

@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_plantilla_eval_evidencia_id ON plantilla_evaluacion_evidencia CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_plantilla_eval_evidencia_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_plantilla_eval_evidencia_id')
+  select nextval('david.sq_plantilla_eval_evidencia_id')
   into STRICT NEW.ID_EVALUACION_EVIDENCIA
 ;
 RETURN NEW;

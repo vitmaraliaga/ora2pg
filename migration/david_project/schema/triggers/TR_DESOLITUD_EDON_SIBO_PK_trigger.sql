@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_desolitud_edon_sibo_pk ON detalle_solicitud_edicion CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_desolitud_edon_sibo_pk() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_deta_solic_edn_silbo_id')
+			  select nextval('david.sq_deta_solic_edn_silbo_id')
 			  into STRICT NEW.ID_DETALLE_SOLICITUD
 			;
 			RETURN NEW;

@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_lng_clase_id ON lng_clase CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_lng_clase_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('lng_clase_seq')
+  select nextval('david.lng_clase_seq')
   into STRICT NEW.ID_CLASE
 ;
 RETURN NEW;

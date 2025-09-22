@@ -13,16 +13,16 @@ DECLARE
    last_Sequence bigint;
    last_InsertID bigint;
 BEGIN
-   SELECT nextval('testing_seq') INTO STRICT NEW.ID;
+   SELECT nextval('david.testing_seq') INTO STRICT NEW.ID;
    IF (coalesce(NEW.ID::text, '') = '' OR NEW.ID = 0) THEN
-      SELECT nextval('testing_seq') INTO STRICT NEW.ID;
+      SELECT nextval('david.testing_seq') INTO STRICT NEW.ID;
    ELSE
       SELECT coalesce(Last_Number, 0) INTO STRICT last_Sequence
         FROM User_Sequences
        WHERE Sequence_Name = 'TESTING_SEQ';
       SELECT NEW.ID INTO STRICT last_InsertID;
       WHILE(last_InsertID > last_Sequence) LOOP
-         SELECT nextval('testing_seq') INTO STRICT last_Sequence;
+         SELECT nextval('david.testing_seq') INTO STRICT last_Sequence;
       END LOOP;
    END IF;
 RETURN NEW;

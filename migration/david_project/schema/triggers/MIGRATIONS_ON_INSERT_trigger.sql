@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS migrations_on_insert ON migrations CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_migrations_on_insert() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('migrations_sequence')
+  SELECT nextval('david.migrations_sequence')
   INTO STRICT NEW.id
 ;
 RETURN NEW;

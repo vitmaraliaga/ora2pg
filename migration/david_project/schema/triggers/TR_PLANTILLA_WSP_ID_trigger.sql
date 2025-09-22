@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_plantilla_wsp_id ON plantilla_wsp CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_plantilla_wsp_id() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_plantilla_wsp_id')
+			  select nextval('david.sq_plantilla_wsp_id')
 			  into STRICT NEW.ID_PLANTILLA_WSP
 			;
 			RETURN NEW;

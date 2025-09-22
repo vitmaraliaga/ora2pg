@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_anuncio_pk ON anuncio CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_anuncio_pk() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sq_anuncio')
+  SELECT nextval('david.sq_anuncio')
   INTO STRICT NEW.ID_ANUNCIO
 ;
 RETURN NEW;

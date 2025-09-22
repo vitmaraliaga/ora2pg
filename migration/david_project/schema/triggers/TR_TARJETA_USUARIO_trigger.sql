@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_tarjeta_usuario ON tarjeta_usuarios CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_tarjeta_usuario() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_tarjeta_usuario')
+  select nextval('david.sq_tarjeta_usuario')
   into STRICT NEW.id_tarjeta_usuarios
 ;
 RETURN NEW;

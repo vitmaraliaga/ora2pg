@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_acad_curriculum_experto_id ON acad_curriculum_experto CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_acad_curriculum_experto_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('acad_curriculum_experto_sq')
+  select nextval('david.acad_curriculum_experto_sq')
   into STRICT NEW.ID_CURRICULUM_EXPERTO
 ;
 RETURN NEW;

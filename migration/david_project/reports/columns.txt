@@ -179,7 +179,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -204,7 +204,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -263,7 +263,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -377,7 +377,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -760,7 +760,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -924,7 +924,7 @@
 	CODIGO : VARCHAR2(15) => varchar(15)
 	NRO_BLOQUE : NUMBER(22) => bigint
 	METAS : VARCHAR2(254) => varchar(254)
-	HORAS_LABORALES : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
 	ID_USUARIO_REG : NUMBER(22) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	ID_USUARIO_ACT : NUMBER(22) => bigint
@@ -1029,13 +1029,13 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	CRUCE : CHAR(1) => char(1)
-	HL : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	HL : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
 	EDITA_HL : CHAR(1) => char(1)
 	EDITA_FACTOR : CHAR(1) => char(1)
 	ID_FACTOR : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
-	HL_PERIODO : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
+	HL_PERIODO : NUMBER(22) => numeric
 	ID_TIPO_MODALIDAD_DOCENTE : NUMBER(22) => bigint
 	CUPOS_EXTRAS : NUMBER(38) => bigint
 [60] TABLE AATEMP_ACCD3 (owner: DAVID, 38 rows)
@@ -1264,7 +1264,7 @@
 	CREDITOS_MAT : NUMBER(22) => bigint
 	META : NUMBER(22) => bigint
 	CREDITO_META : NUMBER(22) => bigint
-	PRECIO_CREDITO : NUMBER(22) => bigint
+	PRECIO_CREDITO : NUMBER(22) => numeric
 	NOMBRE_DISTRITO : VARCHAR2(4000) => varchar(4000)
 	LATITUD : VARCHAR2(4000) => varchar(4000)
 	LONGITUD : VARCHAR2(4000) => varchar(4000)
@@ -1603,7 +1603,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -1615,8 +1615,8 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA_ANTERIOR : NUMBER(22) => bigint
-	NOTA_ACTUAL : NUMBER(22) => bigint
+	NOTA_ANTERIOR : NUMBER(22) => numeric
+	NOTA_ACTUAL : NUMBER(22) => numeric
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(4000) => varchar(4000)
@@ -1632,7 +1632,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -1831,7 +1831,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -1881,11 +1881,11 @@
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	CRUCE : CHAR(1) => char(1)
 	HL : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	FACTOR : NUMBER(22) => numeric
 	EDITA_HL : CHAR(1) => char(1)
 	EDITA_FACTOR : CHAR(1) => char(1)
 	ID_FACTOR : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
 	HL_PERIODO : NUMBER(22) => bigint
 	ID_TIPO_MODALIDAD_DOCENTE : NUMBER(22) => bigint
 	CUPOS_EXTRAS : NUMBER(38) => bigint
@@ -2008,9 +2008,9 @@
 	ARCHIVO : VARCHAR2(1500) => varchar(1500)
 [137] TABLE AATEMP_CCD (owner: DAVID, 364 rows)
 	ID_CARGA_CURSO_DOCENTE : NUMBER(38) => bigint
-	HL : NUMBER(22) => bigint
-	HL_PERIODO : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
+	HL : NUMBER(22) => numeric
+	HL_PERIODO : NUMBER(22) => numeric
+	HORAS_LABORALES : NUMBER(22) => numeric
 [138] TABLE AATEMP_CDE (owner: DAVID, 1 rows)
 	ID_ALUMNO_CONTRATO_CURSO : NUMBER(38) => bigint
 	ID_ALUMNO_CONTRATO : NUMBER(38) => bigint
@@ -2359,13 +2359,13 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	CRUCE : CHAR(1) => char(1)
-	HL : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	HL : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
 	EDITA_HL : CHAR(1) => char(1)
 	EDITA_FACTOR : CHAR(1) => char(1)
 	ID_FACTOR : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
-	HL_PERIODO : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
+	HL_PERIODO : NUMBER(22) => numeric
 	ID_TIPO_MODALIDAD_DOCENTE : NUMBER(22) => bigint
 	CUPOS_EXTRAS : NUMBER(38) => bigint
 [157] TABLE AATEMP_CREAR_CURSO_HORARIO (owner: DAVID, 719029 rows)
@@ -2548,8 +2548,8 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
-	NOTA_ANTERIOR : NUMBER(22) => bigint
-	NOTA_ACTUAL : NUMBER(22) => bigint
+	NOTA_ANTERIOR : NUMBER(22) => numeric
+	NOTA_ACTUAL : NUMBER(22) => numeric
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	HORA : VARCHAR2(8) => varchar(8)
 [171] TABLE AATEMP_CURSO_DETALLE (owner: DAVID, 10640 rows)
@@ -3119,8 +3119,8 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA_ANT : NUMBER(22) => bigint
-	NOTA_ACT : NUMBER(22) => bigint
+	NOTA_ANT : NUMBER(22) => numeric
+	NOTA_ACT : NUMBER(22) => numeric
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(60) => varchar(60)
@@ -3129,7 +3129,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -3139,8 +3139,8 @@
 	CODIGO_ALUMNO : VARCHAR2(4000) => varchar(4000)
 	CURSO_CARGA_ID : VARCHAR2(45) => varchar(45)
 	EVALUACION_ID : VARCHAR2(54) => varchar(54)
-	NOTA_ANT : NUMBER(22) => bigint
-	NOTA_ACT : NUMBER(22) => bigint
+	NOTA_ANT : NUMBER(22) => numeric
+	NOTA_ACT : NUMBER(22) => numeric
 	CODIGO_PERSONAL : VARCHAR2(63) => varchar(63)
 	FECHA_ACT : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(60) => varchar(60)
@@ -3285,10 +3285,10 @@
 	ID_UNIDAD_ACADEMICA : NUMBER(38) => bigint
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
-	PROMEDIO_ASISTENCIA_DOCENTE : NUMBER(22) => bigint
-	PROMEDIO_ASISTENCIA : NUMBER(22) => bigint
-	PROMEDIO_NOTAS_SEMANA : NUMBER(22) => bigint
-	CANVAS : NUMBER(22) => bigint
+	PROMEDIO_ASISTENCIA_DOCENTE : NUMBER(22) => numeric
+	PROMEDIO_ASISTENCIA : NUMBER(22) => numeric
+	PROMEDIO_NOTAS_SEMANA : NUMBER(22) => numeric
+	CANVAS : NUMBER(22) => numeric
 	ID_OPE : NUMBER(22) => bigint
 [233] TABLE AATEMP_EVIDENCIAS (owner: DAVID, 40 rows)
 	CURSO_CARGA_ID : VARCHAR2(36) => varchar(36)
@@ -3325,7 +3325,7 @@
 	RECORDATORIO : CHAR(1) => char(1)
 	FECHA_ACTIVACION : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(36) => varchar(36)
-	MINUTOS_RESTANTES : NUMBER(22) => bigint
+	MINUTOS_RESTANTES : NUMBER(22) => numeric
 	MINUTOS_USADOS : NUMBER(22) => bigint
 	NRO_INGRESO_INSTRUMENTO : NUMBER(22) => bigint
 	NRO_RECORDATORIO : NUMBER(22) => bigint
@@ -3757,9 +3757,9 @@
 	HL : NUMBER(22) => bigint
 	HORAS_HORARIO : NUMBER(22) => bigint
 	HL_PERIODO : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
-	CON_FACTOR : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
+	CON_FACTOR : NUMBER(22) => numeric
 [270] TABLE AATEMP_HORAS_ACT2 (owner: DAVID, 72 rows)
 	ID_CARGA_CURSO_DOCENTE : NUMBER(38) => bigint
 	ID_SEDE : NUMBER(38) => bigint
@@ -3774,7 +3774,7 @@
 	HORAS_LECTIVAS : NUMBER(38) => bigint
 	HL_PERIODO : NUMBER(22) => bigint
 	HORAS_LABORALES : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	FACTOR : NUMBER(22) => numeric
 	CON_FACTOR : NUMBER(22) => bigint
 [271] TABLE AATEMP_HORAS_ACT3 (owner: DAVID, 232 rows)
 	ID_CARGA_CURSO_DOCENTE : NUMBER(38) => bigint
@@ -3789,9 +3789,9 @@
 	HORAS_HORARIO : NUMBER(22) => bigint
 	HORAS_LECTIVAS : NUMBER(38) => bigint
 	HL_PERIODO : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
-	CON_FACTOR : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
+	CON_FACTOR : NUMBER(22) => numeric
 [272] TABLE AATEMP_HORAS_SEMANALES (owner: DAVID, 656 rows)
 	FICHA_HORAS_SEMANALESID : VARCHAR2(30) => varchar(30)
 	CODIGO_PERSONAL : VARCHAR2(150) => varchar(150)
@@ -3834,13 +3834,13 @@
 	RECORDATORIO : CHAR(1) => char(1)
 	FECHA_ACTIVACION : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(36) => varchar(36)
-	MINUTOS_RESTANTES : NUMBER(22) => bigint
+	MINUTOS_RESTANTES : NUMBER(22) => numeric
 	MINUTOS_USADOS : NUMBER(22) => bigint
 	NRO_INGRESO_INSTRUMENTO : NUMBER(22) => bigint
 	NRO_RECORDATORIO : NUMBER(22) => bigint
 	FECHA_HORA_LIMITE : DATE(7) => timestamp(0) (date?)
 	PUNTAJE : NUMBER(22) => bigint
-	PUNTAJE_CON_FORMULA : NUMBER(22) => bigint
+	PUNTAJE_CON_FORMULA : NUMBER(22) => numeric
 	PUNTAJE_CON_ESCALA : NUMBER(22) => bigint
 	PUNTAJE_CON_PONDERADO : NUMBER(22) => bigint
 	CONSOLIDADO : CHAR(1) => char(1)
@@ -4076,7 +4076,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -4144,7 +4144,7 @@
 	CICLO : NUMBER(22) => bigint
 	GRUPO : VARCHAR2(4000) => varchar(4000)
 	ID_PERSONA : NUMBER(38) => bigint
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	CNA : NUMBER(22) => bigint
 	CRA : NUMBER(22) => bigint
 	CD : NUMBER(22) => bigint
@@ -4186,8 +4186,8 @@
 	APELLIDO_NOMBRE : VARCHAR2(767) => varchar(767)
 	CODIGO : VARCHAR2(12) => varchar(12)
 	EVALUACION : VARCHAR2(4000) => varchar(4000)
-	NOTA_ANTERIOR : NUMBER(22) => bigint
-	NOTA_ACTUAL : NUMBER(22) => bigint
+	NOTA_ANTERIOR : NUMBER(22) => numeric
+	NOTA_ACTUAL : NUMBER(22) => numeric
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	HORA : VARCHAR2(8) => varchar(8)
 	DOCENTES : CLOB(4000) => text
@@ -4556,12 +4556,12 @@
 	S02 : NUMBER(22) => bigint
 	S03 : NUMBER(22) => bigint
 	S04 : NUMBER(22) => bigint
-	PROMEDIO_FINAL : NUMBER(22) => bigint
-	S01_V : NUMBER(22) => bigint
-	S02_V : NUMBER(22) => bigint
-	S03_V : NUMBER(22) => bigint
-	S04_V : NUMBER(22) => bigint
-	PROMEDIO_FINAL_V : NUMBER(22) => bigint
+	PROMEDIO_FINAL : NUMBER(22) => numeric
+	S01_V : NUMBER(22) => numeric
+	S02_V : NUMBER(22) => numeric
+	S03_V : NUMBER(22) => numeric
+	S04_V : NUMBER(22) => numeric
+	PROMEDIO_FINAL_V : NUMBER(22) => numeric
 	VALIDO : NUMBER(22) => bigint
 	PREVIEW : VARCHAR2(122) => varchar(122)
 	CUESTIONARIO : VARCHAR2(104) => varchar(104)
@@ -4596,12 +4596,12 @@
 	S02 : NUMBER(22) => bigint
 	S03 : NUMBER(22) => bigint
 	S04 : NUMBER(22) => bigint
-	PROMEDIO_FINAL : NUMBER(22) => bigint
-	S01_V : NUMBER(22) => bigint
-	S02_V : NUMBER(22) => bigint
-	S03_V : NUMBER(22) => bigint
-	S04_V : NUMBER(22) => bigint
-	PROMEDIO_FINAL_V : NUMBER(22) => bigint
+	PROMEDIO_FINAL : NUMBER(22) => numeric
+	S01_V : NUMBER(22) => numeric
+	S02_V : NUMBER(22) => numeric
+	S03_V : NUMBER(22) => numeric
+	S04_V : NUMBER(22) => numeric
+	PROMEDIO_FINAL_V : NUMBER(22) => numeric
 	VALIDO : NUMBER(22) => bigint
 	PREVIEW : VARCHAR2(122) => varchar(122)
 	CUESTIONARIO : VARCHAR2(104) => varchar(104)
@@ -4637,12 +4637,12 @@
 	S02 : NUMBER(22) => bigint
 	S03 : NUMBER(22) => bigint
 	S04 : NUMBER(22) => bigint
-	PROMEDIO_FINAL : NUMBER(22) => bigint
-	S01_V : NUMBER(22) => bigint
-	S02_V : NUMBER(22) => bigint
-	S03_V : NUMBER(22) => bigint
-	S04_V : NUMBER(22) => bigint
-	PROMEDIO_FINAL_V : NUMBER(22) => bigint
+	PROMEDIO_FINAL : NUMBER(22) => numeric
+	S01_V : NUMBER(22) => numeric
+	S02_V : NUMBER(22) => numeric
+	S03_V : NUMBER(22) => numeric
+	S04_V : NUMBER(22) => numeric
+	PROMEDIO_FINAL_V : NUMBER(22) => numeric
 	VALIDO : NUMBER(22) => bigint
 	PREVIEW : VARCHAR2(122) => varchar(122)
 	CUESTIONARIO : VARCHAR2(104) => varchar(104)
@@ -4676,12 +4676,12 @@
 	S02 : NUMBER(22) => bigint
 	S03 : NUMBER(22) => bigint
 	S04 : NUMBER(22) => bigint
-	PROMEDIO_FINAL : NUMBER(22) => bigint
-	S01_V : NUMBER(22) => bigint
-	S02_V : NUMBER(22) => bigint
-	S03_V : NUMBER(22) => bigint
-	S04_V : NUMBER(22) => bigint
-	PROMEDIO_FINAL_V : NUMBER(22) => bigint
+	PROMEDIO_FINAL : NUMBER(22) => numeric
+	S01_V : NUMBER(22) => numeric
+	S02_V : NUMBER(22) => numeric
+	S03_V : NUMBER(22) => numeric
+	S04_V : NUMBER(22) => numeric
+	PROMEDIO_FINAL_V : NUMBER(22) => numeric
 	VALIDO : NUMBER(22) => bigint
 	PREVIEW : VARCHAR2(122) => varchar(122)
 	CUESTIONARIO : VARCHAR2(104) => varchar(104)
@@ -4908,7 +4908,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(3) => varchar(3)
 	CODIGO : VARCHAR2(93) => varchar(93)
 [355] TABLE AATEMP_PLANTILLA_ENLACE (owner: DAVID, 142688 rows)
@@ -5118,8 +5118,8 @@
 	ID_SEMESTRE : NUMBER(38) => bigint
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
 	CICLO : NUMBER(22) => bigint
-	PONDERADO_GENERAL : NUMBER(22) => bigint
-	PONDERADO_CICLO : NUMBER(22) => bigint
+	PONDERADO_GENERAL : NUMBER(22) => numeric
+	PONDERADO_CICLO : NUMBER(22) => numeric
 [371] TABLE AATEMP_PREV_FECHA (owner: DAVID, 941 rows)
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
@@ -5165,8 +5165,8 @@
 	ID_SEMESTRE : NUMBER(38) => bigint
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
 	CICLO : NUMBER(22) => bigint
-	PONDERADO_GENERAL : NUMBER(22) => bigint
-	PONDERADO_CICLO : NUMBER(22) => bigint
+	PONDERADO_GENERAL : NUMBER(22) => numeric
+	PONDERADO_CICLO : NUMBER(22) => numeric
 	TOTAL : NUMBER(22) => bigint
 	PUESTO : VARCHAR2(47) => varchar(47)
 	TIPO : CHAR(1) => char(1)
@@ -5175,8 +5175,8 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA_ANTERIOR : NUMBER(22) => bigint
-	NOTA_ACTUAL : NUMBER(22) => bigint
+	NOTA_ANTERIOR : NUMBER(22) => numeric
+	NOTA_ACTUAL : NUMBER(22) => numeric
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(4000) => varchar(4000)
@@ -6268,8 +6268,8 @@
 	ID_CARGA_CURSO_DOCENTE : NUMBER(38) => bigint
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	HL_NUEVO : NUMBER(22) => bigint
-	HL_PERIODO : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	HL_PERIODO : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
 	HLAB_NUEVO : NUMBER(22) => bigint
 [446] TABLE AATEMP_XASU (owner: DAVID, 16 rows)
 	ID_CURSO_ALUMNO : NUMBER(38) => bigint
@@ -6393,7 +6393,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -6406,7 +6406,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -6432,7 +6432,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -6514,8 +6514,8 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA_ANTERIOR : NUMBER(22) => bigint
-	NOTA_ACTUAL : NUMBER(22) => bigint
+	NOTA_ANTERIOR : NUMBER(22) => numeric
+	NOTA_ACTUAL : NUMBER(22) => numeric
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(4000) => varchar(4000)
@@ -6660,7 +6660,7 @@
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
-	IMPORTE : NUMBER(22) => bigint
+	IMPORTE : NUMBER(22) => numeric
 	ID_SEDE : NUMBER(38) => bigint
 [476] TABLE ACAD_CANDADO_PROGRAMA (owner: DAVID, 126 rows)
 	ID_CANDADO_PROGRAMA : NUMBER(38) => bigint
@@ -6804,13 +6804,13 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	CRUCE : CHAR(1) => char(1)
-	HL : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	HL : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
 	EDITA_HL : CHAR(1) => char(1)
 	EDITA_FACTOR : CHAR(1) => char(1)
 	ID_FACTOR : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
-	HL_PERIODO : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
+	HL_PERIODO : NUMBER(22) => numeric
 	ID_TIPO_MODALIDAD_DOCENTE : NUMBER(22) => bigint
 	CUPOS_EXTRAS : NUMBER(38) => bigint
 	ID_TIPO_MODALIDAD_CURSO : NUMBER(38) => bigint
@@ -6940,7 +6940,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -7153,7 +7153,7 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	FECHA_TEMA : DATE(7) => timestamp(0) (date?)
-	ORDEN : NUMBER(22) => bigint
+	ORDEN : NUMBER(22) => numeric
 	ID_ORIGEN : NUMBER(22) => bigint
 	ID_PLAN_CURSO_REPLICA : NUMBER(22) => bigint
 	ID_USUARIO_REPLICA : NUMBER(22) => bigint
@@ -7211,7 +7211,7 @@
 	ORDEN : NUMBER(22) => bigint
 	ID_CURSO_UNIDAD : NUMBER(38) => bigint
 	CONTENIDO_GENERAL : VARCHAR2(4000) => varchar(4000)
-	DURACION : NUMBER(22) => bigint
+	DURACION : NUMBER(22) => numeric
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(22) => bigint
 	ADJUNTO : VARCHAR2(500) => varchar(500)
 	PLAN_CLASE_ADJUNTO : VARCHAR2(500) => varchar(500)
@@ -7713,7 +7713,7 @@
 	ID_USUARIO_REG : NUMBER(22) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	CUPO_ANTERIOR : NUMBER(22) => bigint
-	CUPO_NUEVO : NUMBER(22) => bigint
+	CUPO_NUEVO : NUMBER(22) => numeric
 	ID_CARGA_CURSO_DOCENTE : NUMBER(22) => bigint
 [562] TABLE ACAD_HISTORIAL_ELIM_SILABO (owner: DAVID, 8558 rows)
 	ID_ELIM_SILABO : NUMBER(38) => bigint
@@ -7994,7 +7994,7 @@
 	CODIGO : VARCHAR2(15) => varchar(15)
 	NRO_BLOQUE : NUMBER(22) => bigint
 	METAS : VARCHAR2(254) => varchar(254)
-	HORAS_LABORALES : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
 	ID_USUARIO_REG : NUMBER(22) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	ID_USUARIO_ACT : NUMBER(22) => bigint
@@ -8215,7 +8215,7 @@
 	ID_SOLICITUD_CONVALIDACION : NUMBER(22) => bigint
 	ID_SOLICITUD_CONVALIDACION_D : NUMBER(22) => bigint
 	CONTADOR : NUMBER(22) => bigint
-	NOTA_DESTINO : NUMBER(22) => bigint
+	NOTA_DESTINO : NUMBER(22) => numeric
 [609] TABLE ACAD_RECURSO_DIDACTICO (owner: DAVID, 5 rows)
 	ID_RECURSO_DIDACTICO : NUMBER(22) => bigint
 	NOMBRE : VARCHAR2(500) => varchar(500)
@@ -9217,7 +9217,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -9343,7 +9343,7 @@
 	ORDEN : NUMBER(22) => bigint
 	ID_CURSO_UNIDAD : NUMBER(38) => bigint
 	CONTENIDO_GENERAL : VARCHAR2(4000) => varchar(4000)
-	DURACION : NUMBER(22) => bigint
+	DURACION : NUMBER(22) => numeric
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(22) => bigint
 	ADJUNTO : VARCHAR2(500) => varchar(500)
 	PLAN_CLASE_ADJUNTO : VARCHAR2(500) => varchar(500)
@@ -9448,13 +9448,13 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	CRUCE : CHAR(1) => char(1)
-	HL : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	HL : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
 	EDITA_HL : CHAR(1) => char(1)
 	EDITA_FACTOR : CHAR(1) => char(1)
 	ID_FACTOR : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
-	HL_PERIODO : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
+	HL_PERIODO : NUMBER(22) => numeric
 	ID_TIPO_MODALIDAD_DOCENTE : NUMBER(22) => bigint
 	CUPOS_EXTRAS : NUMBER(38) => bigint
 	ID_TIPO_MODALIDAD_CURSO : NUMBER(38) => bigint
@@ -10086,7 +10086,7 @@
 	DIMENSION_3 : NUMBER(22) => bigint
 	DIMENSION_4 : NUMBER(22) => bigint
 	PUNTAJE : NUMBER(22) => bigint
-	PUNTAJE_CON_FORMULA : NUMBER(22) => bigint
+	PUNTAJE_CON_FORMULA : NUMBER(22) => numeric
 	ID_OPE : NUMBER(22) => bigint
 [783] TABLE CONSULTA_APIS_LOG (owner: DAVID, 5472 rows)
 	ID_CONSULTA_APIS_LOG : NUMBER(38) => bigint
@@ -10542,10 +10542,10 @@
 	ID_UNIDAD_ACADEMICA : NUMBER(38) => bigint
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
-	PROMEDIO_ASISTENCIA_DOCENTE : NUMBER(22) => bigint
-	PROMEDIO_ASISTENCIA : NUMBER(22) => bigint
-	PROMEDIO_NOTAS_SEMANA : NUMBER(22) => bigint
-	CANVAS : NUMBER(22) => bigint
+	PROMEDIO_ASISTENCIA_DOCENTE : NUMBER(22) => numeric
+	PROMEDIO_ASISTENCIA : NUMBER(22) => numeric
+	PROMEDIO_NOTAS_SEMANA : NUMBER(22) => numeric
+	CANVAS : NUMBER(22) => numeric
 	ID_OPE : NUMBER(22) => bigint
 [821] TABLE EVALUACION_CAPACITACION (owner: DAVID, 1932 rows)
 	ID_SEMESTRE : NUMBER(38) => bigint
@@ -10554,7 +10554,7 @@
 	ID_UNIDAD_ACADEMICA : NUMBER(38) => bigint
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
-	CAPACITACION : NUMBER(22) => bigint
+	CAPACITACION : NUMBER(22) => numeric
 	ID_OPE : NUMBER(22) => bigint
 [822] TABLE EVALUACION_DIARIA (owner: DAVID, 46073 rows)
 	ID_EVALUACION_DIARIA : NUMBER(38) => bigint
@@ -10575,14 +10575,14 @@
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_OPE : NUMBER(22) => bigint
-	PUNTAJE_CON_FORMULA : NUMBER(22) => bigint
+	PUNTAJE_CON_FORMULA : NUMBER(22) => numeric
 [824] TABLE EVALUACION_OPE (owner: DAVID, 46 rows)
 	ID_SEMESTRE : NUMBER(38) => bigint
 	ID_SEDE : NUMBER(38) => bigint
 	ID_NIVEL_ENSENANZA : NUMBER(38) => bigint
 	ID_UNIDAD_ACADEMICA : NUMBER(38) => bigint
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
-	PUNTAJE_CON_FORMULA : NUMBER(22) => bigint
+	PUNTAJE_CON_FORMULA : NUMBER(22) => numeric
 	ID_OPE : NUMBER(22) => bigint
 [825] TABLE EVALUACION_OPE_DETALLE (owner: DAVID, 1273 rows)
 	ID_PERSONA : NUMBER(38) => bigint
@@ -10591,7 +10591,7 @@
 	ID_NIVEL_ENSENANZA : NUMBER(38) => bigint
 	ID_UNIDAD_ACADEMICA : NUMBER(38) => bigint
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
-	PUNTAJE_CON_FORMULA : NUMBER(22) => bigint
+	PUNTAJE_CON_FORMULA : NUMBER(22) => numeric
 	ID_OPE : NUMBER(22) => bigint
 [826] TABLE EXCEPCION_PR_ACAD (owner: DAVID, 1 rows)
 	ID_ALUMNO_CONTRATO : NUMBER(38) => bigint
@@ -10663,12 +10663,12 @@
 	S02 : NUMBER(22) => bigint
 	S03 : NUMBER(22) => bigint
 	S04 : NUMBER(22) => bigint
-	PROMEDIO_FINAL : NUMBER(22) => bigint
-	S01_V : NUMBER(22) => bigint
-	S02_V : NUMBER(22) => bigint
-	S03_V : NUMBER(22) => bigint
-	S04_V : NUMBER(22) => bigint
-	PROMEDIO_FINAL_V : NUMBER(22) => bigint
+	PROMEDIO_FINAL : NUMBER(22) => numeric
+	S01_V : NUMBER(22) => numeric
+	S02_V : NUMBER(22) => numeric
+	S03_V : NUMBER(22) => numeric
+	S04_V : NUMBER(22) => numeric
+	PROMEDIO_FINAL_V : NUMBER(22) => numeric
 	PREVIEW : VARCHAR2(122) => varchar(122)
 	CUESTIONARIO : VARCHAR2(104) => varchar(104)
 [836] TABLE GF_JULIACA (owner: DAVID, 396 rows)
@@ -10775,7 +10775,7 @@
 	ID_HISTORIAL_DOCENTE_HLC : NUMBER(22) => bigint
 	ID_CARGA_CURSO_DOCENTE : NUMBER(22) => bigint
 	NOMBRE_INPUT : VARCHAR2(100) => varchar(100)
-	VALOR_ANTERIOR : NUMBER(22) => bigint
+	VALOR_ANTERIOR : NUMBER(22) => numeric
 	VALOR_ACTUAL : NUMBER(22) => bigint
 	ESTADO : CHAR(1) => char(1)
 	ID_USUARIO_REG : NUMBER(22) => bigint
@@ -11357,7 +11357,7 @@
 	ID_ESTRATEGIA : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVIDENCIA : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	URL : VARCHAR2(4000) => varchar(4000)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -11373,7 +11373,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -11444,7 +11444,7 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	FECHA_TEMA : DATE(7) => timestamp(0) (date?)
-	ORDEN : NUMBER(22) => bigint
+	ORDEN : NUMBER(22) => numeric
 	MODO_PLANTILLA : CHAR(1) => char(1)
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(38) => bigint
 [924] TABLE P08 (owner: DAVID, 2319 rows)
@@ -11582,7 +11582,7 @@
 	MODO_PLANTILLA : CHAR(1) => char(1)
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(38) => bigint
 	CONTENIDO_GENERAL : VARCHAR2(4000) => varchar(4000)
-	DURACION : NUMBER(22) => bigint
+	DURACION : NUMBER(22) => numeric
 	ADJUNTO : VARCHAR2(500) => varchar(500)
 	PRODUCTO : VARCHAR2(4000) => varchar(4000)
 	INSTRUMENTO : VARCHAR2(4000) => varchar(4000)
@@ -11661,7 +11661,7 @@
 	ORDEN : NUMBER(22) => bigint
 	ID_CURSO_UNIDAD : NUMBER(38) => bigint
 	CONTENIDO_GENERAL : VARCHAR2(4000) => varchar(4000)
-	DURACION : NUMBER(22) => bigint
+	DURACION : NUMBER(22) => numeric
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(22) => bigint
 	ADJUNTO : VARCHAR2(500) => varchar(500)
 	PLAN_CLASE_ADJUNTO : VARCHAR2(500) => varchar(500)
@@ -11797,7 +11797,7 @@
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 [956] TABLE PLANTILLAS_ANULADAS (owner: DAVID, 6243 rows)
 	ID_PLAN_CURSO : NUMBER(38) => bigint
-	TOTAL : NUMBER(22) => bigint
+	TOTAL : NUMBER(22) => numeric
 [957] TABLE PLANTILLA_COMENTARIO (owner: DAVID, 1160 rows)
 	ID_COMENTARIO : NUMBER(22) => bigint
 	ID_PARENT : NUMBER(22) => bigint
@@ -11880,7 +11880,7 @@
 	ID_EVIDENCIA_RESULTADO : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVALUACION : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	RESTRICCION : VARCHAR2(5) => varchar(5)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -12054,7 +12054,7 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	FECHA_TEMA : DATE(7) => timestamp(0) (date?)
-	ORDEN : NUMBER(22) => bigint
+	ORDEN : NUMBER(22) => numeric
 	MODO_PLANTILLA : CHAR(1) => char(1)
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(38) => bigint
 	HA : VARCHAR2(100) => varchar(100)
@@ -12103,7 +12103,7 @@
 	MODO_PLANTILLA : CHAR(1) => char(1)
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(38) => bigint
 	CONTENIDO_GENERAL : VARCHAR2(4000) => varchar(4000)
-	DURACION : NUMBER(22) => bigint
+	DURACION : NUMBER(22) => numeric
 	ADJUNTO : VARCHAR2(500) => varchar(500)
 	PRODUCTO : VARCHAR2(4000) => varchar(4000)
 	INSTRUMENTO : VARCHAR2(4000) => varchar(4000)
@@ -12178,7 +12178,7 @@
 	ID_ESTRATEGIA : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVIDENCIA : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	URL : VARCHAR2(4000) => varchar(4000)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -12222,7 +12222,7 @@
 	ID_TIPO_EVALUACION : NUMBER(22) => bigint
 	ID_PLANTILLA_CURSO_PLAN : NUMBER(22) => bigint
 	PESO : NUMBER(22) => bigint
-	TOTAL : NUMBER(22) => bigint
+	TOTAL : NUMBER(22) => numeric
 [994] TABLE PLANTILLA_SECCION_PREGUNTA (owner: DAVID, 1280 rows)
 	ID_PLANTILLA_SECCION_PREGUNTA : NUMBER(38) => bigint
 	ID_TIPO_SECCION : NUMBER(38) => bigint
@@ -12395,7 +12395,7 @@
 	CREDITOS_MAT : NUMBER(22) => bigint
 	META : NUMBER(22) => bigint
 	CREDITO_META : NUMBER(22) => bigint
-	PRECIO_CREDITO : NUMBER(22) => bigint
+	PRECIO_CREDITO : NUMBER(22) => numeric
 	NOMBRE_DISTRITO : VARCHAR2(4000) => varchar(4000)
 	LATITUD : VARCHAR2(4000) => varchar(4000)
 	LONGITUD : VARCHAR2(4000) => varchar(4000)
@@ -12421,7 +12421,7 @@
 	CREDITOS_MAT : NUMBER(22) => bigint
 	META : NUMBER(22) => bigint
 	CREDITO_META : NUMBER(22) => bigint
-	PRECIO_CREDITO : NUMBER(22) => bigint
+	PRECIO_CREDITO : NUMBER(22) => numeric
 	NOMBRE_DISTRITO : VARCHAR2(4000) => varchar(4000)
 	LATITUD : VARCHAR2(4000) => varchar(4000)
 	LONGITUD : VARCHAR2(4000) => varchar(4000)
@@ -12466,7 +12466,7 @@
 	META_PERIODO_ID : VARCHAR2(65) => varchar(65)
 	META : NUMBER(22) => bigint
 	CREDITO_META : NUMBER(22) => bigint
-	PRECIO_CREDITO : NUMBER(22) => bigint
+	PRECIO_CREDITO : NUMBER(22) => numeric
 	CREDITOS_MAT : NUMBER(22) => bigint
 	TIPO_PAGO : VARCHAR2(765) => varchar(765)
 	BECA_ESTATAL : VARCHAR2(150) => varchar(150)
@@ -12486,7 +12486,7 @@
 [1014] TABLE REPORTE_BI_SALDOS (owner: DAVID, 31655 rows)
 	ID_DEPTO : VARCHAR2(10) => varchar(10)
 	ID_CLIENTE : NUMBER(38) => bigint
-	IMPORTE : NUMBER(22) => bigint
+	IMPORTE : NUMBER(22) => numeric
 	SEMESTRE : VARCHAR2(7) => varchar(7)
 	SEDE : VARCHAR2(55) => varchar(55)
 	NIVEL_ENSENANZA : VARCHAR2(150) => varchar(150)
@@ -12569,12 +12569,12 @@
 	PROMEDIO_DOCUMENTOS : NUMBER(22) => bigint
 	PROMEDIO_FOROS : NUMBER(22) => bigint
 	PROMEDIO_RECURSOS_PATMOS : NUMBER(22) => bigint
-	PERCEPCION : NUMBER(22) => bigint
-	PROMEDIO_ASISTENCIA : NUMBER(22) => bigint
-	PROMEDIO_NOTAS_SEMANA : NUMBER(22) => bigint
-	PROMEDIO_DESEMPENIO_DOC : NUMBER(22) => bigint
+	PERCEPCION : NUMBER(22) => numeric
+	PROMEDIO_ASISTENCIA : NUMBER(22) => numeric
+	PROMEDIO_NOTAS_SEMANA : NUMBER(22) => numeric
+	PROMEDIO_DESEMPENIO_DOC : NUMBER(22) => numeric
 	BIMESTRE : NUMBER(38) => bigint
-	PROMEDIO_ASISTENCIA_DOCENTE : NUMBER(22) => bigint
+	PROMEDIO_ASISTENCIA_DOCENTE : NUMBER(22) => numeric
 	PROMEDIO_EVAL_DOCENTE_EAP : NUMBER(22) => bigint
 	ESTADO : CHAR(1) => char(1)
 	ID_REPORTE_BI_INFORME : NUMBER(38) => bigint
@@ -12884,7 +12884,7 @@
 	ID_ESTRATEGIA : NUMBER(38) => bigint
 	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
 	FECHA_EVIDENCIA : DATE(7) => timestamp(0) (date?)
-	PONDERADO : NUMBER(22) => bigint
+	PONDERADO : NUMBER(22) => numeric
 	URL : VARCHAR2(4000) => varchar(4000)
 	CODIGO : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -13043,7 +13043,7 @@
 	ID_CURSO_DESTINO : NUMBER(38) => bigint
 	ESTADO : CHAR(1) => char(1)
 	DESCRIPCION : VARCHAR2(1000) => varchar(1000)
-	NOTA_ORIGEN : NUMBER(22) => bigint
+	NOTA_ORIGEN : NUMBER(22) => numeric
 	NOTA_DESTINO : NUMBER(22) => bigint
 	ADJUNTO : VARCHAR2(200) => varchar(200)
 	CURSO_ORIGEN : VARCHAR2(150) => varchar(150)
@@ -13061,7 +13061,7 @@
 	ID_CURSO_ORIGEN : NUMBER(38) => bigint
 	ID_CURSO_DESTINO : NUMBER(38) => bigint
 	ESTADO : CHAR(1) => char(1)
-	NOTA_DESTINO : NUMBER(22) => bigint
+	NOTA_DESTINO : NUMBER(22) => numeric
 	DESCRIPCION : VARCHAR2(500) => varchar(500)
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	ID_USUARIO_REG : NUMBER(38) => bigint
@@ -13149,7 +13149,7 @@
 	SEMESTRE : VARCHAR2(7) => varchar(7)
 	DOCENTE : VARCHAR2(767) => varchar(767)
 	ID_CARGA_CURSO_DOCENTE : NUMBER(38) => bigint
-	PROMEDIO : NUMBER(22) => bigint
+	PROMEDIO : NUMBER(22) => numeric
 	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
 	ID_SEDE : NUMBER(38) => bigint
 	ID_UNIDAD_ACADEMICA : NUMBER(38) => bigint
@@ -13321,7 +13321,7 @@
 	ID_CARGA_CURSO : NUMBER(38) => bigint
 	ID_PERSONA : NUMBER(38) => bigint
 	ID_CARGA_EVALUACION : NUMBER(38) => bigint
-	NOTA : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
 	OBSERVACION : VARCHAR2(4000) => varchar(4000)
 	ID_USUARIO_REG : NUMBER(38) => bigint
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
@@ -13453,13 +13453,13 @@
 	ID_USUARIO_ACT : NUMBER(38) => bigint
 	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
 	CRUCE : CHAR(1) => char(1)
-	HL : NUMBER(22) => bigint
-	FACTOR : NUMBER(22) => bigint
+	HL : NUMBER(22) => numeric
+	FACTOR : NUMBER(22) => numeric
 	EDITA_HL : CHAR(1) => char(1)
 	EDITA_FACTOR : CHAR(1) => char(1)
 	ID_FACTOR : NUMBER(22) => bigint
-	HORAS_LABORALES : NUMBER(22) => bigint
-	HL_PERIODO : NUMBER(22) => bigint
+	HORAS_LABORALES : NUMBER(22) => numeric
+	HL_PERIODO : NUMBER(22) => numeric
 	ID_TIPO_MODALIDAD_DOCENTE : NUMBER(22) => bigint
 	CUPOS_EXTRAS : NUMBER(38) => bigint
 [1099] TABLE TEMP_CUESTIONARIO (owner: DAVID, 2365808 rows)
@@ -13483,21 +13483,21 @@
 	RECORDATORIO : CHAR(1) => char(1)
 	FECHA_ACTIVACION : DATE(7) => timestamp(0) (date?)
 	IP : VARCHAR2(36) => varchar(36)
-	MINUTOS_RESTANTES : NUMBER(22) => bigint
+	MINUTOS_RESTANTES : NUMBER(22) => numeric
 	MINUTOS_USADOS : NUMBER(22) => bigint
 	NRO_INGRESO_INSTRUMENTO : NUMBER(22) => bigint
 	NRO_RECORDATORIO : NUMBER(22) => bigint
 	FECHA_HORA_LIMITE : DATE(7) => timestamp(0) (date?)
 	PUNTAJE : NUMBER(22) => bigint
-	PUNTAJE_CON_FORMULA : NUMBER(22) => bigint
+	PUNTAJE_CON_FORMULA : NUMBER(22) => numeric
 	PUNTAJE_CON_ESCALA : NUMBER(22) => bigint
 	PUNTAJE_CON_PONDERADO : NUMBER(22) => bigint
 	CONSOLIDADO : CHAR(1) => char(1)
 	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
 	T_PREGUNTA_VACIA : NUMBER(22) => bigint
 	CANT_EDIT_NOTA : NUMBER(22) => bigint
-	PORCENTAJE_CRITICO : NUMBER(22) => bigint
-	PORCENTAJE_COMPLEMENTARIO : NUMBER(22) => bigint
+	PORCENTAJE_CRITICO : NUMBER(22) => numeric
+	PORCENTAJE_COMPLEMENTARIO : NUMBER(22) => numeric
 	CUMPLE : CHAR(1) => char(1)
 	CONSENTIMIENTO_INFORMADO : CHAR(1) => char(1)
 	TOKEN : VARCHAR2(50) => varchar(50)
@@ -13698,12 +13698,12 @@
 	S02 : NUMBER(22) => bigint
 	S03 : NUMBER(22) => bigint
 	S04 : NUMBER(22) => bigint
-	PROMEDIO_FINAL : NUMBER(22) => bigint
-	S01_V : NUMBER(22) => bigint
-	S02_V : NUMBER(22) => bigint
-	S03_V : NUMBER(22) => bigint
-	S04_V : NUMBER(22) => bigint
-	PROMEDIO_FINAL_V : NUMBER(22) => bigint
+	PROMEDIO_FINAL : NUMBER(22) => numeric
+	S01_V : NUMBER(22) => numeric
+	S02_V : NUMBER(22) => numeric
+	S03_V : NUMBER(22) => numeric
+	S04_V : NUMBER(22) => numeric
+	PROMEDIO_FINAL_V : NUMBER(22) => numeric
 	VALIDO : NUMBER(22) => bigint
 	PREVIEW : VARCHAR2(122) => varchar(122)
 	CUESTIONARIO : VARCHAR2(104) => varchar(104)
@@ -15327,8 +15327,8 @@ Top 10 of largest tables:
 	[2] TABLE ZOOM_WEBHOOK: 2432 MB (4184997 rows)
 	[3] TABLE TARJETA: 2280 MB (6869401 rows)
 	[4] TABLE ACAD_ASISTENCIA_DET: 1600 MB (28813550 rows)
-	[5] TABLE ACAD_NOTIFICACION: 1088 MB (3531110 rows)
-	[6] TABLE REPORTE_EVAL_DOCENTE_R: 1088 MB (6200595 rows)
+	[5] TABLE REPORTE_EVAL_DOCENTE_R: 1088 MB (6200595 rows)
+	[6] TABLE ACAD_NOTIFICACION: 1088 MB (3531110 rows)
 	[7] TABLE ACAD_AL_EVAL_RASTREO: 1024 MB (15657437 rows)
 	[8] TABLE AATEMP_RASTREO2610: 984 MB (15094709 rows)
 	[9] TABLE AATEMP_BCKP_AL_EVAL_RASTREO: 960 MB (14757594 rows)

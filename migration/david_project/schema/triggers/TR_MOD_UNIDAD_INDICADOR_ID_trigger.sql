@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_mod_unidad_indicador_id ON mod_unidad_indicador CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_mod_unidad_indicador_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_mod_unidad_indicador_id')
+  select nextval('david.sq_mod_unidad_indicador_id')
   into STRICT NEW.id_unidad_indicador
 ;
 RETURN NEW;

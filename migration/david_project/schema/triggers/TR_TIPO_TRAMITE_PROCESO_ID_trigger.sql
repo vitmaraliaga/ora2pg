@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_tipo_tramite_proceso_id ON tr_tipo_tramite_proceso CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_tipo_tramite_proceso_id() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sq_tr_tipo_tramite_proceso_id')
+  SELECT nextval('david.sq_tr_tipo_tramite_proceso_id')
   INTO STRICT NEW.ID_TIPO_TRAMITE_PROCESO
 ;
 RETURN NEW;

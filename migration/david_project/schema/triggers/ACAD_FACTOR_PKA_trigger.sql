@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS acad_factor_pka ON acad_factor CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_acad_factor_pka() RETURNS trigger AS $BODY$
 BEGIN
-    SELECT nextval('acad_factor_sec')
+    SELECT nextval('david.acad_factor_sec')
     INTO STRICT NEW.ID_fACTOR
 ;
 RETURN NEW;

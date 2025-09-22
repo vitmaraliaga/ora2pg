@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS acad_cc_r_dc_pka ON acad_carga_curso_rastreo_dc CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_acad_cc_r_dc_pka() RETURNS trigger AS $BODY$
 BEGIN
-    SELECT nextval('acad_cc_r_dc_sec')
+    SELECT nextval('david.acad_cc_r_dc_sec')
     INTO STRICT NEW.ID_CARGA_CURSO_RASTREO_DC
 ;
 RETURN NEW;

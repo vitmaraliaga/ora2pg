@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_plant_cur_res_apr_codigo ON plantilla_curso_res_apre
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_plant_cur_res_apr_codigo() RETURNS trigger AS $BODY$
 BEGIN
     IF (NEW.CODIGO IS NOT NULL AND NEW.CODIGO::text <> '') THEN
-        SELECT NEW.CODIGO || TO_CHAR(nextval('sq_pla_cur_res_apr_cod_sec'), 'FM00') INTO STRICT NEW.CODIGO;
+        SELECT NEW.CODIGO || TO_CHAR(nextval('david.sq_pla_cur_res_apr_cod_sec'), 'FM00') INTO STRICT NEW.CODIGO;
     END IF;
 RETURN NEW;
 END;

@@ -30,7 +30,7 @@ BEGIN
       if l_contar>0 then
        l_error:=1;
        l_msgerror:='El tipo de documento y número ya esta registrado';
-      --  GOTO salida_final;
+--        GOTO salida_final;
       end if;
 
       select coalesce(max(id_persona),0) +1 into STRICT l_id_persona from persona;
@@ -176,7 +176,7 @@ BEGIN
         end if;
     end if;
 
-    -- <<salida_final>>
+--     <<salida_final>>
      
      P_ID_PERSONA_NEW :=l_id_persona;
 

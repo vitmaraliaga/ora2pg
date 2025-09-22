@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_conf_porce_repro_pk ON config_porce_reprog_alum CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_conf_porce_repro_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_conf_porce_repro_id')
+  select nextval('david.sq_conf_porce_repro_id')
   into STRICT NEW.ID_PORCE_REPROG_ALUM
 ;
 RETURN NEW;

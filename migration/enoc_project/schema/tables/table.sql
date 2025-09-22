@@ -72,11 +72,11 @@ CREATE TABLE cat_docente (
 	id_condicion_laboral varchar(20),
 	id_tipo_tiempo_trabajo bigint,
 	id_categoria_actual bigint,
-	pje_individual_opc bigint,
-	pje_individual_obl bigint,
-	pje_grupal bigint,
-	pje_grupal_opc bigint,
-	pje_grupal_obl bigint,
+	pje_individual_opc numeric,
+	pje_individual_obl numeric,
+	pje_grupal numeric,
+	pje_grupal_opc numeric,
+	pje_grupal_obl numeric,
 	requisito char(1) DEFAULT 'N',
 	id_user_reg bigint,
 	fecha_reg timestamp(0),
@@ -87,8 +87,8 @@ CREATE TABLE cat_docente (
 	id_area bigint,
 	cierre_evaluacion bigint,
 	cierre_entrevista bigint,
-	pje_individual_opc_real bigint,
-	pje_grupal_opc_real bigint
+	pje_individual_opc_real numeric,
+	pje_grupal_opc_real numeric
 ) ;
 COMMENT ON COLUMN cat_docente.requisito IS E'N : no asignado, A: aprobado, D : desaprobado, I : incompleto, C : completo';
 
@@ -253,8 +253,8 @@ CREATE TABLE cat_item_formula (
 	id_item_formula bigint NOT NULL,
 	id_item_categoria bigint NOT NULL,
 	nombre varchar(60),
-	desde bigint,
-	hasta bigint,
+	desde numeric,
+	hasta numeric,
 	punto decimal(10,2),
 	id_user_reg bigint,
 	fecha_reg timestamp(0),
@@ -726,18 +726,6 @@ CREATE TABLE des_tipo_evaluador (
 COMMENT ON COLUMN des_tipo_evaluador.automatico IS E'1: si, 0 : no';
 
 
-DROP TABLE IF EXISTS failed_jobs;
-CREATE TABLE failed_jobs (
-	id bigint NOT NULL,
-	uuid varchar(255) NOT NULL,
-	connection text NOT NULL,
-	queue text NOT NULL,
-	payload text NOT NULL,
-	exception text NOT NULL,
-	failed_at TIMESTAMP(6) NOT NULL
-) ;
-
-
 DROP TABLE IF EXISTS migrations;
 CREATE TABLE migrations (
 	id bigint NOT NULL,
@@ -751,20 +739,6 @@ CREATE TABLE password_resets (
 	email varchar(255) NOT NULL,
 	token varchar(255) NOT NULL,
 	created_at TIMESTAMP(6)
-) ;
-
-
-DROP TABLE IF EXISTS personal_access_tokens;
-CREATE TABLE personal_access_tokens (
-	id bigint NOT NULL,
-	tokenable_type varchar(255) NOT NULL,
-	tokenable_id bigint NOT NULL,
-	name varchar(255) NOT NULL,
-	token varchar(64) NOT NULL,
-	abilities text,
-	last_used_at TIMESTAMP(6),
-	created_at TIMESTAMP(6),
-	updated_at TIMESTAMP(6)
 ) ;
 
 
@@ -1205,9 +1179,9 @@ CREATE TABLE plla_comision_pensionaria (
 	seguro decimal(10,4),
 	rem_max_ase decimal(10,2),
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -1333,7 +1307,12 @@ CREATE TABLE plla_concepto_planilla (
 	orden bigint,
 	vigencia bigint,
 	diezmo varchar(1),
-	descuentojud varchar(1)
+	descuentojud varchar(1),
+	id_entidad bigint NOT NULL,
+	created_at timestamp(0),
+	updated_at timestamp(0),
+	id_user_reg bigint,
+	id_user_mod bigint
 ) ;
 COMMENT ON COLUMN plla_concepto_planilla.cts IS E'1: si 0: no afecta a cts';
 COMMENT ON COLUMN plla_concepto_planilla.descuentojud IS E'1:Si,0:NO ';
@@ -1359,7 +1338,11 @@ CREATE TABLE plla_concepto_planilla_proc (
 	id_concepto_planilla bigint NOT NULL,
 	id_procedure_eje bigint NOT NULL,
 	descripcion varchar(200),
-	vigencia bigint
+	vigencia bigint,
+	created_at timestamp(0),
+	updated_at timestamp(0),
+	id_user_reg bigint,
+	id_user_mod bigint
 ) ;
 
 
@@ -1369,7 +1352,11 @@ CREATE TABLE plla_concepto_planilla_sunat (
 	id_tipo_concepto_sunat bigint NOT NULL,
 	codigo varchar(20) NOT NULL,
 	nombre varchar(250) NOT NULL,
-	vigencia bigint
+	vigencia bigint,
+	created_at timestamp(0),
+	updated_at timestamp(0),
+	id_user_reg bigint,
+	id_user_mod bigint
 ) ;
 
 
@@ -1390,9 +1377,9 @@ CREATE TABLE plla_config_planilla (
 	id_depto varchar(10) NOT NULL,
 	vigencia bigint,
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -1404,9 +1391,9 @@ CREATE TABLE plla_config_planilla_concepto (
 	vigencia bigint,
 	id_concepto_planilla_proc bigint,
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -1451,96 +1438,6 @@ CREATE TABLE plla_const_certi (
 	id_user_mod bigint,
 	fecha_mod timestamp(0)
 ) ;
-
-
-DROP TABLE IF EXISTS plla_contrato;
-CREATE TABLE plla_contrato (
-	id_contrato bigint NOT NULL,
-	id_entidad bigint NOT NULL,
-	id_depto varchar(10) NOT NULL,
-	id_persona bigint NOT NULL,
-	id_sedearea bigint NOT NULL,
-	id_perfil_puesto bigint NOT NULL,
-	id_tipo_tiempo_trabajo bigint NOT NULL,
-	id_condicion_laboral varchar(5) NOT NULL,
-	tipo varchar(2) NOT NULL,
-	id_contrato_parent bigint,
-	id_solic_reque bigint,
-	id_solic_req_candidato bigint,
-	fecha_ini timestamp(0),
-	fecha_fin timestamp(0),
-	cv_url varchar(100),
-	menoredad varchar(1),
-	menoredad_url varchar(150),
-	plancap_url varchar(150),
-	tipo_pago varchar(1),
-	id_escala_salarial bigint,
-	sueldo decimal(10,2),
-	pje_fmr decimal(10,4),
-	id_tipo_regimen_laboral varchar(2),
-	id_tipo_ocupacion varchar(15),
-	id_tipo_contrato varchar(2),
-	id_tipo_sctr_pension varchar(2),
-	sujregalt varchar(2),
-	sujjortramax varchar(2),
-	sujjorhornoc varchar(2),
-	essindicalizado varchar(2),
-	id_periodo_remu varchar(2),
-	exotacat varchar(2),
-	id_situacion_trabajador varchar(2),
-	id_tipo_pago varchar(2),
-	id_tipo_categ_ocupa varchar(2),
-	id_situacion_especial varchar(2),
-	id_tipo_doble_trib varchar(2),
-	id_contrato_plantilla bigint,
-	id_estado_cont_depto bigint,
-	observacion varchar(500),
-	contrato text,
-	contarto_url varchar(100),
-	tregistro_url varchar(100),
-	id_user_reg bigint,
-	fecha_reg timestamp(0),
-	id_user_mod bigint,
-	fecha_mod timestamp(0),
-	id_licencia_permiso varchar(25),
-	fecha_inicio_misionero timestamp(0),
-	misionero_url varchar(150),
-	id_tipo_status varchar(2),
-	id_grupo_planilla bigint,
-	id_puesto_remp bigint,
-	fecha_ing timestamp(0),
-	id_tipo_tiempo_regimen bigint,
-	id_renovacion bigint,
-	aps char(1) DEFAULT '0',
-	id_cambios bigint,
-	id_tipo_modalidad_form varchar(2),
-	contrato_mensual bigint,
-	modo_pago varchar(1),
-	id_tipo_horario bigint,
-	cambio_sueldo char(1) DEFAULT '0',
-	revision_tregistro char(1),
-	fecha_revision timestamp(0),
-	hoja_liq_url varchar(100),
-	contrato_firma_url varchar(100),
-	sueldo_ant decimal(10,2),
-	fecha_firma timestamp(0)
-) ;
-COMMENT ON COLUMN plla_contrato.essindicalizado IS E'VA FIJO NO:  1:Si / 0:No';
-COMMENT ON COLUMN plla_contrato.exotacat IS E'Default No:  1:Si / 0:No';
-COMMENT ON COLUMN plla_contrato.fecha_revision IS E'fecha de revision t_registro';
-COMMENT ON COLUMN plla_contrato.id_contrato_parent IS E'solo se asigna cuando es renovacion y regulaizacion';
-COMMENT ON COLUMN plla_contrato.id_periodo_remu IS E'default 1';
-COMMENT ON COLUMN plla_contrato.id_situacion_especial IS E'default 0';
-COMMENT ON COLUMN plla_contrato.id_tipo_pago IS E'default 2';
-COMMENT ON COLUMN plla_contrato.id_tipo_regimen_laboral IS E'Default 01';
-COMMENT ON COLUMN plla_contrato.modo_pago IS E'C:carga, M:Manual';
-COMMENT ON COLUMN plla_contrato.plancap_url IS E'PLAN DE CAPACITACION';
-COMMENT ON COLUMN plla_contrato.revision_tregistro IS E'1:revisado, null:no revisado';
-COMMENT ON COLUMN plla_contrato.sujjorhornoc IS E'Sujeto a horario nocturno:  1:Si / 0:No';
-COMMENT ON COLUMN plla_contrato.sujjortramax IS E'Sujeto a jornada de trabajo máxima:  1:Si / 0:No';
-COMMENT ON COLUMN plla_contrato.sujregalt IS E'Sujeto a régimen alternativo  1:Si / 0:No';
-COMMENT ON COLUMN plla_contrato.tipo IS E'C:Contrato, R:Renovacion, S:regulaizacion';
-COMMENT ON COLUMN plla_contrato.tipo_pago IS E'F:FIJO, H:HORAS';
 
 
 DROP TABLE IF EXISTS plla_contrato_det;
@@ -1640,21 +1537,16 @@ CREATE TABLE plla_contrato_parametro_test (
 ) ;
 
 
-DROP TABLE IF EXISTS plla_contrato_plantilla;
-CREATE TABLE plla_contrato_plantilla (
-	id_contrato_plantilla bigint NOT NULL,
-	id_entidad bigint NOT NULL,
-	id_depto varchar(10) NOT NULL,
-	id_tipo_contrato varchar(2) NOT NULL,
-	nombre varchar(200),
-	descripcion varchar(500),
-	plantilla text,
-	id_user_reg bigint,
-	fecha_reg timestamp(0),
-	id_user_mod bigint,
-	fecha_mod timestamp(0),
-	vigencia bigint
+DROP TABLE IF EXISTS plla_contrato_ver;
+CREATE TABLE plla_contrato_ver (
+	id_contrato_ver bigint NOT NULL,
+	id_contrato bigint NOT NULL,
+	id_usuario bigint NOT NULL,
+	fecha timestamp(0),
+	tipo varchar(2)
 ) ;
+COMMENT ON COLUMN plla_contrato_ver.id_usuario IS E'Persona que VE';
+COMMENT ON COLUMN plla_contrato_ver.tipo IS E'V: VER, D: DESCARGA';
 
 
 DROP TABLE IF EXISTS plla_control_asist;
@@ -2070,28 +1962,6 @@ CREATE TABLE plla_encuesta_respuesta (
 	id_alternativa bigint,
 	respuesta varchar(4000)
 ) ;
-
-
-DROP TABLE IF EXISTS plla_entrevista_cand;
-CREATE TABLE plla_entrevista_cand (
-	id_entrevista_cand bigint NOT NULL,
-	id_tipo_reunion bigint NOT NULL,
-	id_solic_req_candidato bigint NOT NULL,
-	id_req_cand_plantilla bigint NOT NULL,
-	link_lugar varchar(500) NOT NULL,
-	mensaje text,
-	fecha timestamp(0),
-	id_estado_reunion_cand varchar(2),
-	correo varchar(200),
-	enviado bigint,
-	id_parent bigint,
-	id_user_reg bigint,
-	fecha_reg timestamp(0),
-	id_user_mod bigint,
-	fecha_mod timestamp(0)
-) ;
-COMMENT ON COLUMN plla_entrevista_cand.enviado IS E'Se envío el mensaje, 1: enviado';
-COMMENT ON COLUMN plla_entrevista_cand.id_estado_reunion_cand IS E'01: REGISTRADO, 02: ATENDIDO, 03: NO SE PRESENTO,04: POSTERGADO, 00: ANULADO ';
 
 
 DROP TABLE IF EXISTS plla_escala_salarial;
@@ -2902,8 +2772,8 @@ CREATE TABLE plla_mapa_coord_radio (
 	radiokm decimal(10,4),
 	radiome decimal(10,4),
 	indicador bigint,
-	latn bigint,
-	lngn bigint,
+	latn numeric,
+	lngn numeric,
 	id_user_reg bigint,
 	fecha_reg timestamp(0),
 	id_user_mod bigint,
@@ -3593,10 +3463,40 @@ CREATE TABLE plla_periodo_vac_trab (
 	fecha_mod timestamp(0),
 	comentario_cambio varchar(200),
 	confirmado bigint NOT NULL DEFAULT 0,
-	es_interno bigint DEFAULT 0
+	es_interno bigint NOT NULL DEFAULT 0,
+	es_reprogramado bigint
 ) ;
 COMMENT ON COLUMN plla_periodo_vac_trab.confirmado IS E'Este campo fue agregado para saber si ya fue completado la programacion y este listo para que sea aprobado, creado por UPN';
 COMMENT ON COLUMN plla_periodo_vac_trab.es_interno IS E'Este campo fue agregado para saber si es una vacacion interna, agregado por UPN';
+COMMENT ON COLUMN plla_periodo_vac_trab.es_reprogramado IS E'Este campo fue agregado para saber si es una vacacion reprogramada agregado por UPN';
+
+
+DROP TABLE IF EXISTS plla_periodo_vac_trab_obs;
+CREATE TABLE plla_periodo_vac_trab_obs (
+	id_observacion bigint NOT NULL,
+	id_periodo_vac_trab varchar(25) NOT NULL,
+	comentario varchar(200) NOT NULL,
+	id_trabajador_user bigint NOT NULL,
+	id_user bigint NOT NULL
+) ;
+
+
+DROP TABLE IF EXISTS plla_periodo_vac_trab_proceso;
+CREATE TABLE plla_periodo_vac_trab_proceso (
+	id_proceso bigint NOT NULL,
+	id_periodo_vac_trab varchar(25) NOT NULL,
+	id_estado_vac_trab varchar(3) NOT NULL,
+	id_trabajador_user bigint NOT NULL,
+	tipo varchar(2) NOT NULL,
+	fecha timestamp(0) NOT NULL,
+	comentario varchar(150),
+	orden bigint NOT NULL,
+	notificar bigint NOT NULL DEFAULT 0,
+	notificado bigint NOT NULL DEFAULT 0
+) ;
+COMMENT ON COLUMN plla_periodo_vac_trab_proceso.notificado IS E'0=FALTA NOTIFICAR;1=YA FUE NOTIFICADO';
+COMMENT ON COLUMN plla_periodo_vac_trab_proceso.notificar IS E'0=NO SE NOTIFICARA;1=SE NOTIFICARA';
+COMMENT ON COLUMN plla_periodo_vac_trab_proceso.tipo IS E'P=PROGRAMACION,R=REPROGRAMACION';
 
 
 DROP TABLE IF EXISTS plla_permiso_especial;
@@ -3818,12 +3718,11 @@ CREATE TABLE plla_reg_pens_comision (
 	id_reg_pens_comision bigint NOT NULL,
 	id_comision_pensionaria bigint NOT NULL,
 	id_tipo_comision_pens bigint NOT NULL,
-	comision_flujo decimal(10,4),
-	comision_anual decimal(10,4),
+	comision decimal(10,4),
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -4103,24 +4002,6 @@ CREATE TABLE plla_req_cand_parametro (
 ) ;
 COMMENT ON COLUMN plla_req_cand_parametro.tipo IS E'F:FIJO, P:PROCESO';
 COMMENT ON COLUMN plla_req_cand_parametro.tipo_men IS E'AP:Aprobación, RE:reunion, AM: Ambos';
-
-
-DROP TABLE IF EXISTS plla_req_cand_plantilla;
-CREATE TABLE plla_req_cand_plantilla (
-	id_req_cand_plantilla bigint NOT NULL,
-	id_entidad bigint NOT NULL,
-	id_depto varchar(10) NOT NULL,
-	id_estado_req_cand varchar(2) NOT NULL,
-	nombre varchar(200),
-	descripcion varchar(500),
-	reunion text,
-	aprobacion text,
-	id_user_reg bigint,
-	fecha_reg timestamp(0),
-	id_user_mod bigint,
-	fecha_mod timestamp(0),
-	vigencia bigint
-) ;
 
 
 DROP TABLE IF EXISTS plla_responsabilidad;
@@ -4476,21 +4357,6 @@ CREATE TABLE plla_solic_req_candidato_det (
 ) ;
 
 
-DROP TABLE IF EXISTS plla_solic_req_candidato_est;
-CREATE TABLE plla_solic_req_candidato_est (
-	id_solic_req_candidato_es bigint NOT NULL,
-	id_solic_req_candidato bigint NOT NULL,
-	id_estado_req_cand varchar(2) NOT NULL,
-	comentario varchar(250),
-	id_user_reg bigint,
-	fecha_reg timestamp(0),
-	id_req_cand_plantilla bigint,
-	mensaje text,
-	adjunto varchar(150),
-	correo varchar(150)
-) ;
-
-
 DROP TABLE IF EXISTS plla_sol_vac_adel;
 CREATE TABLE plla_sol_vac_adel (
 	id_sol_vac_adel bigint NOT NULL,
@@ -4520,6 +4386,22 @@ CREATE TABLE plla_sol_vac_adel_det (
 	id_user_mod bigint,
 	fecha_mod timestamp(0)
 ) ;
+
+
+DROP TABLE IF EXISTS plla_sol_vac_adel_proceso;
+CREATE TABLE plla_sol_vac_adel_proceso (
+	id_proceso bigint NOT NULL,
+	id_sol_vac_adel bigint NOT NULL,
+	id_estado_vac_adel varchar(3) NOT NULL,
+	id_trabajador_user bigint NOT NULL,
+	fecha timestamp(0) NOT NULL,
+	comentario varchar(150),
+	orden bigint NOT NULL,
+	notificar bigint NOT NULL DEFAULT 0,
+	notificado bigint NOT NULL DEFAULT 0
+) ;
+COMMENT ON COLUMN plla_sol_vac_adel_proceso.notificado IS E'0=FALTA NOTIFICAR;1=YA FUE NOTIFICADO';
+COMMENT ON COLUMN plla_sol_vac_adel_proceso.notificar IS E'0=NO SE NOTIFICARA;1=SE NOTIFICARA';
 
 
 DROP TABLE IF EXISTS plla_subfactor;
@@ -4608,7 +4490,8 @@ CREATE TABLE plla_tipo_categ_ocupa (
 	id_tipo_categ_ocupa varchar(2) NOT NULL,
 	nombre varchar(255),
 	vigencia bigint,
-	codsunat varchar(2)
+	codsunat varchar(2),
+	hora_semana decimal(10,2)
 ) ;
 
 
@@ -4628,7 +4511,6 @@ CREATE TABLE plla_tipo_comision_pens (
 	comentario varchar(200),
 	vigencia bigint
 ) ;
-COMMENT ON COLUMN plla_tipo_comision_pens.tipo IS E'F: Comision sobre el flujo, M: comision Mixta';
 
 
 DROP TABLE IF EXISTS plla_tipo_concepto;
@@ -5188,7 +5070,9 @@ CREATE TABLE plla_trabajador_sctr (
 	id_user_reg bigint,
 	fecha_reg timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	fecha_mod timestamp(0),
+	tasa_pension decimal(10,2),
+	costo_pension decimal(10,2)
 ) ;
 
 
@@ -5201,9 +5085,9 @@ CREATE TABLE plla_tramo_ingreso (
 	hasta decimal(10,2),
 	porcentaje decimal(10,2),
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -5276,41 +5160,6 @@ CREATE TABLE quiz_cuestionario_area (
 	id_user_mod bigint,
 	fecha_mod timestamp(0)
 ) ;
-
-
-DROP TABLE IF EXISTS quiz_cuestionario_asig;
-CREATE TABLE quiz_cuestionario_asig (
-	id_cuestionario_asig bigint NOT NULL,
-	id_cuestionario bigint NOT NULL,
-	id_entidad bigint NOT NULL,
-	id_depto varchar(2) NOT NULL,
-	id_area bigint,
-	id_persona bigint NOT NULL,
-	desde timestamp(0) NOT NULL,
-	hasta timestamp(0),
-	id_trabajador bigint,
-	respuesta bigint,
-	total_respuestas bigint,
-	id_anho_asig bigint,
-	id_mes_asig bigint,
-	id_anho_rpta bigint,
-	id_mes_rpta bigint,
-	fecha_asig timestamp(0),
-	fecha_rpta timestamp(0),
-	plantilla text,
-	adjuntourl varchar(200),
-	rpta_origen varchar(2),
-	id_rol_vacacion varchar(25),
-	vigencia bigint,
-	id_user_reg bigint,
-	fecha_reg timestamp(0),
-	id_user_mod bigint,
-	fecha_mod timestamp(0)
-) ;
-COMMENT ON COLUMN quiz_cuestionario_asig.adjuntourl IS E'ES PARA GUARDAR ADJUNTO EL RESULTADO';
-COMMENT ON COLUMN quiz_cuestionario_asig.respuesta IS E'0: NO, 1: SI';
-COMMENT ON COLUMN quiz_cuestionario_asig.rpta_origen IS E'W:web, AP: app';
-COMMENT ON COLUMN quiz_cuestionario_asig.total_respuestas IS E'TOTAL PREGUNTAS RESPONDIDAS';
 
 
 DROP TABLE IF EXISTS quiz_cuestionario_asig_tmp;
@@ -5387,20 +5236,6 @@ CREATE TABLE quiz_parametro_plant (
 ) ;
 COMMENT ON COLUMN quiz_parametro_plant.tipo IS E'F:FIJO, P:PROCESO';
 COMMENT ON COLUMN quiz_parametro_plant.tipo_proc IS E'ST: STORE, BK: BACK';
-
-
-DROP TABLE IF EXISTS quiz_plantilla;
-CREATE TABLE quiz_plantilla (
-	id_plantilla bigint NOT NULL,
-	nombre varchar(200),
-	descripcion varchar(500),
-	plantilla text,
-	vigencia bigint,
-	id_user_reg bigint,
-	fecha_reg timestamp(0),
-	id_user_mod bigint,
-	fecha_mod timestamp(0)
-) ;
 
 
 DROP TABLE IF EXISTS quiz_pregunta;

@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_resid_permiso_id ON residencia_permiso CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_resid_permiso_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_resid_permiso_id')
+  select nextval('david.sq_resid_permiso_id')
   into STRICT NEW.id_permiso
 ;
 RETURN NEW;

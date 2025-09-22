@@ -7,9 +7,9 @@ SET client_encoding TO 'UTF8';
 SET search_path = moises,public;
 \set ON_ERROR_STOP ON
 
-\i ./sources/functions/FC_NOMBRE_PERSONA_TEMP_function.sql
-\i ./sources/functions/FC_OBTENER_EMAIL_function.sql
 \i ./sources/functions/FC_OBTENER_PHONO_function.sql
-\i ./sources/functions/FT_CODIGO_VERIFICACION_function.sql
+\i ./sources/functions/FC_NOMBRE_PERSONA_TEMP_function.sql
 \i ./sources/functions/FT_VERIFICACION_function.sql
+\i ./sources/functions/FT_CODIGO_VERIFICACION_function.sql
+\i ./sources/functions/FC_OBTENER_EMAIL_function.sql
 \i ./sources/functions/SINTILDE_function.sql

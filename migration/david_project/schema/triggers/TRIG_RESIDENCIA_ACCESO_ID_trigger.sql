@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_residencia_acceso_id ON residencia_acceso CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_residencia_acceso_id() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_RESIDENCIA_ACCESO::text, '') = '' THEN
-SELECT nextval('sq_residencia_acceso_id')
+SELECT nextval('david.sq_residencia_acceso_id')
 INTO STRICT NEW.ID_RESIDENCIA_ACCESO
 ;
 END IF;

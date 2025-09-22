@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_asignacion_tutor ON tu_asignacion CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_asignacion_tutor() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_asignacion_tutor')
+			  select nextval('david.sq_asignacion_tutor')
 			  into STRICT NEW.id_asignacion
 			;
 			RETURN NEW;

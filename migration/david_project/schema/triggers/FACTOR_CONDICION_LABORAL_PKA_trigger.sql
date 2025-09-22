@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS factor_condicion_laboral_pka ON factor_condicion_laboral CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_factor_condicion_laboral_pka() RETURNS trigger AS $BODY$
 BEGIN
-    SELECT nextval('factor_condicion_laboral_sec')
+    SELECT nextval('david.factor_condicion_laboral_sec')
     INTO STRICT NEW.ID_FACTOR_CODICION_LABORAL
 ;
 RETURN NEW;

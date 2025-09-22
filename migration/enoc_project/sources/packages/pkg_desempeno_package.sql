@@ -7,7 +7,7 @@ SET client_encoding TO 'UTF8';
 SET search_path = enoc,public;
 \set ON_ERROR_STOP ON
 
-CREATE OR REPLACE PACKAGE                                                                  PKG_DESEMPENO AS 
+CREATE OR REPLACE PACKAGE      PKG_DESEMPENO AS 
 
   /* TODO enter package declarations (types, exceptions, methods etc) here */ 
   PROCEDURE SP_GENERAR_PARTICIPANTE(P_ID_DESEMPENO NUMBER,P_ID_TRABAJADOR NUMBER,P_ID_USER_REG NUMBER,P_ERROR OUT number, P_MSGERROR out varchar2);
@@ -26,7 +26,7 @@ CREATE OR REPLACE PACKAGE                                                       
 END PKG_DESEMPENO;
 
 
-CREATE OR REPLACE PACKAGE BODY                                                                                                                    PKG_DESEMPENO AS
+CREATE OR REPLACE PACKAGE BODY      PKG_DESEMPENO AS
   PROCEDURE SP_GENERAR_PARTICIPANTE(P_ID_DESEMPENO NUMBER,P_ID_TRABAJADOR NUMBER,P_ID_USER_REG NUMBER,P_ERROR OUT number, P_MSGERROR out varchar2) AS
         l_contar number;
         l_error number:=0;
@@ -805,7 +805,7 @@ CREATE OR REPLACE PACKAGE BODY                                                  
          FROM ENOC.DES_PARTICIPANTE A, ENOC.VW_ENT_DEP_AREA_CCOSTO B
          WHERE A.ID_SEDEAREA=B.ID_SEDEAREA
          AND A.ID_DESEMPENO=P_ID_DESEMPENO
-         AND CASE WHEN P_ID_DEPTO IS NOT NULL THEN B.ID_DEPTO_PADRE ELSE '0' END =  CASE WHEN P_ID_DEPTO IS NOT NULL THEN P_ID_DEPTO ELSE '0' END
+         AND CASE WHEN P_ID_DEPTO IS NOT NULL AND P_ID_DEPTO != '0' THEN B.ID_DEPTO_PADRE ELSE '0' END =  CASE WHEN P_ID_DEPTO IS NOT NULL THEN P_ID_DEPTO ELSE '0' END
          AND CASE WHEN P_ID_PARTICIPANTE  <> 0 THEN A.ID_PARTICIPANTE  ELSE 0 END =  CASE WHEN P_ID_PARTICIPANTE  <> 0 THEN P_ID_PARTICIPANTE ELSE 0 END
          ORDER BY A.ID_PARTICIPANTE;
         

@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trg_lng_examen_id ON lng_examen CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_trg_lng_examen_id() RETURNS trigger AS $BODY$
 BEGIN
   -- Asigna el siguiente valor de la secuencia a ID_EXAMEN
-  NEW.ID_EXAMEN := nextval('lng_examen_seq');
+  NEW.ID_EXAMEN := nextval('david.lng_examen_seq');
 RETURN NEW;
 END
 $BODY$

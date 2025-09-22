@@ -10,7 +10,9 @@ SET search_path = enoc,public;
 \i ./schema/triggers/FAILED_JOBS_ID_TRG_trigger.sql
 \i ./schema/triggers/MIGRATIONS_ID_TRG_trigger.sql
 \i ./schema/triggers/PERSONAL_ACCESS_TOKENS_ID_TRG_trigger.sql
+\i ./schema/triggers/TR_PERI_VAC_TRAB_PROCESO_ORDEN_trigger.sql
 \i ./schema/triggers/TR_PLLA_PARAM_VALOR_DET_ID_trigger.sql
 \i ./schema/triggers/TR_REMUNERACION_ACCION_trigger.sql
+\i ./schema/triggers/TR_SOL_VAC_ADEL_ORDEN_trigger.sql
 \i ./schema/triggers/TR_TOKEN_N_PK_trigger.sql
 \i ./schema/triggers/TR_TOKEN_OPE_N_PK_trigger.sql

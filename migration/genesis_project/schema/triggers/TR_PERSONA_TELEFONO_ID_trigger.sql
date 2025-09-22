@@ -10,7 +10,7 @@ SET search_path = genesis,public;
 DROP TRIGGER IF EXISTS tr_persona_telefono_id ON persona_telefono CASCADE;
 CREATE OR REPLACE FUNCTION genesis.trigger_fct_tr_persona_telefono_id() RETURNS trigger AS $BODY$
 BEGIN
-      select nextval('sq_persona_telefono_id')
+      select nextval('genesis.sq_persona_telefono_id')
       into STRICT NEW.id_telefono
 ;
   RETURN NEW;

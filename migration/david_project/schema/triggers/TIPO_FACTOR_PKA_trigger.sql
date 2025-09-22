@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tipo_factor_pka ON tipo_factor CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tipo_factor_pka() RETURNS trigger AS $BODY$
 BEGIN
-    SELECT nextval('tipo_factor_sec')
+    SELECT nextval('david.tipo_factor_sec')
     INTO STRICT NEW.ID_TIPO_FACTOR
 ;
 RETURN NEW;

@@ -33,9 +33,26 @@ Debe migrarse primero, josue, caleb,lucas,eliseo
     <!-- - Editar procedimiento `moises.iudp_persona_datos_multiples` falta un `call` -->
     - `./import_all.sh -h 10.171.11.175 -U sdaupn -d sdaupn_rid_to -p 5436 -o sdaupn`
     - `./import_all.sh -h 10.174.11.13 -U postgres -d db_financial -p 5432 -o postgres`
+    - `ora2pg -c config/ora2pg-0-500.conf -t COPY --pg_dsn "dbi:Pg:dbname=db_financial host=10.174.11.13 port=5432" --pg_user postgres`
     - Password posgress: `sd4n0rt3_`
     - Password posgress: `noseassapolio`
     - Revisar que exista `CONTA_DIARIO_DETALLE`
+
+    `SELECT 'ALLOW '|| table_name
+    FROM all_tables
+    WHERE owner = 'DAVID';
+    `
+
+    `SELECT DISTINCT owner,
+        table_name
+        --column_name,
+        --data_type
+    FROM all_tab_columns
+    WHERE data_type IN ('BLOB', 'CLOB', 'NCLOB', 'BFILE')
+    AND owner='MOISES'
+    ORDER BY owner, table_name;
+    `
+
 
     <!-- - Comentar los fk que hacen referencia a esquemas que no existen, en este caso bucar: `enoc` -->
     <!-- - `sed -i "s/nextval('sq_/nextval('moises.sq_/g" schema/triggers/*.sql` con esto hay que editar el prefijo de las secuencias de ID. -->

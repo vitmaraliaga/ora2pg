@@ -25,7 +25,7 @@ select coalesce(
  END =u2.email THEN                   sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||p.paterno||substr(p.codigo,-3)))  ELSE --3
                   CASE WHEN sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||p.paterno))=u.email THEN                             sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||p.paterno||substr(p.codigo,-2)))  ELSE sintilde_con_punto(lower(CASE WHEN position(' ' in p.nombres)='0' THEN p.nombres  ELSE substr(p.nombres,0,position(' ' in p.nombres)-1) END ||'.'||p.paterno)) END  END
           
-    from (select Distinct p.id_persona,trim(both paterno) paterno,trim(both materno) materno,trim(both nombre) nombres, coalesce(coalesce(pne.codigo,pn.num_documento),date_trunc('day', DBMS_RANDOM.VALUE(10000000, 99999999))) codigo
+-- -- -- --     from (select Distinct p.id_persona,trim(both paterno) paterno,trim(both materno) materno,trim(both nombre) nombres, coalesce(coalesce(pne.codigo,pn.num_documento),date_trunc('day', DBMS_RANDOM.VALUE(10000000, 99999999))) codigo
           from moises.persona p inner join moises.persona_natural pn on pn.id_persona=p.id_persona 
           left join moises.persona_natural_alumno pne on pne.id_persona=pn.id_persona where p.id_persona=v_id_persona) p
 

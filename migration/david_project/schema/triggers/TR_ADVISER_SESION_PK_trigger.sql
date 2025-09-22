@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_adviser_sesion_pk ON adviser_sesion CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_adviser_sesion_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_adviser_sesion_id')
+  select nextval('david.sq_adviser_sesion_id')
   into STRICT NEW.id_adviser_sesion
 ;
 RETURN NEW;

@@ -8,4 +8,4 @@ SET search_path = david,public;
 \set ON_ERROR_STOP ON
 
 CREATE SERVER dbl_noe FOREIGN DATA WRAPPER oracle_fdw OPTIONS (dbserver '192.168.13.112:1521/UPEU');
-CREATE USER MAPPING FOR "postgres" SERVER dbl_noe OPTIONS (user 'noe' , password 'secret');
+-- CREATE USER MAPPING FOR "postgres" SERVER dbl_noe OPTIONS (user 'noe' , password 'secret');

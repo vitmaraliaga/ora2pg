@@ -455,6 +455,19 @@ if [ $IMPORT_SCHEMA -eq 0 ]; then
 				fi
 			fi
 		fi
+
+		# Import data from Oracle heavy database
+		if [ -r "$NAMESPACE/config/ora2pg-heavy.conf" ]; then
+			if confirm "Would you like to import data from Oracle heavy database directly into PostgreSQL?" ; then
+				echo "Running: ora2pg$IMPORT_JOBS$PARALLEL_TABLES -c config/ora2pg-heavy.conf -t COPY --pg_dsn \"$pgdsn_defined\" --pg_user $DB_OWNER "
+				if [ $DEBUG -eq 0 ]; then
+					ora2pg$IMPORT_JOBS$PARALLEL_TABLES -c config/ora2pg-heavy.conf -t COPY --pg_dsn "$pgdsn_defined" --pg_user $DB_OWNER 
+					if [ $? -ne 0 ]; then
+						die "an error occurs when importing heavy data."
+					fi
+				fi
+			fi
+		fi
 	fi
 
 	if [ $NO_CONSTRAINTS -eq 0 ] && [ $IMPORT_DATA -eq 0 ]; then

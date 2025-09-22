@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_plantilla_curso_resu_eva_pk ON plantilla_curso_resu_eva CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_plantilla_curso_resu_eva_pk() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_plantilla_curso_resu_eva_id')
+			  select nextval('david.sq_plantilla_curso_resu_eva_id')
 			  into STRICT NEW.ID_RESUMEN
 			;
 			RETURN NEW;

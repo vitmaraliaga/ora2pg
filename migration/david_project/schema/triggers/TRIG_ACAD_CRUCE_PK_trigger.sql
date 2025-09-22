@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_acad_cruce_pk ON acad_cruce CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_acad_cruce_pk() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_CRUCE::text, '') = '' THEN
-SELECT nextval('sq_acad_cruce_pk')
+SELECT nextval('david.sq_acad_cruce_pk')
 INTO STRICT NEW.ID_CRUCE
 ;
 END IF;

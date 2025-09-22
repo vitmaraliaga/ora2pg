@@ -12,7 +12,7 @@ CREATE OR REPLACE FUNCTION david.trigger_fct_trig_vd_tramite_registro() RETURNS 
 BEGIN
     IF coalesce(NEW.NRO_REGISTRO::text, '') = '' THEN
         SELECT 'RTD-' || to_char(statement_timestamp(), 'yyyy') || '-' || to_char(statement_timestamp(), 'mm') || '-' ||
-               TO_CHAR(nextval('sq_vd_tramite_nro_registro'), 'FM00000000')
+               TO_CHAR(nextval('david.sq_vd_tramite_nro_registro'), 'FM00000000')
         INTO STRICT NEW.NRO_REGISTRO
 ;
     END IF;

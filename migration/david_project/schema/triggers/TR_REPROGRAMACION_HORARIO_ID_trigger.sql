@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_reprogramacion_horario_id ON acad_reprogamacion_horario CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_reprogramacion_horario_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_reprogramacion_horario_id')
+  select nextval('david.sq_reprogramacion_horario_id')
   into STRICT NEW.ID_REPROGRAMACION_HORARIO
 ;
 RETURN NEW;

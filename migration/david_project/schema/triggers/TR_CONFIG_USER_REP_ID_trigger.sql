@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_config_user_rep_id ON tu_config_user_report CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_config_user_rep_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_config_user_rep_id')
+  select nextval('david.sq_config_user_rep_id')
   into STRICT NEW.ID_CONFIG_USER_REPORT
 ;
 RETURN NEW;

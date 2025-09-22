@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_rep_config_form_reporte_pk ON rep_config_form_reporte CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_rep_config_form_reporte_pk() RETURNS trigger AS $BODY$
 BEGIN
-    select nextval('sq_rep_config_form_reporte_id')
+    select nextval('david.sq_rep_config_form_reporte_id')
     into STRICT NEW.id_config_form_reporte
 ;
 RETURN NEW;

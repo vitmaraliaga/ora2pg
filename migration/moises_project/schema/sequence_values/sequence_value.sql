@@ -9,17 +9,17 @@ SET search_path = moises,public;
 
 SET search_path = moises,public;
 
-ALTER SEQUENCE sq_contribuyente_contacto_id START WITH 19;
+ALTER SEQUENCE sq_contribuyente_contacto_id START WITH 20;
 ALTER SEQUENCE sq_contribuyente_local_id START WITH 9;
 ALTER SEQUENCE sq_instr_sistema_numerico_id START WITH 1;
 ALTER SEQUENCE sq_modulo_notificacion_id START WITH 1;
-ALTER SEQUENCE sq_persona_cuenta_bancaria_id START WITH 375;
-ALTER SEQUENCE sq_persona_direccion_id START WITH 191869;
+ALTER SEQUENCE sq_persona_cuenta_bancaria_id START WITH 383;
+ALTER SEQUENCE sq_persona_direccion_id START WITH 191885;
 ALTER SEQUENCE sq_persona_embargo_judicial_id START WITH 8;
 ALTER SEQUENCE sq_persona_id START WITH 207659;
 ALTER SEQUENCE sq_persona_id_2 START WITH 209941;
 ALTER SEQUENCE sq_persona_juridica_cto_id START WITH 5;
-ALTER SEQUENCE sq_person_doc_hist_id START WITH 235;
+ALTER SEQUENCE sq_person_doc_hist_id START WITH 257;
 ALTER SEQUENCE sq_person_doc_unified_id START WITH 8;
 ALTER SEQUENCE sq_person_linea_cred_hist_id START WITH 10;
 ALTER SEQUENCE sq_tipo_notificacion_id START WITH 1;

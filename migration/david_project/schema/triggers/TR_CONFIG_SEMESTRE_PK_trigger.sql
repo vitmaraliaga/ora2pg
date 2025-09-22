@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_config_semestre_pk ON config_semestre CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_config_semestre_pk() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_config_semestre_id')
+			  select nextval('david.sq_config_semestre_id')
 			  into STRICT NEW.id_config_semestre
 			;
 			RETURN NEW;

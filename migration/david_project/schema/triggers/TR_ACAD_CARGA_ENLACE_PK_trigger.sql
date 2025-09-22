@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_acad_carga_enlace_pk ON acad_carga_enlace CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_acad_carga_enlace_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_acad_carga_enlace_id')
+  select nextval('david.sq_acad_carga_enlace_id')
   into STRICT NEW.id_carga_enlace
 ;
 RETURN NEW;

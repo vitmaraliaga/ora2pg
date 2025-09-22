@@ -508,6 +508,7 @@ CREATE OR REPLACE package        pkg_purchases is
       PROCEDURE SP_COMPRAS_AJUSTES(P_ID_ENTIDAD NUMBER,P_ID_DEPTO VARCHAR2, P_ERROR OUT NUMBER,P_MSG OUT VARCHAR2);
       PROCEDURE SP_COMPRAS_SALDOS(P_ID_ENTIDAD NUMBER,P_ID_DEPTO VARCHAR2, P_ID_ANHO NUMBER, P_ERROR OUT NUMBER,P_MSG OUT VARCHAR2);
           FUNCTION FC_FORMAT_GLOSA_ASSINET_PURC(P_ID_ASIENTO IN NUMBER) RETURN VARCHAR2;
+           FUNCTION FC_FORMAT_GLOSA_ASSINET_AJUSTE(P_ID_ASIENTO IN NUMBER) RETURN VARCHAR2;
 end;
 
 
@@ -5070,6 +5071,7 @@ dbms_output.put_line('		 CORRELATIVO  : '||L_CORRELATIVO);
                     to_char(A.FECHA_DOC,'MM') as mes_doc,
                     coalesce(ELISEO.FC_CONTA_CUO(A.ID_TIPOORIGEN, A.ID_COMPRA, A.ID_ENTIDAD, A.ID_ANHO, A.ID_MES),'') AS cuo, 
                     coalesce(ELISEO.FC_CONTA_CUO_CORRELATIVO(A.ID_TIPOORIGEN, A.ID_COMPRA, A.ID_ENTIDAD, A.ID_ANHO, A.ID_MES),'') AS cuo_correlativo, 
+--                    coalesce(ELISEO.FC_CONTA_CUO_CORRELATIVO(A.ID_TIPOORIGEN, A.ID_COMPRA, A.ID_ENTIDAD, A.ID_ANHO, A.ID_MES),'') AS cuo_correlativo, 
                     coalesce(to_char(A.FECHA_DOC,'yyyymmdd'),' ') AS fecha_ord, 
                     coalesce(to_char(A.FECHA_DOC,'dd/mm/yyyy'),' ') AS fecha_doc,  
                     coalesce(to_char(A.FECHA_PROVISION,'dd/mm/yyyy'),' ') AS fecha_prov, 
@@ -5514,7 +5516,8 @@ dbms_output.put_line('		 CORRELATIVO  : '||L_CORRELATIVO);
         AND A.ID_COMPRA = P_ID_COMPRA
         UNION ALL
         SELECT 
-        B.ID_TIPOPLAN,B.ID_CUENTAAASI,B.ID_RESTRICCION,B.ID_FONDO,B.ID_CTACTE,B.ID_DEPTO,B.DC,SUM(B.PORCENTAJE)/L_CONT AS PORCENTAJE,B.GLOSA,B.INDICADOR,NVL(B.NRO_ASIENTO,1) AS NRO_ASIENTO
+        --B.ID_TIPOPLAN,B.ID_CUENTAAASI,B.ID_RESTRICCION,B.ID_FONDO,B.ID_CTACTE,B.ID_DEPTO,B.DC,SUM(B.PORCENTAJE)/L_CONT AS PORCENTAJE,B.GLOSA,B.INDICADOR,NVL(B.NRO_ASIENTO,1) AS NRO_ASIENTO
+         B.ID_TIPOPLAN,B.ID_CUENTAAASI,B.ID_RESTRICCION,B.ID_FONDO,B.ID_CTACTE,B.ID_DEPTO,B.DC,SUM(B.PORCENTAJE) AS PORCENTAJE,B.GLOSA,B.INDICADOR,NVL(B.NRO_ASIENTO,1) AS NRO_ASIENTO
         FROM PEDIDO_ASIENTO B WHERE B.DC = 'D'
         AND TO_CHAR(B.ID_PEDIDO) IN (
             SELECT TO_NUMBER(REGEXP_SUBSTR(REGEXP_REPLACE(L_PEDIDO_ORIGEN, '(^|,)([^,]+)', '\2,'), '[^,]+', 1, LEVEL))
@@ -8276,6 +8279,41 @@ IS
         
         L_GLOSA_2 := L_DESCRIPCION_2; 
       
+        RETURN (L_GLOSA_2);
+    END;
+    
+    
+    
+  FUNCTION FC_FORMAT_GLOSA_ASSINET_AJUSTE(P_ID_ASIENTO IN NUMBER) RETURN VARCHAR2 IS
+        L_GLOSA_2 VARCHAR2(255);
+        L_DESCRIPCION_2 VARCHAR2(100):='';
+    BEGIN 
+        Begin 
+            select  
+                      (CASE
+                    WHEN LENGTH(pkg_purchases.FC_RUC(Cj.ID_PROVEEDOR)) <= 11 THEN pkg_purchases.FC_RUC(Cj.ID_PROVEEDOR)
+                    ELSE SUBSTR(pkg_purchases.FC_RUC(Cj.ID_PROVEEDOR), 1, 11)
+                    END || '/' ||
+                CASE
+                    WHEN LENGTH(   (select serie||'-'||numero from compra where id_compra = nvl(cj.id_compra,cs.id_compra))) <= 13 THEN    (select serie||'-'||numero from compra where id_compra = nvl(cj.id_compra,cs.id_compra))
+                    ELSE SUBSTR(  (select serie||'-'||numero from compra where id_compra = nvl(cj.id_compra,cs.id_compra)), 1, 13)
+                    END || '/' ||
+                CASE
+                    WHEN LENGTH(nvl(cd.DETALLE,(select pr.motivo from pedido_compra pc,pedido_registro pr  where pc.id_compra=nvl(cj.id_compra,cs.id_compra) and pc.id_pedido=pr.id_pedido ))) <= 33 THEN SUBSTR (    cd.DETALLE,1,33)
+                    ELSE SUBSTR( nvl(cd.DETALLE,(select pr.motivo from pedido_compra pc,pedido_registro pr  where pc.id_compra=nvl(cj.id_compra,cs.id_compra) and pc.id_pedido=pr.id_pedido )), 1, 33)
+                    END) 
+                  INTO L_DESCRIPCION_2 
+                FROM ELISEO.CONTA_ASIENTO ca
+                inner join compra_ajuste cj on ca.id_origen =  cj.id_ajuste
+                left join compra cx on cx.id_compra  = cj.id_compra
+                left join compra_saldo cs on cs.id_saldo  =  cj.id_saldo
+                left join COMPRA_DETALLE cd on cd.id_compra = cx.id_compra or cd.id_compra =  cs.id_compra
+                             WHERE  ca.id_asiento = P_ID_ASIENTO
+                              AND (ca.CUENTA LIKE '1%' OR ca.CUENTA LIKE '2%') and ROWNUM = 1; 
+        EXCEPTION WHEN NO_DATA_FOUND THEN
+            L_DESCRIPCION_2 := null; 
+        END;   
+        L_GLOSA_2 := L_DESCRIPCION_2;  
         RETURN (L_GLOSA_2);
     END;
 end pkg_purchases;

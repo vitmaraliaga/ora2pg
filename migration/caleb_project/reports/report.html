@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Ora2Pg - Database Migration Report</title>
+  <meta HTTP-EQUIV="Generator" CONTENT="Ora2Pg v25.0">
+  <meta HTTP-EQUIV="Date" CONTENT="Thu Sep 18 14:11:24 2025">
+  <style>
+body {
+	margin: 30px 0;
+	padding: 0;
+	background: #EFEFEF;
+	font-size: 12px;
+	color: #1e1e1e;
+}
+
+h1 {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #DFDFDF;
+	font-size: 22px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+h2 {
+	margin-bottom: 10px;
+	font-size: 18px;
+	padding: 0px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	color: #0094C7;
+}
+
+#header table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+
+#header th {
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+#content table {
+	padding: 0 5px 0 5px;
+	border: 1px solid #DBDBDB;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#content td {
+	padding: 0 5px 0 5px;
+	border-bottom: 1px solid #888888;
+	margin-bottom: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#content th {
+	border-bottom: 1px solid #BBBBBB;
+	padding: 0 5px 0 5px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #EC5800;
+}
+
+.object_name {
+        font-weight: bold;
+        color: #0094C7;
+	text-align: left;
+	white-space: pre;
+}
+
+.detail {
+	white-space: pre;
+}
+
+#footer {
+	margin-right: 10px;
+	text-align: right;
+}
+
+#footer a {
+	color: #EC5800;
+}
+
+#footer a:hover {
+	text-decoration: none;
+}
+  </style>
+</head>
+<body>
+<div id="header">
+<h1>Ora2Pg - Database Migration Report</h1>
+<table>
+<tr><th>Version</th><td>Oracle Database 11g Release 11.2.0.4.0</td></tr>
+<tr><th>Schema</th><td>CALEB</td></tr>
+<tr><th>Size</th><td>11.56 MB</td></tr>
+</table>
+</div>
+<div id="content">
+<table>
+<tr><th>Object</th><th>Number</th><th>Invalid</th><th>Estimated cost</th><th>Comments</th><th>Details</th></tr>
+<tr><td class="object_name">DATABASE LINK</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Database links will be exported as SQL/MED PostgreSQL's Foreign Data Wrapper (FDW) extensions using oracle_fdw.</td><td class="detail"></td></tr>
+<tr><td class="object_name">FUNCTION</td><td style="text-align: center;">11</td><td style="text-align: center;">0</td><td style="text-align: center;">44.80</td><td>Total size of function code: 8365 bytes.</td><td class="detail"><details><summary>See details</summary>ft_codigo_adm: 3.8<br>ft_celular: 3<br>ft_tipo_documento: 3<br>ft_matricula: 3<br>ft_beca_id: 3<br>ft_ubigeo_nacimiento_adm: 3<br>ft_correo_moises: 3<br>ft_paso: 3<br>ft_documento: 3<br>ft_correo: 3<br>ft_celular_moises: 3<br></details></td></tr>
+<tr><td class="object_name">GLOBAL TEMPORARY TABLE</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Global temporary table are not supported by PostgreSQL and will not be exported. You will have to rewrite some application code to match the PostgreSQL temporary table behavior.</td><td class="detail"></td></tr>
+<tr><td class="object_name">INDEX</td><td style="text-align: center;">78</td><td style="text-align: center;">0</td><td style="text-align: center;">7.80</td><td>0 index(es) are concerned by the export, others are automatically generated and will do so on PostgreSQL. Bitmap will be exported as btree_gin index(es). Domain index are exported as b-tree but commented to be edited to mainly use FTS. Cluster, bitmap join and IOT indexes will not be exported at all. Reverse indexes are not exported too, you may use a trigram-based index (see pg_trgm) or a reverse() function based index and search. Use 'varchar_pattern_ops', 'text_pattern_ops' or 'bpchar_pattern_ops' operators in your indexes to improve search with the LIKE operator respectively into varchar, text or char columns.</td><td class="detail"></td></tr>
+<tr><td class="object_name">JOB</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>Job are not exported. You may set external cron job with them.</td><td class="detail"></td></tr>
+<tr><td class="object_name">PROCEDURE</td><td style="text-align: center;">4</td><td style="text-align: center;">0</td><td style="text-align: center;">17.00</td><td>Total size of procedure code: 6897 bytes.</td><td class="detail"><details><summary>See details</summary>pcd_postulante_inscrito: 3<br>pcd_actualizar_beca: 3<br>pcd_postulante_paso_pago: 4<br>pcd_actualizar_becas: 3<br></details></td></tr>
+<tr><td class="object_name">SEQUENCE</td><td style="text-align: center;">81</td><td style="text-align: center;">0</td><td style="text-align: center;">8.10</td><td>Sequences are fully supported, but all call to sequence_name.NEXTVAL or sequence_name.CURRVAL will be transformed into NEXTVAL('sequence_name') or CURRVAL('sequence_name').</td><td class="detail"></td></tr>
+<tr><td class="object_name">SYNONYM</td><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">0.00</td><td>SYNONYMs will be exported as views. SYNONYMs do not exists with PostgreSQL but a common workaround is to use views or set the PostgreSQL search_path in your session to access object outside the current schema.</td><td class="detail"></td></tr>
+<tr><td class="object_name">TABLE</td><td style="text-align: center;">100</td><td style="text-align: center;">0</td><td style="text-align: center;">10.00</td><td></td><td class="detail"><details><summary>See details</summary>Total number of rows: 1578<br>Top 10 of tables sorted by number of rows:<br>adm_postulante_paso_doc has 126 rows<br>adm_inscripcion_direccion has 118 rows<br>adm_persona_inscripcion has 117 rows<br>adm_postulante_paso has 108 rows<br>adm_evaluacion has 89 rows<br>adm_tipo_pueblo_indigena has 56 rows<br>adm_tipo_lengua_indigena has 48 rows<br>adm_institucion_procedencia has 46 rows<br>adm_tipo_sector_empresa has 46 rows<br>filtro_modalidad_ins has 43 rows<br>Top 10 of largest tables:<br></details></td></tr>
+<tr><td class="object_name">TRIGGER</td><td style="text-align: center;">70</td><td style="text-align: center;">1</td><td style="text-align: center;">276.00</td><td>Total size of trigger code: 0 bytes.</td><td class="detail"><details><summary>See details</summary>tr_adjuntar_pago_id: 3<br>tr_adm_adjuntar_pago_id: 3<br>tr_adm_centro_estudio_id: 3<br>tr_adm_clasif_requisito_id: 3<br>tr_adm_competencia_item_id: 3<br>tr_adm_conf_clasificacion_id: 3<br>tr_adm_convocatoria_det_id: 3<br>tr_adm_convocatoria_id: 3<br>tr_adm_conv_det_config_id: 3<br>tr_adm_conv_plan_programa_id: 3<br>tr_adm_detalle_id: 3<br>tr_adm_dirigido_a_id: 3<br>tr_adm_estado_conv_id: 3<br>tr_adm_evaluacion_id: 3<br>tr_adm_evaluacion_programa_id: 3<br>tr_adm_eval_prog_mod_paso_id: 3<br>tr_adm_exonerar_pago_id: 3<br>tr_adm_exp_laboral_id: 3<br>tr_adm_file_convocatoria_id: 3<br>tr_adm_inscripcion_pago_id: 3<br>tr_adm_insc_prog_proc_id: 3<br>tr_adm_mensajes_id: 3<br>tr_adm_modalidad_ingreso_id: 3<br>tr_adm_modo_evaluacion_id: 3<br>tr_adm_mod_inscripcion_id: 3<br>tr_adm_paso_doc_programa_id: 3<br>tr_adm_persona_inscripcion_id: 3<br>tr_adm_postulante_paso_doc_id: 3<br>tr_adm_postulante_paso_id: 3<br>tr_adm_programa_mod_ingr_id: 3<br>tr_adm_programa_mod_ing_id: 3<br>tr_adm_programa_procedencia_id: 3<br>tr_adm_prog_eval_prog_id: 3<br>tr_adm_requisitos_id: 3<br>tr_adm_requ_conv_prog_mi_id: 3<br>tr_adm_req_postulante_id: 3<br>tr_adm_req_postu_conv_prog_id: 3<br>tr_adm_tipo_config_id: 3<br>tr_adm_tipo_documento_id: 3<br>tr_adm_tipo_estado_val_id: 3<br>tr_adm_tipo_evaluacion_id: 3<br>tr_adm_tipo_ingreso_id: 3<br>tr_adm_tipo_mensaje_id: 3<br>tr_asesorres_id: 3<br>tr_asesor_nivel_id: 3<br>tr_becado_convocatoria_id: 3<br>tr_cartas_postulante_id: 3<br>tr_catalogo_admision_id: 3<br>tr_catalogo_programs_id: 3<br>tr_centro_direccion_id: 3<br>tr_comision_id: 3<br>tr_convocatoria_criterio_id: 3<br>tr_convoca_direccion_id: 3<br>tr_cuestionario_conv_id: 3<br>tr_eval_prog_mod_paso_id: 3<br>tr_eval_prog_paso_id: 3<br>tr_exonerado_evaluacion_id: 3<br>tr_filtro_modalidad_ins: 3<br>tr_inscripcion_direc_id: 3<br>tr_inscripcion_idioma_id: 3<br>tr_institucion_procedencia_id: 3<br>tr_modalidad_adicional_id: 3<br>tr_plantilla_simu_id: 3<br>tr_preseleccionado_id: 3<br>tr_preseleccion_id: 3<br>tr_requisito_adventista_id: 3<br>tr_req_det_adjuntos_id: 3<br>tr_tipo_criterio_orden_id: 3<br>tr_tipo_estado_pago_id: 3<br></details></td></tr>
+<tr><td class="object_name">VIEW</td><td style="text-align: center;">1</td><td style="text-align: center;">0</td><td style="text-align: center;">1.00</td><td>Views are fully supported but can use specific functions.</td><td class="detail"></td></tr>
+<tr><th style="text-align: center; border-bottom: 0px; vertical-align: bottom;">Total</th><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">345</td><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">1</td><td style="text-align: center; border-bottom: 0px; vertical-align: bottom;">364.70</td><td colspan="2" style="border-bottom: 0px; vertical-align: bottom;">364.70 cost migration units means approximatively 5 person-day(s). The migration unit was set to 5 minute(s)
+</td></tr>
+</table>
+</div>
+<h2>Migration level: B-5</h2>
+
+<ul>
+<li>Migration levels:</li>
+  <ul>
+    <li>A - Migration that might be run automatically</li>
+    <li>B - Migration with code rewrite and a human-days cost up to 5 days</li>
+    <li>C - Migration with code rewrite and a human-days cost above 5 days</li>
+  </ul>
+<li>Technical levels:</li>
+  <ul>
+    <li>1 = trivial: no stored functions and no triggers</li>
+    <li>2 = easy: no stored functions but with triggers, no manual rewriting</li>
+    <li>3 = simple: stored functions and/or triggers, no manual rewriting</li>
+    <li>4 = manual: no stored functions but with triggers or views with code rewriting</li>
+    <li>5 = difficult: stored functions and/or triggers with code rewriting</li>
+  </ul>
+</ul>
+<h2>Details of cost assessment per function</h2>
+<details><summary>Show</summary><ul>
+<li>Function ft_codigo_adm total estimated cost: 3.8</li>
+<ul>
+<li>CONCAT => 7 (cost: 0.1)</li>
+<li>TEST => 2</li>
+<li>TO_CHAR => 1 (cost: 0.1)</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_matricula total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_ubigeo_nacimiento_adm total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_beca_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_correo total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_correo_moises total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_celular_moises total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_tipo_documento total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_documento total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_paso total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Function ft_celular total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+<h2>Details of cost assessment per procedure</h2>
+<details><summary>Show</summary><ul>
+<li>Procedure pcd_postulante_paso_pago total estimated cost: 4</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 2</li>
+</ul>
+<li>Procedure pcd_actualizar_beca total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Procedure pcd_postulante_inscrito total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Procedure pcd_actualizar_becas total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+<h2>Details of cost assessment per trigger</h2>
+<details><summary>Show</summary><ul>
+<li>Trigger tr_adm_eval_prog_mod_paso_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_tipo_mensaje_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_dirigido_a_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_conv_det_config_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_detalle_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_clasif_requisito_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_conf_clasificacion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_tipo_config_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_persona_inscripcion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_tipo_estado_val_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_programa_procedencia_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_mod_inscripcion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_catalogo_admision_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_asesorres_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_programa_mod_ingr_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_tipo_evaluacion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_mensajes_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_postulante_paso_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_programa_mod_ing_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_eval_prog_paso_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_estado_pago_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_asesor_nivel_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_comision_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_req_det_adjuntos_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_convocatoria_criterio_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_postulante_paso_doc_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_convocatoria_det_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_exp_laboral_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_preseleccion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_tipo_ingreso_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_catalogo_programs_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_centro_direccion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_cartas_postulante_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_filtro_modalidad_ins total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_req_postulante_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adjuntar_pago_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_becado_convocatoria_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_file_convocatoria_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_requisitos_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_cuestionario_conv_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_estado_conv_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_plantilla_simu_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_inscripcion_direc_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_requ_conv_prog_mi_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_competencia_item_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_preseleccionado_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_inscripcion_idioma_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_eval_prog_mod_paso_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_modalidad_ingreso_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_prog_eval_prog_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_paso_doc_programa_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_centro_estudio_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_insc_prog_proc_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_conv_plan_programa_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_institucion_procedencia_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_convoca_direccion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_adjuntar_pago_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_requisito_adventista_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_tipo_criterio_orden_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_tipo_documento_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_exonerado_evaluacion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_modalidad_adicional_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_evaluacion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_exonerar_pago_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_convocatoria_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_req_postu_conv_prog_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_evaluacion_programa_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_modo_evaluacion_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+<li>Trigger tr_adm_inscripcion_pago_id total estimated cost: 3</li>
+<ul>
+<li>TEST => 2</li>
+<li>SIZE => 1</li>
+</ul>
+</ul></details>
+
+<div id="footer">
+Generated by <a href="http://ora2pg.darold.net/">Ora2Pg v25.0</a>
+</div>
+</body>
+</html>

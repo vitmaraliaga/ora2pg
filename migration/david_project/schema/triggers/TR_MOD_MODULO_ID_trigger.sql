@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_mod_modulo_id ON mod_modulo CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_mod_modulo_id() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_mod_modulo_id')
+  select nextval('david.sq_mod_modulo_id')
   into STRICT NEW.id_modulo
 ;
 RETURN NEW;

@@ -23,9 +23,9 @@
 7. `import_all.sh` para que FUNCTION migre depues de TABLE
 6. Corregir dato migrado antes de cargar
     - Corregir type
-    - TYPE:: Buscar `Unsupported, please edit to match PostgreSQL syntax` para reemplazar manualmente
-    - WARNINGS PACKAGES:: Buscar en `./migration/moises_project2/schema` `salida_final, salida_rapida,salida_val, goto_` y comentarlos
-    - Eliminar todas las lineas que empiecen con `eliseo, jose, david` etc reemplazar por `--ora2pg` para comentarlos
+    <!-- - TYPE:: Buscar `Unsupported, please edit to match PostgreSQL syntax` para reemplazar manualmente -->
+    <!-- - WARNINGS PACKAGES:: Buscar en `./migration/moises_project2/schema` `salida_final, salida_rapida,salida_val, goto_` y comentarlos -->
+    <!-- - Eliminar todas las lineas que empiecen con `eliseo, jose, david` etc reemplazar por `--ora2pg` para comentarlos -->
     - Buscar este caracter `dbms_random.varchar` y comentar
     - Editar procedimiento `moises.iudp_persona_datos_multiples` falta un `call`
     - `./import_all.sh -h 10.171.11.175 -U sdaupn -d sdaupn_rid_to -p 5436 -o sdaupn`

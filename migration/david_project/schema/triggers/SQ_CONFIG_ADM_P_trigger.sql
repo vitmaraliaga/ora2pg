@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS sq_config_adm_p ON config_inscripcion_programa CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_sq_config_adm_p() RETURNS trigger AS $BODY$
 BEGIN
-  NEW.id_inscripcion_programa := nextval('sq_config_adm_p');
+  NEW.id_inscripcion_programa := nextval('david.sq_config_adm_p');
 RETURN NEW;
 END
 $BODY$

@@ -7,6 +7,10 @@ SET client_encoding TO 'UTF8';
 \set ON_ERROR_STOP ON
 
 SET search_path = eliseo,public;
+ALTER TABLE adm_junta_directiva DROP CONSTRAINT IF EXISTS junta_dir_entad_depto_fk;
+ALTER TABLE adm_junta_directiva ADD CONSTRAINT junta_dir_entad_depto_fk FOREIGN KEY (id_depto,id_entidad) REFERENCES conta_entidad_depto(id_depto,id_entidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE adm_junta_participantes DROP CONSTRAINT IF EXISTS adm_junta_participantes_fk;
+ALTER TABLE adm_junta_participantes ADD CONSTRAINT adm_junta_participantes_fk FOREIGN KEY (id_junta) REFERENCES adm_junta_directiva(id_junta) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE alumno DROP CONSTRAINT IF EXISTS alumno_persona_natural_fk;
 ALTER TABLE alumno ADD CONSTRAINT alumno_persona_natural_fk FOREIGN KEY (id_persona) REFERENCES persona_natural(id_persona) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE api_firma_user DROP CONSTRAINT IF EXISTS api_firma_user_fk1;
@@ -1855,6 +1859,20 @@ ALTER TABLE inventario_articulo DROP CONSTRAINT IF EXISTS unidad_medida_articulo
 ALTER TABLE inventario_articulo ADD CONSTRAINT unidad_medida_articulo_fk FOREIGN KEY (id_unidadmedida) REFERENCES inventario_unidad_medida(id_unidadmedida) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE inventario_articulo_codigo DROP CONSTRAINT IF EXISTS articulo_codigo_fk;
 ALTER TABLE inventario_articulo_codigo ADD CONSTRAINT articulo_codigo_fk FOREIGN KEY (id_articulo) REFERENCES inventario_articulo(id_articulo) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE inventario_articulo_conf_conta DROP CONSTRAINT IF EXISTS art_conta_entidad_fk;
+ALTER TABLE inventario_articulo_conf_conta ADD CONSTRAINT art_conta_entidad_fk FOREIGN KEY (id_entidad) REFERENCES conta_entidad(id_entidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE inventario_articulo_conf_conta DROP CONSTRAINT IF EXISTS art_conta_tipo_igv_fk;
+ALTER TABLE inventario_articulo_conf_conta ADD CONSTRAINT art_conta_tipo_igv_fk FOREIGN KEY (id_tipoigv) REFERENCES tipo_igv(id_tipoigv) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE inventario_articulo_conf_conta DROP CONSTRAINT IF EXISTS art_inventario_articulo_fam_fk;
+ALTER TABLE inventario_articulo_conf_conta ADD CONSTRAINT art_inventario_articulo_fam_fk FOREIGN KEY (id_familia) REFERENCES inventario_articulo_fam(id_familia) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE inventario_articulo_conf_conta DROP CONSTRAINT IF EXISTS art_inventario_articulo_fk;
+ALTER TABLE inventario_articulo_conf_conta ADD CONSTRAINT art_inventario_articulo_fk FOREIGN KEY (id_articulo) REFERENCES inventario_articulo(id_articulo) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE inventario_articulo_conf_conta DROP CONSTRAINT IF EXISTS conta_conta_empresa_fk;
+ALTER TABLE inventario_articulo_conf_conta ADD CONSTRAINT conta_conta_empresa_fk FOREIGN KEY (id_empresa) REFERENCES conta_empresa(id_empresa) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE inventario_articulo_pf DROP CONSTRAINT IF EXISTS fk_inventario_articulo_pf;
 ALTER TABLE inventario_articulo_pf ADD CONSTRAINT fk_inventario_articulo_pf FOREIGN KEY (id_articulo) REFERENCES inventario_articulo(id_articulo) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -2487,13 +2505,6 @@ ALTER TABLE persona_direccion ADD CONSTRAINT sys_c00253033 FOREIGN KEY (id_ubigu
 
 ALTER TABLE persona_direccion DROP CONSTRAINT IF EXISTS tipo_direccion_fk;
 ALTER TABLE persona_direccion ADD CONSTRAINT tipo_direccion_fk FOREIGN KEY (id_tipodireccion) REFERENCES tipo_direccion(id_tipodireccion) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE persona_documento DROP CONSTRAINT IF EXISTS sys_c00253205;
-ALTER TABLE persona_documento ADD CONSTRAINT sys_c00253205 FOREIGN KEY (id_persona) REFERENCES persona(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-ALTER TABLE persona_documento DROP CONSTRAINT IF EXISTS tipo_documento_fk;
-ALTER TABLE persona_documento ADD CONSTRAINT tipo_documento_fk FOREIGN KEY (id_tipodocumento) REFERENCES tipo_documento(id_tipodocumento) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE persona_imagen DROP CONSTRAINT IF EXISTS persona_imagen_persona_fk;
-ALTER TABLE persona_imagen ADD CONSTRAINT persona_imagen_persona_fk FOREIGN KEY (id_persona) REFERENCES persona(id_persona) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE persona_juridica DROP CONSTRAINT IF EXISTS persona_juridica_persona_fk;
 ALTER TABLE persona_juridica ADD CONSTRAINT persona_juridica_persona_fk FOREIGN KEY (id_persona) REFERENCES persona(id_persona) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -2530,8 +2541,6 @@ ALTER TABLE persona_natural DROP CONSTRAINT IF EXISTS pers_natu_tipo_esta_civil_
 ALTER TABLE persona_natural ADD CONSTRAINT pers_natu_tipo_esta_civil_fk FOREIGN KEY (id_tipoestadocivil) REFERENCES tipo_estado_civil(id_tipoestadocivil) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE persona_natural_alumno DROP CONSTRAINT IF EXISTS sys_c00253075;
 ALTER TABLE persona_natural_alumno ADD CONSTRAINT sys_c00253075 FOREIGN KEY (id_persona) REFERENCES persona(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE persona_natural_firma DROP CONSTRAINT IF EXISTS pers_nat_firma_pers_natl_fk;
-ALTER TABLE persona_natural_firma ADD CONSTRAINT pers_nat_firma_pers_natl_fk FOREIGN KEY (id_persona) REFERENCES persona_natural(id_persona) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE persona_natural_idioma DROP CONSTRAINT IF EXISTS pers_nat_idioma_pers_nat_fk;
 ALTER TABLE persona_natural_idioma ADD CONSTRAINT pers_nat_idioma_pers_nat_fk FOREIGN KEY (id_persona) REFERENCES persona_natural(id_persona) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -3143,8 +3152,6 @@ ALTER TABLE venta_detalle ADD CONSTRAINT tipoigv_venta_fk FOREIGN KEY (id_tipoig
 
 ALTER TABLE venta_detalle DROP CONSTRAINT IF EXISTS venta_detalle_fk;
 ALTER TABLE venta_detalle ADD CONSTRAINT venta_detalle_fk FOREIGN KEY (id_venta) REFERENCES venta(id_venta) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE venta_electronica DROP CONSTRAINT IF EXISTS sys_c00253613;
-ALTER TABLE venta_electronica ADD CONSTRAINT sys_c00253613 FOREIGN KEY (emisorid) REFERENCES venta_emisor(id) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE venta_file DROP CONSTRAINT IF EXISTS caja_pago_venta_file_fk;
 ALTER TABLE venta_file ADD CONSTRAINT caja_pago_venta_file_fk FOREIGN KEY (id_pventa) REFERENCES caja_pago_venta(id_pventa) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 

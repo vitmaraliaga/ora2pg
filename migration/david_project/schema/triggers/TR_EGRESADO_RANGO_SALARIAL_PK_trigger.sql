@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_egresado_rango_salarial_pk ON egresado_rango_salarial CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_egresado_rango_salarial_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_egresado_rango_salarial_id')
+  select nextval('david.sq_egresado_rango_salarial_id')
   into STRICT NEW.id_rango_salarial
 ;
 RETURN NEW;

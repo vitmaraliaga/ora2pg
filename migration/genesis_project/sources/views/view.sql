@@ -7,8 +7,8 @@ SET client_encoding TO 'UTF8';
 SET search_path = genesis,public;
 \set ON_ERROR_STOP ON
 
-\i './sources/views/VW_PERSONA_INTERES_REPORTE_view.sql'
 \i './sources/views/VW_PERSONA_TELEFONO_view.sql'
-\i './sources/views/VW_PERSONA_DOCUMENTO_view.sql'
 \i './sources/views/VW_PERSONA_INTERES_view.sql'
+\i './sources/views/VW_PERSONA_DOCUMENTO_view.sql'
+\i './sources/views/VW_PERSONA_INTERES_REPORTE_view.sql'
 

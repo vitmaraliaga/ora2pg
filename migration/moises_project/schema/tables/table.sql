@@ -1571,8 +1571,12 @@ CREATE TABLE persona_juridica (
 	es_buen_contribuyente varchar(1) DEFAULT 'N',
 	es_agente_retencion varchar(1) DEFAULT 'N',
 	auto_detraccion varchar(1) DEFAULT 'N',
-	no_domiciliado varchar(1) DEFAULT 'N'
+	no_domiciliado varchar(1) DEFAULT 'N',
+	credito bigint,
+	cred_tiempo bigint
 ) ;
+COMMENT ON COLUMN persona_juridica.cred_tiempo IS E'Dias de credito';
+COMMENT ON COLUMN persona_juridica.credito IS E'Importe credito';
 COMMENT ON COLUMN persona_juridica.no_domiciliado IS E'S = NO DOMICILIADO
 N = SI DOMICILIADO';
 
@@ -1662,7 +1666,8 @@ CREATE TABLE persona_natural (
 	fecha_salida timestamp(0),
 	esdiscapacitado varchar(1),
 	discapacitado_url varchar(150),
-	codigo_assinet varchar(20)
+	codigo_assinet varchar(20),
+	foto_dth varchar(150)
 ) ;
 COMMENT ON COLUMN persona_natural.codigo_assinet IS E'Personas antiguas que no se les puso el dni para identificar los asientos del assinet en la ctacte';
 COMMENT ON COLUMN persona_natural.credito_pronabec IS E'este campo es cuando los alumnos actualizan sus datos para optar por un crédito estudiantil pronabec, 0 es no 1 es sí';

@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_acad_horario_cultura_id ON acad_horario_cultura CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_acad_horario_cultura_id() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sq_acad_horario_cultura_id_2')
+  SELECT nextval('david.sq_acad_horario_cultura_id_2')
   INTO STRICT NEW.id_horario_cultura
 ;
 RETURN NEW;

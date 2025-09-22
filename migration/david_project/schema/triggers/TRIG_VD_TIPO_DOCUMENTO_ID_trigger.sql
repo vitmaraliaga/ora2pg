@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_vd_tipo_documento_id ON vd_tipo_documento CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_vd_tipo_documento_id() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_DOCUMENTO::text, '') = '' THEN
-SELECT nextval('sq_vd_tipo_documento_id')
+SELECT nextval('david.sq_vd_tipo_documento_id')
 INTO STRICT NEW.ID_DOCUMENTO
 ;
 END IF;

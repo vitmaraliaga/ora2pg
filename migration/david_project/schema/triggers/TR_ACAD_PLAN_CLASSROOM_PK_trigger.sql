@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_acad_plan_classroom_pk ON acad_carga_plan_classroom CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_acad_plan_classroom_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_acad_plan_classroom_id')
+  select nextval('david.sq_acad_plan_classroom_id')
   into STRICT NEW.id_plan_classroom
 ;
 RETURN NEW;

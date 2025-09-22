@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_dispositivo_id ON app_dispositivo CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_dispositivo_id() RETURNS trigger AS $BODY$
 BEGIN
-		  select nextval('sq_dispositivo_id')
+		  select nextval('david.sq_dispositivo_id')
 		  into STRICT NEW.id_dispositivo
 		;
 		RETURN NEW;

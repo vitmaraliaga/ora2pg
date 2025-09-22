@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS trg_rep_bautismo_bi ON rep_bautismo CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_trg_rep_bautismo_bi() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('seq_rep_bautismo')
+  SELECT nextval('david.seq_rep_bautismo')
   INTO STRICT NEW.ID_REP_BAUTISMO
 ;
 RETURN NEW;

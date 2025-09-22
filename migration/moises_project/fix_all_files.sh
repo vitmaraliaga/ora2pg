@@ -3,7 +3,7 @@
 # Ruta donde están los archivos generados por ora2pg (ajusta según tu entorno)
 BASE_DIR="./schema"
 # Cambia esto por tu esquema real (por ejemplo: moises)
-SCHEMA="eliseo"
+SCHEMA="moises"
 
 
 find "$BASE_DIR" -type f -name "*.sql" -print0 | xargs -0 sed -i -E \
@@ -25,7 +25,8 @@ echo "Listo. Se han corregido los dbms_random de los archivos SQL con esquema: $
 find "$BASE_DIR" -type f -name "*.sql" -print0 | xargs -0 sed -i \
   -e '/^[[:space:]]*goto[[:space:]]/I s/^/-- /' \
   -e '/^[[:space:]]*GOTO[[:space:]]/I s/^/-- /' \
-  -e '/^[[:space:]]*<<[a-zA-Z0-9_]\+>>/ s/^/-- /'
+  -e '/^[[:space:]]*<<[a-zA-Z0-9_]\+>>/ s/^/-- /' \
+  -e '/^[[:space:]]*CREATE[[:space:]]\+USER/I s/^/-- /'
 
 echo "Comentar el goto y las etiquetas <<etiqueta>> de los archivos SQL con esquema: $SCHEMA"
 
@@ -66,21 +67,31 @@ echo "Listo. Se han comentado las lineas con GOTO del esquema: $SCHEMA"
 # BASE_DIR="./schema"
 
 find "$BASE_DIR" -type f -name "*.sql" -print0 | xargs -0 sed -i -E \
-  -e "s/nextval\('([a-zA-Z0-9_]+)'\)/nextval('${SCHEMA}.\1')/g" \
-  -e "s/nextval\('${SCHEMA}\.([a-zA-Z0-9_]+)'\)/nextval('${SCHEMA}.\1')/g"
+  -e "s/nextval\('([a-zA-Z0-9_]+\.)?([a-zA-Z0-9_]+)'\)/nextval('${SCHEMA}.\2')/g" # Mejor opcion
+  # -e "s/nextval\('([a-zA-Z0-9_]+)'\)/nextval('${SCHEMA}.\1')/g" \
+  # -e "s/nextval\('${SCHEMA}\.([a-zA-Z0-9_]+)'\)/nextval('${SCHEMA}.\1')/g"
 
 echo "Listo. Se han corregido las secuencias del esquema: $SCHEMA"
 
 
-find schema -type f -name "*.sql" -exec sed -i \
+find "$BASE_DIR" -type f -name "*.sql" -exec sed -i \
   -e '/user varchar/s/\buser\b/"user"/' \
-  -e '/left numeric/s/\bleft\b/"left"/' {} +
+  -e '/left numeric/s/\bleft\b/"left"/' \
+  -e '/left bigint/s/\bleft\b/"left"/' \
+  -e '/right numeric/s/\bright\b/"right"/' \
+  -e '/right bigint/s/\bright\b/"right"/' \
+  -e '/order bigint/s/\border\b/"order"/' {} +
 
 echo "Listo. Se han corregido las columnas con palabras reservadas del esquema: $SCHEMA"
 
 
-find ./schema -type f -name "*.sql" -exec sed -i -E "
+find "$BASE_DIR" -type f -name "*.sql" -exec sed -i -E "
   s/(\w+\s+bigint\s+DEFAULT\s+)TO_char\(statement_timestamp\(\), 'yyyy'\)/\1EXTRACT(YEAR FROM statement_timestamp())::bigint/g
 " {} +
 
 echo "Correciones cuando hay fechas: $SCHEMA"
+
+# persona_index2
+sed -i "s/||%%string0%(|/||''||/g" "$BASE_DIR"/tables/INDEXES_table.sql
+sed -i "s/||%%string1%(|/||''||/g" "$BASE_DIR"/tables/INDEXES_table.sql
+echo "Correciones indices: $SCHEMA"

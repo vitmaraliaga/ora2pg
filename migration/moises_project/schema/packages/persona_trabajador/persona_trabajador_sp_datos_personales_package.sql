@@ -139,7 +139,7 @@ BEGIN
         end if;
     end if;
 
-    --  <<salida_final>>
+--      <<salida_final>>
      
      P_ID_PERSONA_NEW :=l_id_persona;
 

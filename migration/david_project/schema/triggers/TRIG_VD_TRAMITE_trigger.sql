@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_vd_tramite ON vd_tramite CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_vd_tramite() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_TRAMITE::text, '') = '' THEN
-SELECT nextval('sq_vd_tramite_id')
+SELECT nextval('david.sq_vd_tramite_id')
 INTO STRICT NEW.ID_TRAMITE
 ;
 END IF;

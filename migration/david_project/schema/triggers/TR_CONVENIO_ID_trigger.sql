@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_convenio_id ON convenio CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_convenio_id() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sq_convenio_id')
+  SELECT nextval('david.sq_convenio_id')
   INTO STRICT NEW.id_convenio
 ;
 RETURN NEW;

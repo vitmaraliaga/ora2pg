@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_acad_histo_plan_pk ON acad_historial_plan CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_acad_histo_plan_pk() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_acad_histo_plan_id')
+			  select nextval('david.sq_acad_histo_plan_id')
 			  into STRICT NEW.ID_HISTORIAL_PLAN
 			;
 

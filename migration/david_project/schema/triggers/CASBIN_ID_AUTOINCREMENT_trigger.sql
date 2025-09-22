@@ -9,7 +9,7 @@ SET search_path = david,public;
 
 DROP TRIGGER IF EXISTS casbin_id_autoincrement ON casbin_rule CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_casbin_id_autoincrement() RETURNS trigger AS $BODY$
-BEGIN                         PERFORM nextval('casbin_sequence') intoNEW.id;RETURN NEW;
+BEGIN                         PERFORM nextval('david.casbin_sequence') intoNEW.id;RETURN NEW;
 end
 $BODY$
  LANGUAGE 'plpgsql' SECURITY DEFINER;

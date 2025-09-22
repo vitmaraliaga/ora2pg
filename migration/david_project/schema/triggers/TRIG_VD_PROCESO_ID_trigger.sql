@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_vd_proceso_id ON vd_proceso CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_vd_proceso_id() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_PROCESO::text, '') = '' THEN
-SELECT nextval('sq_vd_proceso_id')
+SELECT nextval('david.sq_vd_proceso_id')
 INTO STRICT NEW.ID_PROCESO
 ;
 END IF;

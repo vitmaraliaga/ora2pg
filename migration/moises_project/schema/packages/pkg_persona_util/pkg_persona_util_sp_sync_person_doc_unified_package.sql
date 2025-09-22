@@ -34,7 +34,7 @@ BEGIN
 		    	WHEN OTHERS THEN
 		    		L_ERROR := 1;
 		    		L_MSGERROR := 'No se pudo sincronizar el documento '||DOC.NOMBRE;
-		    		-- GOTO salida_val;
+-- 		    		GOTO salida_val;
 		    END;
 		
 		    SELECT COUNT(*) INTO STRICT L_CONTAR FROM MOISES.PERSONA_DOCUMENTO_UNIFICADO WHERE ID_PERSONA = P_ID_PERSONA AND ID_DOCUMENTO = DOC.ID_DOCUMENTO;
@@ -58,7 +58,7 @@ BEGIN
         END;
         END LOOP;
 
-        -- <<salida_val>>
+--         <<salida_val>>
         P_ERROR:=L_ERROR;
         P_MSGERROR:=L_MSGERROR;
 	END;

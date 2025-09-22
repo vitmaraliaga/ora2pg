@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_config_tem_repli_pk ON config_replicate_template CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_config_tem_repli_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_config_tem_repli_id')
+  select nextval('david.sq_config_tem_repli_id')
   into STRICT NEW.id_config_replicate_template
 ;
 RETURN NEW;

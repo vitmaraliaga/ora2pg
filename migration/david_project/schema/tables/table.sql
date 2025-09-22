@@ -222,7 +222,7 @@ CREATE TABLE aaatemp_acce (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -251,7 +251,7 @@ CREATE TABLE aaatemp_aem1 (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -338,7 +338,7 @@ CREATE TABLE aaatemp_x (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -480,7 +480,7 @@ CREATE TABLE aatemp_155556 (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -943,7 +943,7 @@ CREATE TABLE aatemp_acad_alumno_eval (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -1147,7 +1147,7 @@ CREATE TABLE aatemp_acad_persona_comision (
 	codigo varchar(15) NOT NULL,
 	nro_bloque bigint,
 	metas varchar(254),
-	horas_laborales bigint,
+	horas_laborales numeric,
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
 	id_usuario_act bigint,
@@ -1276,13 +1276,13 @@ CREATE TABLE aatemp_accd2 (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	cruce char(1) NOT NULL,
-	hl bigint,
-	factor bigint,
+	hl numeric,
+	factor numeric,
 	edita_hl char(1),
 	edita_factor char(1),
 	id_factor bigint,
-	horas_laborales bigint,
-	hl_periodo bigint,
+	horas_laborales numeric,
+	hl_periodo numeric,
 	id_tipo_modalidad_docente bigint,
 	cupos_extras bigint NOT NULL
 ) ;
@@ -1607,7 +1607,7 @@ CREATE TABLE aatemp_alumno_contrato (
 	creditos_mat bigint,
 	meta bigint,
 	credito_meta bigint,
-	precio_credito bigint,
+	precio_credito numeric,
 	nombre_distrito varchar(4000),
 	latitud varchar(4000),
 	longitud varchar(4000)
@@ -2038,7 +2038,7 @@ CREATE TABLE aatemp_bckp_alumno_evaluacion (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -2054,8 +2054,8 @@ CREATE TABLE aatemp_bckp_al_eval_rastreo (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota_anterior bigint,
-	nota_actual bigint,
+	nota_anterior numeric,
+	nota_actual numeric,
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
 	ip varchar(4000),
@@ -2075,7 +2075,7 @@ CREATE TABLE aatemp_bckp_carga_evaluacion (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -2338,7 +2338,7 @@ CREATE TABLE aatemp_carga_apertura (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -2404,11 +2404,11 @@ CREATE TABLE aatemp_carga_curso_docente (
 	fecha_actualizacion timestamp(0),
 	cruce char(1) NOT NULL,
 	hl bigint,
-	factor bigint,
+	factor numeric,
 	edita_hl char(1),
 	edita_factor char(1),
 	id_factor bigint,
-	horas_laborales bigint,
+	horas_laborales numeric,
 	hl_periodo bigint,
 	id_tipo_modalidad_docente bigint,
 	cupos_extras bigint NOT NULL,
@@ -2567,9 +2567,9 @@ CREATE TABLE aatemp_categoria_dedi (
 DROP TABLE IF EXISTS aatemp_ccd;
 CREATE TABLE aatemp_ccd (
 	id_carga_curso_docente bigint NOT NULL,
-	hl bigint,
-	hl_periodo bigint,
-	horas_laborales bigint
+	hl numeric,
+	hl_periodo numeric,
+	horas_laborales numeric
 ) ;
 
 
@@ -2994,13 +2994,13 @@ CREATE TABLE aatemp_corregir (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	cruce char(1) NOT NULL,
-	hl bigint,
-	factor bigint,
+	hl numeric,
+	factor numeric,
 	edita_hl char(1),
 	edita_factor char(1),
 	id_factor bigint,
-	horas_laborales bigint,
-	hl_periodo bigint,
+	horas_laborales numeric,
+	hl_periodo numeric,
 	id_tipo_modalidad_docente bigint,
 	cupos_extras bigint NOT NULL
 ) ;
@@ -3239,8 +3239,8 @@ CREATE TABLE aatemp_curso_a_restaurar (
 	id_carga_curso bigint NOT NULL,
 	id_carga_evaluacion bigint,
 	id_persona bigint NOT NULL,
-	nota_anterior bigint,
-	nota_actual bigint,
+	nota_anterior numeric,
+	nota_actual numeric,
 	fecha_registro timestamp(0),
 	hora varchar(8)
 ) ;
@@ -4011,8 +4011,8 @@ CREATE TABLE aatemp_evaluaciones_rastreo (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint NOT NULL,
-	nota_ant bigint,
-	nota_act bigint,
+	nota_ant numeric,
+	nota_act numeric,
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
 	ip varchar(60)
@@ -4025,7 +4025,7 @@ CREATE TABLE aatemp_evaluacion_148172 (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -4039,8 +4039,8 @@ CREATE TABLE aatemp_evaluacion_rastreo (
 	codigo_alumno varchar(4000),
 	curso_carga_id varchar(45),
 	evaluacion_id varchar(54),
-	nota_ant bigint,
-	nota_act bigint,
+	nota_ant numeric,
+	nota_act numeric,
 	codigo_personal varchar(63) NOT NULL,
 	fecha_act timestamp(0),
 	ip varchar(60)
@@ -4225,10 +4225,10 @@ CREATE TABLE aatemp_eva_actividad_docente (
 	id_unidad_academica bigint,
 	id_programa_estudio bigint NOT NULL,
 	id_persona bigint NOT NULL,
-	promedio_asistencia_docente bigint,
-	promedio_asistencia bigint,
-	promedio_notas_semana bigint,
-	canvas bigint,
+	promedio_asistencia_docente numeric,
+	promedio_asistencia numeric,
+	promedio_notas_semana numeric,
+	canvas numeric,
 	id_ope bigint
 ) ;
 
@@ -4277,7 +4277,7 @@ CREATE TABLE aatemp_exam_adm1 (
 	recordatorio char(1),
 	fecha_activacion timestamp(0),
 	ip varchar(36),
-	minutos_restantes bigint,
+	minutos_restantes numeric,
 	minutos_usados bigint,
 	nro_ingreso_instrumento bigint,
 	nro_recordatorio bigint,
@@ -4845,9 +4845,9 @@ CREATE TABLE aatemp_horas_act (
 	hl bigint,
 	horas_horario bigint,
 	hl_periodo bigint,
-	horas_laborales bigint,
-	factor bigint,
-	con_factor bigint
+	horas_laborales numeric,
+	factor numeric,
+	con_factor numeric
 ) ;
 
 
@@ -4866,7 +4866,7 @@ CREATE TABLE aatemp_horas_act2 (
 	horas_lectivas bigint NOT NULL,
 	hl_periodo bigint,
 	horas_laborales bigint,
-	factor bigint,
+	factor numeric,
 	con_factor bigint
 ) ;
 
@@ -4885,9 +4885,9 @@ CREATE TABLE aatemp_horas_act3 (
 	horas_horario bigint,
 	horas_lectivas bigint NOT NULL,
 	hl_periodo bigint,
-	horas_laborales bigint,
-	factor bigint,
-	con_factor bigint
+	horas_laborales numeric,
+	factor numeric,
+	con_factor numeric
 ) ;
 
 
@@ -4942,13 +4942,13 @@ CREATE TABLE aatemp_ic (
 	recordatorio char(1),
 	fecha_activacion timestamp(0),
 	ip varchar(36),
-	minutos_restantes bigint,
+	minutos_restantes numeric,
 	minutos_usados bigint,
 	nro_ingreso_instrumento bigint,
 	nro_recordatorio bigint,
 	fecha_hora_limite timestamp(0),
 	puntaje bigint,
-	puntaje_con_formula bigint,
+	puntaje_con_formula numeric,
 	puntaje_con_escala bigint,
 	puntaje_con_ponderado bigint,
 	consolidado char(1),
@@ -5268,7 +5268,7 @@ CREATE TABLE aatemp_m1 (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -5368,7 +5368,7 @@ CREATE TABLE aatemp_nivel_riesgo_alumno (
 	ciclo bigint,
 	grupo varchar(4000),
 	id_persona bigint NOT NULL,
-	ponderado bigint,
+	ponderado numeric,
 	cna bigint,
 	cra bigint,
 	cd bigint,
@@ -5422,8 +5422,8 @@ CREATE TABLE aatemp_notas_cambiadas (
 	apellido_nombre varchar(767),
 	codigo varchar(12),
 	evaluacion varchar(4000),
-	nota_anterior bigint,
-	nota_actual bigint,
+	nota_anterior numeric,
+	nota_actual numeric,
 	fecha_registro timestamp(0),
 	hora varchar(8),
 	docentes text,
@@ -5876,12 +5876,12 @@ CREATE TABLE aatemp_ope (
 	s02 bigint,
 	s03 bigint,
 	s04 bigint,
-	promedio_final bigint,
-	s01_v bigint,
-	s02_v bigint,
-	s03_v bigint,
-	s04_v bigint,
-	promedio_final_v bigint,
+	promedio_final numeric,
+	s01_v numeric,
+	s02_v numeric,
+	s03_v numeric,
+	s04_v numeric,
+	promedio_final_v numeric,
 	valido bigint,
 	preview varchar(122),
 	cuestionario varchar(104),
@@ -5920,12 +5920,12 @@ CREATE TABLE aatemp_ope2 (
 	s02 bigint,
 	s03 bigint,
 	s04 bigint,
-	promedio_final bigint,
-	s01_v bigint,
-	s02_v bigint,
-	s03_v bigint,
-	s04_v bigint,
-	promedio_final_v bigint,
+	promedio_final numeric,
+	s01_v numeric,
+	s02_v numeric,
+	s03_v numeric,
+	s04_v numeric,
+	promedio_final_v numeric,
 	valido bigint,
 	preview varchar(122),
 	cuestionario varchar(104),
@@ -5965,12 +5965,12 @@ CREATE TABLE aatemp_ope_enc (
 	s02 bigint,
 	s03 bigint,
 	s04 bigint,
-	promedio_final bigint,
-	s01_v bigint,
-	s02_v bigint,
-	s03_v bigint,
-	s04_v bigint,
-	promedio_final_v bigint,
+	promedio_final numeric,
+	s01_v numeric,
+	s02_v numeric,
+	s03_v numeric,
+	s04_v numeric,
+	promedio_final_v numeric,
 	valido bigint,
 	preview varchar(122),
 	cuestionario varchar(104),
@@ -6008,12 +6008,12 @@ CREATE TABLE aatemp_ope_enc2 (
 	s02 bigint,
 	s03 bigint,
 	s04 bigint,
-	promedio_final bigint,
-	s01_v bigint,
-	s02_v bigint,
-	s03_v bigint,
-	s04_v bigint,
-	promedio_final_v bigint,
+	promedio_final numeric,
+	s01_v numeric,
+	s02_v numeric,
+	s03_v numeric,
+	s04_v numeric,
+	promedio_final_v numeric,
 	valido bigint,
 	preview varchar(122),
 	cuestionario varchar(104),
@@ -6336,7 +6336,7 @@ CREATE TABLE aatemp_plantilla_c_eval (
 	id_evidencia_resultado bigint NOT NULL,
 	descripcion varchar(4000),
 	fecha timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(3),
 	codigo varchar(93) NOT NULL
 ) ;
@@ -6610,8 +6610,8 @@ CREATE TABLE aatemp_poderados_semestre (
 	id_semestre bigint NOT NULL,
 	id_programa_estudio bigint NOT NULL,
 	ciclo bigint,
-	ponderado_general bigint,
-	ponderado_ciclo bigint
+	ponderado_general numeric,
+	ponderado_ciclo numeric
 ) ;
 
 
@@ -6681,8 +6681,8 @@ CREATE TABLE aatemp_ranking_semestre (
 	id_semestre bigint NOT NULL,
 	id_programa_estudio bigint NOT NULL,
 	ciclo bigint,
-	ponderado_general bigint,
-	ponderado_ciclo bigint,
+	ponderado_general numeric,
+	ponderado_ciclo numeric,
 	total bigint,
 	puesto varchar(47),
 	tipo char(1)
@@ -6695,8 +6695,8 @@ CREATE TABLE aatemp_rastreo2610 (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota_anterior bigint,
-	nota_actual bigint,
+	nota_anterior numeric,
+	nota_actual numeric,
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
 	ip varchar(4000),
@@ -7805,7 +7805,7 @@ CREATE TABLE aatemp_users_bindery (
 DROP TABLE IF EXISTS aatemp_user_posgrado;
 CREATE TABLE aatemp_user_posgrado (
 	id bigint NOT NULL,
-	user varchar(50),
+	"user" varchar(50),
 	new_user varchar(4000),
 	email varchar(4000),
 	paterno varchar(255),
@@ -8060,8 +8060,8 @@ CREATE TABLE aatemp_x17 (
 	id_carga_curso_docente bigint NOT NULL,
 	id_carga_curso bigint,
 	hl_nuevo bigint,
-	hl_periodo bigint,
-	factor bigint,
+	hl_periodo numeric,
+	factor numeric,
 	hlab_nuevo bigint
 ) ;
 
@@ -8221,7 +8221,7 @@ CREATE TABLE acad_alumno_evaluacion (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -8238,7 +8238,7 @@ CREATE TABLE acad_alumno_evaluacion_espejo (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -8272,7 +8272,7 @@ CREATE TABLE acad_alumno_evaluacion_temp (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -8383,8 +8383,8 @@ CREATE TABLE acad_al_eval_rastreo (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota_anterior bigint,
-	nota_actual bigint,
+	nota_anterior numeric,
+	nota_actual numeric,
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
 	ip varchar(4000),
@@ -8576,7 +8576,7 @@ CREATE TABLE acad_candado (
 	fecha_registro timestamp(0),
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
-	importe bigint,
+	importe numeric,
 	id_sede bigint
 ) ;
 
@@ -8757,13 +8757,13 @@ CREATE TABLE acad_carga_curso_docente (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	cruce char(1) NOT NULL DEFAULT 'N',
-	hl bigint,
-	factor bigint,
+	hl numeric,
+	factor numeric,
 	edita_hl char(1),
 	edita_factor char(1),
 	id_factor bigint,
-	horas_laborales bigint,
-	hl_periodo bigint,
+	horas_laborales numeric,
+	hl_periodo numeric,
 	id_tipo_modalidad_docente bigint,
 	cupos_extras bigint NOT NULL DEFAULT 0,
 	id_tipo_modalidad_curso bigint,
@@ -8941,7 +8941,7 @@ CREATE TABLE acad_carga_evaluacion (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -9210,7 +9210,7 @@ CREATE TABLE acad_carga_tema (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	fecha_tema timestamp(0),
-	orden bigint,
+	orden numeric,
 	id_origen bigint,
 	id_plan_curso_replica bigint,
 	id_usuario_replica bigint,
@@ -9276,7 +9276,7 @@ CREATE TABLE acad_carga_unidad (
 	orden bigint,
 	id_curso_unidad bigint,
 	contenido_general varchar(4000),
-	duracion bigint,
+	duracion numeric,
 	id_plantilla_curso_plan bigint,
 	adjunto varchar(500),
 	plan_clase_adjunto varchar(500),
@@ -9792,10 +9792,10 @@ CREATE TABLE acad_especialidad (
 	id_area bigint,
 	nombre varchar(500),
 	codigo varchar(30),
-	left bigint,
-	right bigint,
+	"left" bigint,
+	"right" bigint,
 	level bigint,
-	order bigint
+	"order" bigint
 ) ;
 
 
@@ -9806,10 +9806,10 @@ CREATE TABLE acad_especialidad_c (
 	id_area bigint,
 	nombre varchar(500),
 	codigo varchar(30),
-	left bigint,
-	right bigint,
+	"left" bigint,
+	"right" bigint,
 	level bigint,
-	order bigint
+	"order" bigint
 ) ;
 
 
@@ -9974,7 +9974,7 @@ CREATE TABLE acad_historial_cupo (
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
 	cupo_anterior bigint,
-	cupo_nuevo bigint,
+	cupo_nuevo numeric,
 	id_carga_curso_docente bigint
 ) ;
 
@@ -10373,7 +10373,7 @@ CREATE TABLE acad_persona_comision (
 	codigo varchar(15) NOT NULL,
 	nro_bloque bigint,
 	metas varchar(254),
-	horas_laborales bigint,
+	horas_laborales numeric,
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
 	id_usuario_act bigint,
@@ -10666,7 +10666,7 @@ CREATE TABLE acad_rastreo_convalidacion (
 	id_solicitud_convalidacion bigint NOT NULL,
 	id_solicitud_convalidacion_d bigint,
 	contador bigint DEFAULT 1,
-	nota_destino bigint DEFAULT 0
+	nota_destino numeric DEFAULT 0
 ) ;
 
 
@@ -11910,7 +11910,8 @@ CREATE TABLE anuncio (
 	fecha_actualizacion timestamp(0),
 	contenido varchar(4000),
 	tipo bigint DEFAULT 1,
-	fecha_fin timestamp(0)
+	fecha_fin timestamp(0),
+	boton varchar(4000)
 ) ;
 
 
@@ -12069,7 +12070,7 @@ CREATE TABLE bckup_acad_carga_evaluacion (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -12215,7 +12216,7 @@ CREATE TABLE bckup_acad_carga_unidad (
 	orden bigint,
 	id_curso_unidad bigint,
 	contenido_general varchar(4000),
-	duracion bigint,
+	duracion numeric,
 	id_plantilla_curso_plan bigint,
 	adjunto varchar(500),
 	plan_clase_adjunto varchar(500),
@@ -12344,13 +12345,13 @@ CREATE TABLE bck_acad_carga_curso_doc (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	cruce char(1) NOT NULL,
-	hl bigint,
-	factor bigint,
+	hl numeric,
+	factor numeric,
 	edita_hl char(1),
 	edita_factor char(1),
 	id_factor bigint,
-	horas_laborales bigint,
-	hl_periodo bigint,
+	horas_laborales numeric,
+	hl_periodo numeric,
 	id_tipo_modalidad_docente bigint,
 	cupos_extras bigint NOT NULL,
 	id_tipo_modalidad_curso bigint,
@@ -12740,9 +12741,9 @@ CREATE TABLE bc_tipo_competencia (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	id_clasificacion_competencia bigint,
-	left bigint,
-	right bigint,
-	order bigint,
+	"left" bigint,
+	"right" bigint,
+	"order" bigint,
 	descripcion varchar(1000)
 ) ;
 
@@ -12853,7 +12854,7 @@ DROP TABLE IF EXISTS categories;
 CREATE TABLE categories (
 	id bigint NOT NULL,
 	parent_id bigint,
-	order bigint NOT NULL DEFAULT '1',
+	"order" bigint NOT NULL DEFAULT '1',
 	name varchar(255) NOT NULL,
 	slug varchar(255) NOT NULL,
 	created_at TIMESTAMP(6),
@@ -13021,7 +13022,7 @@ DROP TABLE IF EXISTS config_color_calendario;
 CREATE TABLE config_color_calendario (
 	id_color_calendario bigint NOT NULL,
 	alias varchar(200),
-	primary varchar(20),
+	"primary" varchar(20),
 	secondary varchar(20)
 ) ;
 
@@ -13253,7 +13254,7 @@ CREATE TABLE consolidado_grupo_f (
 	dimension_3 bigint,
 	dimension_4 bigint,
 	puntaje bigint,
-	puntaje_con_formula bigint,
+	puntaje_con_formula numeric,
 	id_ope bigint
 ) ;
 
@@ -13452,7 +13453,7 @@ CREATE TABLE data_rows (
 	add char(1) NOT NULL DEFAULT '1',
 	delete char(1) NOT NULL DEFAULT '1',
 	details text,
-	order bigint NOT NULL DEFAULT '1'
+	"order" bigint NOT NULL DEFAULT '1'
 ) ;
 
 
@@ -13863,10 +13864,10 @@ CREATE TABLE evaluacion_actividad_docente (
 	id_unidad_academica bigint,
 	id_programa_estudio bigint NOT NULL,
 	id_persona bigint NOT NULL,
-	promedio_asistencia_docente bigint,
-	promedio_asistencia bigint,
-	promedio_notas_semana bigint,
-	canvas bigint,
+	promedio_asistencia_docente numeric,
+	promedio_asistencia numeric,
+	promedio_notas_semana numeric,
+	canvas numeric,
 	id_ope bigint
 ) ;
 
@@ -13879,7 +13880,7 @@ CREATE TABLE evaluacion_capacitacion (
 	id_unidad_academica bigint,
 	id_programa_estudio bigint NOT NULL,
 	id_persona bigint NOT NULL,
-	capacitacion bigint,
+	capacitacion numeric,
 	id_ope bigint
 ) ;
 
@@ -13908,7 +13909,7 @@ CREATE TABLE evaluacion_grupo_focal (
 	id_programa_estudio bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_ope bigint,
-	puntaje_con_formula bigint
+	puntaje_con_formula numeric
 ) ;
 
 
@@ -13919,7 +13920,7 @@ CREATE TABLE evaluacion_ope (
 	id_nivel_ensenanza bigint NOT NULL,
 	id_unidad_academica bigint,
 	id_programa_estudio bigint NOT NULL,
-	puntaje_con_formula bigint,
+	puntaje_con_formula numeric,
 	id_ope bigint
 ) ;
 
@@ -13932,7 +13933,7 @@ CREATE TABLE evaluacion_ope_detalle (
 	id_nivel_ensenanza bigint NOT NULL,
 	id_unidad_academica bigint,
 	id_programa_estudio bigint NOT NULL,
-	puntaje_con_formula bigint,
+	puntaje_con_formula numeric,
 	id_ope bigint
 ) ;
 
@@ -14045,12 +14046,12 @@ CREATE TABLE ftemp_123 (
 	s02 bigint,
 	s03 bigint,
 	s04 bigint,
-	promedio_final bigint,
-	s01_v bigint,
-	s02_v bigint,
-	s03_v bigint,
-	s04_v bigint,
-	promedio_final_v bigint,
+	promedio_final numeric,
+	s01_v numeric,
+	s02_v numeric,
+	s03_v numeric,
+	s04_v numeric,
+	promedio_final_v numeric,
 	preview varchar(122),
 	cuestionario varchar(104)
 ) ;
@@ -14197,7 +14198,7 @@ CREATE TABLE historial_docente_hlc (
 	id_historial_docente_hlc bigint NOT NULL,
 	id_carga_curso_docente bigint,
 	nombre_input varchar(100),
-	valor_anterior bigint,
+	valor_anterior numeric,
 	valor_actual bigint,
 	estado char(1),
 	id_usuario_reg bigint,
@@ -14855,7 +14856,7 @@ CREATE TABLE menu_items (
 	icon_class varchar(255),
 	color varchar(255),
 	parent_id bigint,
-	order bigint NOT NULL,
+	"order" bigint NOT NULL,
 	created_at TIMESTAMP(6),
 	updated_at TIMESTAMP(6),
 	route varchar(255),
@@ -15108,7 +15109,7 @@ CREATE TABLE p03 (
 	id_estrategia bigint NOT NULL,
 	descripcion varchar(4000),
 	fecha_evidencia timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	url varchar(4000),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -15128,7 +15129,7 @@ CREATE TABLE p04 (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -15211,7 +15212,7 @@ CREATE TABLE p07 (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	fecha_tema timestamp(0) NOT NULL,
-	orden bigint,
+	orden numeric,
 	modo_plantilla char(1) NOT NULL,
 	id_plantilla_curso_plan bigint
 ) ;
@@ -15397,7 +15398,7 @@ CREATE TABLE p19 (
 	modo_plantilla char(1) NOT NULL,
 	id_plantilla_curso_plan bigint,
 	contenido_general varchar(4000),
-	duracion bigint,
+	duracion numeric,
 	adjunto varchar(500),
 	producto varchar(4000),
 	instrumento varchar(4000),
@@ -15500,7 +15501,7 @@ CREATE TABLE p25 (
 	orden bigint,
 	id_curso_unidad bigint,
 	contenido_general varchar(4000),
-	duracion bigint,
+	duracion numeric,
 	id_plantilla_curso_plan bigint,
 	adjunto varchar(500),
 	plan_clase_adjunto varchar(500),
@@ -15697,7 +15698,7 @@ CREATE TABLE persona_datos_valida (
 DROP TABLE IF EXISTS plantillas_anuladas;
 CREATE TABLE plantillas_anuladas (
 	id_plan_curso bigint NOT NULL,
-	total bigint
+	total numeric
 ) ;
 
 
@@ -15812,7 +15813,7 @@ CREATE TABLE plantilla_curso_evaluacion (
 	id_evidencia_resultado bigint,
 	descripcion varchar(4000),
 	fecha_evaluacion timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	restriccion varchar(5),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -16042,7 +16043,7 @@ CREATE TABLE plantilla_curso_tema (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	fecha_tema timestamp(0),
-	orden bigint,
+	orden numeric,
 	modo_plantilla char(1) NOT NULL DEFAULT 'R',
 	id_plantilla_curso_plan bigint,
 	ha varchar(100)
@@ -16099,7 +16100,7 @@ CREATE TABLE plantilla_curso_unidad (
 	modo_plantilla char(1) NOT NULL DEFAULT 'R',
 	id_plantilla_curso_plan bigint,
 	contenido_general varchar(4000),
-	duracion bigint,
+	duracion numeric,
 	adjunto varchar(500),
 	producto varchar(4000),
 	instrumento varchar(4000),
@@ -16206,7 +16207,7 @@ CREATE TABLE plantilla_evidencia_resultado (
 	id_estrategia bigint NOT NULL,
 	descripcion varchar(4000),
 	fecha_evidencia timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	url varchar(4000),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -16270,7 +16271,7 @@ CREATE TABLE plantilla_resumen_evaluacion (
 	id_tipo_evaluacion bigint,
 	id_plantilla_curso_plan bigint,
 	peso bigint,
-	total bigint
+	total numeric
 ) ;
 
 
@@ -16508,7 +16509,7 @@ CREATE TABLE reporte_alumnos_matriculados (
 	creditos_mat bigint,
 	meta bigint,
 	credito_meta bigint,
-	precio_credito bigint,
+	precio_credito numeric,
 	nombre_distrito varchar(4000),
 	latitud varchar(4000),
 	longitud varchar(4000),
@@ -16538,7 +16539,7 @@ CREATE TABLE reporte_alumnos_mat_acad (
 	creditos_mat bigint,
 	meta bigint,
 	credito_meta bigint,
-	precio_credito bigint,
+	precio_credito numeric,
 	nombre_distrito varchar(4000),
 	latitud varchar(4000),
 	longitud varchar(4000),
@@ -16595,7 +16596,7 @@ CREATE TABLE reporte_bi_matriculados (
 	meta_periodo_id varchar(65),
 	meta bigint,
 	credito_meta bigint,
-	precio_credito bigint,
+	precio_credito numeric,
 	creditos_mat bigint,
 	tipo_pago varchar(765),
 	beca_estatal varchar(150),
@@ -16619,7 +16620,7 @@ DROP TABLE IF EXISTS reporte_bi_saldos;
 CREATE TABLE reporte_bi_saldos (
 	id_depto varchar(10),
 	id_cliente bigint,
-	importe bigint,
+	importe numeric,
 	semestre varchar(7),
 	sede varchar(55),
 	nivel_ensenanza varchar(150),
@@ -16710,12 +16711,12 @@ CREATE TABLE reporte_eval_doc_mes_r (
 	promedio_documentos bigint,
 	promedio_foros bigint,
 	promedio_recursos_patmos bigint,
-	percepcion bigint,
-	promedio_asistencia bigint,
-	promedio_notas_semana bigint,
-	promedio_desempenio_doc bigint,
+	percepcion numeric,
+	promedio_asistencia numeric,
+	promedio_notas_semana numeric,
+	promedio_desempenio_doc numeric,
 	bimestre bigint,
-	promedio_asistencia_docente bigint,
+	promedio_asistencia_docente numeric,
 	promedio_eval_docente_eap bigint,
 	estado char(1) NOT NULL DEFAULT '0',
 	id_reporte_bi_informe bigint NOT NULL
@@ -17143,8 +17144,8 @@ CREATE TABLE settings (
 	display_name varchar(255) NOT NULL,
 	details text,
 	type varchar(255) NOT NULL,
-	order bigint NOT NULL DEFAULT '1',
-	group varchar(255),
+	"order" bigint NOT NULL DEFAULT '1',
+	"group" varchar(255),
 	value varchar(100)
 ) ;
 
@@ -17157,7 +17158,7 @@ CREATE TABLE silabo_evidencia_resultado (
 	id_estrategia bigint NOT NULL,
 	descripcion varchar(4000),
 	fecha_evidencia timestamp(0),
-	ponderado bigint,
+	ponderado numeric,
 	url varchar(4000),
 	codigo varchar(4000),
 	id_usuario_reg bigint,
@@ -17397,7 +17398,7 @@ CREATE TABLE solicitud_convalidacion_curso (
 	id_curso_destino bigint,
 	estado char(1) NOT NULL DEFAULT '1',
 	descripcion varchar(1000),
-	nota_origen bigint,
+	nota_origen numeric,
 	nota_destino bigint,
 	adjunto varchar(200),
 	curso_origen varchar(150),
@@ -17419,7 +17420,7 @@ CREATE TABLE solicitud_convalidacion_d (
 	id_curso_origen bigint NOT NULL,
 	id_curso_destino bigint NOT NULL,
 	estado char(1) NOT NULL DEFAULT '1',
-	nota_destino bigint NOT NULL,
+	nota_destino numeric NOT NULL,
 	descripcion varchar(500),
 	fecha_registro timestamp(0),
 	id_usuario_reg bigint,
@@ -17532,7 +17533,7 @@ CREATE TABLE star (
 	semestre varchar(7) NOT NULL,
 	docente varchar(767),
 	id_carga_curso_docente bigint NOT NULL,
-	promedio bigint,
+	promedio numeric,
 	id_programa_estudio bigint NOT NULL,
 	id_sede bigint NOT NULL,
 	id_unidad_academica bigint,
@@ -17772,7 +17773,7 @@ CREATE TABLE temporal_caso_medicina (
 	id_carga_curso bigint NOT NULL,
 	id_persona bigint NOT NULL,
 	id_carga_evaluacion bigint,
-	nota bigint,
+	nota numeric,
 	observacion varchar(4000),
 	id_usuario_reg bigint,
 	fecha_registro timestamp(0),
@@ -17924,13 +17925,13 @@ CREATE TABLE temp_acad_carga_curso_doc (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	cruce char(1) NOT NULL,
-	hl bigint,
-	factor bigint,
+	hl numeric,
+	factor numeric,
 	edita_hl char(1),
 	edita_factor char(1),
 	id_factor bigint,
-	horas_laborales bigint,
-	hl_periodo bigint,
+	horas_laborales numeric,
+	hl_periodo numeric,
 	id_tipo_modalidad_docente bigint,
 	cupos_extras bigint NOT NULL
 ) ;
@@ -17958,21 +17959,21 @@ CREATE TABLE temp_cuestionario (
 	recordatorio char(1),
 	fecha_activacion timestamp(0),
 	ip varchar(36),
-	minutos_restantes bigint,
+	minutos_restantes numeric,
 	minutos_usados bigint,
 	nro_ingreso_instrumento bigint,
 	nro_recordatorio bigint,
 	fecha_hora_limite timestamp(0),
 	puntaje bigint,
-	puntaje_con_formula bigint,
+	puntaje_con_formula numeric,
 	puntaje_con_escala bigint,
 	puntaje_con_ponderado bigint,
 	consolidado char(1),
 	fecha_registro timestamp(0),
 	t_pregunta_vacia bigint,
 	cant_edit_nota bigint,
-	porcentaje_critico bigint,
-	porcentaje_complementario bigint,
+	porcentaje_critico numeric,
+	porcentaje_complementario numeric,
 	cumple char(1),
 	consentimiento_informado char(1),
 	token varchar(50)
@@ -18225,12 +18226,12 @@ CREATE TABLE temp_ope_623_172889 (
 	s02 bigint,
 	s03 bigint,
 	s04 bigint,
-	promedio_final bigint,
-	s01_v bigint,
-	s02_v bigint,
-	s03_v bigint,
-	s04_v bigint,
-	promedio_final_v bigint,
+	promedio_final numeric,
+	s01_v numeric,
+	s02_v numeric,
+	s03_v numeric,
+	s04_v numeric,
+	promedio_final_v numeric,
 	valido bigint,
 	preview varchar(122),
 	cuestionario varchar(104),
@@ -18580,9 +18581,9 @@ CREATE TABLE tipo_competencia (
 	id_usuario_act bigint,
 	fecha_actualizacion timestamp(0),
 	id_clasificacion_competencia bigint,
-	left bigint,
-	right bigint,
-	order bigint,
+	"left" bigint,
+	"right" bigint,
+	"order" bigint,
 	descripcion varchar(1000)
 ) ;
 
@@ -20345,7 +20346,7 @@ DROP TABLE IF EXISTS wsp_hook_status;
 CREATE TABLE wsp_hook_status (
 	id_wsp_hook_status bigint,
 	status varchar(100),
-	order bigint,
+	"order" bigint,
 	name varchar(100)
 ) ;
 
@@ -20515,8 +20516,8 @@ CREATE TABLE zoom_webhook (
 ) ;
 
 
-DROP TABLE IF EXISTS notas_juliaca.csv;
-CREATE TABLE notas_juliaca.csv (
+DROP TABLE IF EXISTS "notas_juliaca_csv";
+CREATE TABLE "notas_juliaca_csv" (
 	id_semestre bigint,
 	id_persona_contrato bigint,
 	oportunos bigint,

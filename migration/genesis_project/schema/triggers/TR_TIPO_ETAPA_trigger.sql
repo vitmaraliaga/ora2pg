@@ -10,7 +10,7 @@ SET search_path = genesis,public;
 DROP TRIGGER IF EXISTS tr_tipo_etapa ON tipo_etapa CASCADE;
 CREATE OR REPLACE FUNCTION genesis.trigger_fct_tr_tipo_etapa() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sq_tipo_etapa')
+  SELECT nextval('genesis.sq_tipo_etapa')
   INTO STRICT NEW.ID_TIPO_ETAPA
 ;
 RETURN NEW;

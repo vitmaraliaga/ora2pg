@@ -19,7 +19,7 @@ CREATE OR REPLACE PACKAGE                               PKG_SETUP AS
 END PKG_SETUP;
 
 
-CREATE OR REPLACE PACKAGE BODY                               PKG_SETUP AS
+CREATE OR REPLACE PACKAGE BODY                                    PKG_SETUP AS
   PROCEDURE SP_GENERAR_PARAMETROS(P_ID_ENTIDAD IN NUMBER, P_ID_ANHO IN NUMBER) IS
 
         CURSOR cur IS select  ID_PARAMETRO,   FORMULA from plla_parametros ORDER BY orden;
@@ -184,7 +184,7 @@ CREATE OR REPLACE PACKAGE BODY                               PKG_SETUP AS
           SEGURO,
           REM_MAX_ASE,
           ID_USER_REG,
-          FECHA_REG
+          CREATED_AT
         )values(
          l_id,
          curR.ID_REGIMEN_PENSIONARIA,
@@ -210,17 +210,15 @@ CREATE OR REPLACE PACKAGE BODY                               PKG_SETUP AS
               ID_REG_PENS_COMISION,
               ID_COMISION_PENSIONARIA,
               ID_TIPO_COMISION_PENS,
-              COMISION_FLUJO,
-              COMISION_ANUAL,
+              COMISION,
               ID_USER_REG,
-              FECHA_REG
+              CREATED_AT
             )
             select
             (row_number() OVER( ORDER BY ID_REG_PENS_COMISION ASC )) + l_id_c,
             l_id,
             ID_TIPO_COMISION_PENS,
-            COMISION_FLUJO,
-            COMISION_ANUAL,
+            COMISION,
             P_ID_USER,
             sysdate
             from PLLA_REG_PENS_COMISION
@@ -236,16 +234,14 @@ CREATE OR REPLACE PACKAGE BODY                               PKG_SETUP AS
             ID_REG_PENS_COMISION,
             ID_COMISION_PENSIONARIA,
             ID_TIPO_COMISION_PENS,
-            COMISION_FLUJO,
-            COMISION_ANUAL,
+            COMISION,
             ID_USER_REG,
-            FECHA_REG
+            CREATED_AT
           )
           select
           (row_number() OVER( ORDER BY ID_TIPO_COMISION_PENS ASC )) + l_id_c,
           l_id,
           ID_TIPO_COMISION_PENS,
-          0,
           0,
           P_ID_USER,
           sysdate

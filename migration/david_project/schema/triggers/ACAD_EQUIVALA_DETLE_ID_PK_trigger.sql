@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS acad_equivala_detle_id_pk ON acad_equivalencia_detalle CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_acad_equivala_detle_id_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_acad_equivala_detle_id')
+  select nextval('david.sq_acad_equivala_detle_id')
   into STRICT NEW.id_equivalencia_detalle
 ;
 RETURN NEW;

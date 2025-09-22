@@ -69,7 +69,7 @@ BEGIN
           SEGURO,
           REM_MAX_ASE,
           ID_USER_REG,
-          FECHA_REG
+          CREATED_AT
         )values (
          l_id,
          curR.ID_REGIMEN_PENSIONARIA,
@@ -95,16 +95,14 @@ BEGIN
               ID_REG_PENS_COMISION,
               ID_COMISION_PENSIONARIA,
               ID_TIPO_COMISION_PENS,
-              COMISION_FLUJO,
-              COMISION_ANUAL,
+              COMISION,
               ID_USER_REG,
-              FECHA_REG
+              CREATED_AT
             )
             SELECT (row_number() OVER ( ORDER BY ID_REG_PENS_COMISION ASC )) + l_id_c,
             l_id,
             ID_TIPO_COMISION_PENS,
-            COMISION_FLUJO,
-            COMISION_ANUAL,
+            COMISION,
             P_ID_USER,
             clock_timestamp()
             from PLLA_REG_PENS_COMISION
@@ -120,15 +118,13 @@ BEGIN
             ID_REG_PENS_COMISION,
             ID_COMISION_PENSIONARIA,
             ID_TIPO_COMISION_PENS,
-            COMISION_FLUJO,
-            COMISION_ANUAL,
+            COMISION,
             ID_USER_REG,
-            FECHA_REG
+            CREATED_AT
           )
           SELECT (row_number() OVER ( ORDER BY ID_TIPO_COMISION_PENS ASC )) + l_id_c,
           l_id,
           ID_TIPO_COMISION_PENS,
-          0,
           0,
           P_ID_USER,
           clock_timestamp()

@@ -7,5 +7,5 @@ SET client_encoding TO 'UTF8';
 SET search_path = enoc,public;
 \set ON_ERROR_STOP ON
 
-\i ./sources/procedures/SPC_USER_SESSION_LOGIN_procedure.sql
 \i ./sources/procedures/SP_AUDIT_REMUNERACION_procedure.sql
+\i ./sources/procedures/SPC_USER_SESSION_LOGIN_procedure.sql

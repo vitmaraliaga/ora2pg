@@ -19,7 +19,7 @@ DECLARE
 
 BEGIN
 
--- -- p_codigo := dbms_random.varchar(TEXTVALUE3?);
+-- -- -- -- p_codigo := dbms_random.varchar(TEXTVALUE0?);
 
 select coalesce(ft_verificacion(p_codigo,'1'),'N') into STRICT p_res
 ;
@@ -28,7 +28,7 @@ select coalesce(ft_verificacion(p_codigo,'1'),'N') into STRICT p_res
 WHILE p_res = 'S'
 LOOP
 
---    -- p_codigo := dbms_random.varchar(TEXTVALUE7?);
+-- -- -- --    p_codigo := dbms_random.varchar(TEXTVALUE4?);
 
    select coalesce(ft_verificacion(p_codigo,'1'),'N') into STRICT p_res
 ;

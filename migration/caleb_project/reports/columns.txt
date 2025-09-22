@@ -1,0 +1,979 @@
+[1] TABLE AATEMP_UBIGEO (owner: CALEB, 1 rows)
+	DNI : VARCHAR2(100) => varchar(100)
+	UBIGEO_NACIMIENTO : VARCHAR2(100) => varchar(100)
+	UBIGEO_DOMICILIO : VARCHAR2(100) => varchar(100)
+[2] TABLE ADM_ADJUNTAR_PAGO (owner: CALEB, 5 rows)
+	ID_ADJUNTAR_PAGO : NUMBER(22) => bigint
+	ENTIDAD : VARCHAR2(300) => varchar(300)
+	NRO_OPERACION : VARCHAR2(50) => varchar(50)
+	MONTO : VARCHAR2(50) => varchar(50)
+	COMENTARIO : VARCHAR2(1000) => varchar(1000)
+	ADJUNTO : VARCHAR2(250) => varchar(250)
+	ID_CODIGO_PAGO : NUMBER(22) => bigint
+	FECHA_OPERACION : DATE(7) => timestamp(0) (date?)
+[3] TABLE ADM_ASESOR (owner: CALEB, 39 rows)
+	ID_ASESOR : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(300) => varchar(300)
+	DNI : VARCHAR2(14) => varchar(14)
+	ID_SEDE : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_PERSONA : NUMBER(38) => bigint
+[4] TABLE ADM_ASESOR_NIVEL (owner: CALEB, 8 rows)
+	ID_ASESOR_NIVEL : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_NIVEL_ENSENANZA : NUMBER(38) => bigint
+	TIPO_ROL : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[5] TABLE ADM_BECADO_CONVOCATORIA (owner: CALEB, 8 rows)
+	ID_BECADO_CONVOCATORIA : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DETALLE : NUMBER(22) => bigint
+	ID_TIPO_BECA : NUMBER(22) => bigint
+	NUMERO_DOCUMENTO : VARCHAR2(20) => varchar(20)
+	NOMBRE : VARCHAR2(300) => varchar(300)
+	ESTADO : CHAR(1) => char(1)
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+[6] TABLE ADM_CATALOGO_PROGRAMAS (owner: CALEB, 8 rows)
+	ID_CATALOGO_PROGRAMAS : NUMBER(22) => bigint
+	ID_PROGRAMA_ESTUDIO : NUMBER(22) => bigint
+	ID_CATALOGO : NUMBER(22) => bigint
+[7] TABLE ADM_CENTRO_DIRECCION (owner: CALEB, 19 rows)
+	ID_CENTRO_DIRECCION : NUMBER(22) => bigint
+	ID_TIPO_PAIS : NUMBER(22) => bigint
+	ID_UBIGEO : NUMBER(22) => bigint
+	ID_CENTRO_ESTUDIO : NUMBER(38) => bigint
+	REFERENCIA : VARCHAR2(500) => varchar(500)
+	ESTADO : CHAR(1) => char(1)
+[8] TABLE ADM_CENTRO_ESPECIALIDAD (owner: CALEB, 8 rows)
+	ID_CENTRO_ESPECIALIDAD : NUMBER(22) => bigint
+	ID_ESPECIALIDAD : NUMBER(22) => bigint
+	ID_CENTRO_ESTUDIO : NUMBER(22) => bigint
+[9] TABLE ADM_CENTRO_ESTUDIO (owner: CALEB, 22 rows)
+	ID_CENTRO_ESTUDIO : NUMBER(22) => bigint
+	ID_REGIMEN : NUMBER(22) => bigint
+	ID_TIPO_SECTOR_EMPRESA : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(500) => varchar(500)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+	ES_DENOMINACIONAL : CHAR(1) => char(1)
+[10] TABLE ADM_CLASIFICACION_REQUISITO (owner: CALEB, 2 rows)
+	ID_CLASIFICACION_REQUISITO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[11] TABLE ADM_CODIGO_PAGO (owner: CALEB, 17 rows)
+	ID_CODIGO_PAGO : NUMBER(22) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(22) => bigint
+	ID_TIPO_CODIGO_PAGO : NUMBER(22) => bigint
+	VALOR : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+	ID_CATALOGO : NUMBER(22) => bigint
+	ID_MONEDA : NUMBER(22) => bigint
+[12] TABLE ADM_COMISION (owner: CALEB, 1 rows)
+	ID_COMISION : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	COMISION : VARCHAR2(200) => varchar(200)
+	ID_RESPONSABLE : NUMBER(38) => bigint
+	CARGO : VARCHAR2(200) => varchar(200)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[13] TABLE ADM_COMPETENCIA_ITEM (owner: CALEB, 0 rows)
+	ID_COMPETENCIA_ITEM : NUMBER(38) => bigint
+	ID_PLAN : NUMBER(38) => bigint
+	ID_COMPETENCIA : NUMBER(38) => bigint
+	ID_ITEM : NUMBER(38) => bigint
+	PORCENTAJE_CRIT_REQ : NUMBER(22) => bigint
+	PORCENTAJE_COMP : NUMBER(22) => bigint
+	PORCENTAJE_MIN_CRIT_REQ : NUMBER(22) => bigint
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[14] TABLE ADM_CONDICION_LABORAL (owner: CALEB, 1 rows)
+	ID_CONDICION_LABORAL : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+[15] TABLE ADM_CONF_CLASIFICACION (owner: CALEB, 0 rows)
+	ID_CONF_CLASIFICACION : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	ID_CLASIFICACION : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[16] TABLE ADM_CONVOCATORIA (owner: CALEB, 7 rows)
+	ID_CONVOCATORIA : NUMBER(38) => bigint
+	ID_SEMESTRE : NUMBER(38) => bigint
+	ID_ENTIDAD : NUMBER(38) => bigint
+	ID_ANHO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[17] TABLE ADM_CONVOCATORIA_CRITERIO (owner: CALEB, 8 rows)
+	ID_CONVOCATORIA_CRITERIO : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(22) => bigint
+	ID_TIPO_CRITERIO_ORDEN : NUMBER(22) => bigint
+	ORDEN : NUMBER(22) => bigint
+[18] TABLE ADM_CONVOCATORIA_DET (owner: CALEB, 19 rows)
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	ID_CONVOCATORIA : NUMBER(38) => bigint
+	ID_ENTIDAD : NUMBER(38) => bigint
+	ID_DEPTO : VARCHAR2(10) => varchar(10)
+	ID_SISTEMA_NUMERICO : NUMBER(38) => bigint
+	ID_NIVEL_ENSENANZA : NUMBER(38) => bigint
+	ID_ESTADO_CONV : NUMBER(38) => bigint
+	FORMULA_VACANTE : VARCHAR2(4000) => varchar(4000)
+	FORMULA_VACANTE_ID : VARCHAR2(4000) => varchar(4000)
+	FECHA_INICIO : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN_INSCRIPCION : DATE(7) => timestamp(0) (date?)
+	FECHA_PUBLICACION : DATE(7) => timestamp(0) (date?)
+	INGRESO_SOLO_VACANTE : CHAR(1) => char(1)
+	HABILITAR_ONLINE : CHAR(1) => char(1)
+	PUNTAJE_MINIMO : NUMBER(22) => numeric
+	DIA_RESERVA : DATE(7) => timestamp(0) (date?)
+	DURACION_INGRESO : NUMBER(38) => numeric
+	CONSIDERA_EMPATE : CHAR(1) => char(1)
+	NUMERO_DECIMALES : NUMBER(38) => numeric
+	TOPE_POSTULACION : NUMBER(38) => numeric
+	ACEPTA_BECA : CHAR(1) => char(1)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	INGRESO_VENCE : CHAR(1) => char(1)
+	OPCION_RESERVA : CHAR(1) => char(1)
+	BOTON_FINALIZAR : CHAR(1) => char(1)
+	HABILITAR_EXP_LAB : CHAR(1) => char(1)
+[19] TABLE ADM_CONV_DET_CONFIG (owner: CALEB, 33 rows)
+	ID_CONV_DET_CONFIG : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	ID_TIPO_CONFIGURACION : NUMBER(38) => bigint
+	ID_PARENT : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(400) => varchar(400)
+	ICONO : VARCHAR2(4000) => varchar(4000)
+	ROUTER : VARCHAR2(4000) => varchar(4000)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ES_OBLIGATORIO : CHAR(1) => char(1)
+	ORDEN : NUMBER(38) => bigint
+	LEFT : NUMBER(38) => bigint (Warning: 'LEFT' is a reserved word in PostgreSQL)
+	RIGHT : NUMBER(38) => bigint (Warning: 'RIGHT' is a reserved word in PostgreSQL)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	OMITIR_BECADO : CHAR(1) => char(1)
+[20] TABLE ADM_CONV_DIRECCION (owner: CALEB, 15 rows)
+	ID_CONV_DIRECCION : NUMBER(22) => bigint
+	ID_TIPO_DIRECCION : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(22) => bigint
+	ORDEN : NUMBER(22) => bigint
+[21] TABLE ADM_CONV_PLAN_PROGRAMA (owner: CALEB, 37 rows)
+	ID_CONV_PLAN_PROGRAMA : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	ID_PLAN_PROGRAMA : NUMBER(38) => bigint
+	ID_SISTEMA_NUMERICO : NUMBER(38) => bigint
+	TIPO_POSTULACION : CHAR(1) => char(1)
+	VACANTE : NUMBER(38) => bigint
+	VACANTES_OCUPADAS : NUMBER(38) => bigint
+	OBSERVACION : VARCHAR2(4000) => varchar(4000)
+	FORMULA_VACANTE : VARCHAR2(4000) => varchar(4000)
+	FORMULA_VACANTE_ID : VARCHAR2(4000) => varchar(4000)
+	FORMULA_INGRESO : VARCHAR2(4000) => varchar(4000)
+	FORMULA_INGRESO_ID : VARCHAR2(4000) => varchar(4000)
+	PUNTAJE_MINIMO : NUMBER(22) => numeric
+	NRO_INGRESO : NUMBER(38) => bigint
+	FECHA_INI_INSCRIPCION : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN_INSCRIPCION : DATE(7) => timestamp(0) (date?)
+	FECHA_PUBLICACION : DATE(7) => timestamp(0) (date?)
+	ESTA_PUBLICADO : CHAR(1) => char(1)
+	ACEPTA_BECA : CHAR(1) => char(1)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	TOPE_POSTULACION : NUMBER(22) => bigint
+	DIRIGIDO_ENTREVISTA : VARCHAR2(100) => varchar(100)
+[22] TABLE ADM_DESCUENTO_ESPECIAL (owner: CALEB, 40 rows)
+	ID_DESCUENTO_ESPECIAL : NUMBER(22) => bigint
+	ID_TIPO_DESCUENTO : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DETALLE : NUMBER(22) => bigint
+	NUMERO_DOCUMENTO : VARCHAR2(20) => varchar(20)
+	ID_CATALOGO : NUMBER(22) => bigint
+	ESTADO : CHAR(1) => char(1)
+[23] TABLE ADM_DETALLE_CENTRO_ESTUDIO (owner: CALEB, 11 rows)
+	ID_DETALLE_CENTRO_ESTUDIO : NUMBER(38) => bigint
+	ID_CENTRO_ESTUDIO : NUMBER(38) => bigint
+	ANIO : NUMBER(38) => bigint
+	CANTIDAD_ALUMNOS : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+[24] TABLE ADM_DIRIGIDO_A (owner: CALEB, 3 rows)
+	ID_DIRIGIDO_A : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[25] TABLE ADM_ENTIDAD_LABORAL (owner: CALEB, 1 rows)
+	ID_ENTIDAD_LABORAL : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(250) => varchar(250)
+	ESTADO : CHAR(1) => char(1)
+[26] TABLE ADM_ESPECIALIDAD (owner: CALEB, 5 rows)
+	ID_ESPECIALIDAD : NUMBER(22) => bigint
+	ID_NIVEL_EDUCATIVO : NUMBER(22) => bigint
+	MASCULINO : VARCHAR2(200) => varchar(200)
+	FEMENINO : VARCHAR2(200) => varchar(200)
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	ESTADO : CHAR(1) => char(1)
+	CODIGO : VARCHAR2(10) => varchar(10)
+[27] TABLE ADM_ESTADO_CONV (owner: CALEB, 2 rows)
+	ID_ESTADO_CONV : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[28] TABLE ADM_EVALUACION (owner: CALEB, 89 rows)
+	ID_EVALUACION : NUMBER(22) => bigint
+	ID_EVALUACION_PROGRAMA : NUMBER(22) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(22) => bigint
+	ID_CUESTIONARIO : NUMBER(22) => bigint
+	NOTA : NUMBER(22) => numeric
+	ID_EVALUADOR_ASESOR : NUMBER(38) => bigint
+[29] TABLE ADM_EVALUACION_PROGRAMA (owner: CALEB, 25 rows)
+	ID_EVALUACION_PROGRAMA : NUMBER(38) => bigint
+	ID_TIPO_EVALUACION : NUMBER(38) => bigint
+	ID_CONV_PLAN_PROGRAMA : NUMBER(38) => bigint
+	ID_SISTEMA_NUMERICO : NUMBER(38) => bigint
+	ID_INSTRUMENTO : NUMBER(38) => bigint
+	ID_PARENT : NUMBER(38) => bigint
+	PUNTAJE_MINIMO : NUMBER(22) => numeric
+	ORDEN : NUMBER(38) => bigint
+	LEFT : NUMBER(38) => bigint (Warning: 'LEFT' is a reserved word in PostgreSQL)
+	RIGHT : NUMBER(38) => bigint (Warning: 'RIGHT' is a reserved word in PostgreSQL)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[30] TABLE ADM_EVAL_PROG_MOD_PASO (owner: CALEB, 5 rows)
+	ID_EVAL_PROG_MOD_PASO : NUMBER(38) => bigint
+	ID_EVALUACION_PROGRAMA : NUMBER(38) => bigint
+	ID_PROGRAMA_MOD_ING : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_CONV_DET_CONFIG : NUMBER(22) => bigint
+[31] TABLE ADM_EVAL_PROG_PASO (owner: CALEB, 8 rows)
+	ID_ADM_EVAL_PROG_PASO : NUMBER(38) => bigint
+	ID_EVALUACION_PROGRAMA : NUMBER(38) => bigint
+	ID_CONV_DET_CONFIG : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[32] TABLE ADM_EXONERADO_EVALUACION (owner: CALEB, 9 rows)
+	ID_EXONERADO_EVALUACION : NUMBER(22) => bigint
+	ID_MODALIDAD_INGRESO : NUMBER(22) => bigint
+	NOTA_X_DEFECTO : NUMBER(22) => bigint
+	CONDICION : CHAR(1) => char(1)
+	CREDITOS : NUMBER(22) => bigint
+	ID_EVALUACION_PROGRAMA : NUMBER(22) => bigint
+	OPERADOR : VARCHAR2(2) => varchar(2)
+[33] TABLE ADM_EXONERAR_PAGO (owner: CALEB, 4 rows)
+	ID_EXONERAR_PAGO : NUMBER(22) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(22) => bigint
+	MOTIVO : VARCHAR2(500) => varchar(500)
+	ESTADO : CHAR(1) => char(1)
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	NRO_DOCUMENTO : VARCHAR2(20) => varchar(20)
+	NOMBRES_APELLIDOS : VARCHAR2(200) => varchar(200)
+[34] TABLE ADM_EXP_LABORAL (owner: CALEB, 0 rows)
+	ID_EXP_LABORAL : NUMBER(22) => bigint
+	ID_CONDICION_LABORAL : NUMBER(22) => bigint
+	ID_REGIMEN : NUMBER(22) => bigint
+	ID_SECTOR_EMPRESA : NUMBER(22) => bigint
+	ID_TIPO_SECTOR_EMPRESA : NUMBER(22) => bigint
+	ID_ENTIDAD_LABORAL : NUMBER(22) => bigint
+	OTRO_TIPO_SECTOR_EMPRESA : VARCHAR2(200) => varchar(200)
+	OTRA_ENTIDAD_LABORAL : VARCHAR2(200) => varchar(200)
+	CARGO : VARCHAR2(200) => varchar(200)
+	ANIOS_EXPERIENCIA : VARCHAR2(100) => varchar(100)
+	ID_PERSONA_INSCRIPCION : NUMBER(22) => bigint
+	FECHA_INICIO : DATE(7) => timestamp(0) (date?)
+	ES_DEPENDIENTE : CHAR(1) => char(1)
+[35] TABLE ADM_FILE_CONVOCATORIA (owner: CALEB, 0 rows)
+	ID_FILE_CONVOCATORIA : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	ID_TIPO_DOCUMENTO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	FORMATO : VARCHAR2(200) => varchar(200)
+	URL : VARCHAR2(4000) => varchar(4000)
+	TAMANIO : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[36] TABLE ADM_IDIOMA (owner: CALEB, 1 rows)
+	ID_IDIOMA : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+[37] TABLE ADM_INSCRIPCION_DIRECCION (owner: CALEB, 118 rows)
+	ID_INSCRIPCION_DIRECCION : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ID_TIPODIRECCION : NUMBER(38) => bigint
+	ID_TIPOVIA : VARCHAR2(2) => varchar(2)
+	ID_TIPOZONA : VARCHAR2(2) => varchar(2)
+	ID_UBIGEO : NUMBER(38) => bigint
+	TIPOVIA : VARCHAR2(50) => varchar(50)
+	TIPOZONA : VARCHAR2(50) => varchar(50)
+	REFERENCIA : VARCHAR2(200) => varchar(200)
+	ESLEGAL : VARCHAR2(1) => varchar(1)
+	DIRECCION : VARCHAR2(1000) => varchar(1000)
+	MAP_LATITUD : VARCHAR2(255) => varchar(255)
+	MAP_LONGITUD : VARCHAR2(255) => varchar(255)
+	COMENTARIO : VARCHAR2(255) => varchar(255)
+	ES_ACTIVO : NUMBER(38) => bigint
+	ID_TIPOPAIS : NUMBER(22) => bigint
+	NUM_VIA : VARCHAR2(10) => varchar(10)
+	DEPARTAMENTO : VARCHAR2(10) => varchar(10)
+	INTERIOR : VARCHAR2(10) => varchar(10)
+	MANZANA : VARCHAR2(10) => varchar(10)
+	LOTE : VARCHAR2(10) => varchar(10)
+	KILOMETRO : VARCHAR2(10) => varchar(10)
+	BLOK : VARCHAR2(10) => varchar(10)
+	ETAPA : VARCHAR2(10) => varchar(10)
+	ID_TIPO_UBICACION : NUMBER(22) => bigint
+[38] TABLE ADM_INSCRIPCION_PAGO (owner: CALEB, 0 rows)
+	ID_ADM_PAGO : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ID_CATALOGO : NUMBER(38) => bigint
+	ID_DEPOSITO : NUMBER(38) => bigint
+	ID_ESTADO_PAGO : NUMBER(38) => bigint
+	CODIGO_PAGO : VARCHAR2(400) => varchar(400)
+[39] TABLE ADM_INSCRIPCION_PROGRAMA_PROC (owner: CALEB, 4 rows)
+	ID_INSCRIPCION_PROGRAMA_PROC : NUMBER(38) => bigint
+	ID_PROGRAMA_PROCEDENCIA : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+[40] TABLE ADM_INSTITUCION_PROCEDENCIA (owner: CALEB, 46 rows)
+	ID_INSTITUCION_PROCEDENCIA : NUMBER(22) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(22) => bigint
+	ID_TIPO_PAIS : NUMBER(22) => bigint
+	ID_CENTRO_ESTUDIO : NUMBER(22) => bigint
+	ID_ESPECIALIDAD : NUMBER(22) => bigint
+	ID_NIVEL_EDUCATIVO : NUMBER(22) => bigint
+	ID_TIPO_SECTOR_EMPRESA : NUMBER(22) => bigint
+	ID_REGIMEN : NUMBER(22) => bigint
+	ID_MODALIDAD_ESTUDIO : NUMBER(22) => bigint
+	ID_SITUACION_EDUCATIVA : NUMBER(22) => bigint
+	ES_DENOMINACIONAL : CHAR(1) => char(1)
+	OTRO_CENTRO_ESTUDIO : VARCHAR2(250) => varchar(250)
+	OTRA_ESPECIALIDAD : VARCHAR2(250) => varchar(250)
+	ID_UBIGEO : NUMBER(22) => bigint
+	EGRESADO_UPEU : CHAR(1) => char(1)
+	ID_SEDE_PROCEDENCIA : NUMBER(38) => bigint
+	ANIO_EGRESO_COLEGIO : NUMBER(38) => bigint
+[41] TABLE ADM_MENSAJES (owner: CALEB, 6 rows)
+	ID_MENSAJE : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_TIPO_MENSAJE : NUMBER(38) => bigint
+	NOMBRES : VARCHAR2(200) => varchar(200)
+	APELLIDOS : VARCHAR2(200) => varchar(200)
+	CELULAR : VARCHAR2(100) => varchar(100)
+	CODIGO_POSTAL : VARCHAR2(10) => varchar(10)
+	MENSAJE : VARCHAR2(2000) => varchar(2000)
+	DESCRIPCION : VARCHAR2(2000) => varchar(2000)
+	VARIABLES : VARCHAR2(2000) => varchar(2000)
+	ESTADO_ENVIO : CHAR(1) => char(1)
+	NUM_DOCUMENTO : VARCHAR2(15) => varchar(15)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[42] TABLE ADM_MODALIDAD_INGRESO (owner: CALEB, 10 rows)
+	ID_MODALIDAD_INGRESO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	CODIGO_XPRESS_EDUCA : VARCHAR2(4000) => varchar(4000)
+	ALIAS : VARCHAR2(100) => varchar(100)
+[43] TABLE ADM_MODALIDAD_INSCRIPCION (owner: CALEB, 3 rows)
+	ID_MODALIDAD_INSCRIPCION : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[44] TABLE ADM_MODO_EVALUACION (owner: CALEB, 0 rows)
+	ID_MODO_EVALUACION : NUMBER(38) => bigint
+	TIPO : CHAR(1) => char(1)
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[45] TABLE ADM_NIVEL_EDUCATIVO (owner: CALEB, 10 rows)
+	ID_NIVEL_EDUCATIVO : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+	PESO : NUMBER(22) => bigint
+	DENOMINACION : VARCHAR2(100) => varchar(100)
+[46] TABLE ADM_NIVEL_IDIOMA (owner: CALEB, 3 rows)
+	ID_NIVEL_IDIOMA : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+[47] TABLE ADM_PASO_DOC_PROGRAMA (owner: CALEB, 7 rows)
+	ID_PASO_DOC_PROGRAMA : NUMBER(38) => bigint
+	ID_CONV_DET_CONFIG : NUMBER(38) => bigint
+	ID_TIPO_DOCUMENTO : NUMBER(38) => bigint
+	ID_CONV_PLAN_PROGRAMA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	PATH : VARCHAR2(4000) => varchar(4000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	OBLIGATORIO : CHAR(1) => char(1)
+[48] TABLE ADM_PERSONA_INSCRIPCION (owner: CALEB, 117 rows)
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ID_PERSONA : NUMBER(38) => bigint
+	ID_CONV_PLAN_PROGRAMA : NUMBER(38) => bigint
+	ID_TIPO_INGRESO : NUMBER(38) => bigint
+	ID_MODALIDAD_INSCRIPCION : NUMBER(38) => bigint
+	ID_MODALIDAD_INGRESO : NUMBER(38) => bigint
+	ID_DEPOSITO : NUMBER(38) => bigint
+	ID_TIPO_BECA_ESTATAL : NUMBER(38) => bigint
+	CODIGO_POSTULANTE : VARCHAR2(20) => varchar(20)
+	NOTA_CONVOCATORIA : NUMBER(22) => numeric
+	ORDEN_MERITO : NUMBER(38) => bigint
+	VACANTE : NUMBER(38) => bigint
+	COMPLETO_PASOS : CHAR(1) => char(1)
+	REQUISITOS_DIG_VALIDADOS : NUMBER(38) => bigint
+	REQUISITOS_DIG_OBLI_VALIDADOS : NUMBER(38) => bigint
+	REQUISITOS_FIS_VALIDADOS : NUMBER(38) => bigint
+	REQUISITOS_FIS_OBLI_VALIDADOS : NUMBER(38) => bigint
+	TOTAL_REQUISITOS : NUMBER(38) => bigint
+	TOTAL_REQUISITOS_OBLIG : NUMBER(38) => bigint
+	HABILITADO_PAGO : CHAR(1) => char(1)
+	CODIGO_QR : VARCHAR2(4000) => varchar(4000)
+	CONFIRMO_MATRICULA : CHAR(1) => char(1)
+	ORDEN_MERITO_CARRERA : NUMBER(38) => bigint
+	TIENE_SIMULACRO_APROBADO : CHAR(1) => char(1)
+	TIENE_DESCUENTO_SIMULACRO : CHAR(1) => char(1)
+	UTILIZO_DESCUENTO_SIMULACRO : CHAR(1) => char(1)
+	FECHA_INSCRIPCION : DATE(7) => timestamp(0) (date?)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	ID_TIPO_DISCAPACIDAD : NUMBER(38) => bigint
+	NUMERO_ACTUAL : VARCHAR2(25) => varchar(25)
+	NUMERO_REFERENCIA : VARCHAR2(25) => varchar(25)
+	ID_CANAL : NUMBER(38) => bigint
+	NOTA : NUMBER(22) => numeric
+	NOTA_PROGRAMA : NUMBER(22) => numeric
+	CORREO : VARCHAR2(100) => varchar(100)
+	ID_CONV_PLAN_PROGRAMA_AUX : NUMBER(38) => bigint
+	ID_USUARIO_CORREO : NUMBER(22) => bigint
+	FECHA_CORREO : DATE(7) => timestamp(0) (date?)
+	SALA_ZOOM : VARCHAR2(4000) => varchar(4000)
+	INTERVIEW_STATUS : CHAR(1) => char(1)
+	DATE_ZOOM_INIT : DATE(7) => timestamp(0) (date?)
+	DATE_ZOOM_END : DATE(7) => timestamp(0) (date?)
+	FECHA_INGRESO : DATE(7) => timestamp(0) (date?)
+	ID_ASESOR : NUMBER(38) => bigint
+	ID_POSTULACION_CRM : VARCHAR2(4000) => varchar(4000)
+	EMBAJADOR : VARCHAR2(300) => varchar(300)
+	ORIGEN : VARCHAR2(500) => varchar(500)
+	ID_NEGOCIACION : NUMBER(38) => bigint
+	ID_PR_COSTUMBRES : NUMBER(38) => bigint
+	ID_TIPO_PUEBLO_INDIGENA : NUMBER(38) => bigint
+	PUEBLO_INDIGENA : VARCHAR2(100) => varchar(100)
+	ID_PR_LENGUA_INDIGENA : NUMBER(38) => bigint
+	ID_TIPO_LENGUA_INDIGENA : NUMBER(38) => bigint
+	LENGUA_INDIGENA : VARCHAR2(100) => varchar(100)
+	INTERVIEW_LOCATION : VARCHAR2(250) => varchar(250)
+[49] TABLE ADM_PERSONA_INSCRIPCION_IDIOMA (owner: CALEB, 2 rows)
+	ID_PERSONA_INSCRIPCION_IDIOMA : NUMBER(22) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(22) => bigint
+	ID_IDIOMA : NUMBER(22) => bigint
+	ID_NIVEL_IDIOMA : NUMBER(22) => bigint
+[50] TABLE ADM_PLANTILLA_SIMULACRO (owner: CALEB, 0 rows)
+	ID_PLANTILLA_SIMULACRO : NUMBER(38) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(22) => bigint
+	PARAMS : VARCHAR2(500) => varchar(500)
+	HTML : VARCHAR2(4000) => varchar(4000)
+[51] TABLE ADM_POSTULANTE_CORREO (owner: CALEB, 1 rows)
+	ID_POSTULANTE_CORREO : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ID_POSTULANTE_PASO : NUMBER(38) => bigint
+	ENVIADO : CHAR(1) => char(1)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[52] TABLE ADM_POSTULANTE_PASO (owner: CALEB, 108 rows)
+	ID_POSTULANTE_PASO : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ID_CONV_DET_CONFIG : NUMBER(38) => bigint
+	ID_MODALIDAD_INGRESO : NUMBER(38) => bigint
+	COMPLETADO : CHAR(1) => char(1)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[53] TABLE ADM_POSTULANTE_PASO_DOC (owner: CALEB, 126 rows)
+	ID_POSTULANTE_PASO_DOC : NUMBER(38) => bigint
+	ID_POSTULANTE_PASO : NUMBER(38) => bigint
+	ID_PASO_DOC_PROGRAMA : NUMBER(38) => bigint
+	URL : VARCHAR2(4000) => varchar(4000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[54] TABLE ADM_PRESELECCION (owner: CALEB, 8 rows)
+	ID_PRESELECCION : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	FECHA_INICIO : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN : DATE(7) => timestamp(0) (date?)
+	ESTADO : CHAR(1) => char(1)
+[55] TABLE ADM_PRESELECCIONADO (owner: CALEB, 27 rows)
+	ID_PRESELECCIONADO : NUMBER(22) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(22) => bigint
+	ID_PRESELECCION : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	NOTA_CAR : NUMBER(22) => numeric
+	NOTA_CONV : NUMBER(22) => numeric
+	MERITO : NUMBER(38) => bigint
+	VACANTE : NUMBER(38) => bigint
+	ID_PERSONA_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_PERSONA_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	FORZAR_INGRESO : CHAR(1) => char(1)
+[56] TABLE ADM_PROGRAMA_MOD_ING (owner: CALEB, 37 rows)
+	ID_PROGRAMA_MOD_ING : NUMBER(38) => bigint
+	ID_CONV_PLAN_PROGRAMA : NUMBER(38) => bigint
+	ID_MODALIDAD_INGRESO : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_TIPO_UNIDAD : NUMBER(22) => bigint
+	VACANTE : NUMBER(22) => bigint
+	VALOR : NUMBER(22) => numeric
+	ACEPTA_BECA : CHAR(1) => char(1)
+	ACEPTA_SIMULACRO : CHAR(1) => char(1)
+	CODIGO_JOS : VARCHAR2(200) => varchar(200)
+	HABILITAR : CHAR(1) => char(1)
+[57] TABLE ADM_PROGRAMA_MOD_INGR (owner: CALEB, 1 rows)
+	ID_PROGRAMA_MOD_INGR : NUMBER(38) => bigint
+	ID_CONV_PLAN_PROGRAMA : NUMBER(38) => bigint
+	ID_MODALIDAD_INGRESO : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_TIPO_UNIDAD : NUMBER(22) => bigint
+	VACANTE : NUMBER(22) => bigint
+	VALOR : NUMBER(22) => bigint
+[58] TABLE ADM_PROGRAMA_PROCEDENCIA (owner: CALEB, 2 rows)
+	ID_PROGRAMA_PROCEDENCIA : NUMBER(38) => bigint
+	ID_PLAN_PROGRAMA : NUMBER(38) => bigint
+	ID_SEDE : NUMBER(38) => bigint
+	ID_SEMESTRE : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+[59] TABLE ADM_PROG_EVAL_PROG (owner: CALEB, 0 rows)
+	ID_PROG_EVAL_PROG : NUMBER(38) => bigint
+	ID_EVALUACION_PROGRAMA : NUMBER(38) => bigint
+	ID_AMBIENTE : NUMBER(38) => bigint
+	ID_MODO_EVALUACION : NUMBER(38) => bigint
+	ID_DIRIGIDO_A : NUMBER(38) => bigint
+	FECHA_INICIO : DATE(7) => timestamp(0) (date?)
+	FECHA_FIN : DATE(7) => timestamp(0) (date?)
+	DURACION : NUMBER(38) => bigint
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[60] TABLE ADM_PR_COSTUMBRES (owner: CALEB, 4 rows)
+	ID_PR_COSTUMBRES : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(150) => varchar(150)
+	ESTADO : CHAR(1) => char(1)
+[61] TABLE ADM_PR_LENGUA_INDIGENA (owner: CALEB, 3 rows)
+	ID_PR_LENGUA_INDIGENA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+[62] TABLE ADM_REGIMEN (owner: CALEB, 2 rows)
+	ID_REGIMEN : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(150) => varchar(150)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+[63] TABLE ADM_REQUISITOS (owner: CALEB, 4 rows)
+	ID_REQUISITOS : NUMBER(38) => bigint
+	ID_CLASIFICACION_REQUISITO : NUMBER(38) => bigint
+	ID_DIRIGIDO_A : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	CADUCA : CHAR(1) => char(1)
+	ABREVIATURA : VARCHAR2(500) => varchar(500)
+	CONTENIDO_AYUDA : VARCHAR2(4000) => varchar(4000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[64] TABLE ADM_REQUISITO_ADVENTISTA (owner: CALEB, 3 rows)
+	ID_REQUISITO_ADVENTISTA : NUMBER(38) => bigint
+	ID_IGLESIA : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	NOMBRE_PASTOR : VARCHAR2(500) => varchar(500)
+	CARGOS_POSTULANTE : VARCHAR2(200) => varchar(200)
+	DOCUMENTO : VARCHAR2(500) => varchar(500)
+	ID_CAMPO_DTTO : NUMBER(38) => bigint
+	OTRA_IGLESIA : VARCHAR2(200) => varchar(200)
+[65] TABLE ADM_REQU_CONV_PROG_MI (owner: CALEB, 42 rows)
+	ID_REQU_CONV_PROG_MI : NUMBER(38) => bigint
+	ID_REQUISITOS : NUMBER(38) => bigint
+	ID_PROGRAMA_MOD_ING : NUMBER(38) => bigint
+	OBLIGATORIO : CHAR(1) => char(1)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[66] TABLE ADM_REQ_DET_ADJUNTOS (owner: CALEB, 17 rows)
+	ID_REQ_DET_ADJUNTOS : NUMBER(32) => bigint
+	ID_REQ_POSTULANTE : NUMBER(32) => bigint
+	ADJUNTO : VARCHAR2(400) => varchar(400)
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	ID_USUARIO_REG : NUMBER(32) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(32) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[67] TABLE ADM_REQ_POSTULANTE (owner: CALEB, 42 rows)
+	ID_REQ_POSTULANTE : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ID_REQU_CONV_PROG_MI : NUMBER(38) => bigint
+	ID_ESTADO_VAL_DIG : NUMBER(38) => bigint
+	ID_ESTADO_VAL_FIS : NUMBER(38) => bigint
+	CON_DECLARACION : CHAR(1) => char(1)
+	OBSERVACION : VARCHAR2(4000) => varchar(4000)
+	ADJUNTO : VARCHAR2(4000) => varchar(4000)
+	FECHA_ADJUNTO_DIG : DATE(7) => timestamp(0) (date?)
+	FECHA_ENTREGA_FI : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_VAL_DIG : NUMBER(38) => bigint
+	FECHA_VAL_DIGITAL : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_VAL_FIS : NUMBER(38) => bigint
+	FECHA_VAL_FISICA : DATE(7) => timestamp(0) (date?)
+[68] TABLE ADM_REQ_POSTU_CONV_PROG (owner: CALEB, 0 rows)
+	ID_REQ_POSTU_CONV_PROG : NUMBER(38) => bigint
+	ID_PERSONA_INSCRIPCION : NUMBER(38) => bigint
+	ID_REQU_CONV_PROG_MI : NUMBER(38) => bigint
+	ID_TIPO_ESTADO_VAL : NUMBER(38) => bigint
+	ID_TIPO_ESTADO : NUMBER(38) => bigint
+	CON_DECLARACION : CHAR(1) => char(1)
+	OBSERVACION : VARCHAR2(4000) => varchar(4000)
+	ADJUNTO : VARCHAR2(4000) => varchar(4000)
+	FECHA_ADJUNTO_DIG : DATE(7) => timestamp(0) (date?)
+	FECHA_ENTREGA_FI : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_VAL_DIG : NUMBER(38) => bigint
+	FECHA_VAL_DIGITAL : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_VAL_FIS : NUMBER(38) => bigint
+	FECHA_VAL_FISICA : DATE(7) => timestamp(0) (date?)
+[69] TABLE ADM_SECTOR_EMPRESA (owner: CALEB, 5 rows)
+	ID_SECTOR_EMPRESA : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+[70] TABLE ADM_SITUACION_EDUCATIVA (owner: CALEB, 4 rows)
+	ID_SITUACION_EDUCATIVA : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+[71] TABLE ADM_TIPO_CODIGO_PAGO (owner: CALEB, 2 rows)
+	ID_TIPO_CODIGO_PAGO : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(15) => varchar(15)
+	ESTADO : CHAR(1) => char(1)
+[72] TABLE ADM_TIPO_CONFIGURACION (owner: CALEB, 2 rows)
+	ID_TIPO_CONFIGURACION : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[73] TABLE ADM_TIPO_DOCUMENTO (owner: CALEB, 2 rows)
+	ID_TIPO_DOCUMENTO : NUMBER(38) => bigint
+	TIPO : CHAR(1) => char(1)
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[74] TABLE ADM_TIPO_ESTADO_VAL (owner: CALEB, 4 rows)
+	ID_TIPO_ESTADO_VAL : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	ORDEN : NUMBER(38) => bigint
+	COLOR : VARCHAR2(4000) => varchar(4000)
+	ICONO : VARCHAR2(4000) => varchar(4000)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[75] TABLE ADM_TIPO_EVALUACION (owner: CALEB, 4 rows)
+	ID_TIPO_EVALUACION : NUMBER(38) => bigint
+	TIPO : CHAR(1) => char(1)
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	DESCRIPCION : VARCHAR2(4000) => varchar(4000)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[76] TABLE ADM_TIPO_INGRESO (owner: CALEB, 4 rows)
+	ID_TIPO_INGRESO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(20) => varchar(20)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[77] TABLE ADM_TIPO_LENGUA_INDIGENA (owner: CALEB, 48 rows)
+	ID_TIPO_LENGUA_INDIGENA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+[78] TABLE ADM_TIPO_MENSAJE (owner: CALEB, 8 rows)
+	ID_TIPO_MENSAJE : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(200) => varchar(200)
+	CODIGO : VARCHAR2(500) => varchar(500)
+	VARIABLES : VARCHAR2(2000) => varchar(2000)
+	DELIMITADOR : VARCHAR2(10) => varchar(10)
+	MENSAJE : VARCHAR2(2000) => varchar(2000)
+[79] TABLE ADM_TIPO_PUEBLO_INDIGENA (owner: CALEB, 56 rows)
+	ID_TIPO_PUEBLO_INDIGENA : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+[80] TABLE ADM_TIPO_SECTOR_EMPRESA (owner: CALEB, 46 rows)
+	ID_TIPO_SECTOR_EMPRESA : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+	ID_SECTOR_EMPRESA : NUMBER(22) => bigint
+[81] TABLE ADM_TIPO_UNIDAD (owner: CALEB, 2 rows)
+	ID_TIPO_UNIDAD : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+[82] TABLE ADM_TIPO_VARIABLE (owner: CALEB, 2 rows)
+	ID_TIPO_VARIABLE : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(150) => varchar(150)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+[83] TABLE ADM_VALIDACION_REQUISITO (owner: CALEB, 5 rows)
+	ID_VALIDACION_REQUISITO : NUMBER(22) => bigint
+	ID_CONV_DET_CONFIG : NUMBER(22) => bigint
+	ID_TIPO_VALIDACION : NUMBER(22) => bigint
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+[84] TABLE CARTAS_POSTULANTE (owner: CALEB, 39 rows)
+	ID_CARTA_POSTULANTE : NUMBER(38) => bigint
+	POSTULANTE : VARCHAR2(500) => varchar(500)
+	NRO_DOCUMENTO : VARCHAR2(20) => varchar(20)
+	CARRERA : VARCHAR2(500) => varchar(500)
+	FECHA_POSTULACION : DATE(7) => timestamp(0) (date?)
+	CONVOCATORIA : VARCHAR2(300) => varchar(300)
+	LINK_CARTA : VARCHAR2(500) => varchar(500)
+	ESTADO_ENVIO : CHAR(1) => char(1)
+	CELULAR : VARCHAR2(20) => varchar(20)
+	MENSAJE : VARCHAR2(500) => varchar(500)
+	DESCRIPCION : VARCHAR2(500) => varchar(500)
+[85] TABLE CATALOGO_ADMISION (owner: CALEB, 10 rows)
+	ID_CATALOGO : NUMBER(38) => bigint
+	ID_ENTIDAD : NUMBER(38) => bigint
+	ID_DEPTO : VARCHAR2(100) => varchar(100)
+	ID_DINAMICA : NUMBER(38) => bigint
+	ID_ANHO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(400) => varchar(400)
+	ESTADO : CHAR(1) => char(1)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ID_CONVOCATORIA_DET : NUMBER(38) => bigint
+	ID_CONVOCATORIA : NUMBER(22) => bigint
+	ID_PROGRAMA_ESTUDIO : NUMBER(38) => bigint
+[86] TABLE CONFIG_FIRMA (owner: CALEB, 3 rows)
+	ID_CONFIG_FIRMA : NUMBER(22) => bigint
+	ID_SEDE : NUMBER(22) => bigint
+	ARCHIVO : VARCHAR2(150) => varchar(150)
+	NOMBRE : VARCHAR2(150) => varchar(150)
+	CARGO : VARCHAR2(150) => varchar(150)
+[87] TABLE CONF_SINCRONIZACION (owner: CALEB, 2 rows)
+	ID_CONF_SINCRONIZACION : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(22) => bigint
+	ESTADO : CHAR(1) => char(1)
+[88] TABLE CUESTIONARIO_CONVOCATORIA (owner: CALEB, 9 rows)
+	ID_CUESTIONARIO_CONVOCATORIA : NUMBER(22) => bigint
+	ID_INSTRUMENTO : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DETALLE : NUMBER(22) => bigint
+[89] TABLE FILTRO_EDUCATIVO_INSTITUCION (owner: CALEB, 14 rows)
+	ID_EDUCATIVO_INSTITUCION : NUMBER(22) => bigint
+	ID_NIVEL_EDUCATIVO : NUMBER(22) => bigint
+	ID_TIPO_SECTOR_EMPRESA : NUMBER(22) => bigint
+[90] TABLE FILTRO_MODALIDAD_INS (owner: CALEB, 43 rows)
+	ID_MODALIDAD_INS : NUMBER(22) => bigint
+	ID_MODALIDAD_INGRESO : NUMBER(22) => bigint
+	ID_TIPO_SECTOR_EMPRESA : NUMBER(22) => bigint
+[91] TABLE FILTRO_NIVEL_INSTITUCION (owner: CALEB, 14 rows)
+	ID_NIVEL_INSTITUCION : NUMBER(22) => bigint
+	ID_NIVEL_ENSENANZA : NUMBER(22) => bigint
+	ID_TIPO_SECTOR_EMPRESA : NUMBER(22) => bigint
+[92] TABLE INSTRUMENTO_TRIAJE_MENSAJE (owner: CALEB, 0 rows)
+	ID_TRIAGE_MENSAJE : NUMBER(38) => bigint
+	ID_CUESTIONARIO : NUMBER(38) => bigint
+	DESCRIPCION : VARCHAR2(500) => varchar(500)
+	MENSAJE : VARCHAR2(1000) => varchar(1000)
+	STATUS : VARCHAR2(100) => varchar(100)
+	ID_USUARIO_REG : NUMBER(38) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(38) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+[93] TABLE MODALIDAD_ADICIONAL (owner: CALEB, 4 rows)
+	ID_MODALIDAD_ADICIONAL : NUMBER(22) => bigint
+	ID_PROGRAMA_MOD_ING : NUMBER(22) => bigint
+	ID_ADICIONAL : NUMBER(22) => bigint
+	OPCION : CHAR(1) => char(1)
+[94] TABLE PLANTILLA_SIMULACRO (owner: CALEB, 2 rows)
+	ID_PLANTILLA_SIMULACRO : NUMBER(22) => bigint
+	ID_CONVOCATORIA_DET : NUMBER(22) => bigint
+	PARAMS : VARCHAR2(1000) => varchar(1000)
+	HTML : VARCHAR2(4000) => varchar(4000)
+[95] TABLE TIPO_CRITERIO_ORDEN (owner: CALEB, 4 rows)
+	ID_TIPO_CRITERIO_ORDEN : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+	ID_USUARIO_REG : NUMBER(22) => bigint
+	FECHA_REGISTRO : DATE(7) => timestamp(0) (date?)
+	ID_USUARIO_ACT : NUMBER(22) => bigint
+	FECHA_ACTUALIZACION : DATE(7) => timestamp(0) (date?)
+	COLUMNA : VARCHAR2(100) => varchar(100)
+[96] TABLE TIPO_DESCUENTO (owner: CALEB, 3 rows)
+	ID_TIPO_DESCUENTO : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+[97] TABLE TIPO_ESTADO_PAGO (owner: CALEB, 8 rows)
+	ID_ESTADO_PAGO : NUMBER(38) => bigint
+	NOMBRE : VARCHAR2(400) => varchar(400)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+[98] TABLE TIPO_ORIGEN_PAGO (owner: CALEB, 3 rows)
+	ID_TIPO_ORIGEN : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(5) => varchar(5)
+	ESTADO : CHAR(1) => char(1)
+[99] TABLE TIPO_UBICACION (owner: CALEB, 8 rows)
+	ID_TIPO_UBICACION : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	ESTADO : CHAR(1) => char(1)
+	CODIGO : VARCHAR2(20) => varchar(20)
+[100] TABLE TIPO_VALIDACION (owner: CALEB, 4 rows)
+	ID_TIPO_VALIDACION : NUMBER(22) => bigint
+	NOMBRE : VARCHAR2(100) => varchar(100)
+	CODIGO : VARCHAR2(10) => varchar(10)
+	ESTADO : CHAR(1) => char(1)
+	ICONO : VARCHAR2(100) => varchar(100)
+	COLOR : VARCHAR2(10) => varchar(10)
+	ORDEN : NUMBER(22) => bigint
+----------------------------------------------------------
+Total number of rows: 1578
+
+Global Temporary Tables:
+
+
+Top 10 of tables sorted by number of rows:
+	[1] TABLE ADM_POSTULANTE_PASO_DOC has 126 rows
+	[2] TABLE ADM_INSCRIPCION_DIRECCION has 118 rows
+	[3] TABLE ADM_PERSONA_INSCRIPCION has 117 rows
+	[4] TABLE ADM_POSTULANTE_PASO has 108 rows
+	[5] TABLE ADM_EVALUACION has 89 rows
+	[6] TABLE ADM_TIPO_PUEBLO_INDIGENA has 56 rows
+	[7] TABLE ADM_TIPO_LENGUA_INDIGENA has 48 rows
+	[8] TABLE ADM_INSTITUCION_PROCEDENCIA has 46 rows
+	[9] TABLE ADM_TIPO_SECTOR_EMPRESA has 46 rows
+	[10] TABLE FILTRO_MODALIDAD_INS has 43 rows
+Top 10 of largest tables:
+	[1] TABLE ADM_ASESOR: 0 MB (39 rows)
+	[2] TABLE ADM_ADJUNTAR_PAGO: 0 MB (5 rows)
+	[3] TABLE ADM_BECADO_CONVOCATORIA: 0 MB (8 rows)
+	[4] TABLE ADM_CATALOGO_PROGRAMAS: 0 MB (8 rows)
+	[5] TABLE ADM_CENTRO_DIRECCION: 0 MB (19 rows)
+	[6] TABLE ADM_CENTRO_ESPECIALIDAD: 0 MB (8 rows)
+	[7] TABLE ADM_CENTRO_ESTUDIO: 0 MB (22 rows)
+	[8] TABLE AATEMP_UBIGEO: 0 MB (1 rows)
+	[9] TABLE ADM_ASESOR_NIVEL: 0 MB (8 rows)
+	[10] TABLE ADM_CLASIFICACION_REQUISITO: 0 MB (2 rows)

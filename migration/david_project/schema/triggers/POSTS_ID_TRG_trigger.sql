@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS posts_id_trg ON posts CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_posts_id_trg() RETURNS trigger AS $BODY$
 BEGIN
             if coalesce(NEW.ID::text, '') = '' then
-                select nextval('posts_id_seq') into STRICT NEW.ID;
+                select nextval('david.posts_id_seq') into STRICT NEW.ID;
             end if;
             RETURN NEW;
 end

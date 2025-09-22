@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_sol_conv_curso_pk ON solicitud_convalidacion_curso CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_sol_conv_curso_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_sol_conv_curso_id')
+  select nextval('david.sq_sol_conv_curso_id')
   into STRICT NEW.id_sol_convalidacion_curso
 ;
 RETURN NEW;

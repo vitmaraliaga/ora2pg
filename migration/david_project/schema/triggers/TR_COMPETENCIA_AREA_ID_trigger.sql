@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_competencia_area_id ON competencia_area CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_competencia_area_id() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sq_competencia_area_id')
+  SELECT nextval('david.sq_competencia_area_id')
   INTO STRICT NEW.id_competencia_area
 ;
 RETURN NEW;

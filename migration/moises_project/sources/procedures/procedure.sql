@@ -7,12 +7,12 @@ SET client_encoding TO 'UTF8';
 SET search_path = moises,public;
 \set ON_ERROR_STOP ON
 
-\i ./sources/procedures/ELIMINAR_DUPLICADOS_SIMPLES_procedure.sql
-\i ./sources/procedures/INSERT_PERS_NAT_RESP_FIN_procedure.sql
-\i ./sources/procedures/IUDP_PERSONA_DOCUMENTO_procedure.sql
 \i ./sources/procedures/IUDP_PERSONA_NATURAL_procedure.sql
-\i ./sources/procedures/IUDP_PERSONA_NATURAL_PARENT_procedure.sql
-\i ./sources/procedures/IUDP_PERSONA_TELEFONO_procedure.sql
-\i ./sources/procedures/IUDP_PERSONA_VIRTUAL_procedure.sql
 \i ./sources/procedures/IUDP_PERSON_NATUR_PARENT_MULT_procedure.sql
+\i ./sources/procedures/INSERT_PERS_NAT_RESP_FIN_procedure.sql
+\i ./sources/procedures/IUDP_PERSONA_TELEFONO_procedure.sql
+\i ./sources/procedures/IUDP_PERSONA_DOCUMENTO_procedure.sql
+\i ./sources/procedures/IUDP_PERSONA_VIRTUAL_procedure.sql
+\i ./sources/procedures/ELIMINAR_DUPLICADOS_SIMPLES_procedure.sql
+\i ./sources/procedures/IUDP_PERSONA_NATURAL_PARENT_procedure.sql
 \i ./sources/procedures/PD_INSERTAR_VERIFICACION_procedure.sql

@@ -24,19 +24,20 @@ DECLARE
     o_pos   bigint := 0;
     o_vtn   varchar(32767) := '';
 BEGIN
-    t_datos.extend(f_sice + 1);
-    FOR i IN 0..f_sice LOOP
-        o_pos := position(f_par in f_list);
-        o_vtn := substr(f_list, 1, o_pos - 1);
-        IF o_pos = 0 THEN
-            o_vtn := f_list;
-        END IF;
-        f_list := substr(f_list, o_pos + 1, length(f_list));
+    -- t_datos.extend(f_sice + 1);
+    -- FOR i IN 0..f_sice LOOP
+    --     o_pos := position(f_par in f_list);
+    --     o_vtn := substr(f_list, 1, o_pos - 1);
+    --     IF o_pos = 0 THEN
+    --         o_vtn := f_list;
+    --     END IF;
+    --     f_list := substr(f_list, o_pos + 1, length(f_list));
 
-        t_datos(i + 1) := '' || o_vtn;
-    END LOOP;
+    --     t_datos(i + 1) := '' || o_vtn;
+    -- END LOOP;
 
-    RETURN( t_datos );
+    -- RETURN( t_datos );
+    RETURN string_to_array(p_list, f_par);
 END;
 $body$
 LANGUAGE PLPGSQL

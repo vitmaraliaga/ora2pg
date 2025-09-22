@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_manuales_file_id ON manuales CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_manuales_file_id() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_manuales_file_id')
+			  select nextval('david.sq_manuales_file_id')
 			  into STRICT NEW.ID_manual
 			;
 			RETURN NEW;

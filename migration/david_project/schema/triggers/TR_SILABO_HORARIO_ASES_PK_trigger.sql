@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_silabo_horario_ases_pk ON silabo_horario_asesoria CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_silabo_horario_ases_pk() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_silabo_horario_ases_id')
+  select nextval('david.sq_silabo_horario_ases_id')
   into STRICT NEW.id_horario_asesoria
 ;
 RETURN NEW;

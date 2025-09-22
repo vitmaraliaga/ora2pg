@@ -108,6 +108,8 @@ SET search_path = enoc,public;
 \i ./schema/packages/pkg_compensacion/pkg_compensacion_sp_copiar_periodo_planilla_package.sql
 \i ./schema/packages/pkg_compensacion/pkg_compensacion_sp_periodo_planilla_control_package.sql
 \i ./schema/packages/pkg_compensacion/pkg_compensacion_sp_generar_trabajador_sctr_package.sql
+\i ./schema/packages/pkg_compensacion/pkg_compensacion_sp_reporte_vida_ley_package.sql
+\i ./schema/packages/pkg_compensacion/pkg_compensacion_sp_reporte_jar_package.sql
 
 -- End of Oracle package 'PKG_COMPENSACION' declaration
 

@@ -312,7 +312,7 @@ BEGIN
                               where id_participante=curP.id_participante
                               and ID_TIPO_EVALUADOR=curT.ID_TIPO_EVALUADOR
                             ) 
--- -- -- --                             ORDER BY DBMS_RANDOM.VALUE
+--                             ORDER BY DBMS_RANDOM.VALUE
                             )x LIMIT (l_num_pares_eje);
                     end if;
                 else

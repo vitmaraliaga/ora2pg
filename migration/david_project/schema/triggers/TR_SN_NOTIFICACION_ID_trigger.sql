@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_sn_notificacion_id ON sn_notificacion CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_sn_notificacion_id() RETURNS trigger AS $BODY$
 BEGIN
-  SELECT nextval('sn_notificacion_sq')
+  SELECT nextval('david.sn_notificacion_sq')
   INTO STRICT NEW.ID_NOTIFICACION
 ;
 RETURN NEW;

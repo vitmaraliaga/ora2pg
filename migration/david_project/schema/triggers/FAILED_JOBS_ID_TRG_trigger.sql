@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS failed_jobs_id_trg ON failed_jobs CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_failed_jobs_id_trg() RETURNS trigger AS $BODY$
 BEGIN
             if coalesce(NEW.ID::text, '') = '' then
-                select nextval('failed_jobs_id_seq') into STRICT NEW.ID;
+                select nextval('david.failed_jobs_id_seq') into STRICT NEW.ID;
             end if;
             RETURN NEW;
 end

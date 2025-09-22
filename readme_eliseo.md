@@ -26,7 +26,7 @@
     <!-- - Corregir type
     - TYPE:: Buscar `Unsupported, please edit to match PostgreSQL syntax` para reemplazar manualmente -->
     <!-- - WARNINGS PACKAGES:: Buscar en `./migration/moises_project2/schema` `salida_final, salida_rapida,salida_val, goto ` y comentarlos -->
-    - Aqui no migrar PROCEDURE, PACKAGE, FUNCTIONS, MVIEW,esto se migrara al final, tampoco migrar los fk
+    - Aqui no migrar FUNCTION, PACKAGE, VIEW, TRIGGER, PROCEDURE, MVIEW, DBLINK, esto se migrara al final, tampoco migrar los fk
     <!-- - Eliminar todas las lineas que empiecen con `eliseo, jose, david` etc reemplazar por `--ora2pg` para comentarlos -->
     <!-- - Buscar este caracter `dbms_random.varchar` y comentar -->
     <!-- - Editar procedimiento `moises.iudp_persona_datos_multiples` falta un `call` -->
@@ -35,8 +35,26 @@
     - Password posgress: `sd4n0rt3_`
     - Password posgress: `noseassapolio`
     - Revisar que exista `CONTA_DIARIO_DETALLE`
+
+    - `ora2pg -c config/ora2pg-heavy.conf -t COPY --pg_dsn "dbi:Pg:dbname=db_financial host=10.174.11.13 port=5432" --pg_user postgres`
+
+    - Esto ejecutar en el esquema a migrar, para saber que tabla pesa mas y ver si se puede dividir la carga
+    `SELECT 
+        segment_name AS table_name,
+        ROUND(SUM(bytes) / 1024 / 1024, 2) AS size_mb
+    FROM 
+        user_segments
+    WHERE 
+        segment_type = 'TABLE'
+    GROUP BY 
+        segment_name
+    ORDER BY 
+        size_mb DESC;
+    `
+
     - VER SI LAS VISTAS MATERIALIZADAS SE PASAN
     <!-- - Comentar los fk que hacen referencia a esquemas que no existen, en este caso bucar: `enoc` -->
+    - ora2pg -c config/ora2pg.conf -t COPY -o data/salida.copy
     <!-- - `sed -i "s/nextval('sq_/nextval('moises.sq_/g" schema/triggers/*.sql` con esto hay que editar el prefijo de las secuencias de ID. -->
     
 4. De los archivos generados cambiar buscar "left numer" y reemplazar por "left" numer:

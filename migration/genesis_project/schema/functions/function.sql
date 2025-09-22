@@ -7,11 +7,11 @@ SET client_encoding TO 'UTF8';
 SET search_path = genesis,public;
 \set ON_ERROR_STOP ON
 
-\i ./schema/functions/FT_CORREO_function.sql
-\i ./schema/functions/FT_RESP_FINANCIERO_NOMBRE_function.sql
-\i ./schema/functions/FT_CITA_function.sql
-\i ./schema/functions/FT_RESP_FINANCIERO_CELULAR_function.sql
 \i ./schema/functions/FT_CELULAR_function.sql
 \i ./schema/functions/FT_DOCUMENTO_function.sql
+\i ./schema/functions/FT_CITA_function.sql
+\i ./schema/functions/FT_RESP_FINANCIERO_CELULAR_function.sql
+\i ./schema/functions/FT_CORREO_function.sql
+\i ./schema/functions/FT_RESP_FINANCIERO_NOMBRE_function.sql
 \i ./schema/functions/FT_CONTACTO_function.sql
 \i ./schema/functions/FT_RESP_FINANCIERO_CORREO_function.sql

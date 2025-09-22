@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_semana_programa ON aatemp_acad_semana_programa CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_semana_programa() RETURNS trigger AS $BODY$
 BEGIN
-  select nextval('sq_aatemp_semana_programa')
+  select nextval('david.sq_aatemp_semana_programa')
   into STRICT NEW.id_semana_programa
 ;
 RETURN NEW;

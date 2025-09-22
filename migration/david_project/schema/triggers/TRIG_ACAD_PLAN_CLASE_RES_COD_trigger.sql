@@ -21,7 +21,7 @@ BEGIN
                  INNER JOIN DAVID.ACAD_SEMESTRE e ON d.ID_SEMESTRE = e.ID_SEMESTRE
         WHERE b.ID_CARGA_TEMA = NEW.ID_CARGA_TEMA;
 
-        SELECT SEMESTER || '-' || NEW.ID_CARGA_TEMA || '-' || nextval('sq_acad_plan_clase_res_codigo') INTO STRICT NEW.CODIGO
+        SELECT SEMESTER || '-' || NEW.ID_CARGA_TEMA || '-' || nextval('david.sq_acad_plan_clase_res_codigo') INTO STRICT NEW.CODIGO
 ;
     END IF;
 RETURN NEW;

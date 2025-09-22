@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_acad_resid_apoderado ON acad_residencia_apoderado CA
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_acad_resid_apoderado() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_RESIDENCIA_APODERADO::text, '') = '' THEN
-SELECT nextval('sq_acad_resid_apoderado_id')
+SELECT nextval('david.sq_acad_resid_apoderado_id')
 INTO STRICT NEW.ID_RESIDENCIA_APODERADO
 ;
 END IF;

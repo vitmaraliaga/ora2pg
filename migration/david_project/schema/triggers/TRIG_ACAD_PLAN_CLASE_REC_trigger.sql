@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_acad_plan_clase_rec ON acad_plan_clase_recurso CASCA
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_acad_plan_clase_rec() RETURNS trigger AS $BODY$
 BEGIN
     IF coalesce(NEW.ID_PLAN_CLASE_RECURSO::text, '') = '' THEN
-        SELECT nextval('sq_acad_plan_clase_rec_id') INTO STRICT NEW.ID_PLAN_CLASE_RECURSO
+        SELECT nextval('david.sq_acad_plan_clase_rec_id') INTO STRICT NEW.ID_PLAN_CLASE_RECURSO
 ;
     END IF;
 RETURN NEW;

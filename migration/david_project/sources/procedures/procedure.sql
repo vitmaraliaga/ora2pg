@@ -7,7 +7,22 @@ SET client_encoding TO 'UTF8';
 SET search_path = david,public;
 \set ON_ERROR_STOP ON
 
-\i ./sources/procedures/CREA_FECHAS_ASISTENCIA_CURSO_procedure.sql
+\i ./sources/procedures/CREA_FECHAS_ASISTENCIA_CURSOS_procedure.sql
+\i ./sources/procedures/FT_ELIMINAR_CONTRATO_24H_PL_procedure.sql
+\i ./sources/procedures/FT_ELIMINAR_CONTRATO_72H_LIM_procedure.sql
+\i ./sources/procedures/FT_ELIMINAR_CONTRATO_INGLES_procedure.sql
+\i ./sources/procedures/FT_ELIMINAR_CONT_PROCESO_ALL_procedure.sql
+\i ./sources/procedures/PCD_ACT_ALC_CONTR_BECA_procedure.sql
+\i ./sources/procedures/PCD_ACT_RETORNO_EST_procedure.sql
+\i ./sources/procedures/PCD_ANULAR_CONTRATO_ALUMNO_N_procedure.sql
+\i ./sources/procedures/PCD_CONVALIDACION_CURSO_SEDE_procedure.sql
+\i ./sources/procedures/PCD_CREAR_IMAGEN_EVAL_DOC_NEW_procedure.sql
+\i ./sources/procedures/PCD_CREATE_ALUMNO_ADMI_PRUEBA_procedure.sql
+\i ./sources/procedures/PCD_CREATE_EQUIV_CURS_procedure.sql
+\i ./sources/procedures/PCD_ELIMINAR_ALUMNO_N_procedure.sql
+\i ./sources/procedures/PCD_INS_TEMP_PERC_DOCENTE_procedure.sql
+\i ./sources/procedures/PCD_REG_CANDADO_INGLES_ACT_procedure.sql
+\i ./sources/procedures/PCD_UPDATE_REPORTE_procedure\i ./sources/procedures/CREA_FECHAS_ASISTENCIA_CURSO_procedure.sql
 \i ./sources/procedures/FT_AGREGAR_EGRESADO_SEMESTRE_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_72H_JUL_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_IDIOMAS_procedure.sql
@@ -23,22 +38,7 @@ SET search_path = david,public;
 \i ./sources/procedures/PCD_F_EVALUACION_DOCENTE_procedure.sql
 \i ./sources/procedures/PCD_REG_ALUM_MATRI_procedure.sql
 \i ./sources/procedures/PCD_TEMPORAL_CARGA_DOCENTE_procedure.sql
-\i ./\i ./sources/procedures/CREA_FECHAS_ASISTENCIA_CURSOS_procedure.sql
-\i ./sources/procedures/FT_ELIMINAR_CONTRATO_24H_PL_procedure.sql
-\i ./sources/procedures/FT_ELIMINAR_CONTRATO_72H_LIM_procedure.sql
-\i ./sources/procedures/FT_ELIMINAR_CONTRATO_INGLES_procedure.sql
-\i ./sources/procedures/FT_ELIMINAR_CONT_PROCESO_ALL_procedure.sql
-\i ./sources/procedures/PCD_ACT_ALC_CONTR_BECA_procedure.sql
-\i ./sources/procedures/PCD_ACT_RETORNO_EST_procedure.sql
-\i ./sources/procedures/PCD_ANULAR_CONTRATO_ALUMNO_N_procedure.sql
-\i ./sources/procedures/PCD_CONVALIDACION_CURSO_SEDE_procedure.sql
-\i ./sources/procedures/PCD_CREAR_IMAGEN_EVAL_DOC_NEW_procedure.sql
-\i ./sources/procedures/PCD_CREATE_ALUMNO_ADMI_PRUEBA_procedure.sql
-\i ./sources/procedures/PCD_CREATE_EQUIV_CURS_procedure.sql
-\i ./sources/procedures/PCD_ELIMINAR_ALUMNO_N_procedure.sql
-\i ./sources/procedures/PCD_INS_TEMP_PERC_DOCENTE_procedure.sql
-\i ./sources/procedures/PCD_REG_CANDADO_INGLES_ACT_procedure.sql
-\i ./sources/procedures/PCD_UPDATE_REPORTE_procedure\i ./sources/procedures/DROP_UNIDAD_procedure.sql
+\i ./\i ./sources/procedures/DROP_UNIDAD_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_72H_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_CM_48H_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_RU_procedure.sql
@@ -54,10 +54,7 @@ SET search_path = david,public;
 \i ./sources/procedures/PCD_RANKING_DFT_ALUMNO_procedure.sql
 \i ./sources/procedures/PCD_REG_CANDADO_TEOLOGIA_SEM_procedure.sql
 \i ./sources/procedures/PCD_UPDATE_RIESGO_ALUMNO_procedure.sql
-\i ./sources/procedures/PCD_VALIDACIOsources/procedures/PCD_UPDATE_RIESGO_ALUMNO_ESPE_procedure.sql
-\i ./sources/procedures/PROC_LAB_ELIMINAR_OCURRENCIA_procedure.sql
-\i ./sources/procedures/SP_TABLE_COLUMNS_NN_procedure.sql
-\i ./sources/procedures/CREA_FECHAS_ASIST_CURSOS_MED_procedure.sql
+\i ./sources/procedures/PCD_VALIDACIO\i ./sources/procedures/CREA_FECHAS_ASIST_CURSOS_MED_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_48H_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_CI_TPP_procedure.sql
 \i ./sources/procedures/FT_ELIMINAR_CONTRATO_PROCESO_procedure.sql
@@ -73,11 +70,14 @@ SET search_path = david,public;
 \i ./sources/procedures/PCD_RANKING_ALUMNO_procedure.sql
 \i ./sources/procedures/PCD_REG_CANDADO_INGLES_SEM_procedure.sql
 \i ./sources/procedures/PCD_UPDATE_REQ_ALUM_procedure.sql
-\i ./sourN_BECAS_CC_procedure.sql
-\i ./sources/procedures/SP_TABLE_COLUMNS_N_procedure.sql
-.sql
+\i ./sour.sql
 \i ./sources/procedures/PCD_UPDATE_RIESGO_ALUMNO_FAULT_procedure.sql
 \i ./sources/procedures/SP_ELIMINAR_MAT_ESTADO_SEDE_procedure.sql
 \i ./sources/procedures/UPDATE_FIELD_DATA_ROWS_procedure.sql
+N_BECAS_CC_procedure.sql
+\i ./sources/procedures/SP_TABLE_COLUMNS_N_procedure.sql
+sources/procedures/PCD_UPDATE_RIESGO_ALUMNO_ESPE_procedure.sql
+\i ./sources/procedures/PROC_LAB_ELIMINAR_OCURRENCIA_procedure.sql
+\i ./sources/procedures/SP_TABLE_COLUMNS_NN_procedure.sql
 ces/procedures/PCD_UPDATE_STATE_MAT_PROGRAMA_procedure.sql
 \i ./sources/procedures/SP_TABLE_COLUMNS_procedure.sql

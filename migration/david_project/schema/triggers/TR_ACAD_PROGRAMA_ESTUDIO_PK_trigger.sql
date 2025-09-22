@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS tr_acad_programa_estudio_pk ON acad_programa_estudio CASC
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_acad_programa_estudio_pk() RETURNS trigger AS $BODY$
 BEGIN
 
-  select nextval('sq_acad_programa_estudio_id')
+  select nextval('david.sq_acad_programa_estudio_id')
   into STRICT NEW.id_programa_estudio
 ;
 

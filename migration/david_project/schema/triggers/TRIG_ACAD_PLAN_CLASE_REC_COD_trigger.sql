@@ -23,7 +23,7 @@ BEGIN
         WHERE A.ID_PLAN_CLASE_RESULTADO = NEW.ID_PLAN_CLASE_RESULTADO;
 
         SELECT SEMESTER || '-' || NEW.ID_PLAN_CLASE_RESULTADO || '-R' ||
-               nextval('sq_acad_plan_clase_rec_codigo') INTO STRICT NEW.CODIGO
+               nextval('david.sq_acad_plan_clase_rec_codigo') INTO STRICT NEW.CODIGO
 ;
     END IF;
 RETURN NEW;

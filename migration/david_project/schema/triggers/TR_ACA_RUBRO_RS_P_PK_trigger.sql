@@ -10,7 +10,7 @@ SET search_path = david,public;
 DROP TRIGGER IF EXISTS tr_aca_rubro_rs_p_pk ON acad_rubro_rastreo CASCADE;
 CREATE OR REPLACE FUNCTION david.trigger_fct_tr_aca_rubro_rs_p_pk() RETURNS trigger AS $BODY$
 BEGIN
-			  select nextval('sq_acad_rubro_rastreo_id')
+			  select nextval('david.sq_acad_rubro_rastreo_id')
 			  into STRICT NEW.id_rubro_rastreo
 			;
 			RETURN NEW;

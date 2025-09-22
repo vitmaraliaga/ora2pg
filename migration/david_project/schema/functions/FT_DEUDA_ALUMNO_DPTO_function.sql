@@ -21,7 +21,7 @@ BEGIN
 
 DECLARE
 
-  --v_codigo varchar2(100) := '';
+  --v_codigo varchar(100) := '';
   
   BEGIN
 

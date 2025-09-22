@@ -57,7 +57,7 @@ BEGIN
            	ELSE
            		L_CONTAR := 0;
 	            --VALIDA SI ESTA DENTRO DEL AREA DE TRABAJO
-	           	select CASE WHEN SUM(CASE WHEN ST_Distance)ORA2PG_COMMENT1231%
+	           	select CASE WHEN SUM(CASE WHEN ST_Distance)ORA2PG_COMMENT1240%
 				  geometry(2001, 4326, sdo_point_type(LNG, LAT, null), null, null),
 				  geometry(2001, 4326, sdo_point_type(P_LNG, P_LAT, null), null, null))<=RADIOME THEN 1 ELSE 0 END)>0 THEN 1 ELSE 0 END INTO STRICT L_CONTAR
 				from ENOC.PLLA_MAPA_COORD_RADIO WHERE ID_MAPA_POLIGONO = L_ID_MAPA_POLIGONO;

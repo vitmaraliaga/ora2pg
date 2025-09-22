@@ -11,7 +11,7 @@ DROP TRIGGER IF EXISTS trig_adviser_person_coment ON adviser_persona_comentario 
 CREATE OR REPLACE FUNCTION david.trigger_fct_trig_adviser_person_coment() RETURNS trigger AS $BODY$
 BEGIN
 IF coalesce(NEW.ID_COMENTARIO::text, '') = '' THEN
-SELECT nextval('sq_adviser_person_coment_id')
+SELECT nextval('david.sq_adviser_person_coment_id')
 INTO STRICT NEW.ID_COMENTARIO
 ;
 END IF;
