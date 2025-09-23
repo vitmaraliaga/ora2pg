@@ -1,9 +1,8 @@
 # ORDEN DE MIGRACION
 # 1. GENERAR EL ESQUELETO
     
-# 1. PRIMER INTENTO: TABLAS, SECUENCIAS, VALOR-SECUENCIAS
+# 2. PRIMER INTENTO: SECUENCIAS, VALOR-SECUENCIAS, TABLAS, DATA
     
-# 2. 
 ## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
