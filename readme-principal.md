@@ -5,41 +5,41 @@
     
 # 2. 
 ## Esquema: genesis ::: Schema generated Ok
-- SEQUENCE success (1th try)
-- SEQUENCE_VALUES success (1th try)
-- TABLE success (1th try)
-- VIEW success (2th try)
-- TRIGGER success (2th try)
-- FUNCTION success (2th try)
-- INDEXES success (2th try)
--       INDEX success (2th try)
--       CONSTRAINTS success (2th try)
--       foreign success (2th try)
--       TRIGGER success (2th try)
-- GRANT success (2th try)
-- TABLESPACE no migrar
-- data success (1th try)
+    SEQUENCE success (1th try)
+    SEQUENCE_VALUES success (1th try)
+    TABLE success (1th try)
+    VIEW success (2th try)
+    TRIGGER success (2th try)
+    FUNCTION success (2th try)
+    INDEXES success (2th try)
+          INDEX success (2th try)
+          CONSTRAINTS success (2th try)
+          foreign success (2th try)
+          TRIGGER success (2th try)
+    GRANT success (2th try)
+    TABLESPACE no migrar
+    data success (1th try)
     <!-- indexes success (2th try)
     foreign success keys (2th try) -->
 ## Esquema: caleb ::: Schema generated Ok
-- SEQUENCE success (1th try)
-- SEQUENCE_VALUES success (1th try)
-- TABLE success (1th try)
-- FUNCTION success (2th try)
-- VIEW no con errores de pivot
-- <!-- PACKAGE no -->
-- TRIGGER success (3th try)
-- PROCEDURE success (3th try)
-- <!-- MVIEW no
-- DBLINK no -->
-- <!-- DIRECTORY no -->
-- indexes yes
--       index  success (2th try)
--       contraints success (2th try)
--       foreignkey con error (2th try) // Esta pidiendo lucas
-- GRANT no
-- TABLESPACE no
-- data success (1th try)
+    SEQUENCE success (1th try)
+    SEQUENCE_VALUES success (1th try)
+    TABLE success (1th try)
+    FUNCTION success (2th try)
+    VIEW no con errores de pivot
+    <!- PACKAGE no -->
+    TRIGGER success (3th try)
+    PROCEDURE success (3th try)
+    <!- MVIEW no
+    DBLINK no -->
+    <!- DIRECTORY no -->
+    indexes yes
+          index  success (2th try)
+          contraints success (2th try)
+          foreignkey con error (2th try) // Esta pidiendo lucas
+    GRANT no
+    TABLESPACE no
+    data success (1th try)
 ## Esquema: josue ::: no existe en dev
 ## Esquema: moises ::: Schema generated Ok
     SEQUENCE success (1th try)
