@@ -20,6 +20,7 @@
 | genesis     | GRANT               |              | Success      |              |                                                                | 
 | genesis     | TABLESPACE          |              |              |              | No se migra                                                    | 
 | genesis     | DATA                | Success      |              |              |                                                                | 
+
 | ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
 |-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
 | caleb       | SEQUENCE            | Success      |              |              |                                                                | 
@@ -81,6 +82,82 @@
 | moises      | GRANT               |              |              |              | no (no existe el rol «userupdate»)                             | 
 | moises      | TABLESPACE          |              |              |              | No se migra                                                    | 
 | moises      | DATA                | Success      |              |              |                                                                | 
+
+| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+| eliseo      | SEQUENCE            | Success      |              |              |                                                                | 
+| eliseo      | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
+| eliseo      | TABLE               | Success      |              |              |                                                                | 
+| eliseo      | FUNCTION            |              | Success      |              | (Se exporto con errores) Se comentó varias lineas del archivo `function.sql`| 
+| eliseo      | VIEW                |              | xx           |              |  Depende de david.                                             | 
+| eliseo      | PACKAGE             |              | Success      |              | (Se exporto con errores) Se comentó varias lineas del archivo `package.sql`| 
+| eliseo      | TRIGGER             |              | Success      |              | (Se exporto con errores) Se comentó varias lineas del archivo `trigger.sql`| 
+| eliseo      | PROCEDURE           |              | Success      |              | (Se exporto con errores) Se comentó varias lineas del archivo `procedure.sql`| 
+| eliseo      | MVIEW               |              |              |              | Necesita de vistas                                             | 
+| eliseo      | DBLINK              |              |              |              | Por ahora no                                                   | 
+| eliseo      | DIRECTORY           |              |              |              | No.                                                        | 
+| eliseo      | INDEXES             |              | Success      |              |                                                                | 
+| eliseo      | INDEX               |              | Success      |              |                                                                |    
+| eliseo      | CONSTRAINTS         |              | Success      |              |                                                                | 
+| eliseo      | foreign             |              | Success      |              |                                                     | 
+| eliseo      | GRANT               |              |              |              | Esta engorroso                             | 
+| eliseo      | TABLESPACE          |              |              |              | No se migra                                                    | 
+| eliseo      | DATA                | Success      |              |              |                                                                | 
+
+| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+| enoc        | SEQUENCE            | Success      |              |              |                                                                | 
+| enoc        | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
+| enoc        | TABLE               | Success      |              |              |                                                                | 
+| enoc        | FUNCTION            |              | Success      |              | (Se exporto con errores) Se comentó varias lineas del archivo `function.sql`| 
+| enoc        | VIEW                |              | xx           |              | Depende de las vistas de eliseo                                            | 
+| enoc        | PACKAGE             |              | Success      |              | (Se exporto con errores) Se comentó varias lineas del archivo `package.sql`| 
+| enoc        | TRIGGER             |              | Success      |              |                                                         | 
+| enoc        | PROCEDURE           |              | Success      |              | (Se exporto con errores) Se comentó varias lineas del archivo `procedure.sql`| 
+| enoc        | MVIEW               |              |              |              | Necesita de vistas                                             | 
+| enoc        | DBLINK              |              |              |              | Por ahora no                                                   | 
+| enoc        | DIRECTORY           |              |              |              | No.                                                        | 
+| enoc        | INDEXES             |              | Success      |              |                                                                | 
+| enoc        | INDEX               |              | Success      |              |                                                                |    
+| enoc        | CONSTRAINTS         |              | Success      |              |                                                                | 
+| enoc        | foreign             |              |             |    Success       | (Depende de lucas) Se edito el archivo para no correr dependencias de lucas  | 
+| enoc        | GRANT               |              | Success      |              |                                     | 
+| enoc        | TABLESPACE          |              |              |              | No se migra                                                    | 
+| enoc        | DATA                | Success      |              |              |                                                                | 
+
+
+## Esquema: enoc :: 
+    SEQUENCE success (1th try)
+    SEQUENCE_VALUES success (1th try)
+    TABLE success (1th try)
+    FUNCTION success (2th try)
+        - (Se exporto con errores) 
+        - Se comentó varias lineas del archivo, mas que todo se esta corrgiendo.
+        - function.sql
+    PACKAGE success (2th try)
+        - (Se exporto con errores) 
+        - Se comentó varias lineas del archivo
+        - package.sql
+    VIEW no
+        Depende de las vistas de eliseo
+    TRIGGER success (2th try)
+    PROCEDURE no
+        - Se comentó varias lineas del archivo.
+        - procedure.sql -->
+    MVIEW no
+        - Necesita de vistas
+    DBLINK no
+        - Por ahora no
+    indexes yes
+        indexes  success (2th try)
+        constraints success (2th try)
+        foreignkey success (2th try) (Depende de lucas)
+        - Se edito el archivo para no correr dependencias de lucas
+    <!-- DIRECTORY no -->
+    GRANT success (2th try)
+    TABLESPACE no
+    data success (1th try)
+
 <!-- ## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
