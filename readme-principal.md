@@ -20,7 +20,9 @@
 | genesis     | GRANT               |              | Success      |              |                                                                | 
 | genesis     | TABLESPACE          |              |              |              | No se migra                                                    | 
 | genesis     | DATA                | Success      |              |              |                                                                | 
-| <td colspan="6"><hr></td> |
+
+| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
 | caleb       | SEQUENCE            | Success      |              |              |                                                                | 
 | caleb       | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
 | caleb       | TABLE               | Success      |              |              |                                                                | 
@@ -39,7 +41,9 @@
 | caleb       | GRANT               |              |              |              | no tiene                                                       | 
 | caleb       | TABLESPACE          |              |              |              | No se migra                                                    | 
 | caleb       | DATA                | Success      |              |              |                                                                | 
-|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+
+| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------|  
 | josue       | SEQUENCE            |              |              |              |                                                                | 
 | josue       | SEQUENCE_VALUES     |              |              |              |                                                                | 
 | josue       | TABLE               |              |              |              |                                                                | 
@@ -58,6 +62,8 @@
 | josue       | GRANT               |              |              |              |                                                          | 
 | josue       | TABLESPACE          |              |              |              |                                                        | 
 | josue       | DATA                |              |              |              |                                                                | 
+
+| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
 |-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
 | moises      | SEQUENCE            | Success      |              |              |                                                                | 
 | moises      | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
