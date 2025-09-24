@@ -16,7 +16,7 @@ SET search_path = enoc,public;
 \i ./schema/packages/pkg_assistance/pkg_assistance_sp_estado_sobretiempo_package.sql
 \i ./schema/packages/pkg_assistance/pkg_assistance_sp_procesar_sobretiempo_package.sql
 \i ./schema/packages/pkg_assistance/pkg_assistance_sp_procesar_falta_package.sql
-\i ./schema/packages/pkg_assistance/pkg_assistance_sp_registrar_marcacion_package.sql
+-- \i ./schema/packages/pkg_assistance/pkg_assistance_sp_registrar_marcacion_package.sql
 \i ./schema/packages/pkg_assistance/pkg_assistance_sp_asistencia_historico_package.sql
 \i ./schema/packages/pkg_assistance/pkg_assistance_sp_copiar_marcacion_auto_package.sql
 \i ./schema/packages/pkg_assistance/pkg_assistance_sp_copiar_marcacion_package.sql

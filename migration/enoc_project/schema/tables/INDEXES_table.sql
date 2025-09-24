@@ -7,8 +7,14 @@ SET client_encoding TO 'UTF8';
 \set ON_ERROR_STOP ON
 
 SET search_path = enoc,public;
+DROP INDEX IF EXISTS failed_jobs_uuid_uk;
+CREATE UNIQUE INDEX failed_jobs_uuid_uk ON failed_jobs (lower(uuid));
 DROP INDEX IF EXISTS password_resets_email_index;
 CREATE INDEX password_resets_email_index ON password_resets (email);
+DROP INDEX IF EXISTS persona_acces_token_toke_uk;
+CREATE UNIQUE INDEX persona_acces_token_toke_uk ON personal_access_tokens (lower(token));
+DROP INDEX IF EXISTS per_ac_to_toke_ty_toke_id_in;
+CREATE INDEX per_ac_to_toke_ty_toke_id_in ON personal_access_tokens (tokenable_type, tokenable_id);
 DROP INDEX IF EXISTS plla_per_vac_trab_proc_idx;
 CREATE INDEX plla_per_vac_trab_proc_idx ON plla_periodo_vac_trab_proceso (id_periodo_vac_trab, orden);
 DROP INDEX IF EXISTS plla_per_vac_trab_proc_nti_idx;

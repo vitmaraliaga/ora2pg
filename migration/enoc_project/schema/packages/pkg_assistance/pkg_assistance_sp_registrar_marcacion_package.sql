@@ -8,7 +8,7 @@ SET search_path = enoc,pkg_assistance,public;
 
 
 
-CREATE OR REPLACE PROCEDURE enoc.pkg_assistance_sp_registrar_marcacion ( P_ID_TRABAJADOR bigint, P_ID_TIPO_MARCACION bigint, P_FECHAHORA timestamp(0), P_FECHAHORA_MANUAL timestamp(0), P_LAT text, P_LNG text, P_IIDTERMINAL bigint, P_FOTOCHECK text, P_ID_SOLIC_JUSTIF bigint, P_TIPO text, P_ID_DESCRIP_MARCACION text, P_ID_USER_REG bigint, P_ERROR OUT bigint, P_MSGERROR out text, P_IDASISTENCIA numeric DEFAULT NULL ) AS $body$
+CREATE OR REPLACE PROCEDURE enoc.pkg_assistance_sp_registrar_marcacion ( P_ID_TRABAJADOR bigint, P_ID_TIPO_MARCACION bigint, P_FECHAHORA timestamp(0), P_FECHAHORA_MANUAL timestamp(0), P_LAT text, P_LNG text, P_IIDTERMINAL bigint, P_FOTOCHECK text, P_ID_SOLIC_JUSTIF bigint, P_TIPO text, P_ID_DESCRIP_MARCACION text, P_ID_USER_REG bigint, P_ERROR OUT bigint, P_MSGERROR out text, P_IDASISTENCIA NUMBERDEFAULTNULL ) AS $body$
 DECLARE
 
 

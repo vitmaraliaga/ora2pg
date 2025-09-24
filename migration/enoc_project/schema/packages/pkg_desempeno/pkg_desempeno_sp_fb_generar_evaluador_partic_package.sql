@@ -198,7 +198,7 @@ BEGIN
                       where x.id_evaluador=y.id_evaluador
                       and y.ID_DESEMPENO=P_ID_DESEMPENO
                     ) 
--- -- -- -- -- --                     ORDER BY DBMS_RANDOM.VALUE
+--                     ORDER BY DBMS_RANDOM.VALUE
                 )x LIMIT (l_num_partipante_eje);
               end if;
 

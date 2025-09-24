@@ -4,6 +4,23 @@
 # 2. PRIMER INTENTO: SECUENCIAS, VALOR-SECUENCIAS, TABLAS, DATA
     Hay que modificar el export_schema.sh
     para que apunte a otro conf
+
+| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones    |
+|-------------|---------------------|--------------|--------------|--------------|
+| genesis     | SEQUENCE            | Success      |
+| genesis     | SEQUENCE_VALUES     | Success      |
+| genesis     | TABLE               | Success      |
+| genesis     | VIEW                |              | Success      | 
+| genesis     | TRIGGER             |              | Success      | 
+| genesis     | FUNCTION            |              | Success      | 
+| genesis     | INDEXES             |              | Success      | 
+| genesis     | INDEX               |              | Success      | 
+| genesis     | CONSTRAINTS         |              | Success      | 
+| genesis     | foreign             |              | Success      | 
+| genesis     | GRANT               |              | Success      | 
+| genesis     | TABLESPACE          |              |              |               | No se migra
+| genesis     | DATA                | Success      |              |               | No se migra
+
 ## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
@@ -56,7 +73,7 @@
     indexes yes (2th try)
         indexes success (2th try)
         constraints success (2th try)
-        foreignkey no : depende de enoc 
+        foreignkey no : depende de enoc // success (3th try) con exito despues de migrar enoc
     GRANT no (no existe el rol «userupdate»)
     TABLESPACE no
     data success (1th try)
