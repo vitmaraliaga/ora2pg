@@ -20,7 +20,7 @@
 | genesis     | GRANT               |              | Success      |              |                                                                | 
 | genesis     | TABLESPACE          |              |              |              | No se migra                                                    | 
 | genesis     | DATA                | Success      |              |              |                                                                | 
-|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+
 | caleb       | SEQUENCE            | Success      |              |              |                                                                | 
 | caleb       | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
 | caleb       | TABLE               | Success      |              |              |                                                                | 
