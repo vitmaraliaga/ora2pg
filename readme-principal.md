@@ -6,20 +6,20 @@
     para que apunte a otro conf
 
 | ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones    |
-|-------------|---------------------|--------------|--------------|--------------|
-| genesis     | SEQUENCE            | Success      |
-| genesis     | SEQUENCE_VALUES     | Success      |
-| genesis     | TABLE               | Success      |
-| genesis     | VIEW                |              | Success      | 
-| genesis     | TRIGGER             |              | Success      | 
-| genesis     | FUNCTION            |              | Success      | 
-| genesis     | INDEXES             |              | Success      | 
-| genesis     | INDEX               |              | Success      | 
-| genesis     | CONSTRAINTS         |              | Success      | 
-| genesis     | foreign             |              | Success      | 
-| genesis     | GRANT               |              | Success      | 
-| genesis     | TABLESPACE          |              |              |               | No se migra
-| genesis     | DATA                | Success      |              |               | No se migra
+|-------------|---------------------|--------------|--------------|--------------|------------------| 
+| genesis     | SEQUENCE            | Success      |              |              |                  | 
+| genesis     | SEQUENCE_VALUES     | Success      |              |              |                  | 
+| genesis     | TABLE               | Success      |              |              |                  | 
+| genesis     | VIEW                |              | Success      |              |                  | 
+| genesis     | TRIGGER             |              | Success      |              |                  | 
+| genesis     | FUNCTION            |              | Success      |              |                  | 
+| genesis     | INDEXES             |              | Success      |              |                  | 
+| genesis     | INDEX               |              | Success      |              |                  | 
+| genesis     | CONSTRAINTS         |              | Success      |              |                  | 
+| genesis     | foreign             |              | Success      |              |                  | 
+| genesis     | GRANT               |              | Success      |              |                  | 
+| genesis     | TABLESPACE          |              |              |              | No se migra      | 
+| genesis     | DATA                | Success      |              |              | No se migra      | 
 
 ## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
