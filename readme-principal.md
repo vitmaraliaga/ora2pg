@@ -21,8 +21,7 @@
 | genesis     | TABLESPACE          |              |              |              | No se migra                                                    | 
 | genesis     | DATA                | Success      |              |              |                                                                | 
 
-| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
-|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+| *************                                                |
 | caleb       | SEQUENCE            | Success      |              |              |                                                                | 
 | caleb       | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
 | caleb       | TABLE               | Success      |              |              |                                                                | 
