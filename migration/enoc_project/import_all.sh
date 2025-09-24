@@ -456,7 +456,7 @@ if [ $IMPORT_SCHEMA -eq 0 ]; then
 			fi
 		fi
 
-				# Import data from Oracle heavy database
+		# Import data from Oracle heavy database
 		if [ -r "$NAMESPACE/config/ora2pg-heavy.conf" ]; then
 			if confirm "Would you like to import data from Oracle heavy database directly into PostgreSQL?" ; then
 				echo "Running: ora2pg$IMPORT_JOBS$PARALLEL_TABLES -c config/ora2pg-heavy.conf -t COPY --pg_dsn \"$pgdsn_defined\" --pg_user $DB_OWNER "

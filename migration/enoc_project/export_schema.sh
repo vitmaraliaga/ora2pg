@@ -9,9 +9,9 @@ SOURCE_TYPE="PACKAGE VIEW TRIGGER FUNCTION PROCEDURE PARTITION TYPE MVIEW"
 namespace="."
 unit_cost=5
 
-ora2pg -t SHOW_TABLE -c $namespace/config/ora2pg.conf > $namespace/reports/tables.txt
-ora2pg -t SHOW_COLUMN -c $namespace/config/ora2pg.conf  > $namespace/reports/columns.txt
-ora2pg -t SHOW_REPORT -c $namespace/config/ora2pg.conf --dump_as_html --cost_unit_value  $unit_cost --estimate_cost > $namespace/reports/report.html
+ora2pg -t SHOW_TABLE -c $namespace/config/ora2pg-export.conf > $namespace/reports/tables.txt
+ora2pg -t SHOW_COLUMN -c $namespace/config/ora2pg-export.conf  > $namespace/reports/columns.txt
+ora2pg -t SHOW_REPORT -c $namespace/config/ora2pg-export.conf --dump_as_html --cost_unit_value  $unit_cost --estimate_cost > $namespace/reports/report.html
 
 for etype in $(echo $EXPORT_TYPE | tr " " "\n")
 do
@@ -23,8 +23,8 @@ do
 	else
 		blob_to_lo=""
 	fi
-        echo "Running: ora2pg -p -t $etype -o $ltype.sql -b $namespace/schema/${ltype}s -c $namespace/config/ora2pg.conf ${blob_to_lo}"
-        ora2pg -p -t $etype -o $ltype.sql -b $namespace/schema/${ltype}s -c $namespace/config/ora2pg.conf ${blob_to_lo}
+        echo "Running: ora2pg -p -t $etype -o $ltype.sql -b $namespace/schema/${ltype}s -c $namespace/config/ora2pg-export.conf ${blob_to_lo}"
+        ora2pg -p -t $etype -o $ltype.sql -b $namespace/schema/${ltype}s -c $namespace/config/ora2pg-export.conf ${blob_to_lo}
 	ret=`grep "Nothing found" $namespace/schema/${ltype}s/$ltype.sql 2> /dev/null`
 	if [ ! -z "$ret" ]; then
 		rm $namespace/schema/${ltype}s/$ltype.sql
@@ -35,8 +35,8 @@ for etype in $(echo $SOURCE_TYPE | tr " " "\n")
 do
         ltype=`echo $etype | tr '[:upper:]' '[:lower:]'`
         ltype=`echo $ltype | sed 's/y$/ie/'`
-        echo "Running: ora2pg -t $etype -o $ltype.sql -b $namespace/sources/${ltype}s -c $namespace/config/ora2pg.conf"
-        ora2pg -t $etype -o $ltype.sql -b $namespace/sources/${ltype}s -c $namespace/config/ora2pg.conf
+        echo "Running: ora2pg -t $etype -o $ltype.sql -b $namespace/sources/${ltype}s -c $namespace/config/ora2pg-export.conf"
+        ora2pg -t $etype -o $ltype.sql -b $namespace/sources/${ltype}s -c $namespace/config/ora2pg-export.conf
 	ret=`grep "Nothing found" $namespace/sources/${ltype}s/$ltype.sql 2> /dev/null`
 	if [ ! -z "$ret" ]; then
 		rm $namespace/sources/${ltype}s/$ltype.sql
@@ -47,7 +47,7 @@ echo
 echo
 echo "To extract data use the following command:"
 echo
-echo "ora2pg -t COPY -o data.sql -b $namespace/data -c $namespace/config/ora2pg.conf "
+echo "ora2pg -t COPY -o data.sql -b $namespace/data -c $namespace/config/ora2pg-export.conf "
 echo
 
 exit 0

@@ -2,7 +2,8 @@
 # 1. GENERAR EL ESQUELETO
     
 # 2. PRIMER INTENTO: SECUENCIAS, VALOR-SECUENCIAS, TABLAS, DATA
-    
+    Hay que modificar el export_schema.sh
+    para que apunte a otro conf
 ## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
@@ -25,18 +26,18 @@
     SEQUENCE_VALUES success (1th try)
     TABLE success (1th try)
     FUNCTION success (2th try)
-    VIEW no con errores de pivot
-    <!- PACKAGE no -->
+    VIEW no con errores de pivot (Solo es una vista, y ese tiene error)
+    <!- PACKAGE no tiene-->
     TRIGGER success (3th try)
     PROCEDURE success (3th try)
-    <!- MVIEW no
-    DBLINK no -->
-    <!- DIRECTORY no -->
+    <!- MVIEW no tiene
+    DBLINK no tiene-->
+    <!- DIRECTORY no tiene-->
     indexes yes
           index  success (2th try)
           contraints success (2th try)
           foreignkey con error (2th try) // Esta pidiendo lucas
-    GRANT no
+    GRANT no tiene
     TABLESPACE no
     data success (1th try)
 ## Esquema: josue ::: no existe en dev
@@ -49,8 +50,8 @@
     VIEW success (2th try)
     TRIGGER success (2th try)
     PROCEDURE success (2th try)
-    <!-- MVIEW no -->
-    DBLINK no
+    <!-- MVIEW no found-->
+    DBLINK no aún
     <!-- DIRECTORY no -->
     indexes yes (2th try)
         indexes success (2th try)
@@ -90,6 +91,7 @@
         foreignkey success (2th try)
     <!-- DIRECTORY no -->
     GRANT no
+        <!-- Esta engorroso -->
     TABLESPACE no
     data success (1th try)
     indexes success (1th try)
@@ -98,7 +100,52 @@
     TRIGGER no
 ## Esquema: david :: Schema generated Ok
 ## Esquema: lucas :: 
+    SEQUENCE 
+    SEQUENCE_VALUES 
+    TABLE 
+    FUNCTION 
+    PACKAGE 
+    VIEW no
+    TRIGGER 
+    PROCEDURE no
+    MVIEW no
+    DBLINK no
+    indexes no
+    DIRECTORY no
+    GRANT 
+    TABLESPACE no
+    data 
 ## Esquema: enoc :: 
+    SEQUENCE success (1th try)
+    SEQUENCE_VALUES success (1th try)
+    TABLE success (1th try)
+    FUNCTION success (2th try)
+        - (Se exporto con errores) 
+        - Se comentó varias lineas del archivo, mas que todo se esta corrgiendo.
+        - function.sql
+    PACKAGE success (2th try)
+        - (Se exporto con errores) 
+        - Se comentó varias lineas del archivo
+        - package.sql
+    VIEW no
+        Depende de las vistas de eliseo
+    TRIGGER success (2th try)
+    PROCEDURE no
+        - Se comentó varias lineas del archivo.
+        - procedure.sql -->
+    MVIEW no
+        - Necesita de vistas
+    DBLINK no
+        - Por ahora no
+    indexes yes
+        indexes  success (2th try)
+        constraints success (2th try)
+        foreignkey success (2th try) (Depende de lucas)
+        - Se edito el archivo para no correr dependencias de lucas
+    <!-- DIRECTORY no -->
+    GRANT success (2th try)
+    TABLESPACE no
+    data success (1th try)
 ## Esquema: unionito
 ## Esquema: jonas
 ## Esquema: jairo
@@ -116,3 +163,6 @@ Migrar pk
 Migrar funciones, procedimientos, vistas, etc
 Migrar data
 Migrar contrais
+
+
+ora2pg -p -t TABLE -o table.sql -b ./schema/tables -c ./config/ora2pg.conf

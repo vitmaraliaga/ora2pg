@@ -101,3 +101,6 @@ echo "Correciones cuando hay fechas: $SCHEMA"
 sed -i "s/||%%string0%(|/||''||/g" "$BASE_DIR/tables/INDEXES_table.sql"
 sed -i "s/||%%string1%(|/||''||/g" "$BASE_DIR/tables/INDEXES_table.sql"
 echo "Correciones indices: $SCHEMA"
+
+find "$BASE_DIR" -name "*.sql" -type f -exec sed -i "s/${SCHEMA}\.CALL pkg/CALL ${SCHEMA}.pkg/gi" {} \;
+echo "Correcciones en los procedimientos que hacen call: $SCHEMA"

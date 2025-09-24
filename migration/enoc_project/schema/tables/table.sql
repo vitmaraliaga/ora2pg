@@ -1658,6 +1658,110 @@ CREATE TABLE plla_control_proceso_modulo (
 ) ;
 
 
+DROP TABLE IF EXISTS plla_convenio;
+CREATE TABLE plla_convenio (
+	id_convenio bigint NOT NULL,
+	id_entidad bigint NOT NULL,
+	id_depto varchar(10) NOT NULL,
+	id_tipo_convenio bigint NOT NULL,
+	id_convenio_ense bigint,
+	id_trabajador bigint,
+	id_concepto_planilla bigint,
+	id_convenio_plantilla bigint,
+	id_beneficiario bigint,
+	descripcion varchar(200),
+	id_anho bigint,
+	id_mes bigint,
+	adjunto1 varchar(150),
+	adjunto2 varchar(150),
+	adjunto3 varchar(150),
+	convenio text,
+	convenio_url varchar(150),
+	pagado bigint,
+	id_estado_convenio varchar(2),
+	id_user_pago bigint,
+	fecha_pago timestamp(0),
+	id_user_reg bigint,
+	created_at timestamp(0),
+	id_user_mod bigint,
+	updated_at timestamp(0)
+) ;
+COMMENT ON COLUMN plla_convenio.id_anho IS E'AÑO PAGO PARA ADELANTO Y GRATI AÑO REG PARA CONVENIO';
+COMMENT ON COLUMN plla_convenio.id_beneficiario IS E'ID_PERSONA, PUEDE SER LA MISMA TRABAJADOR O SUS DEPENEDIENTES(HIJOS Y ESPOSO(A))';
+COMMENT ON COLUMN plla_convenio.id_mes IS E'MES PAGO PARA ADELANTO Y GRATI MES REG PARA CONVENIO';
+
+
+DROP TABLE IF EXISTS plla_convenio_det;
+CREATE TABLE plla_convenio_det (
+	id_convenio_det bigint NOT NULL,
+	id_convenio bigint NOT NULL,
+	id_mes bigint NOT NULL,
+	id_anho bigint NOT NULL,
+	importe decimal(10,2),
+	vigencia bigint,
+	id_user_reg bigint,
+	created_at timestamp(0),
+	id_user_mod bigint,
+	updated_at timestamp(0)
+) ;
+
+
+DROP TABLE IF EXISTS plla_convenio_ense;
+CREATE TABLE plla_convenio_ense (
+	id_convenio_ense bigint NOT NULL,
+	nombre varchar(200),
+	descripcion varchar(500),
+	meses_max bigint,
+	orden bigint,
+	vigencia bigint
+) ;
+
+
+DROP TABLE IF EXISTS plla_convenio_estado;
+CREATE TABLE plla_convenio_estado (
+	id_convenio_estado bigint NOT NULL,
+	id_estado_convenio varchar(2) NOT NULL,
+	id_convenio bigint NOT NULL,
+	observacion varchar(200),
+	id_user_reg bigint,
+	created_at timestamp(0),
+	id_user_mod bigint,
+	updated_at timestamp(0)
+) ;
+
+
+DROP TABLE IF EXISTS plla_convenio_parametro;
+CREATE TABLE plla_convenio_parametro (
+	id_convenio_parametro bigint NOT NULL,
+	id_tipo_param_convenio bigint NOT NULL,
+	tipo varchar(2) NOT NULL,
+	parametro varchar(50) NOT NULL,
+	significado varchar(150),
+	comentario varchar(500),
+	campo varchar(50),
+	proceso varchar(100),
+	vigencia bigint
+) ;
+COMMENT ON COLUMN plla_convenio_parametro.tipo IS E'F:FIJO, P:PROCESO';
+
+
+DROP TABLE IF EXISTS plla_convenio_plantilla;
+CREATE TABLE plla_convenio_plantilla (
+	id_convenio_plantilla bigint NOT NULL,
+	id_entidad bigint NOT NULL,
+	id_depto varchar(10) NOT NULL,
+	id_tipo_convenio bigint NOT NULL,
+	nombre varchar(200),
+	descripcion varchar(500),
+	plantilla text,
+	vigencia bigint,
+	id_user_reg bigint,
+	created_at timestamp(0),
+	id_user_mod bigint,
+	updated_at timestamp(0)
+) ;
+
+
 DROP TABLE IF EXISTS plla_costoxhora_carga;
 CREATE TABLE plla_costoxhora_carga (
 	id_carga_curso bigint NOT NULL,
@@ -1923,7 +2027,7 @@ CREATE TABLE plla_encuesta_item (
 	titulo varchar(4000),
 	codigo varchar(10),
 	descripcion varchar(4000),
-	"order" bigint,
+	order bigint,
 	children_align varchar(20),
 	id_user_reg bigint,
 	id_user_mod bigint,
@@ -2077,6 +2181,17 @@ CREATE TABLE plla_estado_cont_depto (
 	vigencia bigint
 ) ;
 COMMENT ON COLUMN plla_estado_cont_depto.tipo IS E'C:CONTRATO, R:RENOVACION, T: cese';
+
+
+DROP TABLE IF EXISTS plla_estado_convenio;
+CREATE TABLE plla_estado_convenio (
+	id_estado_convenio varchar(2) NOT NULL,
+	nombre varchar(35) NOT NULL,
+	nombrecorto varchar(15),
+	orden bigint,
+	vigencia bigint,
+	ruta varchar(150)
+) ;
 
 
 DROP TABLE IF EXISTS plla_estado_falta;
@@ -2758,8 +2873,8 @@ CREATE TABLE plla_mapa_coordenada (
 	radiokm decimal(10,4),
 	radiome decimal(10,4),
 	indicador bigint,
-	latn bigint,
-	lngn bigint
+	latn numeric,
+	lngn numeric
 ) ;
 
 
@@ -3375,9 +3490,9 @@ CREATE TABLE plla_periodo_planilla (
 	fecha_aprobacion timestamp(0),
 	fecha_cierre timestamp(0),
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -3390,9 +3505,9 @@ CREATE TABLE plla_periodo_proceso (
 	fecha_aprobacion timestamp(0),
 	vigencia bigint,
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 COMMENT ON COLUMN plla_periodo_proceso.tipo IS E'0:General, 1: por usuario';
 
@@ -3404,9 +3519,9 @@ CREATE TABLE plla_periodo_proceso_mod (
 	modulo varchar(1500) NOT NULL,
 	vigencia bigint,
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -3416,9 +3531,9 @@ CREATE TABLE plla_periodo_proceso_user (
 	id_user bigint NOT NULL,
 	vigencia bigint,
 	id_user_reg bigint,
-	fecha_reg timestamp(0),
+	created_at timestamp(0),
 	id_user_mod bigint,
-	fecha_mod timestamp(0)
+	updated_at timestamp(0)
 ) ;
 
 
@@ -4580,6 +4695,26 @@ CREATE TABLE plla_tipo_contrato (
 ) ;
 
 
+DROP TABLE IF EXISTS plla_tipo_convenio;
+CREATE TABLE plla_tipo_convenio (
+	id_tipo_convenio bigint NOT NULL,
+	nombre varchar(250) NOT NULL,
+	codigo varchar(15) NOT NULL,
+	id_concepto_planilla bigint,
+	cant_anhos bigint DEFAULT 0,
+	adjuntos bigint DEFAULT 0,
+	varios_meses bigint DEFAULT 0,
+	vigencia bigint,
+	created_at timestamp(0),
+	updated_at timestamp(0),
+	id_user_reg bigint,
+	id_user_mod bigint
+) ;
+COMMENT ON COLUMN plla_tipo_convenio.adjuntos IS E'NRO, ADJUNTOS OBLIGATORIO';
+COMMENT ON COLUMN plla_tipo_convenio.cant_anhos IS E'Cantidad por año que se debe solictar por trabajador. 0 sin limite';
+COMMENT ON COLUMN plla_tipo_convenio.varios_meses IS E'0: UN SOLO MES, 1: VARIOS MESES';
+
+
 DROP TABLE IF EXISTS plla_tipo_cuestio_adic;
 CREATE TABLE plla_tipo_cuestio_adic (
 	id_tipo_cuestio_adic bigint NOT NULL,
@@ -4861,6 +4996,15 @@ CREATE TABLE plla_tipo_pago_mensual (
 	vigencia bigint
 ) ;
 COMMENT ON COLUMN plla_tipo_pago_mensual.tipo IS E'I:IMPORTE, P:PORCENTAJE,CG:CALCULO GENERAL';
+
+
+DROP TABLE IF EXISTS plla_tipo_param_convenio;
+CREATE TABLE plla_tipo_param_convenio (
+	id_tipo_param_convenio bigint NOT NULL,
+	nombre varchar(200),
+	orden bigint,
+	vigencia bigint
+) ;
 
 
 DROP TABLE IF EXISTS plla_tipo_param_plantilla;

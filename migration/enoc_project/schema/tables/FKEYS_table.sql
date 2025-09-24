@@ -517,6 +517,49 @@ ALTER TABLE plla_control_personal_trab DROP CONSTRAINT IF EXISTS control_persona
 ALTER TABLE plla_control_personal_trab ADD CONSTRAINT control_personal_trab_fk2 FOREIGN KEY (id_trabajador) REFERENCES moises.trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_control_proceso_modulo DROP CONSTRAINT IF EXISTS control_proceso_modulo_fk2;
 ALTER TABLE plla_control_proceso_modulo ADD CONSTRAINT control_proceso_modulo_fk2 FOREIGN KEY (id_control_proceso) REFERENCES plla_control_proceso(id_control_proceso) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk1;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk1 FOREIGN KEY (id_entidad) REFERENCES eliseo.conta_entidad(id_entidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk2;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk2 FOREIGN KEY (id_depto,id_entidad) REFERENCES eliseo.conta_entidad_depto(id_depto,id_entidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk3;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk3 FOREIGN KEY (id_tipo_convenio) REFERENCES plla_tipo_convenio(id_tipo_convenio) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk4;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk4 FOREIGN KEY (id_convenio_plantilla) REFERENCES plla_convenio_plantilla(id_convenio_plantilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk5;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk5 FOREIGN KEY (id_trabajador) REFERENCES moises.trabajador(id_trabajador) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk6;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk6 FOREIGN KEY (id_concepto_planilla) REFERENCES plla_concepto_planilla(id_concepto_planilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk7;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk7 FOREIGN KEY (id_estado_convenio) REFERENCES plla_estado_convenio(id_estado_convenio) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio DROP CONSTRAINT IF EXISTS plla_convenio_fk8;
+ALTER TABLE plla_convenio ADD CONSTRAINT plla_convenio_fk8 FOREIGN KEY (id_mes) REFERENCES eliseo.conta_mes(id_mes) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_convenio_det DROP CONSTRAINT IF EXISTS plla_convenio_det_fk1;
+ALTER TABLE plla_convenio_det ADD CONSTRAINT plla_convenio_det_fk1 FOREIGN KEY (id_convenio) REFERENCES plla_convenio(id_convenio) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio_det DROP CONSTRAINT IF EXISTS plla_convenio_det_fk2;
+ALTER TABLE plla_convenio_det ADD CONSTRAINT plla_convenio_det_fk2 FOREIGN KEY (id_mes) REFERENCES eliseo.conta_mes(id_mes) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_convenio_estado DROP CONSTRAINT IF EXISTS plla_convenio_estado_fk1;
+ALTER TABLE plla_convenio_estado ADD CONSTRAINT plla_convenio_estado_fk1 FOREIGN KEY (id_convenio) REFERENCES plla_convenio(id_convenio) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio_estado DROP CONSTRAINT IF EXISTS plla_convenio_estado_fk2;
+ALTER TABLE plla_convenio_estado ADD CONSTRAINT plla_convenio_estado_fk2 FOREIGN KEY (id_estado_convenio) REFERENCES plla_estado_convenio(id_estado_convenio) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_convenio_parametro DROP CONSTRAINT IF EXISTS convenio_parametro_fk1;
+ALTER TABLE plla_convenio_parametro ADD CONSTRAINT convenio_parametro_fk1 FOREIGN KEY (id_tipo_param_convenio) REFERENCES plla_tipo_param_convenio(id_tipo_param_convenio) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_convenio_plantilla DROP CONSTRAINT IF EXISTS convenio_plantilla_fk1;
+ALTER TABLE plla_convenio_plantilla ADD CONSTRAINT convenio_plantilla_fk1 FOREIGN KEY (id_entidad) REFERENCES eliseo.conta_entidad(id_entidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio_plantilla DROP CONSTRAINT IF EXISTS convenio_plantilla_fk2;
+ALTER TABLE plla_convenio_plantilla ADD CONSTRAINT convenio_plantilla_fk2 FOREIGN KEY (id_depto,id_entidad) REFERENCES eliseo.conta_entidad_depto(id_depto,id_entidad) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE plla_convenio_plantilla DROP CONSTRAINT IF EXISTS convenio_plantilla_fk3;
+ALTER TABLE plla_convenio_plantilla ADD CONSTRAINT convenio_plantilla_fk3 FOREIGN KEY (id_tipo_convenio) REFERENCES plla_tipo_convenio(id_tipo_convenio) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_costoxhora_carga DROP CONSTRAINT IF EXISTS costoxhora_carga_fk2;
 ALTER TABLE plla_costoxhora_carga ADD CONSTRAINT costoxhora_carga_fk2 FOREIGN KEY (id_persona) REFERENCES moises.persona(id_persona) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -1172,6 +1215,8 @@ ALTER TABLE plla_tipo_concep_adic_est DROP CONSTRAINT IF EXISTS tipo_concep_adic
 ALTER TABLE plla_tipo_concep_adic_est ADD CONSTRAINT tipo_concep_adic_est_fk2 FOREIGN KEY (id_estado_adicional) REFERENCES plla_estado_adicional(id_estado_adicional) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_tipo_contrato DROP CONSTRAINT IF EXISTS tipo_contrato_fk1;
 ALTER TABLE plla_tipo_contrato ADD CONSTRAINT tipo_contrato_fk1 FOREIGN KEY (id_clase_condicion) REFERENCES plla_clase_condicion(id_clase_condicion) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE plla_tipo_convenio DROP CONSTRAINT IF EXISTS plla_tipo_convenio_fk1;
+ALTER TABLE plla_tipo_convenio ADD CONSTRAINT plla_tipo_convenio_fk1 FOREIGN KEY (id_concepto_planilla) REFERENCES plla_concepto_planilla(id_concepto_planilla) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_tipo_documento DROP CONSTRAINT IF EXISTS fk_plla_tipo_modulo;
 ALTER TABLE plla_tipo_documento ADD CONSTRAINT fk_plla_tipo_modulo FOREIGN KEY (id_tipo_modulo) REFERENCES plla_tipo_modulo(id_tipo_modulo) ON DELETE NO ACTION NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE plla_tipo_doc_regla DROP CONSTRAINT IF EXISTS plla_tipo_doc_regla_fk2;
