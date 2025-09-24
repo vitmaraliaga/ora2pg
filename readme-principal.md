@@ -20,8 +20,22 @@
 | genesis     | GRANT               |              | Success      |              |                  | 
 | genesis     | TABLESPACE          |              |              |              | No se migra      | 
 | genesis     | DATA                | Success      |              |              | No se migra      | 
+|-------------|---------------------|--------------|--------------|--------------|------------------| 
+| caleb       | SEQUENCE            | Success      |              |              |                  | 
+| caleb       | SEQUENCE_VALUES     | Success      |              |              |                  | 
+| caleb       | TABLE               | Success      |              |              |                  | 
+| caleb       | VIEW                |              |              |              | no con errores de pivot (Solo es una vista, y ese tiene error)              | 
+| caleb       | TRIGGER             |              | Success      |              |                  | 
+| caleb       | FUNCTION            |              | Success      |              |                  | 
+| caleb       | INDEXES             |              | Success      |              |                  | 
+| caleb       | INDEX               |              | Success      |              |                  | 
+| caleb       | CONSTRAINTS         |              | Success      |              |                  | 
+| caleb       | foreign             |              | Success      |              |                  | 
+| caleb       | GRANT               |              | Success      |              |                  | 
+| caleb       | TABLESPACE          |              |              |              | No se migra      | 
+| caleb       | DATA                | Success      |              |              | No se migra      | 
 
-## Esquema: genesis ::: Schema generated Ok
+<!-- ## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
     TABLE success (1th try)
@@ -37,7 +51,7 @@
     TABLESPACE no migrar
     data success (1th try)
     <!-- indexes success (2th try)
-    foreign success keys (2th try) -->
+    foreign success keys (2th try) --> -->
 ## Esquema: caleb ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
