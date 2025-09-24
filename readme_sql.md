@@ -1,4 +1,4 @@
-## Para separar los archivos con tablas pesadas
+## 1. Para separar los archivos con tablas pesadas
 1. Primero hay que limpiar ninguna tabla puede tener LONG, este tipo de datos ya fue deprecado en oracle
 ```
 SELECT owner,
@@ -9,9 +9,7 @@ WHERE data_type = 'LONG'
 AND owner NOT IN ('SYS','SYSTEM','WMSYS','EXFSYS','OUTLN')
 ORDER BY owner, table_name, column_name;
 ```
-2. 
-
-## Ejemplo para sacar todas las tablas que tienen decimales con campo number
+## 2. Ejemplo para sacar todas las tablas que tienen decimales con campo number
  <!-- Ubicarse en el esquema en trabajo -->
 1. Ejecuntar esto en desarrollo y produccion:
 
