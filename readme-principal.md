@@ -41,7 +41,6 @@
 | caleb       | GRANT               |              |              |              | no tiene                                                       | 
 | caleb       | TABLESPACE          |              |              |              | No se migra                                                    | 
 | caleb       | DATA                | Success      |              |              |                                                                | 
-
 | ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
 |-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------|  
 | josue       | SEQUENCE            |              |              |              |                                                                | 
