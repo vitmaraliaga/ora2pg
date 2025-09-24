@@ -127,39 +127,7 @@
 | enoc        | DATA                | Success      |              |              |                                                                | 
 
 
-## Esquema: enoc :: 
-    SEQUENCE success (1th try)
-    SEQUENCE_VALUES success (1th try)
-    TABLE success (1th try)
-    FUNCTION success (2th try)
-        - (Se exporto con errores) 
-        - Se comentó varias lineas del archivo, mas que todo se esta corrgiendo.
-        - function.sql
-    PACKAGE success (2th try)
-        - (Se exporto con errores) 
-        - Se comentó varias lineas del archivo
-        - package.sql
-    VIEW no
-        Depende de las vistas de eliseo
-    TRIGGER success (2th try)
-    PROCEDURE no
-        - Se comentó varias lineas del archivo.
-        - procedure.sql -->
-    MVIEW no
-        - Necesita de vistas
-    DBLINK no
-        - Por ahora no
-    indexes yes
-        indexes  success (2th try)
-        constraints success (2th try)
-        foreignkey success (2th try) (Depende de lucas)
-        - Se edito el archivo para no correr dependencias de lucas
-    <!-- DIRECTORY no -->
-    GRANT success (2th try)
-    TABLESPACE no
-    data success (1th try)
-
-<!-- ## Esquema: genesis ::: Schema generated Ok
+## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
     TABLE success (1th try)
@@ -175,7 +143,7 @@
     TABLESPACE no migrar
     data success (1th try)
     <!-- indexes success (2th try)
-    foreign success keys (2th try) --> -->
+    foreign success keys (2th try) --> 
 ## Esquema: caleb ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
@@ -227,8 +195,8 @@
         - (Se exporto con errores) 
         - Se comentó varias lineas del archivo
         - package.sql
-    VIEW no
-        Depende de david
+    VIEW success (3th try)
+        Depende de david/ Se comento un monton en view.sql
     TRIGGER success (2th try)
         - Se comentó lineas del archivo
         - trigger.sql
@@ -237,7 +205,7 @@
         - Se comentó varias lineas del archivo, mas que todo se esta corrgiendo.
         - procedure.sql
     MVIEW no
-        - Necesita de vistas
+        - Se corrigio el archivo y se volvio a correr, success (3th try)
     DBLINK no
         - Por ahora no
     indexes yes
