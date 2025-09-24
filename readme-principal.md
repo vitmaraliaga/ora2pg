@@ -5,36 +5,78 @@
     Hay que modificar el export_schema.sh
     para que apunte a otro conf
 
-| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones    |
-|-------------|---------------------|--------------|--------------|--------------|------------------| 
-| genesis     | SEQUENCE            | Success      |              |              |                  | 
-| genesis     | SEQUENCE_VALUES     | Success      |              |              |                  | 
-| genesis     | TABLE               | Success      |              |              |                  | 
-| genesis     | VIEW                |              | Success      |              |                  | 
-| genesis     | TRIGGER             |              | Success      |              |                  | 
-| genesis     | FUNCTION            |              | Success      |              |                  | 
-| genesis     | INDEXES             |              | Success      |              |                  | 
-| genesis     | INDEX               |              | Success      |              |                  | 
-| genesis     | CONSTRAINTS         |              | Success      |              |                  | 
-| genesis     | foreign             |              | Success      |              |                  | 
-| genesis     | GRANT               |              | Success      |              |                  | 
-| genesis     | TABLESPACE          |              |              |              | No se migra      | 
-| genesis     | DATA                | Success      |              |              | No se migra      | 
-|-------------|---------------------|--------------|--------------|--------------|------------------| 
-| caleb       | SEQUENCE            | Success      |              |              |                  | 
-| caleb       | SEQUENCE_VALUES     | Success      |              |              |                  | 
-| caleb       | TABLE               | Success      |              |              |                  | 
-| caleb       | VIEW                |              |              |              | no con errores de pivot (Solo es una vista, y ese tiene error)              | 
-| caleb       | TRIGGER             |              | Success      |              |                  | 
-| caleb       | FUNCTION            |              | Success      |              |                  | 
-| caleb       | INDEXES             |              | Success      |              |                  | 
-| caleb       | INDEX               |              | Success      |              |                  | 
-| caleb       | CONSTRAINTS         |              | Success      |              |                  | 
-| caleb       | foreign             |              | Success      |              |                  | 
-| caleb       | GRANT               |              | Success      |              |                  | 
-| caleb       | TABLESPACE          |              |              |              | No se migra      | 
-| caleb       | DATA                | Success      |              |              | No se migra      | 
-
+| ESQUEMA     | OBJETO              | Intento 1    | Intento 2    | Intento 3    | Observaciones                                                  |
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+| genesis     | SEQUENCE            | Success      |              |              |                                                                | 
+| genesis     | SEQUENCE_VALUES     | Success      |              |              |                                                                |   
+| genesis     | TABLE               | Success      |              |              |                                                                | 
+| genesis     | VIEW                |              | Success      |              |                                                                | 
+| genesis     | TRIGGER             |              | Success      |              |                                                                | 
+| genesis     | FUNCTION            |              | Success      |              |                                                                | 
+| genesis     | INDEXES             |              | Success      |              |                                                                | 
+| genesis     | INDEX               |              | Success      |              |                                                                | 
+| genesis     | CONSTRAINTS         |              | Success      |              |                                                                | 
+| genesis     | foreign             |              | Success      |              |                                                                | 
+| genesis     | GRANT               |              | Success      |              |                                                                | 
+| genesis     | TABLESPACE          |              |              |              | No se migra                                                    | 
+| genesis     | DATA                | Success      |              |              |                                                                | 
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+| caleb       | SEQUENCE            | Success      |              |              |                                                                | 
+| caleb       | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
+| caleb       | TABLE               | Success      |              |              |                                                                | 
+| caleb       | FUNCTION            |              | Success      |              |                                                                | 
+| caleb       | VIEW                |              |              |              | Errores de pivot (Solo es una vista, y ese tiene error)        | 
+| caleb       | PACKAGE             |              |              |              | No tiene                                                       | 
+| caleb       | TRIGGER             |              |              | Success      |                                                                | 
+| caleb       | PROCEDURE           |              |              | Success      |                                                                | 
+| caleb       | MVIEW               |              |              |              | no tiene                                                       | 
+| caleb       | DBLINK              |              |              |              | no tiene                                                       | 
+| caleb       | DIRECTORY           |              |              |              | no tiene                                                       | 
+| caleb       | INDEXES             |              | Success      |              |                                                                | 
+| caleb       | INDEX               |              | Success      |              |                                                                |    
+| caleb       | CONSTRAINTS         |              | Success      |              |                                                                | 
+| caleb       | foreign             |              |              |              | con error // Esta pidiendo lucas                               | 
+| caleb       | GRANT               |              |              |              | no tiene                                                       | 
+| caleb       | TABLESPACE          |              |              |              | No se migra                                                    | 
+| caleb       | DATA                | Success      |              |              |                                                                | 
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+| josue       | SEQUENCE            |              |              |              |                                                                | 
+| josue       | SEQUENCE_VALUES     |              |              |              |                                                                | 
+| josue       | TABLE               |              |              |              |                                                                | 
+| josue       | FUNCTION            |              |              |              |                                                                | 
+| josue       | VIEW                |              |              |              |         | 
+| josue       | PACKAGE             |              |              |              |                                                        | 
+| josue       | TRIGGER             |              |              |              |                                                                | 
+| josue       | PROCEDURE           |              |              |              |                                                                | 
+| josue       | MVIEW               |              |              |              |                                                       | 
+| josue       | DBLINK              |              |              |              |                                                        | 
+| josue       | DIRECTORY           |              |              |              |                                                       | 
+| josue       | INDEXES             |              |              |              |                                                                | 
+| josue       | INDEX               |              |              |              |                                                                |    
+| josue       | CONSTRAINTS         |              |              |              |                                                                | 
+| josue       | foreign             |              |              |              |                                                               | 
+| josue       | GRANT               |              |              |              |                                                          | 
+| josue       | TABLESPACE          |              |              |              |                                                        | 
+| josue       | DATA                |              |              |              |                                                                | 
+|-------------|---------------------|--------------|--------------|--------------|----------------------------------------------------------------| 
+| moises      | SEQUENCE            | Success      |              |              |                                                                | 
+| moises      | SEQUENCE_VALUES     | Success      |              |              |                                                                | 
+| moises      | TABLE               | Success      |              |              |                                                                | 
+| moises      | FUNCTION            |              | Success      |              |                                                                | 
+| moises      | VIEW                |              | Success      |              |                                                            | 
+| moises      | PACKAGE             |              | Success      |              |                                                       | 
+| moises      | TRIGGER             |              | Success      |              |                                                                | 
+| moises      | PROCEDURE           |              | Success      |              |                                                                | 
+| moises      | MVIEW               |              |              |              | no tiene                                                       | 
+| moises      | DBLINK              |              |              |              | no tiene                                                       | 
+| moises      | DIRECTORY           |              |              |              | no tiene                                                       | 
+| moises      | INDEXES             |              | Success      |              |                                                                | 
+| moises      | INDEX               |              | Success      |              |                                                                |    
+| moises      | CONSTRAINTS         |              | Success      |              |                                                                | 
+| moises      | foreign             |              |              | Success      | depende de enoc // success (3th try) con exito despues de migrar enoc    | 
+| moises      | GRANT               |              |              |              | no (no existe el rol «userupdate»)                             | 
+| moises      | TABLESPACE          |              |              |              | No se migra                                                    | 
+| moises      | DATA                | Success      |              |              |                                                                | 
 <!-- ## Esquema: genesis ::: Schema generated Ok
     SEQUENCE success (1th try)
     SEQUENCE_VALUES success (1th try)
